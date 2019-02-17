@@ -4,6 +4,2098 @@
    <FileRef
       location = "group:PerfectlyCrafted.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:"
+      name = "">
+      <Group
+         location = "group:PerfectlyCrafted"
+         name = "PerfectlyCrafted">
+         <Group
+            location = "group:NetworkServices"
+            name = "NetworkServices">
+            <FileRef
+               location = "group:UserPersistanceHelper.swift">
+            </FileRef>
+            <FileRef
+               location = "group:PersistanceManager.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:ProductJsonFiles"
+            name = "ProductJsonFiles">
+            <FileRef
+               location = "group:SheaMoisture.json">
+            </FileRef>
+            <FileRef
+               location = "group:HeadAndShouldersShampoo.json">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:GoogleService-Info.plist">
+         </FileRef>
+         <Group
+            location = "group:Controller"
+            name = "Controller">
+            <FileRef
+               location = "group:SignUpViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:BarcodeReaderViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:SignUpFormViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:RatingViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:CreatPostViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:FeedsViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:LoginViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:PerfectlyCraftedTabBarViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ProfileViewController.swift">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:TODO">
+         </FileRef>
+         <Group
+            location = "group:Model"
+            name = "Model">
+            <FileRef
+               location = "group:CurrentUser.swift">
+            </FileRef>
+            <FileRef
+               location = "group:UserModel.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:SupportingFiles"
+            name = "SupportingFiles">
+            <Group
+               location = "group:Assets.xcassets"
+               name = "Assets.xcassets">
+               <Group
+                  location = "group:ic_onboarding_3.imageset"
+                  name = "ic_onboarding_3.imageset">
+                  <FileRef
+                     location = "group:ic_onboarding_3@1x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:ic_onboarding_2.imageset"
+                  name = "ic_onboarding_2.imageset">
+                  <FileRef
+                     location = "group:ic_onboarding_2@1x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-popular-25.imageset"
+                  name = "icons8-popular-25.imageset">
+                  <FileRef
+                     location = "group:icons8-popular-25.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-news-feed-25.imageset"
+                  name = "icons8-news-feed-25.imageset">
+                  <FileRef
+                     location = "group:icons8-news-feed-25.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-heart-outline-filled-25.imageset"
+                  name = "icons8-heart-outline-filled-25.imageset">
+                  <FileRef
+                     location = "group:icons8-heart-outline-filled-25.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:globe.imageset"
+                  name = "globe.imageset">
+                  <FileRef
+                     location = "group:globe.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:shea.imageset"
+                  name = "shea.imageset">
+                  <FileRef
+                     location = "group:shea.jpeg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:gift-habeshaw-1217521-unsplash-1.imageset"
+                  name = "gift-habeshaw-1217521-unsplash-1.imageset">
+                  <FileRef
+                     location = "group:gift-habeshaw-1217521-unsplash.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-speech-bubble-25.imageset"
+                  name = "icons8-speech-bubble-25.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:icons8-speech-bubble-25.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:highlightedStar.imageset"
+                  name = "highlightedStar.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:highlightedStar.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:hairregimein.imageset"
+                  name = "hairregimein.imageset">
+                  <FileRef
+                     location = "group:hairregimein.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:davids-kokainis-639292-unsplash-1.imageset"
+                  name = "davids-kokainis-639292-unsplash-1.imageset">
+                  <FileRef
+                     location = "group:davids-kokainis-639292-unsplash.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:bobby-rodriguezz-617687-unsplash-3.imageset"
+                  name = "bobby-rodriguezz-617687-unsplash-3.imageset">
+                  <FileRef
+                     location = "group:bobby-rodriguezz-617687-unsplash.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-share-25.imageset"
+                  name = "icons8-share-25.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:icons8-share-25.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:hairJournal.imageset"
+                  name = "hairJournal.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:hairJournal.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-star-filled-25.imageset"
+                  name = "icons8-star-filled-25.imageset">
+                  <FileRef
+                     location = "group:icons8-star-filled-25.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-plus-math-25.imageset"
+                  name = "icons8-plus-math-25.imageset">
+                  <FileRef
+                     location = "group:icons8-plus-math-25.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:MIT-Web-Loading.imageset"
+                  name = "MIT-Web-Loading.imageset">
+                  <FileRef
+                     location = "group:MIT-Web-Loading.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:ic_onboarding_4.imageset"
+                  name = "ic_onboarding_4.imageset">
+                  <FileRef
+                     location = "group:ic_onboarding_4@1x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:ic_onboarding_5.imageset"
+                  name = "ic_onboarding_5.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ic_onboarding_5@1x.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:vector-illustration-north-south-america-map-country-names-flags-countries-maps-109588842.imageset"
+                  name = "vector-illustration-north-south-america-map-country-names-flags-countries-maps-109588842.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:vector-illustration-north-south-america-map-country-names-flags-countries-maps-109588842.jpg">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:textureId.imageset"
+                  name = "textureId.imageset">
+                  <FileRef
+                     location = "group:textureId.jpeg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:AppIcon.appiconset"
+                  name = "AppIcon.appiconset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:AfricaCountries.imageset"
+                  name = "AfricaCountries.imageset">
+                  <FileRef
+                     location = "group:AfricaCountries.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-heart-outline-25.imageset"
+                  name = "icons8-heart-outline-25.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:icons8-heart-outline-25.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-user-26.imageset"
+                  name = "icons8-user-26.imageset">
+                  <FileRef
+                     location = "group:icons8-user-25.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:pexels-photo-1857001.imageset"
+                  name = "pexels-photo-1857001.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:pexels-photo-1857001.jpeg">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Contents.json">
+               </FileRef>
+               <Group
+                  location = "group:ic_onboarding_1.imageset"
+                  name = "ic_onboarding_1.imageset">
+                  <FileRef
+                     location = "group:ic_onboarding_1@1x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:TacklingWashDay_L.imageset"
+                  name = "TacklingWashDay_L.imageset">
+                  <FileRef
+                     location = "group:TacklingWashDay_L.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-news-feed-filled-50.imageset"
+                  name = "icons8-news-feed-filled-50.imageset">
+                  <FileRef
+                     location = "group:icons8-news-feed-filled-50.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:houcine-ncib-667560-unsplash-1.imageset"
+                  name = "houcine-ncib-667560-unsplash-1.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:houcine-ncib-667560-unsplash.jpg">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Africa.imageset"
+                  name = "Africa.imageset">
+                  <FileRef
+                     location = "group:Africa.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-bookmark-25.imageset"
+                  name = "icons8-bookmark-25.imageset">
+                  <FileRef
+                     location = "group:icons8-bookmark-25.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-heart-outline-50.imageset"
+                  name = "icons8-heart-outline-50.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:icons8-heart-outline-50.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:flatIron.imageset"
+                  name = "flatIron.imageset">
+                  <FileRef
+                     location = "group:flatIron.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:filledStar.imageset"
+                  name = "filledStar.imageset">
+                  <FileRef
+                     location = "group:filledStar.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:suad-kamardeen-760192-unsplash-1.imageset"
+                  name = "suad-kamardeen-760192-unsplash-1.imageset">
+                  <FileRef
+                     location = "group:suad-kamardeen-760192-unsplash.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:europeCountries.imageset"
+                  name = "europeCountries.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:europeCountries.jpg">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:jbco.imageset"
+                  name = "jbco.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:jbco.jpg">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:5-star-rating.imageset"
+                  name = "5-star-rating.imageset">
+                  <FileRef
+                     location = "group:5-star-rating.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Europe.imageset"
+                  name = "Europe.imageset">
+                  <FileRef
+                     location = "group:Europe.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:placeholder.imageset"
+                  name = "placeholder.imageset">
+                  <FileRef
+                     location = "group:placeholder.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:AsiaCountries.imageset"
+                  name = "AsiaCountries.imageset">
+                  <FileRef
+                     location = "group:AsiaCountries.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-screenshot-filled-25.imageset"
+                  name = "icons8-screenshot-filled-25.imageset">
+                  <FileRef
+                     location = "group:icons8-screenshot-filled-25.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Asia.imageset"
+                  name = "Asia.imageset">
+                  <FileRef
+                     location = "group:Asia.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:emptyStar.imageset"
+                  name = "emptyStar.imageset">
+                  <FileRef
+                     location = "group:emptyStar.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:icons8-star-25.imageset"
+                  name = "icons8-star-25.imageset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:icons8-star-25.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Australia.imageset"
+                  name = "Australia.imageset">
+                  <FileRef
+                     location = "group:Australia.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:oceania-polynesia.imageset"
+                  name = "oceania-polynesia.imageset">
+                  <FileRef
+                     location = "group:oceania-polynesia.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:Base.lproj"
+               name = "Base.lproj">
+               <FileRef
+                  location = "group:LaunchScreen.storyboard">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:AppDelegate.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Views"
+            name = "Views">
+            <FileRef
+               location = "group:SignUpViewForm.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ProfileView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:CreateView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:LoginView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:FeedsView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:RatingView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:FeedsCollectionViewCell.swift">
+            </FileRef>
+            <FileRef
+               location = "group:RatingCollectionViewCell.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ProfileCollectionViewCell.swift">
+            </FileRef>
+            <FileRef
+               location = "group:SignUpView.swift">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:LICENSE">
+      </FileRef>
+      <FileRef
+         location = "group:PerfectlyCrafted.xcworkspace">
+      </FileRef>
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+      <FileRef
+         location = "group:PerfectlyCrafted.xcodeproj">
+      </FileRef>
+      <Group
+         location = "group:Pods"
+         name = "Pods">
+         <Group
+            location = "group:FirebaseMLCommon"
+            name = "FirebaseMLCommon">
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <Group
+               location = "group:Frameworks"
+               name = "Frameworks">
+               <Group
+                  location = "group:FirebaseMLCommon.framework"
+                  name = "FirebaseMLCommon.framework">
+                  <FileRef
+                     location = "group:FirebaseMLCommon">
+                  </FileRef>
+                  <Group
+                     location = "group:Modules"
+                     name = "Modules">
+                     <FileRef
+                        location = "group:module.modulemap">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Pods.xcodeproj">
+         </FileRef>
+         <Group
+            location = "group:FirebaseCore"
+            name = "FirebaseCore">
+            <FileRef
+               location = "group:LICENSE">
+            </FileRef>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <Group
+               location = "group:Firebase"
+               name = "Firebase">
+               <Group
+                  location = "group:Core"
+                  name = "Core">
+                  <FileRef
+                     location = "group:FIRErrors.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIRConfiguration.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIRApp.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIROptions.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIRAppAssociationRegistration.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIRComponent.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIRAnalyticsConfiguration.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIRVersion.m">
+                  </FileRef>
+                  <Group
+                     location = "group:Public"
+                     name = "Public">
+                     <FileRef
+                        location = "group:FIRConfiguration.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIROptions.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRApp.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRLoggerLevel.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRAnalyticsConfiguration.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FirebaseCore.h">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Private"
+                     name = "Private">
+                     <FileRef
+                        location = "group:FIRComponentContainer.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIROptionsInternal.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRComponentRegistrant.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRLogger.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRAppInternal.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRComponentType.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRCoreConfigurable.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRBundleUtil.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRDependency.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRErrorCode.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRErrors.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRAnalyticsConfiguration+Internal.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRComponent.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRAppAssociationRegistration.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRComponentContainerInternal.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVersion.h">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:FIRComponentContainer.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIRComponentType.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIRLogger.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIRBundleUtil.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FIRDependency.m">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:Target Support Files"
+            name = "Target Support Files">
+            <Group
+               location = "group:FirebaseMLCommon"
+               name = "FirebaseMLCommon">
+               <FileRef
+                  location = "group:FirebaseMLCommon.xcconfig">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:FirebaseCore"
+               name = "FirebaseCore">
+               <FileRef
+                  location = "group:FirebaseCore-dummy.m">
+               </FileRef>
+               <FileRef
+                  location = "group:FirebaseCore.xcconfig">
+               </FileRef>
+               <FileRef
+                  location = "group:FirebaseCore-Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:FirebaseCore.modulemap">
+               </FileRef>
+               <FileRef
+                  location = "group:FirebaseCore-umbrella.h">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:FirebaseInstanceID"
+               name = "FirebaseInstanceID">
+               <FileRef
+                  location = "group:FirebaseInstanceID.xcconfig">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:GoogleMobileVision"
+               name = "GoogleMobileVision">
+               <FileRef
+                  location = "group:GoogleMobileVision.xcconfig">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:GTMSessionFetcher"
+               name = "GTMSessionFetcher">
+               <FileRef
+                  location = "group:GTMSessionFetcher-prefix.pch">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcher.modulemap">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcher-umbrella.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcher-dummy.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcher-Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcher.xcconfig">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:GoogleAPIClientForREST"
+               name = "GoogleAPIClientForREST">
+               <FileRef
+                  location = "group:GoogleAPIClientForREST.xcconfig">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleAPIClientForREST-Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleAPIClientForREST.modulemap">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleAPIClientForREST-dummy.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleAPIClientForREST-prefix.pch">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleAPIClientForREST-umbrella.h">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Firebase"
+               name = "Firebase">
+               <FileRef
+                  location = "group:Firebase.xcconfig">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:FirebaseAnalytics"
+               name = "FirebaseAnalytics">
+               <FileRef
+                  location = "group:FirebaseAnalytics.xcconfig">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:GoogleUtilities"
+               name = "GoogleUtilities">
+               <FileRef
+                  location = "group:GoogleUtilities-prefix.pch">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleUtilities.xcconfig">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleUtilities-umbrella.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleUtilities.modulemap">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleUtilities-Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleUtilities-dummy.m">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:GoogleToolboxForMac"
+               name = "GoogleToolboxForMac">
+               <FileRef
+                  location = "group:GoogleToolboxForMac-dummy.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleToolboxForMac-Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleToolboxForMac.modulemap">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleToolboxForMac-umbrella.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleToolboxForMac-prefix.pch">
+               </FileRef>
+               <FileRef
+                  location = "group:GoogleToolboxForMac.xcconfig">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Pods-PerfectlyCrafted"
+               name = "Pods-PerfectlyCrafted">
+               <FileRef
+                  location = "group:Pods-PerfectlyCrafted-umbrella.h">
+               </FileRef>
+               <FileRef
+                  location = "group:Pods-PerfectlyCrafted-acknowledgements.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:Pods-PerfectlyCrafted-acknowledgements.markdown">
+               </FileRef>
+               <FileRef
+                  location = "group:Pods-PerfectlyCrafted.debug.xcconfig">
+               </FileRef>
+               <FileRef
+                  location = "group:Pods-PerfectlyCrafted.modulemap">
+               </FileRef>
+               <FileRef
+                  location = "group:Pods-PerfectlyCrafted.release.xcconfig">
+               </FileRef>
+               <FileRef
+                  location = "group:Pods-PerfectlyCrafted-dummy.m">
+               </FileRef>
+               <FileRef
+                  location = "group:Pods-PerfectlyCrafted-Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:Pods-PerfectlyCrafted-frameworks.sh">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:nanopb"
+               name = "nanopb">
+               <FileRef
+                  location = "group:nanopb-dummy.m">
+               </FileRef>
+               <FileRef
+                  location = "group:nanopb-Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:nanopb.modulemap">
+               </FileRef>
+               <FileRef
+                  location = "group:nanopb.xcconfig">
+               </FileRef>
+               <FileRef
+                  location = "group:nanopb-prefix.pch">
+               </FileRef>
+               <FileRef
+                  location = "group:nanopb-umbrella.h">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:GoogleAppMeasurement"
+               name = "GoogleAppMeasurement">
+               <FileRef
+                  location = "group:GoogleAppMeasurement.xcconfig">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Protobuf"
+               name = "Protobuf">
+               <FileRef
+                  location = "group:Protobuf.modulemap">
+               </FileRef>
+               <FileRef
+                  location = "group:Protobuf-prefix.pch">
+               </FileRef>
+               <FileRef
+                  location = "group:Protobuf-umbrella.h">
+               </FileRef>
+               <FileRef
+                  location = "group:Protobuf.xcconfig">
+               </FileRef>
+               <FileRef
+                  location = "group:Protobuf-Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:Protobuf-dummy.m">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:FirebaseMLVisionBarcodeModel"
+               name = "FirebaseMLVisionBarcodeModel">
+               <FileRef
+                  location = "group:FirebaseMLVisionBarcodeModel.xcconfig">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:FirebaseMLVision"
+               name = "FirebaseMLVision">
+               <FileRef
+                  location = "group:FirebaseMLVision.xcconfig">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Manifest.lock">
+         </FileRef>
+         <Group
+            location = "group:FirebaseInstanceID"
+            name = "FirebaseInstanceID">
+            <FileRef
+               location = "group:CHANGELOG.md">
+            </FileRef>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <Group
+               location = "group:Frameworks"
+               name = "Frameworks">
+               <Group
+                  location = "group:FirebaseInstanceID.framework"
+                  name = "FirebaseInstanceID.framework">
+                  <FileRef
+                     location = "group:FirebaseInstanceID">
+                  </FileRef>
+                  <Group
+                     location = "group:Headers"
+                     name = "Headers">
+                     <FileRef
+                        location = "group:FirebaseInstanceID.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRInstanceID.h">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Modules"
+                     name = "Modules">
+                     <FileRef
+                        location = "group:module.modulemap">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:Local Podspecs"
+            name = "Local Podspecs">
+         </Group>
+         <Group
+            location = "group:GoogleMobileVision"
+            name = "GoogleMobileVision">
+            <Group
+               location = "group:BarcodeDetector"
+               name = "BarcodeDetector">
+               <Group
+                  location = "group:Frameworks"
+                  name = "Frameworks">
+                  <Group
+                     location = "group:BarcodeDetector.framework"
+                     name = "BarcodeDetector.framework">
+                     <FileRef
+                        location = "group:BarcodeDetector">
+                     </FileRef>
+                     <Group
+                        location = "group:Modules"
+                        name = "Modules">
+                        <FileRef
+                           location = "group:module.modulemap">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+            <Group
+               location = "group:Detector"
+               name = "Detector">
+               <Group
+                  location = "group:Frameworks"
+                  name = "Frameworks">
+                  <Group
+                     location = "group:GoogleMobileVision.framework"
+                     name = "GoogleMobileVision.framework">
+                     <FileRef
+                        location = "group:GoogleMobileVision">
+                     </FileRef>
+                     <Group
+                        location = "group:Headers"
+                        name = "Headers">
+                        <FileRef
+                           location = "group:GMVDetectorConstants.h">
+                        </FileRef>
+                        <FileRef
+                           location = "group:GMVDetector.h">
+                        </FileRef>
+                        <FileRef
+                           location = "group:GMVFeature.h">
+                        </FileRef>
+                        <FileRef
+                           location = "group:GoogleMobileVision.h">
+                        </FileRef>
+                        <FileRef
+                           location = "group:GMVUtility.h">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Modules"
+                        name = "Modules">
+                        <FileRef
+                           location = "group:module.modulemap">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:GTMSessionFetcher"
+            name = "GTMSessionFetcher">
+            <FileRef
+               location = "group:LICENSE">
+            </FileRef>
+            <Group
+               location = "group:Source"
+               name = "Source">
+               <FileRef
+                  location = "group:GTMGatherInputStream.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcherLogging.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMMIMEDocument.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcher.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionUploadFetcher.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMReadMonitorInputStream.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcherService.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMGatherInputStream.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcherLogging.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMReadMonitorInputStream.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcher.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionUploadFetcher.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMMIMEDocument.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMSessionFetcherService.h">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:GoogleAPIClientForREST"
+            name = "GoogleAPIClientForREST">
+            <FileRef
+               location = "group:LICENSE">
+            </FileRef>
+            <Group
+               location = "group:Source"
+               name = "Source">
+               <Group
+                  location = "group:Objects"
+                  name = "Objects">
+                  <FileRef
+                     location = "group:GTLRBatchQuery.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRService.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRErrorObject.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRDateTime.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRObject.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRRuntimeCommon.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRUploadParameters.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRBatchResult.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRDuration.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRQuery.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRBatchQuery.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRDateTime.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRErrorObject.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRService.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRRuntimeCommon.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRObject.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRQuery.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRDuration.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRBatchResult.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRUploadParameters.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Utilities"
+                  name = "Utilities">
+                  <FileRef
+                     location = "group:GTLRFramework.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRUtilities.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRBase64.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRURITemplate.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRBase64.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRUtilities.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRFramework.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GTLRURITemplate.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:GeneratedServices"
+                  name = "GeneratedServices">
+                  <Group
+                     location = "group:Vision"
+                     name = "Vision">
+                     <FileRef
+                        location = "group:GTLRVisionService.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GTLRVisionQuery.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GTLRVisionObjects.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GTLRVision.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GTLRVisionService.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GTLRVisionQuery.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GTLRVisionObjects.m">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <FileRef
+                  location = "group:GTLRDefines.h">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Firebase"
+            name = "Firebase">
+            <Group
+               location = "group:CoreOnly"
+               name = "CoreOnly">
+               <Group
+                  location = "group:Sources"
+                  name = "Sources">
+                  <FileRef
+                     location = "group:Firebase.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+            </Group>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <Group
+               location = "group:Public"
+               name = "Public">
+               <Group
+                  location = "group:Firebase"
+                  name = "Firebase">
+                  <FileRef
+                     location = "group:Firebase.h">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:Private"
+               name = "Private">
+               <Group
+                  location = "group:Firebase"
+                  name = "Firebase">
+                  <FileRef
+                     location = "group:Firebase.h">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:FirebaseAnalytics"
+            name = "FirebaseAnalytics">
+            <Group
+               location = "group:Frameworks"
+               name = "Frameworks">
+               <Group
+                  location = "group:FirebaseAnalytics.framework"
+                  name = "FirebaseAnalytics.framework">
+                  <Group
+                     location = "group:Headers"
+                     name = "Headers">
+                     <FileRef
+                        location = "group:FIREventNames.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRParameterNames.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRAnalytics+AppDelegate.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FirebaseAnalytics.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRUserPropertyNames.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRAnalytics.h">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:FirebaseAnalytics">
+                  </FileRef>
+                  <Group
+                     location = "group:Modules"
+                     name = "Modules">
+                     <FileRef
+                        location = "group:module.modulemap">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:FIRAnalyticsConnector.framework"
+                  name = "FIRAnalyticsConnector.framework">
+                  <FileRef
+                     location = "group:FIRAnalyticsConnector">
+                  </FileRef>
+                  <Group
+                     location = "group:Modules"
+                     name = "Modules">
+                     <FileRef
+                        location = "group:module.modulemap">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:FirebaseCoreDiagnostics.framework"
+                  name = "FirebaseCoreDiagnostics.framework">
+                  <FileRef
+                     location = "group:FirebaseCoreDiagnostics">
+                  </FileRef>
+                  <Group
+                     location = "group:Modules"
+                     name = "Modules">
+                     <FileRef
+                        location = "group:module.modulemap">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:GoogleUtilities"
+            name = "GoogleUtilities">
+            <FileRef
+               location = "group:LICENSE">
+            </FileRef>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <Group
+               location = "group:GoogleUtilities"
+               name = "GoogleUtilities">
+               <Group
+                  location = "group:UserDefaults"
+                  name = "UserDefaults">
+                  <Group
+                     location = "group:Private"
+                     name = "Private">
+                     <FileRef
+                        location = "group:GULUserDefaults.h">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:GULUserDefaults.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:MethodSwizzler"
+                  name = "MethodSwizzler">
+                  <FileRef
+                     location = "group:GULSwizzler.m">
+                  </FileRef>
+                  <Group
+                     location = "group:Private"
+                     name = "Private">
+                     <FileRef
+                        location = "group:GULSwizzler.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GULOriginalIMPConvenienceMacros.h">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:Logger"
+                  name = "Logger">
+                  <FileRef
+                     location = "group:GULLogger.m">
+                  </FileRef>
+                  <Group
+                     location = "group:Public"
+                     name = "Public">
+                     <FileRef
+                        location = "group:GULLoggerLevel.h">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Private"
+                     name = "Private">
+                     <FileRef
+                        location = "group:GULLogger.h">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:Network"
+                  name = "Network">
+                  <FileRef
+                     location = "group:GULNetworkConstants.m">
+                  </FileRef>
+                  <Group
+                     location = "group:Private"
+                     name = "Private">
+                     <FileRef
+                        location = "group:GULNetworkMessageCode.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GULMutableDictionary.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GULNetworkURLSession.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GULNetworkLoggerProtocol.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GULNetwork.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GULNetworkConstants.h">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:GULMutableDictionary.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GULNetworkURLSession.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GULNetwork.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Common"
+                  name = "Common">
+                  <FileRef
+                     location = "group:GULLoggerCodes.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Reachability"
+                  name = "Reachability">
+                  <FileRef
+                     location = "group:GULReachabilityChecker.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GULReachabilityChecker+Internal.h">
+                  </FileRef>
+                  <Group
+                     location = "group:Private"
+                     name = "Private">
+                     <FileRef
+                        location = "group:GULReachabilityMessageCode.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GULReachabilityChecker.h">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:AppDelegateSwizzler"
+                  name = "AppDelegateSwizzler">
+                  <Group
+                     location = "group:Internal"
+                     name = "Internal">
+                     <FileRef
+                        location = "group:GULAppDelegateSwizzler_Private.h">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Private"
+                     name = "Private">
+                     <FileRef
+                        location = "group:GULAppDelegateSwizzler.h">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:GULAppDelegateSwizzler.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Environment"
+                  name = "Environment">
+                  <Group
+                     location = "group:third_party"
+                     name = "third_party">
+                     <FileRef
+                        location = "group:GULAppEnvironmentUtil.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GULAppEnvironmentUtil.m">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:NSData+zlib"
+                  name = "NSData+zlib">
+                  <FileRef
+                     location = "group:GULNSData+zlib.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GULNSData+zlib.h">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:GoogleToolboxForMac"
+            name = "GoogleToolboxForMac">
+            <FileRef
+               location = "group:LICENSE">
+            </FileRef>
+            <Group
+               location = "group:Foundation"
+               name = "Foundation">
+               <FileRef
+                  location = "group:GTMNSData+zlib.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMLogger.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMNSData+zlib.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GTMLogger.h">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <FileRef
+               location = "group:GTMDefines.h">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:nanopb"
+            name = "nanopb">
+            <FileRef
+               location = "group:pb_common.c">
+            </FileRef>
+            <FileRef
+               location = "group:pb_decode.c">
+            </FileRef>
+            <FileRef
+               location = "group:pb_encode.c">
+            </FileRef>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <FileRef
+               location = "group:pb_common.h">
+            </FileRef>
+            <FileRef
+               location = "group:pb.h">
+            </FileRef>
+            <FileRef
+               location = "group:LICENSE.txt">
+            </FileRef>
+            <FileRef
+               location = "group:pb_encode.h">
+            </FileRef>
+            <FileRef
+               location = "group:pb_decode.h">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:GoogleAppMeasurement"
+            name = "GoogleAppMeasurement">
+            <Group
+               location = "group:Frameworks"
+               name = "Frameworks">
+               <Group
+                  location = "group:GoogleAppMeasurement.framework"
+                  name = "GoogleAppMeasurement.framework">
+                  <Group
+                     location = "group:Modules"
+                     name = "Modules">
+                     <FileRef
+                        location = "group:module.modulemap">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:GoogleAppMeasurement">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:Protobuf"
+            name = "Protobuf">
+            <FileRef
+               location = "group:LICENSE">
+            </FileRef>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <Group
+               location = "group:objectivec"
+               name = "objectivec">
+               <FileRef
+                  location = "group:GPBCodedOutputStream_PackagePrivate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBArray.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBExtensionRegistry.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBRootObject.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBDescriptor.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBMessage.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBProtocolBuffers.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBWireFormat.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBUtilities.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBExtensionInternals.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBUnknownFieldSet.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBDictionary.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBCodedOutputStream.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBRootObject_PackagePrivate.h">
+               </FileRef>
+               <Group
+                  location = "group:google"
+                  name = "google">
+                  <Group
+                     location = "group:protobuf"
+                     name = "protobuf">
+                     <FileRef
+                        location = "group:Type.pbobjc.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Timestamp.pbobjc.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Api.pbobjc.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SourceContext.pbobjc.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Duration.pbobjc.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Any.pbobjc.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Empty.pbobjc.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Wrappers.pbobjc.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Struct.pbobjc.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FieldMask.pbobjc.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SourceContext.pbobjc.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Api.pbobjc.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Timestamp.pbobjc.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Type.pbobjc.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Duration.pbobjc.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Wrappers.pbobjc.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Empty.pbobjc.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Any.pbobjc.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FieldMask.pbobjc.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Struct.pbobjc.m">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <FileRef
+                  location = "group:GPBUtilities_PackagePrivate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBCodedInputStream.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBWellKnownTypes.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBUnknownField.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBDescriptor.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBCodedInputStream_PackagePrivate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBRootObject.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBBootstrap.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBExtensionRegistry.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBArray.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBRuntimeTypes.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBUtilities.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBMessage_PackagePrivate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBWireFormat.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBArray_PackagePrivate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBMessage.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBProtocolBuffers_RuntimeSupport.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBCodedInputStream.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBDescriptor_PackagePrivate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBCodedOutputStream.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBDictionary.m">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBUnknownFieldSet.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBExtensionInternals.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBUnknownField.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBUnknownFieldSet_PackagePrivate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBWellKnownTypes.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBUnknownField_PackagePrivate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:GPBDictionary_PackagePrivate.h">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:FirebaseMLVisionBarcodeModel"
+            name = "FirebaseMLVisionBarcodeModel">
+            <Group
+               location = "group:Frameworks"
+               name = "Frameworks">
+               <Group
+                  location = "group:FirebaseMLVisionBarcodeModel.framework"
+                  name = "FirebaseMLVisionBarcodeModel.framework">
+                  <FileRef
+                     location = "group:FirebaseMLVisionBarcodeModel">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:FirebaseMLVision"
+            name = "FirebaseMLVision">
+            <FileRef
+               location = "group:CHANGELOG.md">
+            </FileRef>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <Group
+               location = "group:Frameworks"
+               name = "Frameworks">
+               <Group
+                  location = "group:FirebaseMLVision.framework"
+                  name = "FirebaseMLVision.framework">
+                  <Group
+                     location = "group:Headers"
+                     name = "Headers">
+                     <FileRef
+                        location = "group:FIRVisionLabel.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionLabelDetectorOptions.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionCloudLandmark.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionCloudDetectorOptions.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionCloudLabelDetector.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionDocumentTextBlock.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionDocumentTextWord.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionPoint.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionBarcodeDetector.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionDocumentTextRecognizer.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionCloudDocumentTextRecognizerOptions.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionCloudLandmarkDetector.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionTextLine.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionDocumentTextParagraph.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionText.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionDocumentText.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionFaceDetectorOptions.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionLabelDetector.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionTextRecognizedLanguage.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionDocumentTextSymbol.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionBarcode.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVision.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionTextRecognizedBreak.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionImageMetadata.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionFace.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionLatitudeLongitude.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionCloudTextRecognizerOptions.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionCloudLabel.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionFaceDetector.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FirebaseMLVision.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionFaceLandmark.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionTextBlock.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionTextElement.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionTextRecognizer.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionImage.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionFaceContour.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FIRVisionBarcodeDetectorOptions.h">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Modules"
+                     name = "Modules">
+                     <FileRef
+                        location = "group:module.modulemap">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:FirebaseMLVision">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+      </Group>
+      <FileRef
+         location = "group:Podfile">
+      </FileRef>
+      <FileRef
+         location = "group:Podfile.lock">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

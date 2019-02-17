@@ -12,7 +12,7 @@
 		2E063E6B220B74BF00D85406 /* CreatPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E6A220B74BF00D85406 /* CreatPostViewController.swift */; };
 		2E063E6D220B77C500D85406 /* FeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E6C220B77C500D85406 /* FeedsView.swift */; };
 		2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */; };
-		2E07B23622139D020081E852 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E07B23522139D020081E852 /* GoogleService-Info.plist */; };
+		2E07B2382213A4870081E852 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E07B2372213A4870081E852 /* BarcodeReaderViewController.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
@@ -34,6 +34,8 @@
 		2EA365B7220A64E700FFDC5E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B6220A64E700FFDC5E /* LoginViewController.swift */; };
 		2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B8220A678200FFDC5E /* LoginView.swift */; };
 		2EA365BB220A760800FFDC5E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365BA220A760800FFDC5E /* CurrentUser.swift */; };
+		2EF32CDB221753F1006E2B1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EF32CDA221753F1006E2B1F /* GoogleService-Info.plist */; };
+		2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = 2EF32CDC22175881006E2B1F /* hairProducts.json */; };
 		7F85C178E33B0973E639D521 /* Pods_PerfectlyCrafted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E5E6A95569DFFB2B1E3660 /* Pods_PerfectlyCrafted.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +45,7 @@
 		2E063E6A220B74BF00D85406 /* CreatPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatPostViewController.swift; sourceTree = "<group>"; };
 		2E063E6C220B77C500D85406 /* FeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsView.swift; sourceTree = "<group>"; };
 		2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCollectionViewCell.swift; sourceTree = "<group>"; };
-		2E07B23522139D020081E852 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2E07B2372213A4870081E852 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4A3E992208D2CB00988116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +69,8 @@
 		2EA365B6220A64E700FFDC5E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2EA365B8220A678200FFDC5E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2EA365BA220A760800FFDC5E /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		2EF32CDA221753F1006E2B1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2EF32CDC22175881006E2B1F /* hairProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hairProducts.json; sourceTree = "<group>"; };
 		A42CEA839D18BBDCFF244C5F /* Pods-PerfectlyCrafted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectlyCrafted.debug.xcconfig"; path = "Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted.debug.xcconfig"; sourceTree = "<group>"; };
 		B0E5E6A95569DFFB2B1E3660 /* Pods_PerfectlyCrafted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerfectlyCrafted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAC954F100F5834890E3610 /* Pods-PerfectlyCrafted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectlyCrafted.release.xcconfig"; path = "Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,13 +110,14 @@
 			isa = PBXGroup;
 			children = (
 				2EA365852209CC3D00FFDC5E /* TODO */,
+				2EBA690C22168718009FD8D1 /* ProductJsonFiles */,
 				2EA365AB220A301400FFDC5E /* Model */,
 				2E4A3EB12208E7B100988116 /* Views */,
 				2E4A3EA82208D37B00988116 /* Controller */,
 				2EA365AC220A302200FFDC5E /* NetworkServices */,
 				2EA365AD220A303000FFDC5E /* SupportingFiles */,
 				2E4A3E9E2208D2CB00988116 /* Info.plist */,
-				2E07B23522139D020081E852 /* GoogleService-Info.plist */,
+				2EF32CDA221753F1006E2B1F /* GoogleService-Info.plist */,
 			);
 			path = PerfectlyCrafted;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 		2E4A3EA82208D37B00988116 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2E07B2372213A4870081E852 /* BarcodeReaderViewController.swift */,
 				2E063E6A220B74BF00D85406 /* CreatPostViewController.swift */,
 				2E7946DE220CFABE00219B6A /* RatingViewController.swift */,
 				2E4A3EA62208D37500988116 /* SignUpViewController.swift */,
@@ -135,8 +141,8 @@
 		2E4A3EB12208E7B100988116 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2E57C3C9220E506C00C89FFC /* CreateView.swift */,
 				2E063E6C220B77C500D85406 /* FeedsView.swift */,
+				2E57C3C9220E506C00C89FFC /* CreateView.swift */,
 				2E7946E0220CFB8700219B6A /* RatingView.swift */,
 				2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */,
 				2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */,
@@ -173,8 +179,16 @@
 				2E4A3E922208D2C800988116 /* AppDelegate.swift */,
 				2E4A3E992208D2CB00988116 /* Assets.xcassets */,
 				2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */,
+				2EF32CDC22175881006E2B1F /* hairProducts.json */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		2EBA690C22168718009FD8D1 /* ProductJsonFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProductJsonFiles;
 			sourceTree = "<group>";
 		};
 		59E3D6A9E1C5CBD750C6D823 /* Pods */ = {
@@ -255,8 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA365862209CC3D00FFDC5E /* TODO in Resources */,
+				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
+				2EF32CDB221753F1006E2B1F /* GoogleService-Info.plist in Resources */,
 				2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */,
-				2E07B23622139D020081E852 /* GoogleService-Info.plist in Resources */,
 				2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +342,7 @@
 			files = (
 				2EA365B7220A64E700FFDC5E /* LoginViewController.swift in Sources */,
 				2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */,
+				2E07B2382213A4870081E852 /* BarcodeReaderViewController.swift in Sources */,
 				2E4A3EAC2208D5D900988116 /* SignUpView.swift in Sources */,
 				2E063E69220B629A00D85406 /* ProfileCollectionViewCell.swift in Sources */,
 				2EA365A8220A2F0400FFDC5E /* UserModel.swift in Sources */,
@@ -487,6 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ASLRJLYD2S;
 				INFOPLIST_FILE = PerfectlyCrafted/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -505,6 +522,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ASLRJLYD2S;
 				INFOPLIST_FILE = PerfectlyCrafted/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

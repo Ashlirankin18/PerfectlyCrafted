@@ -31,7 +31,7 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
     createPostViewController.title = "Create"
     ratingViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-popular-25")
     ratingViewController.title = "Reviews"
-    self.viewControllers = [newsFeedNavigationController,ratingNavigation,createNavigation,navigationController]
+    self.viewControllers = [newsFeedNavigationController,ratingNavigation,createNavigation,navigationController,BarcodeReaderViewController()]
     
     }
     

@@ -14,6 +14,15 @@ class ProfileView: UIView {
     view.backgroundColor = .white
     return view
   }()
+  
+  let profileImage:UIButton = {
+    let button = UIButton()
+    button.setImage(#imageLiteral(resourceName: "gift-habeshaw-1217521-unsplash-1"), for: .normal)
+    button.clipsToBounds = true
+    return button
+  }()
+  
+  
   lazy var profileCollectionView:UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
@@ -28,6 +37,11 @@ class ProfileView: UIView {
     super.init(frame: UIScreen.main.bounds)
     commonInit()
   }
+  override func layoutSubviews() {
+    profileImage.layer.cornerRadius = profileImage.bounds.width/2
+    profileImage.layer.borderWidth = 4
+    profileImage.layer.borderColor = UIColor.black.cgColor
+  }
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -41,8 +55,10 @@ class ProfileView: UIView {
 }
 extension ProfileView{
   func setUpViews(){
-    setUpBioView()
+      setUpBioView()
+     setupProfileImage()
     setUpCollectionViewConstraints()
+   
   }
   func setUpBioView(){
     addSubview(bioView)
@@ -60,6 +76,16 @@ extension ProfileView{
     NSLayoutConstraint.init(item: profileCollectionView, attribute: .leading, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .leading, multiplier: 1.0, constant: 0).isActive = true
     NSLayoutConstraint.init(item: profileCollectionView, attribute: .trailing, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .trailing, multiplier: 1.0, constant: 0).isActive = true
   }
-  
+  func setupProfileImage(){
+    addSubview(profileImage)
+    profileImage.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint(item: profileImage, attribute: .top, relatedBy: .equal, toItem: bioView, attribute: .top, multiplier: 1.0, constant: 20).isActive = true
+    NSLayoutConstraint.init(item: profileImage, attribute: .width, relatedBy: .equal, toItem: bioView, attribute: .width, multiplier: 0.1, constant: 44).isActive = true
+    NSLayoutConstraint.init(item: profileImage, attribute: .height, relatedBy: .equal, toItem: bioView, attribute: .height, multiplier: 0.4, constant: 44).isActive = true
+    NSLayoutConstraint.init(item: profileImage, attribute: .leading, relatedBy: .equal, toItem: bioView, attribute: .leading, multiplier: 1.0, constant: 20).isActive = true
+  }
+  func setUpDividerView(){
+    
+  }
   
 }
