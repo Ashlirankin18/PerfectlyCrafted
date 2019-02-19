@@ -15,13 +15,19 @@ class ProfileView: UIView {
     return view
   }()
   
-  let profileImage:UIButton = {
+ lazy var profileImage:UIButton = {
     let button = UIButton()
     button.setImage(#imageLiteral(resourceName: "gift-habeshaw-1217521-unsplash-1"), for: .normal)
     button.clipsToBounds = true
+    button.layer.masksToBounds = true
     return button
   }()
   
+  lazy var dividerView:UIView = {
+    let view = UIView()
+    view.backgroundColor = .black
+    return view
+  }()
   
   lazy var profileCollectionView:UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -57,6 +63,7 @@ extension ProfileView{
   func setUpViews(){
       setUpBioView()
      setupProfileImage()
+    setUpDividerView()
     setUpCollectionViewConstraints()
    
   }
@@ -85,6 +92,8 @@ extension ProfileView{
     NSLayoutConstraint.init(item: profileImage, attribute: .leading, relatedBy: .equal, toItem: bioView, attribute: .leading, multiplier: 1.0, constant: 20).isActive = true
   }
   func setUpDividerView(){
+    addSubview(dividerView)
+    dividerView.translatesAutoresizingMaskIntoConstraints = false
     
   }
   

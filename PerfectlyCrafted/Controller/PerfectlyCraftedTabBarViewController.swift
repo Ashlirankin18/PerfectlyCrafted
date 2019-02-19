@@ -19,19 +19,17 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
     let profileViewController = ProfileViewController.init(user: user, view: ProfileView())
     let navigationController = UINavigationController(rootViewController: profileViewController)
     let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
-    let createPostViewController = CreatPostViewController()
     let ratingViewController = RatingViewController()
     let ratingNavigation = UINavigationController(rootViewController: ratingViewController)
-    let createNavigation = UINavigationController(rootViewController: createPostViewController)
+    let popUpViewController = PopUpViewController()
     feedsViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-news-feed-25")
     feedsViewController.title = "News Feed"
     profileViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-user-26")
     profileViewController.title = "Profile"
-    createPostViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-plus-math-25")
-    createPostViewController.title = "Create"
     ratingViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-popular-25")
     ratingViewController.title = "Reviews"
-    self.viewControllers = [newsFeedNavigationController,ratingNavigation,createNavigation,navigationController,BarcodeReaderViewController()]
+    popUpViewController.title = "PopUp"
+    self.viewControllers = [newsFeedNavigationController,ratingNavigation,navigationController,popUpViewController]
     
     }
     

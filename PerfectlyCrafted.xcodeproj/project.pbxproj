@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E04A4B4221A76460066568E /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E04A4B3221A76460066568E /* PopUpViewController.swift */; };
+		2E04A4B6221A76620066568E /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E04A4B5221A76620066568E /* PopUpView.swift */; };
 		2E063E67220B5E9C00D85406 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E66220B5E9C00D85406 /* ProfileView.swift */; };
 		2E063E69220B629A00D85406 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E68220B629A00D85406 /* ProfileCollectionViewCell.swift */; };
-		2E063E6B220B74BF00D85406 /* CreatPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E6A220B74BF00D85406 /* CreatPostViewController.swift */; };
 		2E063E6D220B77C500D85406 /* FeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E6C220B77C500D85406 /* FeedsView.swift */; };
 		2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */; };
-		2E07B2382213A4870081E852 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E07B2372213A4870081E852 /* BarcodeReaderViewController.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
@@ -24,6 +24,17 @@
 		2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */; };
 		2E7946DF220CFABE00219B6A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946DE220CFABE00219B6A /* RatingViewController.swift */; };
 		2E7946E1220CFB8700219B6A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946E0220CFB8700219B6A /* RatingView.swift */; };
+		2E997F94221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997F93221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift */; };
+		2E997F96221B0E2800730ED7 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997F95221B0E2800730ED7 /* NetworkHelper.swift */; };
+		2E997F98221B0E4700730ED7 /* Extension+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997F97221B0E4700730ED7 /* Extension+Alerts.swift */; };
+		2E997F9A221B0FCF00730ED7 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997F99221B0FCF00730ED7 /* AppError.swift */; };
+		2E997F9C221B0FFD00730ED7 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997F9B221B0FFD00730ED7 /* ImageCache.swift */; };
+		2E997F9E221B18AA00730ED7 /* HairProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997F9D221B18AA00730ED7 /* HairProductModel.swift */; };
+		2E997FA0221B1EFD00730ED7 /* ShowProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997F9F221B1EFD00730ED7 /* ShowProductViewController.swift */; };
+		2E997FA2221B200D00730ED7 /* HairProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997FA1221B200D00730ED7 /* HairProductView.swift */; };
+		2E997FA8221B751300730ED7 /* OtherOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997FA7221B751300730ED7 /* OtherOptionsCell.swift */; };
+		2E997FAA221B99A300730ED7 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997FA9221B99A300730ED7 /* DateExtension.swift */; };
+		2E997FAC221BB5BE00730ED7 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997FAB221BB5BE00730ED7 /* ProductCell.swift */; };
 		2EA365862209CC3D00FFDC5E /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 2EA365852209CC3D00FFDC5E /* TODO */; };
 		2EA365A8220A2F0400FFDC5E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365A7220A2F0400FFDC5E /* UserModel.swift */; };
 		2EA365AA220A300C00FFDC5E /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */; };
@@ -40,12 +51,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E04A4B3221A76460066568E /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		2E04A4B5221A76620066568E /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		2E063E66220B5E9C00D85406 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2E063E68220B629A00D85406 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
-		2E063E6A220B74BF00D85406 /* CreatPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatPostViewController.swift; sourceTree = "<group>"; };
 		2E063E6C220B77C500D85406 /* FeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsView.swift; sourceTree = "<group>"; };
 		2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCollectionViewCell.swift; sourceTree = "<group>"; };
-		2E07B2372213A4870081E852 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4A3E992208D2CB00988116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +70,17 @@
 		2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E7946DE220CFABE00219B6A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		2E7946E0220CFB8700219B6A /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		2E997F93221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairProductDatabaseApiCleient.swift; sourceTree = "<group>"; };
+		2E997F95221B0E2800730ED7 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		2E997F97221B0E4700730ED7 /* Extension+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Alerts.swift"; sourceTree = "<group>"; };
+		2E997F99221B0FCF00730ED7 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		2E997F9B221B0FFD00730ED7 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		2E997F9D221B18AA00730ED7 /* HairProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairProductModel.swift; sourceTree = "<group>"; };
+		2E997F9F221B1EFD00730ED7 /* ShowProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProductViewController.swift; sourceTree = "<group>"; };
+		2E997FA1221B200D00730ED7 /* HairProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairProductView.swift; sourceTree = "<group>"; };
+		2E997FA7221B751300730ED7 /* OtherOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherOptionsCell.swift; sourceTree = "<group>"; };
+		2E997FA9221B99A300730ED7 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		2E997FAB221BB5BE00730ED7 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		2EA365852209CC3D00FFDC5E /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		2EA365A7220A2F0400FFDC5E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
@@ -125,8 +147,8 @@
 		2E4A3EA82208D37B00988116 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2E07B2372213A4870081E852 /* BarcodeReaderViewController.swift */,
-				2E063E6A220B74BF00D85406 /* CreatPostViewController.swift */,
+				2E04A4B3221A76460066568E /* PopUpViewController.swift */,
+				2E997F9F221B1EFD00730ED7 /* ShowProductViewController.swift */,
 				2E7946DE220CFABE00219B6A /* RatingViewController.swift */,
 				2E4A3EA62208D37500988116 /* SignUpViewController.swift */,
 				2EA365B6220A64E700FFDC5E /* LoginViewController.swift */,
@@ -141,6 +163,11 @@
 		2E4A3EB12208E7B100988116 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2E04A4B5221A76620066568E /* PopUpView.swift */,
+				2E997FA1221B200D00730ED7 /* HairProductView.swift */,
+				2E997FAB221BB5BE00730ED7 /* ProductCell.swift */,
+				2E997FA7221B751300730ED7 /* OtherOptionsCell.swift */,
+				2E997FA9221B99A300730ED7 /* DateExtension.swift */,
 				2E063E6C220B77C500D85406 /* FeedsView.swift */,
 				2E57C3C9220E506C00C89FFC /* CreateView.swift */,
 				2E7946E0220CFB8700219B6A /* RatingView.swift */,
@@ -158,6 +185,7 @@
 		2EA365AB220A301400FFDC5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E997F9D221B18AA00730ED7 /* HairProductModel.swift */,
 				2EA365A7220A2F0400FFDC5E /* UserModel.swift */,
 				2EA365BA220A760800FFDC5E /* CurrentUser.swift */,
 			);
@@ -167,6 +195,11 @@
 		2EA365AC220A302200FFDC5E /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
+				2E997F99221B0FCF00730ED7 /* AppError.swift */,
+				2E997F95221B0E2800730ED7 /* NetworkHelper.swift */,
+				2E997F9B221B0FFD00730ED7 /* ImageCache.swift */,
+				2E997F97221B0E4700730ED7 /* Extension+Alerts.swift */,
+				2E997F93221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift */,
 				2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */,
 				2EA365AE220A31D100FFDC5E /* UserPersistanceHelper.swift */,
 			);
@@ -340,24 +373,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E997F96221B0E2800730ED7 /* NetworkHelper.swift in Sources */,
+				2E997FAA221B99A300730ED7 /* DateExtension.swift in Sources */,
 				2EA365B7220A64E700FFDC5E /* LoginViewController.swift in Sources */,
+				2E997F9A221B0FCF00730ED7 /* AppError.swift in Sources */,
+				2E04A4B6221A76620066568E /* PopUpView.swift in Sources */,
 				2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */,
-				2E07B2382213A4870081E852 /* BarcodeReaderViewController.swift in Sources */,
 				2E4A3EAC2208D5D900988116 /* SignUpView.swift in Sources */,
+				2E997F9E221B18AA00730ED7 /* HairProductModel.swift in Sources */,
 				2E063E69220B629A00D85406 /* ProfileCollectionViewCell.swift in Sources */,
 				2EA365A8220A2F0400FFDC5E /* UserModel.swift in Sources */,
+				2E997FA2221B200D00730ED7 /* HairProductView.swift in Sources */,
 				2E4A3EA72208D37500988116 /* SignUpViewController.swift in Sources */,
+				2E997FAC221BB5BE00730ED7 /* ProductCell.swift in Sources */,
 				2E7946DF220CFABE00219B6A /* RatingViewController.swift in Sources */,
 				2EA365B1220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift in Sources */,
+				2E997FA0221B1EFD00730ED7 /* ShowProductViewController.swift in Sources */,
 				2E4A3EB02208E7A200988116 /* SignUpViewForm.swift in Sources */,
-				2E063E6B220B74BF00D85406 /* CreatPostViewController.swift in Sources */,
+				2E997F94221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift in Sources */,
+				2E997F98221B0E4700730ED7 /* Extension+Alerts.swift in Sources */,
+				2E04A4B4221A76460066568E /* PopUpViewController.swift in Sources */,
 				2E063E6D220B77C500D85406 /* FeedsView.swift in Sources */,
 				2E57C3CA220E506C00C89FFC /* CreateView.swift in Sources */,
 				2E7946E1220CFB8700219B6A /* RatingView.swift in Sources */,
+				2E997FA8221B751300730ED7 /* OtherOptionsCell.swift in Sources */,
 				2EA365B5220A59B900FFDC5E /* FeedsViewController.swift in Sources */,
 				2E063E67220B5E9C00D85406 /* ProfileView.swift in Sources */,
 				2EA365B3220A59A900FFDC5E /* ProfileViewController.swift in Sources */,
 				2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */,
+				2E997F9C221B0FFD00730ED7 /* ImageCache.swift in Sources */,
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,
 				2EA365AF220A31D100FFDC5E /* UserPersistanceHelper.swift in Sources */,
 				2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */,

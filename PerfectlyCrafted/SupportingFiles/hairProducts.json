@@ -1,246 +1,262 @@
 [
   {
     "id": "1",
-    "gtins": [
-      "00711716146400"
-    ],
-    "sem3_id": "28ix3CULG4Eg2YEMC40A66",
-    "cat_id": "4110",
-    "price_currency": "USD",
-    "brand": "Difeel",
-    "upc": "711716146400",
-    "created_at": 1532988871,
-    "name": "Difeel Premium Natural Hair Oil - Peppermint Oil, For Dry & Flaky Scalp, Cools & Refreshes Hair, Leaves Hair Shiny & Soft, Provides Immediate & Long Lasting Benefits For Hair & Skin 8 oz.",
-    "messages": [],
-    "geo": [
-      "usa"
-    ],
-    "ean": "0711716146400",
-    "updated_at": 1549427023,
-    "images": [
-      "http://sem3-idn.s3-website-us-east-1.amazonaws.com/bbdcd5e4d19a7ccf0a0afb3412beb70a,0.jpg"
-    ],
-    "sitedetails": [
+    "code": "OK",
+    "offset": 0,
+    "result_count": 1,
+    "results":
       {
-        "sku": "B075Z2LJWM",
-        "url": "https://www.amazon.com/dp/B075Z2LJWM",
-        "recentoffers_count": 0,
-        "name": "amazon.com",
-        "latestoffers": [
+        "size": "8 OZ",
+        "gtins": [
+          "00711716146400"
+        ],
+        "sem3_id": "28ix3CULG4Eg2YEMC40A66",
+        "cat_id": "4110",
+        "price_currency": "USD",
+        "brand": "Difeel",
+        "upc": "711716146400",
+        "created_at": 1532988871,
+        "name": "Difeel Premium Natural Hair Oil - Peppermint Oil, For Dry & Flaky Scalp, Cools & Refreshes Hair, Leaves Hair Shiny & Soft, Provides Immediate & Long Lasting Benefits For Hair & Skin 8 oz.",
+        "messages": [],
+        "geo": [
+          "usa"
+        ],
+        "ean": "0711716146400",
+        "updated_at": 1549427023,
+        "images": [
+          "http://sem3-idn.s3-website-us-east-1.amazonaws.com/bbdcd5e4d19a7ccf0a0afb3412beb70a,0.jpg"
+        ],
+        "sitedetails": [
           {
-            "price": "9.91",
-            "lastrecorded_at": 1542905100,
-            "shipping": "580",
-            "isactive": 0,
-            "currency": "USD",
-            "firstrecorded_at": 1542905100,
-            "id": "32ywBcO3XkkeQGI6ygKs0e",
-            "condition": "new",
-            "availability": "Available",
-            "seller": "Clem's Beauty Inc."
-          },
-          {
-            "price": "7.99",
-            "lastrecorded_at": 1542905100,
-            "isactive": 0,
-            "currency": "USD",
-            "firstrecorded_at": 1537679500,
-            "id": "5CEj0xAljcMW6ycgcyOUqq",
-            "condition": "new",
-            "availability": "Available",
-            "seller": "Cosmetic Solutions"
-          },
-          {
-            "price": "7.99",
-            "lastrecorded_at": 1537679500,
-            "isactive": 0,
-            "currency": "USD",
-            "firstrecorded_at": 1537679500,
-            "id": "4WaQV29f4C2wUuSAO6K4Yo",
-            "condition": "new",
-            "availability": "Available [BBX: Buy Box]",
-            "seller": "[AKZ54EXMVZHXW]"
+            "sku": "B075Z2LJWM",
+            "url": "https://www.amazon.com/dp/B075Z2LJWM",
+            "recentoffers_count": 0,
+            "name": "amazon.com",
+            "latestoffers": [
+              {
+                "price": "9.91",
+                "lastrecorded_at": 1542905100,
+                "shipping": "580",
+                "isactive": 0,
+                "currency": "USD",
+                "firstrecorded_at": 1542905100,
+                "id": "32ywBcO3XkkeQGI6ygKs0e",
+                "condition": "new",
+                "availability": "Available",
+                "seller": "Clem's Beauty Inc."
+              },
+              {
+                "price": "7.99",
+                "lastrecorded_at": 1542905100,
+                "isactive": 0,
+                "currency": "USD",
+                "firstrecorded_at": 1537679500,
+                "id": "5CEj0xAljcMW6ycgcyOUqq",
+                "condition": "new",
+                "availability": "Available",
+                "seller": "Cosmetic Solutions"
+              },
+              {
+                "price": "7.99",
+                "lastrecorded_at": 1537679500,
+                "isactive": 0,
+                "currency": "USD",
+                "firstrecorded_at": 1537679500,
+                "id": "4WaQV29f4C2wUuSAO6K4Yo",
+                "condition": "new",
+                "availability": "Available [BBX: Buy Box]",
+                "seller": "[AKZ54EXMVZHXW]"
+              }
+            ]
           }
-        ]
+        ],
+        "description": "Premium Oils provide immediate and long lasting be... (visit site URLs for full description)",
+        "features": {
+          "blob": "Premium Oils provide immediate and long lasting benefits to the hair and skin.; Peppermint Oil; Helps fight dry, flaky scalp - Peppermint cools and refreshes, leaving hair shiny and soft"
+        },
+        "images_total": 1,
+        "category": "Styling Products"
       }
-    ],
-    "description": "Premium Oils provide immediate and long lasting be... (visit site URLs for full description)",
-    "features": {
-      "blob": "Premium Oils provide immediate and long lasting benefits to the hair and skin.; Peppermint Oil; Helps fight dry, flaky scalp - Peppermint cools and refreshes, leaving hair shiny and soft"
-    },
-    "images_total": 1,
-    "category": "Styling Products"
+    ,
+    "total_results_count": 1
   },
   {
     "id": "2",
-    "size": "Pack of 8",
-    "gtins": [
-      "00075610157109"
-    ],
-    "sem3_id": "7GsHsVFXP6eusEyWOswCuq",
-    "cat_id": "9985",
-    "width": "86.36",
-    "length": "86.36",
-    "height": "88.9",
-    "price_currency": "USD",
-    "brand": "Blue Magic",
-    "upc": "075610157109",
-    "price": "5.92",
-    "model": "MCLANE500380121",
-    "created_at": 1347703426,
-    "name": "U/S Blue Magic Cond Jar Size 12oz Beauty Enterprises Blue Magic Conditioner 12oz",
-    "mpn": "89902",
-    "messages": [],
-    "variation_secondaryids": [
-      "2rYLiIydDMigqOI0cSAkkw",
-      "6Xsd40mYaGGc6WoicoAegY"
-    ],
-    "geo": [
-      "usa"
-    ],
-    "manufacturer": "Blue Magic",
-    "ean": "0075610157109",
-    "updated_at": 1549935731,
-    "images": [
-      "http://sem3-idn.s3-website-us-east-1.amazonaws.com/790f9ba2107e214db6ed62ad327f0758,0.jpg"
-    ],
-    "weight": "3193290.28",
-    "sitedetails": [
-      {
-        "url": "https://www.amazon.com/dp/B0035B8AGC",
-        "sku": "B0035B8AGC",
-        "recentoffers_count": 1,
-        "latestoffers": [
-          {
-            "price": "11.00",
-            "lastrecorded_at": 1545259300,
-            "isactive": 1,
-            "currency": "USD",
-            "firstrecorded_at": 1544797700,
-            "id": "5KjZN2VsCeckkg0c2oQkmg",
-            "condition": "new",
-            "availability": "Available [BBX: Buy Box]",
-            "seller": "Amazon"
-          },
-          {
-            "price": "9.96",
-            "lastrecorded_at": 1543206000,
-            "isactive": 0,
-            "currency": "USD",
-            "firstrecorded_at": 1543206000,
-            "id": "1StDGTueXsA4IGM4KEEE2W",
-            "condition": "new",
-            "availability": "Available [BBX: Buy Box]",
-            "seller": "Amazon"
-          },
-          {
-            "price": "9.92",
-            "lastrecorded_at": 1542796000,
-            "isactive": 0,
-            "currency": "USD",
-            "firstrecorded_at": 1542796000,
-            "id": "5wcBfkoiK8sGKQUKasaMUu",
-            "condition": "new",
-            "availability": "Available [BBX: Buy Box]",
-            "seller": "Amazon"
-          }
-        ],
-        "name": "amazon.com"
+    "code": "OK",
+    "offset": 0,
+    "results_count": 1,
+    "results":
+      "size": "Pack of 8",
+      "gtins": [
+        "00075610157109"
+      ],
+      "sem3_id": "7GsHsVFXP6eusEyWOswCuq",
+      "cat_id": "9985",
+      "width": "86.36",
+      "length": "86.36",
+      "height": "88.9",
+      "price_currency": "USD",
+      "brand": "Blue Magic",
+      "upc": "075610157109",
+      "price": "5.92",
+      "model": "MCLANE500380121",
+      "created_at": 1347703426,
+      "name": "U/S Blue Magic Cond Jar Size 12oz Beauty Enterprises Blue Magic Conditioner 12oz",
+      "mpn": "89902",
+      "messages": [],
+      "variation_secondaryids": [
+        "2rYLiIydDMigqOI0cSAkkw",
+        "6Xsd40mYaGGc6WoicoAegY"
+      ],
+      "geo": [
+        "usa"
+      ],
+      "manufacturer": "Blue Magic",
+      "ean": "0075610157109",
+      "updated_at": 1549935731,
+      "images": [
+        "http://sem3-idn.s3-website-us-east-1.amazonaws.com/790f9ba2107e214db6ed62ad327f0758,0.jpg"
+      ],
+      "weight": "3193290.28",
+      "sitedetails": [
+        {
+          "url": "https://www.amazon.com/dp/B0035B8AGC",
+          "sku": "B0035B8AGC",
+          "recentoffers_count": 1,
+          "latestoffers": [
+            {
+              "price": "11.00",
+              "lastrecorded_at": 1545259300,
+              "isactive": 1,
+              "currency": "USD",
+              "firstrecorded_at": 1544797700,
+              "id": "5KjZN2VsCeckkg0c2oQkmg",
+              "condition": "new",
+              "availability": "Available [BBX: Buy Box]",
+              "seller": "Amazon"
+            },
+            {
+              "price": "9.96",
+              "lastrecorded_at": 1543206000,
+              "isactive": 0,
+              "currency": "USD",
+              "firstrecorded_at": 1543206000,
+              "id": "1StDGTueXsA4IGM4KEEE2W",
+              "condition": "new",
+              "availability": "Available [BBX: Buy Box]",
+              "seller": "Amazon"
+            },
+            {
+              "price": "9.92",
+              "lastrecorded_at": 1542796000,
+              "isactive": 0,
+              "currency": "USD",
+              "firstrecorded_at": 1542796000,
+              "id": "5wcBfkoiK8sGKQUKasaMUu",
+              "condition": "new",
+              "availability": "Available [BBX: Buy Box]",
+              "seller": "Amazon"
+            }
+          ],
+          "name": "amazon.com"
+        },
+        {
+          "name": "walmart.com",
+          "recentoffers_count": 0,
+          "latestoffers": [
+            {
+              "currency": "USD",
+              "seller": "Walmart",
+              "availability": "Available",
+              "price": "2.26",
+              "firstrecorded_at": 1522360600,
+              "id": "6AKRsdDbHcE0OI4m06Gqus",
+              "lastrecorded_at": 1539483200,
+              "isactive": 0
+            },
+            {
+              "lastrecorded_at": 1535156300,
+              "currency": "USD",
+              "price": "3.44",
+              "availability": "Available",
+              "seller": "Beauty Drama",
+              "firstrecorded_at": 1535156300,
+              "id": "3f7ukjAkw4GsIYoYke8kqS",
+              "isactive": 0
+            },
+            {
+              "firstrecorded_at": 1530144200,
+              "id": "7OsGNEuMLYisqqqQqamMGs",
+              "currency": "USD",
+              "seller": "Pharmapacks",
+              "price": "5.69",
+              "availability": "Available",
+              "lastrecorded_at": 1535156300,
+              "isactive": 0
+            }
+          ],
+          "sku": "10533456",
+          "url": "http://www.walmart.com/ip/10533456"
+        },
+        {
+          "sku": "B00R4G5COW",
+          "latestoffers": [
+            {
+              "price": "5.92",
+              "lastrecorded_at": 1549935700,
+              "shipping": "649",
+              "isactive": 1,
+              "currency": "USD",
+              "firstrecorded_at": 1549935700,
+              "id": "4FqW39mnNQ2cyA0K8qI2EG",
+              "condition": "new",
+              "availability": "Available",
+              "seller": "shelproducts"
+            },
+            {
+              "price": "8.05",
+              "lastrecorded_at": 1549935700,
+              "isactive": 1,
+              "currency": "USD",
+              "firstrecorded_at": 1549935700,
+              "id": "4Qv3ebhUfQgUiG6OicYmKy",
+              "condition": "new",
+              "availability": "Available[FBA: Fulfilled by Amazon]",
+              "seller": "Bell'Angelo"
+            },
+            {
+              "price": "11.11",
+              "lastrecorded_at": 1549935700,
+              "isactive": 1,
+              "currency": "USD",
+              "firstrecorded_at": 1549935700,
+              "id": "1w608VWx64a6Kk0ukE8YY4",
+              "condition": "new",
+              "availability": "Available",
+              "seller": "EversDirect"
+            }
+          ],
+          "recentoffers_count": 3,
+          "name": "amazon.com",
+          "url": "https://www.amazon.com/dp/B00R4G5COW"
+        }
+      ,
+      "description": "For a healthy head of hair, you need to keep it mo... (visit site URLs for full description)",
+      "features": {
+        "blob": "Blue Magic Conditioner and Hair Dress Anti-Breakage Formula; Keeps hair natural and lustrous; Promotes a healthier hair and scalp condition; Use as often as you like"
       },
-      {
-        "name": "walmart.com",
-        "recentoffers_count": 0,
-        "latestoffers": [
-          {
-            "currency": "USD",
-            "seller": "Walmart",
-            "availability": "Available",
-            "price": "2.26",
-            "firstrecorded_at": 1522360600,
-            "id": "6AKRsdDbHcE0OI4m06Gqus",
-            "lastrecorded_at": 1539483200,
-            "isactive": 0
-          },
-          {
-            "lastrecorded_at": 1535156300,
-            "currency": "USD",
-            "price": "3.44",
-            "availability": "Available",
-            "seller": "Beauty Drama",
-            "firstrecorded_at": 1535156300,
-            "id": "3f7ukjAkw4GsIYoYke8kqS",
-            "isactive": 0
-          },
-          {
-            "firstrecorded_at": 1530144200,
-            "id": "7OsGNEuMLYisqqqQqamMGs",
-            "currency": "USD",
-            "seller": "Pharmapacks",
-            "price": "5.69",
-            "availability": "Available",
-            "lastrecorded_at": 1535156300,
-            "isactive": 0
-          }
-        ],
-        "sku": "10533456",
-        "url": "http://www.walmart.com/ip/10533456"
-      },
-      {
-        "sku": "B00R4G5COW",
-        "latestoffers": [
-          {
-            "price": "5.92",
-            "lastrecorded_at": 1549935700,
-            "shipping": "649",
-            "isactive": 1,
-            "currency": "USD",
-            "firstrecorded_at": 1549935700,
-            "id": "4FqW39mnNQ2cyA0K8qI2EG",
-            "condition": "new",
-            "availability": "Available",
-            "seller": "shelproducts"
-          },
-          {
-            "price": "8.05",
-            "lastrecorded_at": 1549935700,
-            "isactive": 1,
-            "currency": "USD",
-            "firstrecorded_at": 1549935700,
-            "id": "4Qv3ebhUfQgUiG6OicYmKy",
-            "condition": "new",
-            "availability": "Available[FBA: Fulfilled by Amazon]",
-            "seller": "Bell'Angelo"
-          },
-          {
-            "price": "11.11",
-            "lastrecorded_at": 1549935700,
-            "isactive": 1,
-            "currency": "USD",
-            "firstrecorded_at": 1549935700,
-            "id": "1w608VWx64a6Kk0ukE8YY4",
-            "condition": "new",
-            "availability": "Available",
-            "seller": "EversDirect"
-          }
-        ],
-        "recentoffers_count": 3,
-        "name": "amazon.com",
-        "url": "https://www.amazon.com/dp/B00R4G5COW"
+      "images_total": 1,
+      "category": "Hair & Scalp Treatments"
       }
-    ],
-    "description": "For a healthy head of hair, you need to keep it mo... (visit site URLs for full description)",
-    "features": {
-      "blob": "Blue Magic Conditioner and Hair Dress Anti-Breakage Formula; Keeps hair natural and lustrous; Promotes a healthier hair and scalp condition; Use as often as you like"
-    },
-    "images_total": 1,
-    "category": "Hair & Scalp Treatments"
+    ,
+    "total_results_count" : 1
   },
-  {
+{
     "id": "3",
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "8 OZ",
         "gtins": [
@@ -313,7 +329,7 @@
         "images_total": 1,
         "category": "Styling Products"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -321,7 +337,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00711716145250"
@@ -395,7 +411,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -403,7 +419,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00810367015407"
@@ -487,7 +503,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -495,7 +511,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00075609040269"
@@ -621,7 +637,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00075285007563"
@@ -827,7 +843,7 @@
         "images_total": 1,
         "category": "Skin Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -835,7 +851,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00075724082595"
@@ -916,7 +932,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -924,7 +940,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00075285011256"
@@ -1006,7 +1022,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -1014,7 +1030,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "33.8 Ounce (Pack of 1)",
         "gtins": [
@@ -1194,7 +1210,7 @@
         "images_total": 1,
         "category": "Shampoos"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -1202,7 +1218,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "Pack of 2",
         "gtins": [
@@ -1277,7 +1293,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -1285,7 +1301,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "Pack of 2",
         "gtins": [
@@ -1360,7 +1376,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -1368,7 +1384,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00381519004711"
@@ -1616,7 +1632,7 @@
         "images_total": 1,
         "category": "Conditioners"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -1624,7 +1640,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00075724219342"
@@ -1748,7 +1764,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -1756,7 +1772,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "8 fl. oz.",
         "gtins": [
@@ -1877,7 +1893,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -1885,7 +1901,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00820645234895"
@@ -1957,7 +1973,7 @@
         "images_total": 1,
         "category": "Pomades & Waxes"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -1965,7 +1981,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00813842024987"
@@ -2025,7 +2041,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -2033,7 +2049,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00810367016343"
@@ -2110,7 +2126,7 @@
         "images_total": 1,
         "category": "Health & Personal Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -2118,7 +2134,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00820645226067"
@@ -2240,7 +2256,7 @@
         "images_total": 1,
         "category": "Shampoo Plus Conditioner"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -2248,7 +2264,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00810367019160"
@@ -2320,7 +2336,7 @@
         "images_total": 1,
         "category": "Styling Products"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -2328,7 +2344,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00810367017890"
@@ -2449,7 +2465,7 @@
         "images_total": 1,
         "category": "Conditioners"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -2457,7 +2473,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00810367016329"
@@ -2524,7 +2540,7 @@
         "images_total": 1,
         "category": "Shampoos"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -2532,7 +2548,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00810367016343"
@@ -2609,7 +2625,7 @@
         "images_total": 1,
         "category": "Health & Personal Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -2617,7 +2633,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "16 Ounce",
         "gtins": [
@@ -2774,7 +2790,7 @@
         "images_total": 1,
         "category": "Braid Maintenance"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -2782,7 +2798,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "Pack of 1",
         "gtins": [
@@ -2903,7 +2919,7 @@
         "images_total": 1,
         "category": "Hair & Scalp Treatments"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -2911,7 +2927,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00714924294062"
@@ -3029,7 +3045,7 @@
         "images_total": 1,
         "category": "Pomades & Waxes"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -3037,7 +3053,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "1 Pack",
         "gtins": [
@@ -3155,7 +3171,7 @@
         "images_total": 1,
         "category": "Creams, Gels & Lotions"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -3163,7 +3179,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302309185"
@@ -3235,7 +3251,7 @@
         "images_total": 1,
         "category": "Hair Sprays"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -3243,7 +3259,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "set of shampoo & conditoner",
         "gtins": [
@@ -3324,7 +3340,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -3332,7 +3348,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "16 oz. Set",
         "gtins": [
@@ -3405,7 +3421,7 @@
         "images_total": 1,
         "category": "Hair Sprays"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -3413,7 +3429,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302305590"
@@ -3508,7 +3524,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -3516,7 +3532,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302231066"
@@ -3678,7 +3694,7 @@
         "images_total": 1,
         "category": "Hair & Scalp Treatments"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -3686,7 +3702,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302290230"
@@ -3844,7 +3860,7 @@
         "images_total": 1,
         "category": "Children's Books"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -3852,7 +3868,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "16 Oz",
         "gtins": [
@@ -4042,7 +4058,7 @@
         "images_total": 1,
         "category": "Body"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -4050,7 +4066,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "7.5 oz",
         "gtins": [
@@ -4217,7 +4233,7 @@
         "images_total": 1,
         "category": "Styling Products"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -4225,7 +4241,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302215530"
@@ -4304,7 +4320,7 @@
         "images_total": 1,
         "category": "Styling Products"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -4312,7 +4328,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "12 oz",
         "gtins": [
@@ -4429,7 +4445,7 @@
         "images_total": 1,
         "category": "Skin Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -4437,7 +4453,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00817513016851"
@@ -4513,7 +4529,7 @@
         "images_total": 1,
         "category": "Creams, Gels & Lotions"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -4521,7 +4537,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00856017000027"
@@ -4593,7 +4609,7 @@
         "images_total": 1,
         "category": "Styling Products"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -4601,7 +4617,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00817513015700"
@@ -4755,7 +4771,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -4763,7 +4779,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302901419"
@@ -4939,7 +4955,7 @@
         "images_total": 1,
         "category": "Baby Bath"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -4947,7 +4963,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302905134"
@@ -5021,7 +5037,7 @@
         "images_total": 1,
         "category": "Styling Products"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -5029,7 +5045,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302265214"
@@ -5107,7 +5123,7 @@
         "images_total": 1,
         "category": "Face"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -5115,7 +5131,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00647679209626"
@@ -5187,7 +5203,7 @@
         "images_total": 1,
         "category": "Shampoos"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -5195,7 +5211,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "6oz",
         "gtins": [
@@ -5377,7 +5393,7 @@
         "images_total": 1,
         "category": "Hair & Scalp Treatments"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -5385,7 +5401,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00711716145274"
@@ -5466,7 +5482,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00711716146400"
@@ -5538,7 +5554,7 @@
         "images_total": 1,
         "category": "Styling Products"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -5546,7 +5562,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00711716145243"
@@ -5620,7 +5636,7 @@
         "images_total": 1,
         "category": "Styling Products"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -5628,7 +5644,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00711716146394"
@@ -5701,7 +5717,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -5709,7 +5725,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00714924290958"
@@ -5787,7 +5803,7 @@
         "images_total": 1,
         "category": "Hair Styling Serums"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -5795,7 +5811,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "Pack of 1",
         "gtins": [
@@ -5915,7 +5931,7 @@
         "images_total": 1,
         "category": "Conditioners"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -5923,7 +5939,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302270058"
@@ -6044,7 +6060,7 @@
         "images_total": 1,
         "category": "Skin Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -6052,7 +6068,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00755332056439"
@@ -6122,7 +6138,7 @@
         "images_total": 1,
         "category": "Toners & Astringents"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -6130,7 +6146,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302270621"
@@ -6345,7 +6361,7 @@
         "images_total": 1,
         "category": "Skin Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -6353,7 +6369,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302270416"
@@ -6450,7 +6466,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -6458,7 +6474,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00850316004410"
@@ -6562,7 +6578,7 @@
         "images_total": 1,
         "category": "Conditioners"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -6570,7 +6586,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00850316004779"
@@ -6642,7 +6658,7 @@
         "images_total": 1,
         "category": "Shampoos"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -6650,7 +6666,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00850316004342"
@@ -6727,7 +6743,7 @@
         "images_total": 1,
         "category": "Beauty"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -6735,7 +6751,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00820645231542"
@@ -6879,7 +6895,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -6887,7 +6903,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00820645226081"
@@ -7065,7 +7081,7 @@
         "images_total": 1,
         "category": "Hair & Scalp Treatments"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -7073,7 +7089,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "226g/8oz",
         "gtins": [
@@ -7196,7 +7212,7 @@
         "images_total": 1,
         "category": "Health & Personal Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -7204,7 +7220,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302309246"
@@ -7264,7 +7280,7 @@
         "images_total": 1,
         "category": "Cleansers"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -7272,7 +7288,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00764302250753"
@@ -7352,7 +7368,7 @@
         "images_total": 1,
         "category": "Beauty"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -7360,7 +7376,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "3.2 ounces",
         "gtins": [
@@ -7435,7 +7451,7 @@
         "images_total": 1,
         "category": "Beauty"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -7443,7 +7459,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "2 oz",
         "gtins": [
@@ -7600,7 +7616,7 @@
         "images_total": 1,
         "category": "Creams, Balms & Aftershaves"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -7608,7 +7624,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00312547948128"
@@ -7672,7 +7688,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -7680,7 +7696,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00636391900324"
@@ -7774,7 +7790,7 @@
         "images_total": 1,
         "category": "Styling Products"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -7782,7 +7798,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00851331006038"
@@ -7866,7 +7882,7 @@
         "images_total": 1,
         "category": "Health & Personal Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -7874,7 +7890,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "3.4 Fl.oz - 100 ML",
         "gtins": [
@@ -7948,7 +7964,7 @@
         "images_total": 1,
         "category": "Creams, Gels & Lotions"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -7956,7 +7972,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00854143004469"
@@ -8060,7 +8076,7 @@
         "images_total": 1,
         "category": "Shampoo Plus Conditioner"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -8068,7 +8084,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "8 Oz",
         "gtins": [
@@ -8192,7 +8208,7 @@
         "images_total": 1,
         "category": "Conditioners"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -8200,7 +8216,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00854143004438"
@@ -8309,7 +8325,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -8317,7 +8333,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00854143004568"
@@ -8469,7 +8485,7 @@
         "images_total": 1,
         "category": "Shampoo Plus Conditioner"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -8477,7 +8493,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "8 Oz",
         "gtins": [
@@ -8553,7 +8569,7 @@
         "images_total": 1,
         "category": "Hair Sprays"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -8561,7 +8577,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "Gift Set",
         "gtins": [
@@ -8635,7 +8651,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -8643,7 +8659,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00820645002579"
@@ -8704,7 +8720,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -8712,7 +8728,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00820645002555"
@@ -8772,7 +8788,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -8780,7 +8796,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00820645002586"
@@ -8830,7 +8846,7 @@
         "images_total": 1,
         "category": "Creams, Gels & Lotions"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -8838,7 +8854,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "gtins": [
           "00854143004414"
@@ -8922,7 +8938,7 @@
         "images_total": 1,
         "category": "Hair Care"
       }
-    ],
+    ,
     "total_results_count": 1
   },
   {
@@ -8930,7 +8946,7 @@
     "code": "OK",
     "offset": 0,
     "results_count": 1,
-    "results": [
+    "results":
       {
         "size": "296ml/10oz",
         "gtins": [
@@ -9078,7 +9094,7 @@
         "images_total": 1,
         "category": "Health & Personal Care"
       }
-    ],
+    ,
     "total_results_count": 1
   }
 ]
