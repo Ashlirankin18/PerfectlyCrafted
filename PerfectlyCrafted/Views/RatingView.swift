@@ -16,7 +16,7 @@ class RatingView: UIView {
     layout.scrollDirection = .vertical
     let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
     collectionView.register(RatingCollectionViewCell.self, forCellWithReuseIdentifier: "RatingCell")
-    collectionView.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+    collectionView.backgroundColor = .white
     return collectionView
   }()
   lazy var categoriesControl:UISegmentedControl = {

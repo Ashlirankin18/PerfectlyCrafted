@@ -13,6 +13,7 @@ class OtherOptionsCell: UICollectionViewCell {
   lazy var productImage:UIImageView = {
     let imageView = UIImageView()
     imageView.image = #imageLiteral(resourceName: "placeholder")
+    imageView.clipsToBounds = true
     return imageView
   }()
   let sellerLabel: UILabel = {
@@ -20,6 +21,7 @@ class OtherOptionsCell: UICollectionViewCell {
     label.backgroundColor = .clear
     label.text = "Seller Label"
     label.textAlignment = .center
+    label.adjustsFontSizeToFitWidth = true
     label.numberOfLines = 0
     return label
   }()
@@ -28,14 +30,17 @@ class OtherOptionsCell: UICollectionViewCell {
     label.backgroundColor = .clear
     label.text = "URL"
     label.textAlignment = .left
+    label.adjustsFontSizeToFitWidth = true
     label.numberOfLines = 0
     return label
   }()
-  let priceLabel: UILabel = {
-    let label = UILabel()
+  let priceLabel: UITextView = {
+    let label = UITextView()
     label.backgroundColor = .clear
     label.textAlignment = .center
-    label.numberOfLines = 0
+    label.isEditable = false
+    label.dataDetectorTypes = .link
+    label.isScrollEnabled = false
     label.text = "Price"
     return label
   }()
@@ -59,7 +64,6 @@ extension OtherOptionsCell{
     setUpProductImage()
     setUpSellerLabel()
     setUpPriceLabel()
-    setUpProductLabel()
     setUpURLLabel()
   }
   
@@ -80,10 +84,7 @@ extension OtherOptionsCell{
     sellerLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
     sellerLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
   }
-  func setUpProductLabel(){
-    
-    
-  }
+  
   func setUpURLLabel(){
     addSubview(urlLabel)
     urlLabel.translatesAutoresizingMaskIntoConstraints = false

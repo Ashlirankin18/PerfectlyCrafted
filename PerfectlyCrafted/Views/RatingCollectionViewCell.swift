@@ -133,10 +133,12 @@ extension RatingCollectionViewCell{
   func setUpProfileImage(){
     addSubview(profileImage)
     profileImage.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.init(item: profileImage, attribute: .top, relatedBy: .equal, toItem: userDetailsView, attribute: .top, multiplier: 1.0, constant: 8).isActive = true
-    NSLayoutConstraint.init(item: profileImage, attribute: .width, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .width, multiplier: 0.1, constant: 40).isActive = true
-    NSLayoutConstraint.init(item: profileImage, attribute: .height, relatedBy: .equal, toItem: userDetailsView, attribute: .height, multiplier: 0.4, constant: 40).isActive = true
-    NSLayoutConstraint.init(item: profileImage, attribute: .leading, relatedBy: .equal, toItem: userDetailsView, attribute: .leading, multiplier: 1.0, constant: 8).isActive = true
+//    NSLayoutConstraint.init(item: profileImage, attribute: .top, relatedBy: .equal, toItem: userDetailsView, attribute: .top, multiplier: 1.5, constant: 0).isActive = true
+    NSLayoutConstraint.init(item: profileImage, attribute: .width, relatedBy: .equal, toItem: profileImage, attribute: .width, multiplier: 0.1, constant: 60).isActive = true
+    NSLayoutConstraint.init(item: profileImage, attribute: .height, relatedBy: .equal, toItem: profileImage, attribute: .height, multiplier: 0.1, constant: 60).isActive = true
+    NSLayoutConstraint.init(item: profileImage, attribute: .centerX, relatedBy: .equal, toItem: userDetailsView, attribute: .centerX, multiplier: 0.2, constant: 0).isActive = true
+    NSLayoutConstraint(item: profileImage, attribute: .centerY, relatedBy: .equal, toItem: userDetailsView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+   
   }
   func setUpUsernameLabel(){
     addSubview(userName)

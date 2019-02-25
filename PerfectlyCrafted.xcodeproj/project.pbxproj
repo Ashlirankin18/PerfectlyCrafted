@@ -24,6 +24,9 @@
 		2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */; };
 		2E7946DF220CFABE00219B6A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946DE220CFABE00219B6A /* RatingViewController.swift */; };
 		2E7946E1220CFB8700219B6A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946E0220CFB8700219B6A /* RatingView.swift */; };
+		2E984788221D575800204A42 /* SearchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E984787221D575800204A42 /* SearchProductViewController.swift */; };
+		2E98478A221D57D600204A42 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E984789221D57D600204A42 /* SearchView.swift */; };
+		2E98478C221D5D4400204A42 /* ProductDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E98478B221D5D4400204A42 /* ProductDisplayCell.swift */; };
 		2E997F94221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997F93221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift */; };
 		2E997F96221B0E2800730ED7 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997F95221B0E2800730ED7 /* NetworkHelper.swift */; };
 		2E997F98221B0E4700730ED7 /* Extension+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997F97221B0E4700730ED7 /* Extension+Alerts.swift */; };
@@ -70,6 +73,9 @@
 		2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E7946DE220CFABE00219B6A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		2E7946E0220CFB8700219B6A /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		2E984787221D575800204A42 /* SearchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductViewController.swift; sourceTree = "<group>"; };
+		2E984789221D57D600204A42 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		2E98478B221D5D4400204A42 /* ProductDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDisplayCell.swift; sourceTree = "<group>"; };
 		2E997F93221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairProductDatabaseApiCleient.swift; sourceTree = "<group>"; };
 		2E997F95221B0E2800730ED7 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		2E997F97221B0E4700730ED7 /* Extension+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Alerts.swift"; sourceTree = "<group>"; };
@@ -147,15 +153,16 @@
 		2E4A3EA82208D37B00988116 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2E04A4B3221A76460066568E /* PopUpViewController.swift */,
-				2E997F9F221B1EFD00730ED7 /* ShowProductViewController.swift */,
-				2E7946DE220CFABE00219B6A /* RatingViewController.swift */,
-				2E4A3EA62208D37500988116 /* SignUpViewController.swift */,
-				2EA365B6220A64E700FFDC5E /* LoginViewController.swift */,
-				2E4A3EAD2208E77200988116 /* SignUpFormViewController.swift */,
-				2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */,
-				2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */,
 				2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */,
+				2EA365B6220A64E700FFDC5E /* LoginViewController.swift */,
+				2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */,
+				2E04A4B3221A76460066568E /* PopUpViewController.swift */,
+				2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */,
+				2E7946DE220CFABE00219B6A /* RatingViewController.swift */,
+				2E984787221D575800204A42 /* SearchProductViewController.swift */,
+				2E997F9F221B1EFD00730ED7 /* ShowProductViewController.swift */,
+				2E4A3EA62208D37500988116 /* SignUpViewController.swift */,
+				2E4A3EAD2208E77200988116 /* SignUpFormViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -163,21 +170,22 @@
 		2E4A3EB12208E7B100988116 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2E04A4B5221A76620066568E /* PopUpView.swift */,
-				2E997FA1221B200D00730ED7 /* HairProductView.swift */,
-				2E997FAB221BB5BE00730ED7 /* ProductCell.swift */,
-				2E997FA7221B751300730ED7 /* OtherOptionsCell.swift */,
-				2E997FA9221B99A300730ED7 /* DateExtension.swift */,
-				2E063E6C220B77C500D85406 /* FeedsView.swift */,
 				2E57C3C9220E506C00C89FFC /* CreateView.swift */,
-				2E7946E0220CFB8700219B6A /* RatingView.swift */,
-				2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */,
-				2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */,
+				2E063E6C220B77C500D85406 /* FeedsView.swift */,
+				2E997FA1221B200D00730ED7 /* HairProductView.swift */,
 				2EA365B8220A678200FFDC5E /* LoginView.swift */,
+				2E997FA7221B751300730ED7 /* OtherOptionsCell.swift */,
+				2E04A4B5221A76620066568E /* PopUpView.swift */,
+				2E997FAB221BB5BE00730ED7 /* ProductCell.swift */,
 				2E063E66220B5E9C00D85406 /* ProfileView.swift */,
-				2E063E68220B629A00D85406 /* ProfileCollectionViewCell.swift */,
+				2E98478B221D5D4400204A42 /* ProductDisplayCell.swift */,
+				2E7946E0220CFB8700219B6A /* RatingView.swift */,
 				2E4A3EAB2208D5D900988116 /* SignUpView.swift */,
 				2E4A3EAF2208E7A200988116 /* SignUpViewForm.swift */,
+				2E984789221D57D600204A42 /* SearchView.swift */,
+				2E063E68220B629A00D85406 /* ProfileCollectionViewCell.swift */,
+				2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */,
+				2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,10 +204,11 @@
 			isa = PBXGroup;
 			children = (
 				2E997F99221B0FCF00730ED7 /* AppError.swift */,
-				2E997F95221B0E2800730ED7 /* NetworkHelper.swift */,
-				2E997F9B221B0FFD00730ED7 /* ImageCache.swift */,
 				2E997F97221B0E4700730ED7 /* Extension+Alerts.swift */,
+				2E997FA9221B99A300730ED7 /* DateExtension.swift */,
 				2E997F93221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift */,
+				2E997F9B221B0FFD00730ED7 /* ImageCache.swift */,
+				2E997F95221B0E2800730ED7 /* NetworkHelper.swift */,
 				2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */,
 				2EA365AE220A31D100FFDC5E /* UserPersistanceHelper.swift */,
 			);
@@ -373,12 +382,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E98478C221D5D4400204A42 /* ProductDisplayCell.swift in Sources */,
 				2E997F96221B0E2800730ED7 /* NetworkHelper.swift in Sources */,
 				2E997FAA221B99A300730ED7 /* DateExtension.swift in Sources */,
 				2EA365B7220A64E700FFDC5E /* LoginViewController.swift in Sources */,
 				2E997F9A221B0FCF00730ED7 /* AppError.swift in Sources */,
 				2E04A4B6221A76620066568E /* PopUpView.swift in Sources */,
 				2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */,
+				2E984788221D575800204A42 /* SearchProductViewController.swift in Sources */,
 				2E4A3EAC2208D5D900988116 /* SignUpView.swift in Sources */,
 				2E997F9E221B18AA00730ED7 /* HairProductModel.swift in Sources */,
 				2E063E69220B629A00D85406 /* ProfileCollectionViewCell.swift in Sources */,
@@ -395,6 +406,7 @@
 				2E04A4B4221A76460066568E /* PopUpViewController.swift in Sources */,
 				2E063E6D220B77C500D85406 /* FeedsView.swift in Sources */,
 				2E57C3CA220E506C00C89FFC /* CreateView.swift in Sources */,
+				2E98478A221D57D600204A42 /* SearchView.swift in Sources */,
 				2E7946E1220CFB8700219B6A /* RatingView.swift in Sources */,
 				2E997FA8221B751300730ED7 /* OtherOptionsCell.swift in Sources */,
 				2EA365B5220A59B900FFDC5E /* FeedsViewController.swift in Sources */,

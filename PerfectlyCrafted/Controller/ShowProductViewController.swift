@@ -12,7 +12,7 @@ class ShowProductViewController: UIViewController {
   
   private var HairProduct: AllHairProducts!
   private var HairProductView: HairProductView!
-  
+  private var productImage = UIImage()
   init(hairProduct:AllHairProducts,view:HairProductView){
     super.init(nibName: nil, bundle: nil)
     self.HairProduct = hairProduct
@@ -24,6 +24,7 @@ class ShowProductViewController: UIViewController {
     let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addButtonPressed))
     navigationItem.rightBarButtonItem = addButton
     navigationItem.title = "Category: \(hairProduct.results.category.capitalized)"
+    navigationItem.largeTitleDisplayMode = .always
     
   }
   
@@ -38,18 +39,24 @@ class ShowProductViewController: UIViewController {
       self.view.backgroundColor = .white
       HairProductView.productCollectionView.delegate = self
        HairProductView.productCollectionView.dataSource = self
-      
+      setUpPresentationStyle()
     }
   @objc private func dismissPressed(){
     dismiss(animated: true, completion: nil)
   }
   @objc private func addButtonPressed(){
-    print("add button Pressedf")
+    print("add button Pressed")
   }
-  
+  func setUpPresentationStyle(){
+    let transitionStyleStyle = UIModalTransitionStyle.crossDissolve
+    self.modalTransitionStyle = transitionStyleStyle
+    let presenttationStyle = UIModalPresentationStyle.currentContext
+    self.modalPresentationStyle = presenttationStyle
+  }
   func getProductImage(imageView:UIImageView,urlString:String){
     if let image = ImageCache.shared.fetchImageFromCache(urlString: urlString){
       imageView.image = image
+      self.productImage = image
     }else{
       ImageCache.shared.fetchImageFromNetwork(urlString: urlString) { (error, image) in
         if let error = error {
@@ -58,6 +65,7 @@ class ShowProductViewController: UIViewController {
         if let image = image{
           DispatchQueue.main.async {
             imageView.image = image
+            self.productImage = image
           }
         }
       }
@@ -93,7 +101,9 @@ extension ShowProductViewController:UICollectionViewDataSource{
       guard let cell = HairProductView.productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell,
       let cellTwo = cell.otherOptionsCollectionView.dequeueReusableCell(withReuseIdentifier: "OptionsCell", for: indexPath) as? OtherOptionsCell else {fatalError("no Productcell found")}
       let latestOffer = HairProduct.results.sitedetails[indexPath.row]
-      getProductImage(imageView: cell.productImage, urlString: HairProduct.results.images.first?.absoluteString ?? "no image found")
+      
+      cellTwo.productImage.image = productImage
+    
       if let seller = latestOffer.latestoffers.first?.seller {
         cellTwo.sellerLabel.text = seller
       }else{

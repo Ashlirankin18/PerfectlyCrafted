@@ -25,10 +25,39 @@ class ProfileView: UIView {
   
   lazy var dividerView:UIView = {
     let view = UIView()
-    view.backgroundColor = .black
+    view.backgroundColor = .gray
     return view
   }()
-  
+  lazy var userName: UILabel = {
+    let label = UILabel()
+    label.backgroundColor = .gray
+    label.text = "Username"
+    label.lineBreakMode = .byWordWrapping
+    label.numberOfLines = 0
+    label.textAlignment = .center
+    label.adjustsFontSizeToFitWidth = true
+    return label
+  }()
+  lazy var hairType: UILabel = {
+    let label = UILabel()
+    label.backgroundColor = .gray
+    label.text = "Hair type"
+    label.lineBreakMode = .byWordWrapping
+    label.numberOfLines = 0
+    label.textAlignment = .center
+    label.adjustsFontSizeToFitWidth = true
+    return label
+  }()
+  lazy var aboutMeLabel: UILabel = {
+    let label = UILabel()
+    label.backgroundColor = .clear
+    label.text = "About Me"
+    label.lineBreakMode = .byWordWrapping
+    label.numberOfLines = 0
+    label.textAlignment = .center
+    label.adjustsFontSizeToFitWidth = true
+    return label
+  }()
   lazy var profileCollectionView:UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
@@ -36,7 +65,8 @@ class ProfileView: UIView {
     let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
     
     collectionView.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: "ProfileCell")
-    collectionView.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+    collectionView.backgroundColor = .white
+    
     return collectionView
   }()
   override init(frame: CGRect) {
@@ -44,9 +74,11 @@ class ProfileView: UIView {
     commonInit()
   }
   override func layoutSubviews() {
+    super.layoutSubviews()
     profileImage.layer.cornerRadius = profileImage.bounds.width/2
     profileImage.layer.borderWidth = 4
     profileImage.layer.borderColor = UIColor.black.cgColor
+    userName.layer.cornerRadius = 8
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -65,7 +97,7 @@ extension ProfileView{
      setupProfileImage()
     setUpDividerView()
     setUpCollectionViewConstraints()
-   
+   setUpUserNameLabel()
   }
   func setUpBioView(){
     addSubview(bioView)
@@ -86,15 +118,37 @@ extension ProfileView{
   func setupProfileImage(){
     addSubview(profileImage)
     profileImage.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint(item: profileImage, attribute: .top, relatedBy: .equal, toItem: bioView, attribute: .top, multiplier: 1.0, constant: 20).isActive = true
-    NSLayoutConstraint.init(item: profileImage, attribute: .width, relatedBy: .equal, toItem: bioView, attribute: .width, multiplier: 0.1, constant: 44).isActive = true
-    NSLayoutConstraint.init(item: profileImage, attribute: .height, relatedBy: .equal, toItem: bioView, attribute: .height, multiplier: 0.4, constant: 44).isActive = true
+    NSLayoutConstraint(item: profileImage, attribute: .centerY, relatedBy: .equal, toItem: bioView, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
+    NSLayoutConstraint.init(item: profileImage, attribute: .width, relatedBy: .equal, toItem: profileImage, attribute: .width, multiplier: 0.4, constant: 60).isActive = true
+    NSLayoutConstraint.init(item: profileImage, attribute: .height, relatedBy: .equal, toItem: profileImage, attribute: .height, multiplier: 0.4, constant: 60).isActive = true
     NSLayoutConstraint.init(item: profileImage, attribute: .leading, relatedBy: .equal, toItem: bioView, attribute: .leading, multiplier: 1.0, constant: 20).isActive = true
   }
   func setUpDividerView(){
     addSubview(dividerView)
     dividerView.translatesAutoresizingMaskIntoConstraints = false
+    dividerView.leadingAnchor.constraint(equalToSystemSpacingAfter: profileImage.trailingAnchor, multiplier: 1.3).isActive = true
+    dividerView.widthAnchor.constraint(equalToConstant: 3).isActive = true
+    dividerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    dividerView.centerYAnchor.constraint(equalTo: bioView.centerYAnchor, constant: 0).isActive = true
     
+  }
+  func setUpUserNameLabel(){
+    addSubview(userName)
+    userName.translatesAutoresizingMaskIntoConstraints = false
+    userName.topAnchor.constraint(equalToSystemSpacingBelow: bioView.topAnchor, multiplier: 1).isActive = true
+    userName.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.1).isActive = true
+  //  userName.heightAnchor.constraint(equalToConstant: 44).isActive = true
+    userName.widthAnchor.constraint(equalToConstant: 150).isActive = true
+  }
+  func setUpHairtypeLabel(){
+    addSubview(hairType)
+    hairType.translatesAutoresizingMaskIntoConstraints = false
+    
+    
+  }
+  func setUpAboutMeLabel(){
+    addSubview(aboutMeLabel)
+    aboutMeLabel.translatesAutoresizingMaskIntoConstraints = false
   }
   
 }

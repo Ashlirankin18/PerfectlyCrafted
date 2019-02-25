@@ -106,8 +106,8 @@ userDetailsView.translatesAutoresizingMaskIntoConstraints = false
     addSubview(profileImage)
     profileImage.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.init(item: profileImage, attribute: .top, relatedBy: .equal, toItem: userDetailsView, attribute: .top, multiplier: 1.0, constant: 8).isActive = true
-    NSLayoutConstraint.init(item: profileImage, attribute: .width, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .width, multiplier: 0.1, constant: 40).isActive = true
-    NSLayoutConstraint.init(item: profileImage, attribute: .height, relatedBy: .equal, toItem: userDetailsView, attribute: .height, multiplier: 0.4, constant: 40).isActive = true
+    NSLayoutConstraint.init(item: profileImage, attribute: .width, relatedBy: .equal, toItem: profileImage, attribute: .width, multiplier: 0.1, constant: 60).isActive = true
+    NSLayoutConstraint.init(item: profileImage, attribute: .height, relatedBy: .equal, toItem: profileImage, attribute: .height, multiplier: 0.1, constant: 60).isActive = true
     NSLayoutConstraint.init(item: profileImage, attribute: .leading, relatedBy: .equal, toItem: userDetailsView, attribute: .leading, multiplier: 1.0, constant: 8).isActive = true
   }
   func setUpUsernameLabel(){

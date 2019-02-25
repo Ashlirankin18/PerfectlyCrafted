@@ -31,9 +31,9 @@ class PopUpViewController: UIViewController {
     addingActionsToButtons()
   }
   func setUpPresentationStyle(){
-    let transitionStyleStyle = UIModalTransitionStyle.crossDissolve
+    let transitionStyleStyle = UIModalTransitionStyle.coverVertical
     self.modalTransitionStyle = transitionStyleStyle
-    let presenttationStyle = UIModalPresentationStyle.overCurrentContext
+    let presenttationStyle = UIModalPresentationStyle.popover
     self.modalPresentationStyle = presenttationStyle
   }
   private func setUpImagePickerController(){
@@ -81,7 +81,12 @@ class PopUpViewController: UIViewController {
     showImagePickerController()
   }
   @objc func presentSearchBar(){
-    print("search")
+    let searchController = SearchProductViewController.init(allHairProducts: allHairProducts)
+    let navigationController = UINavigationController.init(rootViewController: searchController)
+    navigationController.modalPresentationStyle = .currentContext
+    navigationController.modalTransitionStyle = .crossDissolve
+    navigationController.definesPresentationContext = true
+    self.present(navigationController, animated: true, completion: nil)
   }
   
   func makeCallToBarcodeDetector(image:UIImage?){

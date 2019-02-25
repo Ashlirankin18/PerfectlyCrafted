@@ -21,6 +21,7 @@ class ProductCell: UICollectionViewCell {
     label.lineBreakMode = .byWordWrapping
     label.numberOfLines = 0
     label.textAlignment = .center
+    label.adjustsFontSizeToFitWidth = true
     return label
   }()
   lazy var productDescriptionTextView:UITextView = {
@@ -34,7 +35,7 @@ class ProductCell: UICollectionViewCell {
   }()
   lazy var otherOptionsCollectionView:UICollectionView = {
     let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .horizontal
+    layout.scrollDirection = .vertical
     layout.sectionInset = UIEdgeInsets.init(top: 10, left: 5, bottom: 10, right: 5)
     let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
     collectionView.register(OtherOptionsCell.self, forCellWithReuseIdentifier: "OptionsCell")
