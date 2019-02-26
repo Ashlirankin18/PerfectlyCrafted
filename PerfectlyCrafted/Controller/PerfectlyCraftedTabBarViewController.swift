@@ -10,29 +10,40 @@ import UIKit
 
 class PerfectlyCraftedTabBarViewController: UITabBarController {
   
-  var user: User?
-  
+  var allHairProducts = [AllHairProducts]()
+ 
   override func viewDidLoad() {
-        super.viewDidLoad()
-      self.view.backgroundColor = #colorLiteral(red: 0.6722700215, green: 1, blue: 0.6019102933, alpha: 1)
+    super.viewDidLoad()
+    self.view.backgroundColor = #colorLiteral(red: 0.6722700215, green: 1, blue: 0.6019102933, alpha: 1)
+    getAllHairProducts()
+    setUpTabbarItems()
+    }
+  
+  private func setUpTabbarItems(){
     let feedsViewController = FeedsViewController()
-    let profileViewController = ProfileViewController.init(user: user, view: ProfileView())
-    let navigationController = UINavigationController(rootViewController: profileViewController)
+    let profileViewController = ProfileViewController.init(view: ProfileView())
+    let profileNavigationController = UINavigationController(rootViewController: profileViewController)
     let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
-    let ratingViewController = RatingViewController()
-    let ratingNavigation = UINavigationController(rootViewController: ratingViewController)
-    let popUpViewController = PopUpViewController()
+    let searchViewController = SearchProductViewController()
+    let searchNavigationController = UINavigationController(rootViewController: searchViewController)
     feedsViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-news-feed-25")
     feedsViewController.title = "News Feed"
     profileViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-user-26")
     profileViewController.title = "Profile"
-    ratingViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-popular-25")
-    ratingViewController.title = "Reviews"
-    popUpViewController.title = "PopUp"
-    self.viewControllers = [newsFeedNavigationController,ratingNavigation,navigationController,popUpViewController]
+    searchViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-search-25")
+    searchViewController.title = "Search"
+    self.viewControllers = [newsFeedNavigationController,searchNavigationController,profileNavigationController]
     
+  }
+  private func getAllHairProducts(){
+    HairProductApiClient.getHairProducts { (error, allHairProducts) in
+      if let error = error {
+        print(error.errorMessage())
+      }
+      if let allHairProducts = allHairProducts{
+    ProductDataManager.setProducts(products: allHairProducts)
+      }
     }
-    
-
+  }
     
 }

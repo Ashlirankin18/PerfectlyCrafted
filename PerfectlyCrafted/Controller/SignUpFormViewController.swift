@@ -7,21 +7,23 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpFormViewController: UIViewController {
 
   let signUpForm = SignUpViewForm()
+  private var userSession: UserSession!
   
     override func viewDidLoad() {
         super.viewDidLoad()
       self.view.addSubview(signUpForm)
       view.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
       signUpForm.passwordTextField.delegate = self
-      signUpForm.userNameTextField.delegate = self
       signUpForm.emailTextField.delegate = self
-      signUpForm.confirmEmailTextField.delegate = self
       signUpForm.cancelButton.addTarget(self, action: #selector(dismissPage), for: .touchUpInside)
       signUpButtonAction()
+      userSession = (UIApplication.shared.delegate as? AppDelegate)?.userSession
+    
       
     }
   
@@ -39,47 +41,18 @@ class SignUpFormViewController: UIViewController {
     signUpForm.signUpButton.addTarget(self, action: #selector(saveUser), for: .touchUpInside)
   }
  @objc private func saveUser() {
-  guard !(signUpForm.userNameTextField.text?.isEmpty)!,!(signUpForm.passwordTextField.text?.isEmpty)!,!(signUpForm.emailTextField.text?.isEmpty)!,!(signUpForm.confirmEmailTextField.text?.isEmpty)! else{
-    setUpAlertController(title: "TextField Blank", message: "All Fields are required")
-    return
+  guard let email = signUpForm.emailTextField.text,
+    let password = signUpForm.passwordTextField.text,
+    !email.isEmpty,!password.isEmpty else {
+      showAlert(title: "All fields Required", message: "You must enter your email and password")
+      return
   }
-  guard !UserPersistanceHelper.getUsersInfo().contains(where: { (user) -> Bool in
-    user.email == signUpForm.emailTextField.text
-  })else{
-    setUpAlertController(title: "Email exist", message: "The email you entered has been used. If you would like to sign in click the login button")
-    return
+  userSession.createUser(email: email, password: password)
+  let tabBarController = PerfectlyCraftedTabBarViewController()
+  tabBarController.selectedViewController = tabBarController.viewControllers![2]
+  self.present(tabBarController, animated: true, completion: nil)
   }
-  
-  let userName = signUpForm.userNameTextField.text ?? "No text entered"
-  print(userName)
-  let password = signUpForm.passwordTextField.text ?? "No text entered"
-  print(password)
-  let email = signUpForm.emailTextField.text ?? "No text entered"
-  print(email)
-  let confirmedEmail = signUpForm.confirmEmailTextField.text ?? "No text entered"
-  var emailCheck = checkEmails(email: email, confirmEmail: confirmedEmail)
  
-  if emailCheck == false {
-   emailCheck = checkEmails(email: email, confirmEmail: confirmedEmail)
-  }else {
-    
- let user = User.init(userName: userName, password: password, email: email, profileImage: nil, fullName: nil, dateOfBirth: nil)
-    UserPersistanceHelper.addToDocumentsDirectory(user: user)
-    let tabBarController = PerfectlyCraftedTabBarViewController()
-    tabBarController.user = user
-    present(tabBarController, animated: true, completion: nil)
-  }
-  }
-  private func checkEmails(email:String,confirmEmail:String) -> Bool{
-    if email != confirmEmail {
-      setUpAlertController(title: "Emails are not identical", message: "Email Addresses must match reenter email")
-      signUpForm.emailTextField.clearsOnBeginEditing = true
-      signUpForm.confirmEmailTextField.clearsOnBeginEditing = true
-      return false
-    }else{
-      return true
-    }
-  }
   
 }
 extension SignUpFormViewController:UITextFieldDelegate{
@@ -87,4 +60,15 @@ extension SignUpFormViewController:UITextFieldDelegate{
     textField.resignFirstResponder()
     return true
   }
+}
+extension SignUpViewController:UserSessionAccountCreationDelegate{
+  func didReceiveError(_ userSession: UserSession, error: Error) {
+    showAlert(title: "Error!", message: "There was an error logging in: \(error.localizedDescription)")
+  }
+  
+  func didCreateAccount(_ userSession: UserSession, user: User) {
+    showAlert(title: "Alert Created", message: "Your account was sucessfully created")
+  }
+  
+  
 }

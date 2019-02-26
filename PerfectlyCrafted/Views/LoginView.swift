@@ -23,7 +23,7 @@ class LoginView: UIView {
     imageView.image = #imageLiteral(resourceName: "gift-habeshaw-1217521-unsplash-1")
     return imageView
   }()
-  lazy var userNameTextField: UITextField = {
+  lazy var userNameEmail: UITextField = {
     let textField = UITextField()
     textField.backgroundColor = .white
     textField.borderStyle = .roundedRect
@@ -109,17 +109,17 @@ extension LoginView{
       NSLayoutConstraint.init(item: backgroundImageView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0).isActive = true
   }
   func setUpUsernameTetfield(){
-    addSubview(userNameTextField)
-    userNameTextField.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(userNameEmail)
+    userNameEmail.translatesAutoresizingMaskIntoConstraints = false
     
-    NSLayoutConstraint.init(item: userNameTextField, attribute: .top, relatedBy: .lessThanOrEqual, toItem: safeAreaLayoutGuide, attribute: .top, multiplier: 1.0, constant: 300).isActive = true
-    NSLayoutConstraint.init(item: userNameTextField, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 140).isActive = true
-    NSLayoutConstraint.init(item: userNameTextField, attribute: .trailing, relatedBy: .equal, toItem: backgroundImageView, attribute: .trailing, multiplier: 1.0, constant: -20).isActive = true
+    NSLayoutConstraint.init(item: userNameEmail, attribute: .top, relatedBy: .lessThanOrEqual, toItem: safeAreaLayoutGuide, attribute: .top, multiplier: 1.0, constant: 300).isActive = true
+    NSLayoutConstraint.init(item: userNameEmail, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 140).isActive = true
+    NSLayoutConstraint.init(item: userNameEmail, attribute: .trailing, relatedBy: .equal, toItem: backgroundImageView, attribute: .trailing, multiplier: 1.0, constant: -20).isActive = true
   }
   func setUpPasswordTextField(){
     addSubview(passwordTextField)
     passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.init(item: passwordTextField, attribute: .top, relatedBy: .equal, toItem: userNameTextField, attribute: .bottom, multiplier: 1.0, constant: 40.0).isActive = true
+    NSLayoutConstraint.init(item: passwordTextField, attribute: .top, relatedBy: .equal, toItem: userNameEmail, attribute: .bottom, multiplier: 1.0, constant: 40.0).isActive = true
     NSLayoutConstraint.init(item: passwordTextField, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 140).isActive = true
     NSLayoutConstraint.init(item: passwordTextField, attribute: .trailing, relatedBy: .equal, toItem: backgroundImageView, attribute: .trailing, multiplier: 1.0, constant: -20).isActive = true
     
@@ -129,8 +129,8 @@ extension LoginView{
     usernameLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.init(item: usernameLabel, attribute: .top, relatedBy: .lessThanOrEqual, toItem: safeAreaLayoutGuide, attribute: .top, multiplier: 1.0, constant: 300).isActive = true
     NSLayoutConstraint.init(item: usernameLabel, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 15).isActive = true
-    NSLayoutConstraint.init(item: usernameLabel, attribute: .trailing, relatedBy: .equal, toItem: userNameTextField, attribute: .leading, multiplier: 1.0, constant: -30).isActive = true
-    NSLayoutConstraint.init(item: usernameLabel, attribute: .height, relatedBy: .equal, toItem: userNameTextField, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+    NSLayoutConstraint.init(item: usernameLabel, attribute: .trailing, relatedBy: .equal, toItem: userNameEmail, attribute: .leading, multiplier: 1.0, constant: -30).isActive = true
+    NSLayoutConstraint.init(item: usernameLabel, attribute: .height, relatedBy: .equal, toItem: userNameEmail, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
   }
   func setSetUpPasswordLabel(){
     addSubview(passwordLabel)

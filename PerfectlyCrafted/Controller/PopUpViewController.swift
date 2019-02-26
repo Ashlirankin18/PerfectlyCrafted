@@ -17,9 +17,18 @@ class PopUpViewController: UIViewController {
   var barcodeDetector: VisionBarcodeDetector?
   var allHairProducts = [AllHairProducts](){
     didSet{
-      print("I am set and I have \(allHairProducts.count) items (line 20)")
+      allHairProducts.sort{$0.results.name < $1.results.name}
     }
   }
+//  init(allHairProducts:[AllHairProducts]){
+//    super.init(nibName: nil, bundle: nil)
+//    self.allHairProducts = allHairProducts
+//  }
+//  
+//  required init?(coder aDecoder: NSCoder) {
+//   super.init(coder: aDecoder)
+//  }
+//  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.addSubview(popUpView)
@@ -27,9 +36,14 @@ class PopUpViewController: UIViewController {
     setUpPresentationStyle()
     setUpImagePickerController()
     self.barcodeDetector = vision.barcodeDetector()
-    getAllHairProducts()
     addingActionsToButtons()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    self.allHairProducts = ProductDataManager.getProducts()
+  }
+  
   func setUpPresentationStyle(){
     let transitionStyleStyle = UIModalTransitionStyle.coverVertical
     self.modalTransitionStyle = transitionStyleStyle
@@ -44,16 +58,7 @@ class PopUpViewController: UIViewController {
   private func showImagePickerController(){
     self.present(imagePickerController, animated: true, completion: nil)
   }
-  private func getAllHairProducts(){
-    HairProductApiClient.getHairProducts { (error, allHairProducts) in
-      if let error = error {
-        print(error.errorMessage())
-      }
-      if let allHairProducts = allHairProducts{
-        self.allHairProducts = allHairProducts
-      }
-    }
-  }
+
     func getProductFromBarcode(barcodeNumber:String) -> AllHairProducts? {
       let product = allHairProducts.first{$0.results.upc == barcodeNumber}
       return product
@@ -71,7 +76,6 @@ class PopUpViewController: UIViewController {
   func addingActionsToButtons(){
     popUpView.addFromCameraButton.addTarget(self, action: #selector(presentCameraOption), for: .touchUpInside)
     popUpView.addFromGalleryButton.addTarget(self, action: #selector(presentGalleryOption), for: .touchUpInside)
-    popUpView.searchForProductButton.addTarget(self, action: #selector(presentSearchBar), for: .touchUpInside)
   }
   
   @objc func presentCameraOption(){
@@ -79,14 +83,6 @@ class PopUpViewController: UIViewController {
   }
   @objc func presentGalleryOption(){
     showImagePickerController()
-  }
-  @objc func presentSearchBar(){
-    let searchController = SearchProductViewController.init(allHairProducts: allHairProducts)
-    let navigationController = UINavigationController.init(rootViewController: searchController)
-    navigationController.modalPresentationStyle = .currentContext
-    navigationController.modalTransitionStyle = .crossDissolve
-    navigationController.definesPresentationContext = true
-    self.present(navigationController, animated: true, completion: nil)
   }
   
   func makeCallToBarcodeDetector(image:UIImage?){

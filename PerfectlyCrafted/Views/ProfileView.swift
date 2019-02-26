@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class ProfileView: UIView {
   lazy var bioView:UIView = {
     let view = UIView()
@@ -30,33 +29,32 @@ class ProfileView: UIView {
   }()
   lazy var userName: UILabel = {
     let label = UILabel()
-    label.backgroundColor = .gray
+    label.backgroundColor = .clear
     label.text = "Username"
     label.lineBreakMode = .byWordWrapping
     label.numberOfLines = 0
-    label.textAlignment = .center
+    label.textAlignment = .justified
     label.adjustsFontSizeToFitWidth = true
     return label
   }()
   lazy var hairType: UILabel = {
     let label = UILabel()
-    label.backgroundColor = .gray
+    label.backgroundColor = .clear
     label.text = "Hair type"
     label.lineBreakMode = .byWordWrapping
     label.numberOfLines = 0
-    label.textAlignment = .center
+    label.textAlignment = .justified
     label.adjustsFontSizeToFitWidth = true
     return label
   }()
-  lazy var aboutMeLabel: UILabel = {
-    let label = UILabel()
-    label.backgroundColor = .clear
-    label.text = "About Me"
-    label.lineBreakMode = .byWordWrapping
-    label.numberOfLines = 0
-    label.textAlignment = .center
-    label.adjustsFontSizeToFitWidth = true
-    return label
+  lazy var aboutMeTextView:UITextView = {
+    let textView = UITextView()
+    textView.backgroundColor = .clear
+    textView.text = "About Me"
+    textView.textAlignment = .justified
+    textView.isEditable = false
+    textView.isScrollEnabled = false
+    return textView
   }()
   lazy var profileCollectionView:UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -93,11 +91,13 @@ class ProfileView: UIView {
 }
 extension ProfileView{
   func setUpViews(){
-      setUpBioView()
-     setupProfileImage()
+    setUpBioView()
+    setupProfileImage()
     setUpDividerView()
     setUpCollectionViewConstraints()
-   setUpUserNameLabel()
+    setUpUserNameLabel()
+    setUpHairtypeLabel()
+    setUpAboutMeLabel()
   }
   func setUpBioView(){
     addSubview(bioView)
@@ -135,20 +135,25 @@ extension ProfileView{
   func setUpUserNameLabel(){
     addSubview(userName)
     userName.translatesAutoresizingMaskIntoConstraints = false
-    userName.topAnchor.constraint(equalToSystemSpacingBelow: bioView.topAnchor, multiplier: 1).isActive = true
+    userName.topAnchor.constraint(equalToSystemSpacingBelow: bioView.topAnchor, multiplier: 1.8).isActive = true
     userName.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.1).isActive = true
-  //  userName.heightAnchor.constraint(equalToConstant: 44).isActive = true
     userName.widthAnchor.constraint(equalToConstant: 150).isActive = true
   }
   func setUpHairtypeLabel(){
     addSubview(hairType)
     hairType.translatesAutoresizingMaskIntoConstraints = false
-    
+    hairType.topAnchor.constraint(equalToSystemSpacingBelow: userName.bottomAnchor, multiplier: 1.8).isActive = true
+    hairType.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.1).isActive = true
+    hairType.widthAnchor.constraint(equalToConstant: 150).isActive = true
     
   }
   func setUpAboutMeLabel(){
-    addSubview(aboutMeLabel)
-    aboutMeLabel.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(aboutMeTextView)
+    aboutMeTextView.translatesAutoresizingMaskIntoConstraints = false
+    aboutMeTextView.topAnchor.constraint(equalToSystemSpacingBelow: hairType.bottomAnchor, multiplier: 1.4).isActive = true
+    aboutMeTextView.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.1).isActive = true
+    aboutMeTextView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+    aboutMeTextView.heightAnchor.constraint(equalToConstant: 80).isActive = true
   }
   
 }

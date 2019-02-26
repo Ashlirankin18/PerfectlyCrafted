@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
 
-  var user: User?
   var profileView = ProfileView()
+  var userSession: UserSession!
   
-  init(user:User?,view:ProfileView) {
+  init(view:ProfileView) {
     super.init(nibName: nil, bundle: nil)
-    self.user = user
+    
     self.profileView = view
     
   }
@@ -30,9 +31,15 @@ class ProfileViewController: UIViewController {
       profileView.profileCollectionView.delegate = self
     profileView.profileCollectionView.dataSource = self
        view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+    let signOutButton = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOutButtonPressed))
+    self.navigationItem.rightBarButtonItem = signOutButton
+    userSession = (UIApplication.shared.delegate as! AppDelegate).userSession
+    userSession.userSessionSignOutDelegate = self
     }
     
-
+  @objc func signOutButtonPressed(){
+  userSession.signOut()
+  }
     
 }
 extension ProfileViewController:UICollectionViewDelegateFlowLayout{
@@ -43,11 +50,25 @@ extension ProfileViewController:UICollectionViewDelegateFlowLayout{
 }
 extension ProfileViewController:UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 2
+    return 3
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = profileView.profileCollectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as? ProfileCollectionViewCell else {fatalError("No cell could be dequeue")}
     return cell
   }
+  
+}
+extension ProfileViewController: UserSessionSignOutDelegate{
+  func didReceiveSignOutError(_ userSession: UserSession, error: Error) {
+    showAlert(title: "Error", message: "There was an error signing out: \(error.localizedDescription)")
+  }
+  
+  func didSignOutUser(_userSession: UserSession) {
+    showAlert(title: "Sign Out Sucessful", message: "You were sucessfully signed out")
+    let window = (UIApplication.shared.delegate as! AppDelegate).window
+    let loginViewController = SignUpViewController()
+    window?.rootViewController = loginViewController
+  }
+  
   
 }

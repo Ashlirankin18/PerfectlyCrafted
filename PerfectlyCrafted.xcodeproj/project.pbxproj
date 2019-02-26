@@ -21,6 +21,9 @@
 		2E4A3EAE2208E77200988116 /* SignUpFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3EAD2208E77200988116 /* SignUpFormViewController.swift */; };
 		2E4A3EB02208E7A200988116 /* SignUpViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3EAF2208E7A200988116 /* SignUpViewForm.swift */; };
 		2E57C3CA220E506C00C89FFC /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E57C3C9220E506C00C89FFC /* CreateView.swift */; };
+		2E63590E2224A2CD0053BBD9 /* ProductDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E63590D2224A2CD0053BBD9 /* ProductDataManager.swift */; };
+		2E6359102224F8790053BBD9 /* AccountLoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E63590F2224F8790053BBD9 /* AccountLoginState.swift */; };
+		2E6359122224F8A30053BBD9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6359112224F8A30053BBD9 /* DatabaseManager.swift */; };
 		2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */; };
 		2E7946DF220CFABE00219B6A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946DE220CFABE00219B6A /* RatingViewController.swift */; };
 		2E7946E1220CFB8700219B6A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946E0220CFB8700219B6A /* RatingView.swift */; };
@@ -41,13 +44,12 @@
 		2EA365862209CC3D00FFDC5E /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 2EA365852209CC3D00FFDC5E /* TODO */; };
 		2EA365A8220A2F0400FFDC5E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365A7220A2F0400FFDC5E /* UserModel.swift */; };
 		2EA365AA220A300C00FFDC5E /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */; };
-		2EA365AF220A31D100FFDC5E /* UserPersistanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365AE220A31D100FFDC5E /* UserPersistanceHelper.swift */; };
 		2EA365B1220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */; };
 		2EA365B3220A59A900FFDC5E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */; };
 		2EA365B5220A59B900FFDC5E /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */; };
 		2EA365B7220A64E700FFDC5E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B6220A64E700FFDC5E /* LoginViewController.swift */; };
 		2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B8220A678200FFDC5E /* LoginView.swift */; };
-		2EA365BB220A760800FFDC5E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365BA220A760800FFDC5E /* CurrentUser.swift */; };
+		2EA365BB220A760800FFDC5E /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365BA220A760800FFDC5E /* UserSession.swift */; };
 		2EF32CDB221753F1006E2B1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EF32CDA221753F1006E2B1F /* GoogleService-Info.plist */; };
 		2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = 2EF32CDC22175881006E2B1F /* hairProducts.json */; };
 		7F85C178E33B0973E639D521 /* Pods_PerfectlyCrafted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E5E6A95569DFFB2B1E3660 /* Pods_PerfectlyCrafted.framework */; };
@@ -70,6 +72,9 @@
 		2E4A3EAD2208E77200988116 /* SignUpFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormViewController.swift; sourceTree = "<group>"; };
 		2E4A3EAF2208E7A200988116 /* SignUpViewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewForm.swift; sourceTree = "<group>"; };
 		2E57C3C9220E506C00C89FFC /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		2E63590D2224A2CD0053BBD9 /* ProductDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataManager.swift; sourceTree = "<group>"; };
+		2E63590F2224F8790053BBD9 /* AccountLoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginState.swift; sourceTree = "<group>"; };
+		2E6359112224F8A30053BBD9 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E7946DE220CFABE00219B6A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		2E7946E0220CFB8700219B6A /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
@@ -90,13 +95,12 @@
 		2EA365852209CC3D00FFDC5E /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		2EA365A7220A2F0400FFDC5E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
-		2EA365AE220A31D100FFDC5E /* UserPersistanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersistanceHelper.swift; sourceTree = "<group>"; };
 		2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectlyCraftedTabBarViewController.swift; sourceTree = "<group>"; };
 		2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
 		2EA365B6220A64E700FFDC5E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2EA365B8220A678200FFDC5E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		2EA365BA220A760800FFDC5E /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		2EA365BA220A760800FFDC5E /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		2EF32CDA221753F1006E2B1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2EF32CDC22175881006E2B1F /* hairProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hairProducts.json; sourceTree = "<group>"; };
 		A42CEA839D18BBDCFF244C5F /* Pods-PerfectlyCrafted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectlyCrafted.debug.xcconfig"; path = "Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 			children = (
 				2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */,
 				2EA365B6220A64E700FFDC5E /* LoginViewController.swift */,
+				2E63590F2224F8790053BBD9 /* AccountLoginState.swift */,
+				2E6359112224F8A30053BBD9 /* DatabaseManager.swift */,
 				2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */,
 				2E04A4B3221A76460066568E /* PopUpViewController.swift */,
 				2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */,
@@ -195,7 +201,7 @@
 			children = (
 				2E997F9D221B18AA00730ED7 /* HairProductModel.swift */,
 				2EA365A7220A2F0400FFDC5E /* UserModel.swift */,
-				2EA365BA220A760800FFDC5E /* CurrentUser.swift */,
+				2EA365BA220A760800FFDC5E /* UserSession.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,7 +216,7 @@
 				2E997F9B221B0FFD00730ED7 /* ImageCache.swift */,
 				2E997F95221B0E2800730ED7 /* NetworkHelper.swift */,
 				2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */,
-				2EA365AE220A31D100FFDC5E /* UserPersistanceHelper.swift */,
+				2E63590D2224A2CD0053BBD9 /* ProductDataManager.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -411,14 +417,16 @@
 				2E997FA8221B751300730ED7 /* OtherOptionsCell.swift in Sources */,
 				2EA365B5220A59B900FFDC5E /* FeedsViewController.swift in Sources */,
 				2E063E67220B5E9C00D85406 /* ProfileView.swift in Sources */,
+				2E6359102224F8790053BBD9 /* AccountLoginState.swift in Sources */,
 				2EA365B3220A59A900FFDC5E /* ProfileViewController.swift in Sources */,
 				2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */,
+				2E6359122224F8A30053BBD9 /* DatabaseManager.swift in Sources */,
 				2E997F9C221B0FFD00730ED7 /* ImageCache.swift in Sources */,
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,
-				2EA365AF220A31D100FFDC5E /* UserPersistanceHelper.swift in Sources */,
 				2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */,
 				2E4A3EAE2208E77200988116 /* SignUpFormViewController.swift in Sources */,
-				2EA365BB220A760800FFDC5E /* CurrentUser.swift in Sources */,
+				2EA365BB220A760800FFDC5E /* UserSession.swift in Sources */,
+				2E63590E2224A2CD0053BBD9 /* ProductDataManager.swift in Sources */,
 				2EA365AA220A300C00FFDC5E /* PersistanceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

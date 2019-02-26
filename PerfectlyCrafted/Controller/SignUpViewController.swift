@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SignUpViewController: UIViewController {
   
   let signUpView = SignUpView()
@@ -26,6 +27,6 @@ class SignUpViewController: UIViewController {
     
   }
   @objc private func presentLoginPage(){
-    self.present(PerfectlyCraftedTabBarViewController(), animated: true, completion: nil)
+    self.present(LoginViewController(), animated: true, completion: nil)
   }
 }

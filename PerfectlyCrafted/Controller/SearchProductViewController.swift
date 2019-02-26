@@ -9,23 +9,15 @@
 import UIKit
 
 class SearchProductViewController: UIViewController {
-  
   var allHairProducts = [AllHairProducts](){
     didSet{
       DispatchQueue.main.async {
+        self.navigationItem.title = "\(self.allHairProducts.count) Products"
         self.searchView.productsTableView.reloadData()
       }
     }
   }
   
-  init(allHairProducts:[AllHairProducts]){
-    super.init(nibName: nil, bundle: nil)
-    self.allHairProducts = allHairProducts.sorted{$0.results.name < $1.results.name}
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
   let searchView = SearchView()
   
   override func viewDidLoad() {
@@ -36,15 +28,20 @@ class SearchProductViewController: UIViewController {
     searchView.productsTableView.delegate = self
     searchView.productSearchBar.delegate = self
   }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    self.allHairProducts = ProductDataManager.getProducts().sorted{$0.results.name < $1.results.name}
+  }
   
   func setNavigationItems(){
     self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonPressed))
-    self.navigationItem.title = "\(allHairProducts.count) Products"
+  
   }
   
   @objc private func backButtonPressed(){
     self.dismiss(animated: true, completion: nil)
   }
+  
   private func setImage(imageView:UIImageView,urlString:String){
     if let image = ImageCache.shared.fetchImageFromCache(urlString: urlString){
       imageView.image = image
@@ -61,18 +58,8 @@ class SearchProductViewController: UIViewController {
       }
     }
   }
-  func getAllHairProducts(){
-    HairProductApiClient.getHairProducts { (error, allHairProducts) in
-      if let error = error{
-        print(error)
-      }
-      if allHairProducts != nil{
-        self.allHairProducts = allHairProducts!.sorted{$0.results.name < $1.results.name}
-      }
-    }
-  }
 }
-extension SearchProductViewController:UITableViewDataSource{
+  extension SearchProductViewController:UITableViewDataSource{
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return allHairProducts.count
   }
@@ -84,11 +71,12 @@ extension SearchProductViewController:UITableViewDataSource{
     cell.categoryLabel.text = hairProduct.results.category
     setImage(imageView: cell.productImage, urlString: urlString)
     return cell
-  }
+    }
+    
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let productController = ShowProductViewController.init(hairProduct: allHairProducts[indexPath.row], view: HairProductView())
+      
     self.navigationController?.pushViewController(productController, animated: true)
-    
     
   }
 }
@@ -105,12 +93,14 @@ extension SearchProductViewController:UISearchBarDelegate{
     }
     
     if searchText.isEmpty {
-      getAllHairProducts()
+      allHairProducts = ProductDataManager.getProducts()
     } else {
       let anArray = allHairProducts.filter({$0.results.name.contains(searchText.capitalized)})
-      allHairProducts = anArray
-   
+      allHairProducts = anArray.sorted{$0.results.name < $1.results.name}
+    self.navigationItem.title = "\(allHairProducts.count) Products"
     }
   }
 }
+
+
 

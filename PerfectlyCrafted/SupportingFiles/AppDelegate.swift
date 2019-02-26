@@ -12,14 +12,23 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  var userSession: UserSession?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     FirebaseApp.configure()
-    window = UIWindow.init(frame: UIScreen.main.bounds)
-    let signUpViewController = SignUpViewController()
-    window?.rootViewController = signUpViewController
-    window?.makeKeyAndVisible()
+    userSession = UserSession()
+    if let _ = userSession?.getCurrentUser(){
+      window = UIWindow.init(frame: UIScreen.main.bounds)
+      let loginViewController = PerfectlyCraftedTabBarViewController()
+      window?.rootViewController = loginViewController
+      window?.makeKeyAndVisible()
+    }else{
+      window = UIWindow.init(frame: UIScreen.main.bounds)
+      let signUpViewController = SignUpViewController()
+      window?.rootViewController = signUpViewController
+      window?.makeKeyAndVisible()
+    }
+   
     return true
   }
 

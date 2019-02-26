@@ -37,16 +37,7 @@ class PopUpView: UIView {
     label.text = "Add from Gallery"
     return label
   }()
-  lazy var searchForProductButton:UIButton = {
-    let button = UIButton()
-    button.setImage(#imageLiteral(resourceName: "icons8-search-25"), for: .normal)
-    return button
-  }()
-  lazy var searchForProductLabel:UILabel = {
-    let label = UILabel()
-    label.text = "Search For Product"
-    return label
-  }()
+  
   override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)
     commonInit()
@@ -81,8 +72,7 @@ extension PopUpView {
     setUpTakeFromcameraLabelConstraints()
     setUpAddFromGalleryButtonConstraints()
     setUpAddFromGalleryLabelConstraints()
-    setUpSearchButtonConstraints()
-    setUpSearchLabelConstraints()
+   
   }
   func setUpTakeFromcameraButtonConstraints(){
     addSubview(addFromCameraButton)
@@ -115,20 +105,6 @@ extension PopUpView {
     NSLayoutConstraint(item: addFromGalleryLabel, attribute: .leading, relatedBy: .equal, toItem: popUpView, attribute: .leading, multiplier: 1.4, constant: 0).isActive = true
     NSLayoutConstraint(item: addFromGalleryLabel, attribute: .height, relatedBy: .equal, toItem: addFromGalleryLabel, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
   }
-  func setUpSearchButtonConstraints(){
-    addSubview(searchForProductButton)
-    searchForProductButton.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint(item: searchForProductButton, attribute: .top, relatedBy: .equal, toItem: addFromGalleryButton, attribute: .top, multiplier: 1.2 , constant: 0).isActive = true
-    NSLayoutConstraint(item: searchForProductButton, attribute: .trailing, relatedBy: .equal, toItem: popUpView, attribute: .trailing, multiplier: 0.9 , constant: 0).isActive = true
-    NSLayoutConstraint(item: searchForProductButton, attribute: .height, relatedBy: .equal, toItem: searchForProductButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-  }
-  func setUpSearchLabelConstraints(){
-    addSubview(searchForProductLabel)
-   searchForProductLabel.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint(item: searchForProductLabel, attribute: .top, relatedBy: .equal, toItem: addFromGalleryLabel, attribute: .top, multiplier: 1.2, constant: 0).isActive = true
-    NSLayoutConstraint(item: searchForProductLabel, attribute: .trailing, relatedBy: .equal, toItem: searchForProductButton, attribute: .leading, multiplier: 0.9, constant: 0).isActive = true
-    NSLayoutConstraint(item: searchForProductLabel, attribute: .leading, relatedBy: .equal, toItem: popUpView, attribute: .leading, multiplier: 1.4, constant: 0).isActive = true
-    NSLayoutConstraint(item: searchForProductLabel, attribute: .height, relatedBy: .equal, toItem: searchForProductLabel, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-  }
+  
   
 }

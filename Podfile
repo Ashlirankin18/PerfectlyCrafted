@@ -7,6 +7,7 @@ target 'PerfectlyCrafted' do
 
   # Pods for PerfectlyCrafted
 pod 'Firebase/Core'
+pod 'Firebase/Auth'
 pod 'Firebase/MLVision'
 pod 'Firebase/MLVisionBarcodeModel'
 end
