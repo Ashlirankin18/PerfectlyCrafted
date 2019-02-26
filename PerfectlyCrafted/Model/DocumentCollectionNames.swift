@@ -1,5 +1,5 @@
 //
-//  DatabaseManager.swift
+//  DocumentCollectionNames.swift
 //  PerfectlyCrafted
 //
 //  Created by Ashli Rankin on 2/25/19.
@@ -7,3 +7,4 @@
 //
 
 import Foundation
+

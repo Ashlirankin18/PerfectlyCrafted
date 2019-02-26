@@ -10,4 +10,5 @@ pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/MLVision'
 pod 'Firebase/MLVisionBarcodeModel'
+pod 'Firebase/Firestore'
 end

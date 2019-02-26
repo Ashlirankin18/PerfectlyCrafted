@@ -24,6 +24,7 @@
 		2E63590E2224A2CD0053BBD9 /* ProductDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E63590D2224A2CD0053BBD9 /* ProductDataManager.swift */; };
 		2E6359102224F8790053BBD9 /* AccountLoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E63590F2224F8790053BBD9 /* AccountLoginState.swift */; };
 		2E6359122224F8A30053BBD9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6359112224F8A30053BBD9 /* DatabaseManager.swift */; };
+		2E6359142224FD3D0053BBD9 /* DocumentCollectionNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6359132224FD3D0053BBD9 /* DocumentCollectionNames.swift */; };
 		2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */; };
 		2E7946DF220CFABE00219B6A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946DE220CFABE00219B6A /* RatingViewController.swift */; };
 		2E7946E1220CFB8700219B6A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946E0220CFB8700219B6A /* RatingView.swift */; };
@@ -75,6 +76,7 @@
 		2E63590D2224A2CD0053BBD9 /* ProductDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataManager.swift; sourceTree = "<group>"; };
 		2E63590F2224F8790053BBD9 /* AccountLoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginState.swift; sourceTree = "<group>"; };
 		2E6359112224F8A30053BBD9 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		2E6359132224FD3D0053BBD9 /* DocumentCollectionNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionNames.swift; sourceTree = "<group>"; };
 		2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E7946DE220CFABE00219B6A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		2E7946E0220CFB8700219B6A /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
@@ -142,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				2EA365852209CC3D00FFDC5E /* TODO */,
-				2EBA690C22168718009FD8D1 /* ProductJsonFiles */,
 				2EA365AB220A301400FFDC5E /* Model */,
 				2E4A3EB12208E7B100988116 /* Views */,
 				2E4A3EA82208D37B00988116 /* Controller */,
@@ -160,7 +161,6 @@
 				2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */,
 				2EA365B6220A64E700FFDC5E /* LoginViewController.swift */,
 				2E63590F2224F8790053BBD9 /* AccountLoginState.swift */,
-				2E6359112224F8A30053BBD9 /* DatabaseManager.swift */,
 				2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */,
 				2E04A4B3221A76460066568E /* PopUpViewController.swift */,
 				2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */,
@@ -202,6 +202,7 @@
 				2E997F9D221B18AA00730ED7 /* HairProductModel.swift */,
 				2EA365A7220A2F0400FFDC5E /* UserModel.swift */,
 				2EA365BA220A760800FFDC5E /* UserSession.swift */,
+				2E6359132224FD3D0053BBD9 /* DocumentCollectionNames.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +210,7 @@
 		2EA365AC220A302200FFDC5E /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
+				2E6359112224F8A30053BBD9 /* DatabaseManager.swift */,
 				2E997F99221B0FCF00730ED7 /* AppError.swift */,
 				2E997F97221B0E4700730ED7 /* Extension+Alerts.swift */,
 				2E997FA9221B99A300730ED7 /* DateExtension.swift */,
@@ -230,13 +232,6 @@
 				2EF32CDC22175881006E2B1F /* hairProducts.json */,
 			);
 			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		2EBA690C22168718009FD8D1 /* ProductJsonFiles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ProductJsonFiles;
 			sourceTree = "<group>";
 		};
 		59E3D6A9E1C5CBD750C6D823 /* Pods */ = {
@@ -268,6 +263,7 @@
 				2E4A3E8C2208D2C800988116 /* Frameworks */,
 				2E4A3E8D2208D2C800988116 /* Resources */,
 				C807F39D20597F0FFA5A4116 /* [CP] Embed Pods Frameworks */,
+				892FA522F6517A3D1EF0E3F5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -349,6 +345,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		892FA522F6517A3D1EF0E3F5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C807F39D20597F0FFA5A4116 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -358,22 +376,30 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +421,7 @@
 				2E997F9A221B0FCF00730ED7 /* AppError.swift in Sources */,
 				2E04A4B6221A76620066568E /* PopUpView.swift in Sources */,
 				2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */,
+				2E6359142224FD3D0053BBD9 /* DocumentCollectionNames.swift in Sources */,
 				2E984788221D575800204A42 /* SearchProductViewController.swift in Sources */,
 				2E4A3EAC2208D5D900988116 /* SignUpView.swift in Sources */,
 				2E997F9E221B18AA00730ED7 /* HairProductModel.swift in Sources */,
