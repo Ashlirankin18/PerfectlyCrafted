@@ -51,10 +51,14 @@ final class DataBaseManager {
   }
   static func postProductToDatabase(product:ProductModel,user:User){
     var ref: DocumentReference? = nil
+
     ref = firebaseDB.collection(FirebaseCollectionKeys.products).addDocument(data: ["productName" : product.productName,
                                                                                     "productDescription":product.productDescription,
                                                                                     
-                                                            "userId": user.uid ], completion: { (error) in
+                                                            "userId": user.uid ,
+                                                            "productImageString":product.productImage,
+                                                            "category":product.category],
+      completion: { (error) in
                                                                                       if let error = error{
                                                                                         print("There was an error adding the product: \(error)")
                                                                                       }else{

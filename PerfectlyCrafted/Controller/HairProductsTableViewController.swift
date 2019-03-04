@@ -7,10 +7,10 @@
 //
 
 import UIKit
-
 class HairProductsTableViewController: UITableViewController {
 
   @IBOutlet weak var backButton: UIBarButtonItem!
+
   override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,12 +29,7 @@ class HairProductsTableViewController: UITableViewController {
         return 3
     }
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if indexPath.row == 0 {
-      let popUpViewController = PopUpViewController()
-      popUpViewController.modalTransitionStyle = .coverVertical
-      popUpViewController.modalPresentationStyle = .overCurrentContext
-      self.present(popUpViewController, animated: true)
-    }
+    
   }
 
 }

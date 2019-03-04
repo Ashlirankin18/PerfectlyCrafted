@@ -47,14 +47,31 @@ class ProfileViewController: UIViewController {
   userSession.signOut()
     
   }
-  
+  private func getProfileImage(imageView:UIButton,imageUrl:String){
+    if let image = ImageCache.shared.fetchImageFromCache(urlString: imageUrl){
+      DispatchQueue.main.async {
+        imageView.setImage(image, for: .normal)
+      }
+    }else{
+      ImageCache.shared.fetchImageFromNetwork(urlString: imageUrl) { (error, image) in
+        if let error = error{
+          print(error.errorMessage())
+        }
+        else if let image = image {
+          DispatchQueue.main.async {
+            imageView.setImage(image, for: .normal)
+          }
+        }
+      }
+    }
+    
+  }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-//     setUserProfile()
+
   }
   
   private func setUserProfile(){
-//    if let user = userSession.getUserModel()
     if let user = userSession.getCurrentUser(){
     
       let documentRef = DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document(user.uid)
@@ -63,12 +80,11 @@ class ProfileViewController: UIViewController {
           print(error.localizedDescription)
         }
         else if let document = document, document.exists {
-          
           let userData = document.data()
           self.profileView.userName.text = userData!["userName"] as? String
           self.profileView.hairType.text = userData!["hairType"] as? String
           self.profileView.aboutMeTextView.text = userData!["bio"] as? String
-          
+          self.getProfileImage(imageView: self.profileView.profileImage, imageUrl: user.photoURL?.absoluteString ?? "no url found")
         }else{
           print("no user found")
         }

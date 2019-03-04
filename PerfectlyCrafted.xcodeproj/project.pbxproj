@@ -40,7 +40,6 @@
 		2E997FA8221B751300730ED7 /* OtherOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997FA7221B751300730ED7 /* OtherOptionsCell.swift */; };
 		2E997FAA221B99A300730ED7 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997FA9221B99A300730ED7 /* DateExtension.swift */; };
 		2E997FAC221BB5BE00730ED7 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E997FAB221BB5BE00730ED7 /* ProductCell.swift */; };
-		2EA365862209CC3D00FFDC5E /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 2EA365852209CC3D00FFDC5E /* TODO */; };
 		2EA365A8220A2F0400FFDC5E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365A7220A2F0400FFDC5E /* UserModel.swift */; };
 		2EA365AA220A300C00FFDC5E /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */; };
 		2EA365B1220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */; };
@@ -98,7 +97,6 @@
 		2E997FA7221B751300730ED7 /* OtherOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherOptionsCell.swift; sourceTree = "<group>"; };
 		2E997FA9221B99A300730ED7 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2E997FAB221BB5BE00730ED7 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
-		2EA365852209CC3D00FFDC5E /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		2EA365A7220A2F0400FFDC5E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectlyCraftedTabBarViewController.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
-				2EA365852209CC3D00FFDC5E /* TODO */,
 				2EA365AB220A301400FFDC5E /* Model */,
 				2E4A3EB12208E7B100988116 /* Views */,
 				2E4A3EA82208D37B00988116 /* Controller */,
@@ -346,7 +343,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EA365862209CC3D00FFDC5E /* TODO in Resources */,
 				2EED896722284C9E00ADDEBD /* ProfileOptions.storyboard in Resources */,
 				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
 				2EF32CDB221753F1006E2B1F /* GoogleService-Info.plist in Resources */,

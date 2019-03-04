@@ -13,4 +13,6 @@ struct ProductModel:Codable {
   let productId: String
   let productDescription: String
   var userId:String
+  let productImage: String
+  let category: String
 }

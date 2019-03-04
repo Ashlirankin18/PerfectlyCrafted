@@ -14,7 +14,8 @@ class ShowProductViewController: UIViewController {
   private var HairProductView: HairProductView!
   private var productImage = UIImage()
   private var userSession: UserSession!
-
+  private var storageManager: StorageManager!
+  
   init(hairProduct:AllHairProducts,view:HairProductView){
     super.init(nibName: nil, bundle: nil)
     self.hairProduct = hairProduct
@@ -37,7 +38,6 @@ class ShowProductViewController: UIViewController {
       HairProductView.productCollectionView.delegate = self
        HairProductView.productCollectionView.dataSource = self
      setUpButtons()
-      
     }
   private func setUpButtons(){
     let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissPressed))
@@ -51,11 +51,12 @@ class ShowProductViewController: UIViewController {
     dismiss(animated: true, completion: nil)
   }
   @objc private func addButtonPressed(){
-    guard let user = userSession.getCurrentUser() else {return}
     let theCurrentHairProduct = hairProduct.results
-    let product = ProductModel.init(productName: theCurrentHairProduct.name, productId: "", productDescription: theCurrentHairProduct.description, userId: user.uid)
+    guard let user = userSession.getCurrentUser(), let imageUrl =  theCurrentHairProduct.images.first?.absoluteString else {return}
+    let category = theCurrentHairProduct.category
+    let product = ProductModel.init(productName: theCurrentHairProduct.name, productId: "", productDescription: theCurrentHairProduct.description, userId: user.uid, productImage: imageUrl, category: category)
     DataBaseManager.postProductToDatabase(product: product, user: user)
-    
+    dismiss(animated: true)
   }
   
   func getProductImage(imageView:UIImageView,urlString:String){

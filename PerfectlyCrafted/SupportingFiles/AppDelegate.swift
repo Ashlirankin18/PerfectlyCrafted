@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var storageManager: StorageManager!
   var theLocalUser: UserModel?
   static var theUser = (UIApplication.shared.delegate as? AppDelegate)?.userSession
+  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     FirebaseApp.configure()
     userSession = UserSession()

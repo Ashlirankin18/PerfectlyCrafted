@@ -23,11 +23,12 @@ class SetProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       view.addSubview(setUpProfileView)
+       userSession = AppDelegate.theUser
       setUpButtonAction()
     }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-    userSession = AppDelegate.theUser
+   
     setUpImagePickerController()
     storageManager = (UIApplication.shared.delegate as! AppDelegate).storageManager
     storageManager.delegate = self
@@ -65,7 +66,6 @@ class SetProfileViewController: UIViewController {
   
     userSession.updateExistingUser(imageURL: imageURL, userName: userName, hairType: hairType, bio: bio)
      
-      
    let tabbarController = PerfectlyCraftedTabBarViewController()
     tabbarController.selectedViewController = tabbarController.viewControllers?[2]
     self.present(tabbarController, animated: true, completion: nil)
