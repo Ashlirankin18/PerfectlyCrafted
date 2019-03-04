@@ -16,13 +16,20 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       self.view.addSubview(loginView)
-      loginView.userNameEmail.delegate = self
-      loginView.passwordTextField.delegate = self
-      userSession = (UIApplication.shared.delegate as! AppDelegate).userSession
-      userSession.userSignInDelegate = self
-     loginView.loginButton.addTarget(self, action: #selector(presentMainPage), for: .touchUpInside)
-      loginView.cancelButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+      setUpdelegates()
+      setUpNavBarButtons()
     }
+  private func setUpdelegates(){
+    loginView.userNameEmail.delegate = self
+    loginView.passwordTextField.delegate = self
+    userSession = AppDelegate.theUser
+    userSession.userSignInDelegate = self
+    
+  }
+  private func setUpNavBarButtons(){
+    loginView.loginButton.addTarget(self, action: #selector(presentMainPage), for: .touchUpInside)
+    loginView.cancelButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+  }
  @objc func presentMainPage(){
     guard let email = loginView.userNameEmail.text,
     let password = loginView.passwordTextField.text,

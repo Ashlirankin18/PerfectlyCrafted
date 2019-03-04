@@ -13,10 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
   var userSession: UserSession?
-
+  var storageManager: StorageManager!
+  var theLocalUser: UserModel?
+  static var theUser = (UIApplication.shared.delegate as? AppDelegate)?.userSession
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     FirebaseApp.configure()
     userSession = UserSession()
+     storageManager = StorageManager()
     if let _ = userSession?.getCurrentUser(){
       window = UIWindow.init(frame: UIScreen.main.bounds)
       let loginViewController = PerfectlyCraftedTabBarViewController()

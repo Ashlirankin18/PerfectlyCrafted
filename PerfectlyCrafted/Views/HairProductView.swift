@@ -12,7 +12,7 @@ class HairProductView: UIView {
   lazy var backgroundImage:UIImageView = {
     let imageView = UIImageView()
     
-    imageView.image = #imageLiteral(resourceName: "TacklingWashDay_L")
+    imageView.image = #imageLiteral(resourceName: "accessories-afro-beautiful-935985")
     return imageView
   }()
   lazy var productDisplayView:UIView = {

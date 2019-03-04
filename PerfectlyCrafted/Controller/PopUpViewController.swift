@@ -20,25 +20,25 @@ class PopUpViewController: UIViewController {
       allHairProducts.sort{$0.results.name < $1.results.name}
     }
   }
-//  init(allHairProducts:[AllHairProducts]){
-//    super.init(nibName: nil, bundle: nil)
-//    self.allHairProducts = allHairProducts
-//  }
-//  
-//  required init?(coder aDecoder: NSCoder) {
-//   super.init(coder: aDecoder)
-//  }
-//  
+ var tapGesture: UITapGestureRecognizer!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.addSubview(popUpView)
-    view.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+    view.backgroundColor = .clear
     setUpPresentationStyle()
     setUpImagePickerController()
     self.barcodeDetector = vision.barcodeDetector()
     addingActionsToButtons()
+    setUpTapGesture()
   }
-  
+  func setUpTapGesture(){
+    tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopUp))
+    self.view.addGestureRecognizer(tapGesture)
+  }
+  @objc func dismissPopUp(){
+    self.dismiss(animated: true)
+  }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     self.allHairProducts = ProductDataManager.getProducts()

@@ -16,7 +16,6 @@ class SignUpViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.addSubview(signUpView)
-    self.view.backgroundColor = #colorLiteral(red: 0.6722700215, green: 1, blue: 0.6019102933, alpha: 1)
     signUpView.signUpButton.addTarget(self, action: #selector(presentMainPage), for: .touchUpInside)
     signUpView.loginButton.addTarget(self, action: #selector(presentLoginPage), for: .touchUpInside)
     
