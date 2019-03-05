@@ -85,8 +85,6 @@ class ProfileViewController: UIViewController {
           self.profileView.hairType.text = userData!["hairType"] as? String
           self.profileView.aboutMeTextView.text = userData!["bio"] as? String
           self.getProfileImage(imageView: self.profileView.profileImage, imageUrl: user.photoURL?.absoluteString ?? "no url found")
-        }else{
-          print("no user found")
         }
       }
     }else{

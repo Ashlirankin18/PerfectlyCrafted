@@ -56,7 +56,7 @@ final class DataBaseManager {
                                                                                     "productDescription":product.productDescription,
                                                                                     
                                                             "userId": user.uid ,
-                                                            "productImageString":product.productImage,
+                                                            "productImage":product.productImage,
                                                             "category":product.category],
       completion: { (error) in
                                                                                       if let error = error{
@@ -72,6 +72,29 @@ final class DataBaseManager {
                                                                                         })
                                                                                         
                                                                                       }
+    })
+  }
+  static public func postFeedTo(feed:FeedModel,user:UserModel){
+    var ref: DocumentReference? = nil
+    ref = firebaseDB.collection(FirebaseCollectionKeys.feed).addDocument(data: ["feedId": feed.feedId,
+                                                                                "productId": feed.productId!,
+                                                                                "user": user,
+                                                                                "caption": feed.caption,
+                                                                                "imageUrl": feed.imageURL], completion: { (error) in
+      if let error = error{
+        print("the error was: \(error)")
+      }
+      else{
+        print("the product post created: \(ref?.documentID ?? "no id found")")
+        DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.feed).document(ref!.documentID).updateData(["feedId":ref!.documentID], completion: { (error) in
+          if let error = error{
+            print("there was an error: \(error)")
+          }
+          else{
+            print("feed was updated")
+          }
+        })
+      }
     })
   }
 }

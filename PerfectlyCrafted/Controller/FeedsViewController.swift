@@ -35,6 +35,7 @@ extension FeedsViewController:UICollectionViewDataSource{
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
   guard let cell = feedsView.feedsCollectionView.dequeueReusableCell(withReuseIdentifier: "FeedsCell", for: indexPath) as? FeedsCollectionViewCell else {fatalError("No feed cell was found")}
+    
       return cell
     
   }

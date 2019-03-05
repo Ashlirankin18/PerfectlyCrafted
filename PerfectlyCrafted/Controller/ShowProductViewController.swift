@@ -54,8 +54,20 @@ class ShowProductViewController: UIViewController {
     let theCurrentHairProduct = hairProduct.results
     guard let user = userSession.getCurrentUser(), let imageUrl =  theCurrentHairProduct.images.first?.absoluteString else {return}
     let category = theCurrentHairProduct.category
-    let product = ProductModel.init(productName: theCurrentHairProduct.name, productId: "", productDescription: theCurrentHairProduct.description, userId: user.uid, productImage: imageUrl, category: category)
-    DataBaseManager.postProductToDatabase(product: product, user: user)
+    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.products).whereField("productName", isEqualTo: theCurrentHairProduct.name).getDocuments { (snapshot, error) in
+      if let error = error{
+        print(error.localizedDescription)
+      }
+      else if let snapshot = snapshot{
+        if snapshot.documents.count == 0 {
+          let product = ProductModel.init(productName: theCurrentHairProduct.name, productId: "", productDescription: theCurrentHairProduct.description, userId: user.uid, productImage: imageUrl, category: category)
+          DataBaseManager.postProductToDatabase(product: product, user: user)
+        }else{
+          self.showAlert(title: "Duplicate Item", message: "You already have this item in your collection")
+        }
+      }
+    }
+    
     dismiss(animated: true)
   }
   

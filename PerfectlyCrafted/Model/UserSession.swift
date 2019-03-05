@@ -101,5 +101,9 @@ class UserSession {
       }
     }
   }
+  public func deleteProduct(){
+    guard let user = getCurrentUser() else {return}
+    
+  }
   
 }

@@ -53,6 +53,10 @@
 		2EB2A1A52227077800525BD4 /* FirebaseCollectionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */; };
 		2EB2A1A722272CC300525BD4 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1A622272CC300525BD4 /* StorageManager.swift */; };
 		2EB2A1A922272DEF00525BD4 /* StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1A822272DEF00525BD4 /* StorageKeys.swift */; };
+		2EDB0E4B222DC230006DB8EE /* HairTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB0E4A222DC230006DB8EE /* HairTableViewCell.swift */; };
+		2EDB0E4D222DC49C006DB8EE /* ImageViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB0E4C222DC49C006DB8EE /* ImageViewControllerExtension.swift */; };
+		2EDB0E4F222E1014006DB8EE /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB0E4E222E1014006DB8EE /* FeedModel.swift */; };
+		2EDB0E51222E1FCB006DB8EE /* PostFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB0E50222E1FCB006DB8EE /* PostFeedViewController.swift */; };
 		2EED896722284C9E00ADDEBD /* ProfileOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED896622284C9E00ADDEBD /* ProfileOptions.storyboard */; };
 		2EED896922284DED00ADDEBD /* HairProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED896822284DED00ADDEBD /* HairProductsTableViewController.swift */; };
 		2EED896D2229993700ADDEBD /* FirebaseProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED896C2229993700ADDEBD /* FirebaseProductModel.swift */; };
@@ -110,6 +114,10 @@
 		2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollectionKeys.swift; sourceTree = "<group>"; };
 		2EB2A1A622272CC300525BD4 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2EB2A1A822272DEF00525BD4 /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
+		2EDB0E4A222DC230006DB8EE /* HairTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairTableViewCell.swift; sourceTree = "<group>"; };
+		2EDB0E4C222DC49C006DB8EE /* ImageViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewControllerExtension.swift; sourceTree = "<group>"; };
+		2EDB0E4E222E1014006DB8EE /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		2EDB0E50222E1FCB006DB8EE /* PostFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFeedViewController.swift; sourceTree = "<group>"; };
 		2EED896622284C9E00ADDEBD /* ProfileOptions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileOptions.storyboard; sourceTree = "<group>"; };
 		2EED896822284DED00ADDEBD /* HairProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairProductsTableViewController.swift; sourceTree = "<group>"; };
 		2EED896C2229993700ADDEBD /* FirebaseProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProductModel.swift; sourceTree = "<group>"; };
@@ -169,6 +177,7 @@
 		2E4A3EA82208D37B00988116 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2EDB0E50222E1FCB006DB8EE /* PostFeedViewController.swift */,
 				2EED896822284DED00ADDEBD /* HairProductsTableViewController.swift */,
 				2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */,
 				2EA365B6220A64E700FFDC5E /* LoginViewController.swift */,
@@ -188,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				2EED896622284C9E00ADDEBD /* ProfileOptions.storyboard */,
+				2EDB0E4A222DC230006DB8EE /* HairTableViewCell.swift */,
 				2EB2A1812225B29700525BD4 /* SetUpProfileView.swift */,
 				2E063E6C220B77C500D85406 /* FeedsView.swift */,
 				2E997FA1221B200D00730ED7 /* HairProductView.swift */,
@@ -212,6 +222,7 @@
 				2E997F9D221B18AA00730ED7 /* HairProductModel.swift */,
 				2EED896C2229993700ADDEBD /* FirebaseProductModel.swift */,
 				2EA365A7220A2F0400FFDC5E /* UserModel.swift */,
+				2EDB0E4E222E1014006DB8EE /* FeedModel.swift */,
 				2EA365BA220A760800FFDC5E /* UserSession.swift */,
 			);
 			path = Model;
@@ -220,6 +231,7 @@
 		2EA365AC220A302200FFDC5E /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
+				2EDB0E4C222DC49C006DB8EE /* ImageViewControllerExtension.swift */,
 				2E997F99221B0FCF00730ED7 /* AppError.swift */,
 				2E997F97221B0E4700730ED7 /* Extension+Alerts.swift */,
 				2E997FA9221B99A300730ED7 /* DateExtension.swift */,
@@ -449,6 +461,7 @@
 				2E997F96221B0E2800730ED7 /* NetworkHelper.swift in Sources */,
 				2E997FAA221B99A300730ED7 /* DateExtension.swift in Sources */,
 				2EA365B7220A64E700FFDC5E /* LoginViewController.swift in Sources */,
+				2EDB0E51222E1FCB006DB8EE /* PostFeedViewController.swift in Sources */,
 				2E997F9A221B0FCF00730ED7 /* AppError.swift in Sources */,
 				2E04A4B6221A76620066568E /* PopUpView.swift in Sources */,
 				2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */,
@@ -457,11 +470,13 @@
 				2E997F9E221B18AA00730ED7 /* HairProductModel.swift in Sources */,
 				2E063E69220B629A00D85406 /* ProfileCollectionViewCell.swift in Sources */,
 				2EA365A8220A2F0400FFDC5E /* UserModel.swift in Sources */,
+				2EDB0E4D222DC49C006DB8EE /* ImageViewControllerExtension.swift in Sources */,
 				2E997FA2221B200D00730ED7 /* HairProductView.swift in Sources */,
 				2E4A3EA72208D37500988116 /* SignUpViewController.swift in Sources */,
 				2E997FAC221BB5BE00730ED7 /* ProductCell.swift in Sources */,
 				2EB2A1822225B29700525BD4 /* SetUpProfileView.swift in Sources */,
 				2E7946DF220CFABE00219B6A /* RatingViewController.swift in Sources */,
+				2EDB0E4F222E1014006DB8EE /* FeedModel.swift in Sources */,
 				2EA365B1220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2E997FA0221B1EFD00730ED7 /* ShowProductViewController.swift in Sources */,
 				2EED896922284DED00ADDEBD /* HairProductsTableViewController.swift in Sources */,
@@ -483,6 +498,7 @@
 				2EA365B3220A59A900FFDC5E /* ProfileViewController.swift in Sources */,
 				2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */,
 				2EB2A1A722272CC300525BD4 /* StorageManager.swift in Sources */,
+				2EDB0E4B222DC230006DB8EE /* HairTableViewCell.swift in Sources */,
 				2E6359122224F8A30053BBD9 /* DatabaseManager.swift in Sources */,
 				2E997F9C221B0FFD00730ED7 /* ImageCache.swift in Sources */,
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import Foundation
 struct FirebaseCollectionKeys {
- static let users = "users"
-static let products = "products"
+  static let users = "users"
+  static let products = "products"
+  static let feed = "feed"
 }
