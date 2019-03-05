@@ -23,7 +23,6 @@ class SearchProductViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.addSubview(searchView)
-    setNavigationItems()
     searchView.productsTableView.dataSource = self
     searchView.productsTableView.delegate = self
     searchView.productSearchBar.delegate = self
@@ -31,15 +30,6 @@ class SearchProductViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     self.allHairProducts = ProductDataManager.getProducts().sorted{$0.results.name < $1.results.name}
-  }
-  
-  func setNavigationItems(){
-    self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonPressed))
-  
-  }
-  
-  @objc private func backButtonPressed(){
-    self.dismiss(animated: true, completion: nil)
   }
   
   private func setImage(imageView:UIImageView,urlString:String){
@@ -75,8 +65,9 @@ class SearchProductViewController: UIViewController {
     
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let productController = ShowProductViewController.init(hairProduct: allHairProducts[indexPath.row], view: HairProductView())
-      
-    self.navigationController?.pushViewController(productController, animated: true)
+    let navigationController = UINavigationController(rootViewController: productController)
+    
+    self.present(navigationController, animated: true, completion: nil)
     
   }
 }

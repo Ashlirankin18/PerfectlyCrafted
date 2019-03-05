@@ -28,11 +28,11 @@ class SignUpViewForm: UIView {
     textField.isSecureTextEntry = true
     return textField
   }()
-  lazy var passwordLabel:UILabel = {
+  lazy var emailLabel:UILabel = {
     let label = UILabel()
     label.backgroundColor = .clear
     label.textColor = .white
-    label.text = "Password"
+    label.text = "Email"
     label.textAlignment = .center
     return label
   }()
@@ -45,10 +45,10 @@ class SignUpViewForm: UIView {
     return textField
   }()
   
-  lazy var emailLabel:UILabel = {
+  lazy var passwordLabel:UILabel = {
     let label = UILabel()
     label.backgroundColor = .clear
-    label.text = "Email"
+    label.text = "Password"
     label.textAlignment = .center
     label.textColor = .white
     
@@ -98,27 +98,27 @@ extension SignUpViewForm{
     setUpImageViewConstraints()
     setUpTitleLabel()
     setUpCancelButton()
-    setUpPasswordTextField()
-    setUpEmailTextfield()
-    setSetUpPasswordLabel()
-    setUpEmailLabel()
+    setUpEmailTextField()
+    setUpPasswordTextfield()
+    setSetUpEmailLabel()
+    setUpPasswordLabel()
     setUpSignUpButton()
   }
   
-  func setUpPasswordTextField(){
-    addSubview(passwordTextField)
-    passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.init(item: passwordTextField, attribute: .top, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .top, multiplier: 1.0, constant: 40.0).isActive = true
-  NSLayoutConstraint.init(item: passwordTextField, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 140).isActive = true
-  NSLayoutConstraint.init(item: passwordTextField, attribute: .trailing, relatedBy: .equal, toItem: backgroundImageView, attribute: .trailing, multiplier: 1.0, constant: -20).isActive = true
+  func setUpEmailTextField(){
+    addSubview(emailTextField)
+emailTextField.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.init(item: emailTextField, attribute: .centerY, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .centerY, multiplier: 1.0, constant: -40).isActive = true
+  NSLayoutConstraint.init(item: emailTextField, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 140).isActive = true
+  NSLayoutConstraint.init(item: emailTextField, attribute: .trailing, relatedBy: .equal, toItem: backgroundImageView, attribute: .trailing, multiplier: 1.0, constant: -20).isActive = true
     
   }
-  func setUpEmailTextfield(){
-    addSubview(emailTextField)
-    emailTextField.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.init(item: emailTextField, attribute: .top, relatedBy: .equal, toItem: passwordTextField, attribute: .bottom, multiplier: 1.0, constant: 40).isActive = true
-    NSLayoutConstraint.init(item: emailTextField, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 140).isActive = true
-    NSLayoutConstraint.init(item: emailTextField, attribute: .trailing, relatedBy: .equal, toItem: backgroundImageView, attribute: .trailing, multiplier: 1.0, constant: -20).isActive = true
+  func setUpPasswordTextfield(){
+    addSubview(passwordTextField)
+    passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.init(item: passwordTextField, attribute: .top, relatedBy: .equal, toItem: emailTextField, attribute: .bottom, multiplier: 1.0, constant: 40).isActive = true
+    NSLayoutConstraint.init(item: passwordTextField, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 140).isActive = true
+    NSLayoutConstraint.init(item: passwordTextField, attribute: .trailing, relatedBy: .equal, toItem: backgroundImageView, attribute: .trailing, multiplier: 1.0, constant: -20).isActive = true
     
   }
   
@@ -141,29 +141,29 @@ extension SignUpViewForm{
   }
   
 
-  func setSetUpPasswordLabel(){
-     addSubview(passwordLabel)
-passwordLabel.translatesAutoresizingMaskIntoConstraints = false
+  func setSetUpEmailLabel(){
+     addSubview(emailLabel)
+emailLabel.translatesAutoresizingMaskIntoConstraints = false
    
-    NSLayoutConstraint.init(item: passwordLabel, attribute: .top, relatedBy: .lessThanOrEqual, toItem: safeAreaLayoutGuide, attribute: .top, multiplier: 1.0, constant: 40).isActive = true
-    NSLayoutConstraint.init(item: passwordLabel, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 15).isActive = true
-    NSLayoutConstraint.init(item: passwordLabel, attribute: .trailing, relatedBy: .equal, toItem: passwordTextField, attribute: .leading, multiplier: 1.0, constant: -30).isActive = true
-    NSLayoutConstraint.init(item: passwordLabel, attribute: .height, relatedBy: .equal, toItem: passwordTextField, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-  }
-  func setUpEmailLabel(){
-    addSubview(emailLabel)
-    emailLabel.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.init(item: emailLabel, attribute: .top, relatedBy: .lessThanOrEqual, toItem: passwordLabel, attribute: .bottom, multiplier: 1.0, constant: 40).isActive = true
-   
+    NSLayoutConstraint.init(item: emailLabel, attribute: .centerY, relatedBy: .lessThanOrEqual, toItem: safeAreaLayoutGuide, attribute: .centerY, multiplier: 1.0, constant: -40).isActive = true
     NSLayoutConstraint.init(item: emailLabel, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 15).isActive = true
-    NSLayoutConstraint.init(item: emailLabel, attribute: .trailing, relatedBy: .equal, toItem: emailTextField, attribute: .leading, multiplier: 1.0, constant: -30).isActive = true
+    NSLayoutConstraint.init(item: emailLabel, attribute: .trailing, relatedBy: .equal, toItem: passwordTextField, attribute: .leading, multiplier: 1.0, constant: -30).isActive = true
+    NSLayoutConstraint.init(item: emailLabel, attribute: .height, relatedBy: .equal, toItem: passwordTextField, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+  }
+  func setUpPasswordLabel(){
+    addSubview(passwordLabel)
+    passwordLabel.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.init(item: passwordLabel, attribute: .top, relatedBy: .lessThanOrEqual, toItem: emailLabel, attribute: .bottom, multiplier: 1.0, constant: 40).isActive = true
+   
+    NSLayoutConstraint.init(item: passwordLabel, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 15).isActive = true
+    NSLayoutConstraint.init(item: passwordLabel, attribute: .trailing, relatedBy: .equal, toItem: emailTextField, attribute: .leading, multiplier: 1.0, constant: -30).isActive = true
     
-    NSLayoutConstraint.init(item: emailLabel, attribute: .height, relatedBy: .equal, toItem: emailTextField, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+    NSLayoutConstraint.init(item: passwordLabel, attribute: .height, relatedBy: .equal, toItem: emailTextField, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
   }
     func setUpSignUpButton(){
     addSubview(signUpButton)
     signUpButton.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.init(item: signUpButton, attribute: .top, relatedBy: .equal, toItem: emailTextField, attribute: .bottom, multiplier: 1.0, constant: 30).isActive = true
+    NSLayoutConstraint.init(item: signUpButton, attribute: .top, relatedBy: .equal, toItem: passwordTextField, attribute: .bottom, multiplier: 1.0, constant: 30).isActive = true
     NSLayoutConstraint.init(item: signUpButton, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 150).isActive = true
   }
   func setUpCancelButton(){

@@ -34,9 +34,23 @@ class UserSession {
         self.userSessionAccountdelegate?.didReceiveError(self, error: error)
       }
       else if let authDataResults = authDataResults{
-        self.userSessionAccountdelegate?.didCreateAccount(self, user: authDataResults.user)
+    self.userSessionAccountdelegate?.didCreateAccount(self, user: authDataResults.user)
+        DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users)
+        .document(authDataResults.user.uid.description)
+        .setData(["userName" : "",
+                  "hairType": "",
+                  "bio": "",
+                  "email": authDataResults.user.email ?? "",
+                  "userId": authDataResults.user.uid,
+                  "imageURL": ""
+          ], completion: { (error) in
+            if let error = error {
+              print(error.localizedDescription)
+            }
+        })
       }
-    }
+    
+  }
   }
   public func getCurrentUser() -> User?{
     return Auth.auth().currentUser
@@ -59,4 +73,37 @@ class UserSession {
       }
     }
   }
+  public func updateExistingUser(imageURL:URL?,userName:String?,hairType:String?,bio:String?){
+    guard let user = getCurrentUser() else {
+      print("no user logged in")
+      return
+    }
+    let request = user.createProfileChangeRequest()
+    request.displayName = userName
+    request.photoURL = imageURL
+    request.commitChanges { (error) in
+      if let error = error{
+        print("\(error.localizedDescription)")
+      } else{
+      
+        DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users)
+        .document(user.uid)
+          .updateData(["imageURL": imageURL?.absoluteString,
+                       "userName": userName!,
+                       "hairType": hairType!,
+                       "bio":bio!], completion: { (error) in
+            guard let error = error else {
+              print("sucessful")
+              return
+            }
+             print("updating photo url error: \(error.localizedDescription)")
+          })
+      }
+    }
+  }
+  public func deleteProduct(){
+    guard let user = getCurrentUser() else {return}
+    
+  }
+  
 }

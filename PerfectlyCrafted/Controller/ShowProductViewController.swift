@@ -10,21 +10,19 @@ import UIKit
 
 class ShowProductViewController: UIViewController {
   
-  private var HairProduct: AllHairProducts!
+  private var hairProduct: AllHairProducts!
   private var HairProductView: HairProductView!
   private var productImage = UIImage()
+  private var userSession: UserSession!
+  private var storageManager: StorageManager!
+  
   init(hairProduct:AllHairProducts,view:HairProductView){
     super.init(nibName: nil, bundle: nil)
-    self.HairProduct = hairProduct
+    self.hairProduct = hairProduct
     self.HairProductView = view
      let hairProductView = view
     self.view.addSubview(hairProductView)
-    let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissPressed))
-    navigationItem.leftBarButtonItem = backButton
-    let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addButtonPressed))
-    navigationItem.rightBarButtonItem = addButton
-    navigationItem.title = "Category: \(hairProduct.results.category.capitalized)"
-    navigationItem.largeTitleDisplayMode = .always
+    userSession = AppDelegate.theUser
     
   }
   
@@ -39,20 +37,40 @@ class ShowProductViewController: UIViewController {
       self.view.backgroundColor = .white
       HairProductView.productCollectionView.delegate = self
        HairProductView.productCollectionView.dataSource = self
-      setUpPresentationStyle()
+     setUpButtons()
     }
+  private func setUpButtons(){
+    let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissPressed))
+    navigationItem.leftBarButtonItem = backButton
+    let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addButtonPressed))
+    navigationItem.rightBarButtonItem = addButton
+    navigationItem.title = "Category: \(hairProduct.results.category.capitalized)"
+    navigationItem.largeTitleDisplayMode = .always
+  }
   @objc private func dismissPressed(){
     dismiss(animated: true, completion: nil)
   }
   @objc private func addButtonPressed(){
-    print("add button Pressed")
+    let theCurrentHairProduct = hairProduct.results
+    guard let user = userSession.getCurrentUser(), let imageUrl =  theCurrentHairProduct.images.first?.absoluteString else {return}
+    let category = theCurrentHairProduct.category
+    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.products).whereField("productName", isEqualTo: theCurrentHairProduct.name).getDocuments { (snapshot, error) in
+      if let error = error{
+        print(error.localizedDescription)
+      }
+      else if let snapshot = snapshot{
+        if snapshot.documents.count == 0 {
+          let product = ProductModel.init(productName: theCurrentHairProduct.name, productId: "", productDescription: theCurrentHairProduct.description, userId: user.uid, productImage: imageUrl, category: category)
+          DataBaseManager.postProductToDatabase(product: product, user: user)
+        }else{
+          self.showAlert(title: "Duplicate Item", message: "You already have this item in your collection")
+        }
+      }
+    }
+    
+    dismiss(animated: true)
   }
-  func setUpPresentationStyle(){
-    let transitionStyleStyle = UIModalTransitionStyle.crossDissolve
-    self.modalTransitionStyle = transitionStyleStyle
-    let presenttationStyle = UIModalPresentationStyle.currentContext
-    self.modalPresentationStyle = presenttationStyle
-  }
+  
   func getProductImage(imageView:UIImageView,urlString:String){
     if let image = ImageCache.shared.fetchImageFromCache(urlString: urlString){
       imageView.image = image
@@ -71,13 +89,21 @@ class ShowProductViewController: UIViewController {
       }
     }
   }
+  func getSelectedProduct( product:inout ProductModel) -> ProductModel? {
+    guard let user = userSession.getCurrentUser() else{
+      return nil
+    }
+    product.userId = user.uid
+   return product
+  }
+  
 }
 extension ShowProductViewController:UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if collectionView == HairProductView.productCollectionView{
       return 1
     }
-    let otherOffers = HairProduct.results.sitedetails
+    let otherOffers = hairProduct.results.sitedetails
     return otherOffers.count
   }
   
@@ -85,13 +111,15 @@ extension ShowProductViewController:UICollectionViewDataSource{
     
     if collectionView == HairProductView.productCollectionView{
       guard let cell = HairProductView.productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell else {fatalError("No cell found (line 86)")}
-      cell.productName.text = HairProduct.results.name.capitalized
-      if let description = HairProduct.results.features?.blob {
+      cell.productName.text = hairProduct.results.name.capitalized
+      if let description = hairProduct.results.features?.blob {
         cell.productDescriptionTextView.text = description
       }else {
-        cell.productDescriptionTextView.text = HairProduct.results.description
+        cell.productDescriptionTextView.text = hairProduct.results.description
       }
-      if let urlString = HairProduct.results.images.first?.absoluteString{
+      
+      
+      if let urlString = hairProduct.results.images.first?.absoluteString{
         getProductImage(imageView: cell.productImage, urlString: urlString)
       }
       cell.otherOptionsCollectionView.delegate = self
@@ -100,7 +128,7 @@ extension ShowProductViewController:UICollectionViewDataSource{
     }else {
       guard let cell = HairProductView.productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell,
       let cellTwo = cell.otherOptionsCollectionView.dequeueReusableCell(withReuseIdentifier: "OptionsCell", for: indexPath) as? OtherOptionsCell else {fatalError("no Productcell found")}
-      let latestOffer = HairProduct.results.sitedetails[indexPath.row]
+      let latestOffer = hairProduct.results.sitedetails[indexPath.row]
       
       cellTwo.productImage.image = productImage
     

@@ -11,15 +11,39 @@ import UIKit
 class FeedsViewController: UIViewController {
 
   let feedsView = FeedsView()
+  private var userFeed = [FeedModel](){
+    didSet{
+      DispatchQueue.main.async {
+        self.feedsView.feedsCollectionView.reloadData()
+      }
+    }
+  }
+  private var userSession: UserSession!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
       view.addSubview(feedsView)
       feedsView.feedsCollectionView.delegate = self
       feedsView.feedsCollectionView.dataSource = self
+      self.userSession = AppDelegate.theUser
+      getTheNewsFeeds()
     }
     
-
+  private func getTheNewsFeeds(){
+DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.feed).getDocuments { (snapshot, error) in
+  if let error = error{
+    print(error)
+  }
+  else if let snapshot = snapshot{
+    snapshot.documents.forEach{
+     let results =  $0.data()
+      let feed = FeedModel.init(dict: results)
+      self.userFeed.append(feed)
+    }
+  }
+    }
+  }
   
 }
 extension FeedsViewController:UICollectionViewDelegateFlowLayout{
@@ -30,11 +54,30 @@ extension FeedsViewController:UICollectionViewDelegateFlowLayout{
 }
 extension FeedsViewController:UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 5
+    return userFeed.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
   guard let cell = feedsView.feedsCollectionView.dequeueReusableCell(withReuseIdentifier: "FeedsCell", for: indexPath) as? FeedsCollectionViewCell else {fatalError("No feed cell was found")}
+   let feed = userFeed[indexPath.row]
+    getImage(ImageView: cell.postImage, imageURLString: feed.imageURL)
+    cell.userName.text = feed.userName
+    cell.captionLabel.text = feed.caption
+    if let image = ImageCache.shared.fetchImageFromCache(urlString: feed.userImageLink){
+      DispatchQueue.main.async {
+        cell.profileImage.setImage(image, for: .normal)
+      }
+    }else{
+      ImageCache.shared.fetchImageFromNetwork(urlString: feed.userImageLink) { (error, image) in
+        if let error = error{
+          print(error)
+        }else if let image = image{
+          DispatchQueue.main.async {
+            cell.profileImage.setImage(image, for: .normal)
+          }
+        }
+      }
+    }
       return cell
     
   }

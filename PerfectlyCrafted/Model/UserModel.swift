@@ -15,21 +15,24 @@ struct UserModel:Codable {
   let hairType: String?
   let aboutMe: String
   let userId: String
-init(userName:String,email:String,profileImageLink:String,hairType:String,aboutMe:String,userId:String){
+  let dbReferenceDocumentId: String
+  init(userName:String,email:String,profileImageLink:String,hairType:String,aboutMe:String,userId:String,dbReferenceDocumentId:String){
     self.userName = userName
     self.email = email
     self.profileImageLink = profileImageLink
     self.hairType = hairType
     self.aboutMe = aboutMe
     self.userId = userId
+    self.dbReferenceDocumentId = dbReferenceDocumentId
   }
 
   init(dict:[String:Any]) {
     self.userName = dict["userName"] as? String ?? "no user name found"
     self.email = dict["email"] as? String ?? "no email address found"
-    self.profileImageLink = dict["profileImageLink"] as? String ?? "no profile link found"
+    self.profileImageLink = dict["userImage"] as? String ?? "no profile link found"
     self.hairType = dict["hairType"] as? String ?? "no hair type found"
     self.aboutMe = dict["aboutMe"] as? String ?? "no hair type found"
     self.userId = dict["userId"] as? String ?? "no user Id Found"
+    self.dbReferenceDocumentId = dict["dbReferenceDocumentId"] as? String ?? "no document id found"
   }
 }

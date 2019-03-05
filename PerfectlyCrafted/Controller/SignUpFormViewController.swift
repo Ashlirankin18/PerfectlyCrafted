@@ -12,27 +12,25 @@ import FirebaseAuth
 class SignUpFormViewController: UIViewController {
 
   let signUpForm = SignUpViewForm()
+  
   private var userSession: UserSession!
   
     override func viewDidLoad() {
         super.viewDidLoad()
       self.view.addSubview(signUpForm)
-      view.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
-      signUpForm.passwordTextField.delegate = self
-      signUpForm.emailTextField.delegate = self
+  
+      setTheDelegates()
       signUpForm.cancelButton.addTarget(self, action: #selector(dismissPage), for: .touchUpInside)
       signUpButtonAction()
-      userSession = (UIApplication.shared.delegate as? AppDelegate)?.userSession
-    
       
+    
     }
-  
-  func setUpAlertController(title:String,message:String){
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-    alertController.addAction(okAction)
-    self.present(alertController, animated: true, completion: nil)
+  private func setTheDelegates(){
+    signUpForm.passwordTextField.delegate = self
+    signUpForm.emailTextField.delegate = self
+    userSession = AppDelegate.theUser
   }
+
   @objc private func dismissPage(){
     self.dismiss(animated: true, completion: nil)
   }
@@ -48,9 +46,9 @@ class SignUpFormViewController: UIViewController {
       return
   }
   userSession.createUser(email: email, password: password)
-  let tabBarController = PerfectlyCraftedTabBarViewController()
-  tabBarController.selectedViewController = tabBarController.viewControllers![2]
-  self.present(tabBarController, animated: true, completion: nil)
+  
+  let createProfile = SetProfileViewController()
+  self.present(createProfile, animated: true, completion: nil)
   }
  
   

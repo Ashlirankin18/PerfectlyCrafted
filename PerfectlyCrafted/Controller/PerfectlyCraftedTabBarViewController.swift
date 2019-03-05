@@ -11,14 +11,15 @@ import UIKit
 class PerfectlyCraftedTabBarViewController: UITabBarController {
   
   var allHairProducts = [AllHairProducts]()
- 
+  var theLocalUser:UserModel?
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = #colorLiteral(red: 0.6722700215, green: 1, blue: 0.6019102933, alpha: 1)
     getAllHairProducts()
     setUpTabbarItems()
     }
-  
+
+
   private func setUpTabbarItems(){
     let feedsViewController = FeedsViewController()
     let profileViewController = ProfileViewController.init(view: ProfileView())

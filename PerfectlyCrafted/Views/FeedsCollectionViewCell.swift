@@ -23,16 +23,12 @@ class FeedsCollectionViewCell: UICollectionViewCell {
   }()
   lazy var userName:UILabel = {
     let label = UILabel()
-    label.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    label.textColor = .white
     label.text = "iamPowafull"
     label.numberOfLines = 0
     return label
   }()
   lazy var locationLabel:UILabel = {
     let label = UILabel()
-    label.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    label.textColor = .white
     label.text = "Georgetown,Guyana"
     label.numberOfLines = 0
     return label
@@ -59,8 +55,15 @@ class FeedsCollectionViewCell: UICollectionViewCell {
   }()
   lazy var shareButton:UIButton = {
     let button = UIButton()
-    button.setImage(#imageLiteral(resourceName: "icons8-share-25.png"), for: .normal)
+    button.setImage(#imageLiteral(resourceName: "icons8-bookmark-25"), for: .normal)
     return button
+  }()
+  lazy var captionLabel: UILabel = {
+    let label = UILabel()
+    label.text = "Caption"
+    label.numberOfLines = 0
+    label.adjustsFontSizeToFitWidth = true
+    return label
   }()
   
   override init(frame: CGRect) {
@@ -89,9 +92,11 @@ extension FeedsCollectionViewCell{
     setUpLocationLabel()
     setUpPostImageConstraints()
     setUpCommentsandLikesView()
+    setUpCaptionLabel()
     setUpLikeButtonConstraints()
     setUpCommentButtonConstraints()
     shareButtonConstraints()
+    
   }
   
   func setUpUserDetailsView(){
@@ -138,30 +143,37 @@ userDetailsView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.init(item: commentsAndLikeView, attribute: .top, relatedBy:.equal, toItem: postImage, attribute: .bottom, multiplier: 1.0, constant: 8).isActive = true
     NSLayoutConstraint.init(item: commentsAndLikeView, attribute: .leading, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .leading, multiplier: 1.0, constant: 0).isActive = true
     NSLayoutConstraint.init(item: commentsAndLikeView, attribute: .trailing, relatedBy: .equal, toItem:safeAreaLayoutGuide, attribute: .trailing, multiplier: 1.0, constant: 0).isActive = true
-    NSLayoutConstraint.init(item: commentsAndLikeView, attribute: .height, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .height, multiplier: 0.111, constant: 10).isActive = true
+    NSLayoutConstraint.init(item: commentsAndLikeView, attribute: .height, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .height, multiplier: 0.111, constant: 200).isActive = true
+   
 }
   func setUpLikeButtonConstraints(){
     addSubview(likeButton)
     likeButton.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.init(item: likeButton, attribute: .top, relatedBy: .equal, toItem: commentsAndLikeView, attribute: .top, multiplier: 1.0, constant: 20).isActive = true
-    NSLayoutConstraint(item: likeButton, attribute: .leading, relatedBy: .equal, toItem: profileImage, attribute: .leading, multiplier: 1.0, constant: -20).isActive = true
-    NSLayoutConstraint(item: likeButton, attribute: .width, relatedBy: .equal, toItem: commentsAndLikeView, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-    
+    NSLayoutConstraint.init(item: likeButton, attribute: .top, relatedBy: .equal, toItem: captionLabel, attribute: .bottom, multiplier: 1.0, constant: 20).isActive = true
+   likeButton.leadingAnchor.constraint(equalTo: commentsAndLikeView.leadingAnchor, constant: 10).isActive = true
     
   }
   func setUpCommentButtonConstraints(){
     addSubview(commentButton)
     commentButton.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.init(item: commentButton, attribute: .top, relatedBy: .equal, toItem: commentsAndLikeView, attribute: .top, multiplier: 1.0, constant: 20).isActive = true
-    NSLayoutConstraint(item: commentButton, attribute: .leading, relatedBy: .equal, toItem: likeButton, attribute: .trailing, multiplier: 1.0, constant: -25).isActive = true
+    NSLayoutConstraint.init(item: commentButton, attribute: .top, relatedBy: .equal, toItem: captionLabel, attribute: .bottom, multiplier: 1.0, constant: 20).isActive = true
+    NSLayoutConstraint(item: commentButton, attribute: .leading, relatedBy: .equal, toItem: likeButton, attribute: .trailing, multiplier: 1.0, constant: -10).isActive = true
     NSLayoutConstraint(item: commentButton, attribute: .width, relatedBy: .equal, toItem: commentsAndLikeView, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
     
   }
   func shareButtonConstraints(){
     addSubview(shareButton)
     shareButton.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint(item: shareButton, attribute: .top, relatedBy: .equal, toItem: commentsAndLikeView, attribute: .top, multiplier: 1.0, constant: 20).isActive = true
+    NSLayoutConstraint(item: shareButton, attribute: .top, relatedBy: .equal, toItem: captionLabel, attribute: .bottom, multiplier: 1.0, constant: 20).isActive = true
     NSLayoutConstraint(item: shareButton, attribute: .trailing, relatedBy: .equal, toItem: commentsAndLikeView, attribute: .trailing, multiplier: 1.0, constant: -20).isActive = true
     NSLayoutConstraint(item: shareButton, attribute: .height, relatedBy: .equal, toItem: shareButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+  }
+  func setUpCaptionLabel(){
+    addSubview(captionLabel)
+    captionLabel.translatesAutoresizingMaskIntoConstraints = false
+    captionLabel.topAnchor.constraint(equalTo: commentsAndLikeView.topAnchor, constant: 10).isActive = true
+    captionLabel.leadingAnchor.constraint(equalTo: commentsAndLikeView.leadingAnchor, constant: 10).isActive = true
+    captionLabel.trailingAnchor.constraint(equalTo: commentsAndLikeView.trailingAnchor, constant: -10).isActive = true
+    
   }
 }
