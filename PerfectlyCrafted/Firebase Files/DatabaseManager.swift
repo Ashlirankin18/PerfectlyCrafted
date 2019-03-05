@@ -81,7 +81,8 @@ final class DataBaseManager {
                                                                                 "userId": user.uid,
                                                                                 "caption": feed.caption,
                                                                                 "imageUrl": feed.imageURL,
-                                                        "userImage":user.photoURL?.absoluteString], completion: { (error) in
+                                                        "userImage":user.photoURL?.absoluteString,
+                                                        "userName": user.displayName], completion: { (error) in
       if let error = error{
         print("the error was: \(error)")
       }

@@ -61,7 +61,7 @@ class PostFeedViewController: UIViewController {
     guard let theUser = userSession.getCurrentUser(),
       let product = productToPost,
       let caption = self.postCaption.text else{return}
-    let feed = FeedModel.init(feedId: "", userId: theUser.uid, userIdLink: theUser.photoURL?.absoluteString ?? "no image url found", productId: product.productId, imageURL: product.productImage, caption: caption)
+    let feed = FeedModel.init(feedId: "", userId: theUser.uid, userImageLink: (theUser.photoURL?.absoluteString)!, productId: product.productId, imageURL: product.productImage, caption: caption, userName: theUser.displayName!)
     DataBaseManager.postFeedTo(feed: feed, user: theUser)
     dismiss(animated: true)
   }
