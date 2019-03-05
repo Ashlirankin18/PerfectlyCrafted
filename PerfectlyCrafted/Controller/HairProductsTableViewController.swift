@@ -8,9 +8,12 @@
 
 import UIKit
 import FirebaseFirestore
-
+protocol HairProductsTableViewControllerDelegate:AnyObject {
+  func sendSelectedProduct(_ controller:HairProductsTableViewController,selectedProduct: ProductModel)
+}
 class HairProductsTableViewController: UITableViewController {
-
+  weak var delegate: HairProductsTableViewControllerDelegate?
+  
   @IBOutlet weak var backButton: UIBarButtonItem!
   private var userProducts = [ProductModel](){
     didSet{
@@ -28,11 +31,7 @@ class HairProductsTableViewController: UITableViewController {
   }
   }
   private var userSession: UserSession!
-  private var selectedProduct: ProductModel!{
-    didSet{
-      print("set")
-    }
-  }
+  private var selectedProduct: ProductModel!
   
   override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,9 +55,8 @@ class HairProductsTableViewController: UITableViewController {
   @IBAction func shareButtonPressed(_ sender: UIButton) {
    let storyBoard = UIStoryboard.init(name: "ProfileOptions", bundle: nil)
    guard let postViewController = storyBoard.instantiateViewController(withIdentifier: "PostFeedViewController") as? PostFeedViewController else {return}
-    
+    postViewController.sendSelectedProduct(self, selectedProduct: selectedProduct)
     self.present(postViewController, animated: true)
-    
   }
 
   private func getUserProducts(){

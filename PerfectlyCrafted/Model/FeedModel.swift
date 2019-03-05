@@ -9,7 +9,8 @@
 import Foundation
 struct FeedModel {
   let feedId: String
-  let user: UserModel
+  let userId: String
+  let userIdLink:String
   let productId:String?
   let imageURL:String
   let caption:String

@@ -74,13 +74,14 @@ final class DataBaseManager {
                                                                                       }
     })
   }
-  static public func postFeedTo(feed:FeedModel,user:UserModel){
+  static public func postFeedTo(feed:FeedModel,user:User){
     var ref: DocumentReference? = nil
     ref = firebaseDB.collection(FirebaseCollectionKeys.feed).addDocument(data: ["feedId": feed.feedId,
                                                                                 "productId": feed.productId!,
-                                                                                "user": user,
+                                                                                "userId": user.uid,
                                                                                 "caption": feed.caption,
-                                                                                "imageUrl": feed.imageURL], completion: { (error) in
+                                                                                "imageUrl": feed.imageURL,
+                                                        "userImage":user.photoURL?.absoluteString], completion: { (error) in
       if let error = error{
         print("the error was: \(error)")
       }

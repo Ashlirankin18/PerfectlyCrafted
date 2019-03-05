@@ -59,7 +59,7 @@ class FeedsCollectionViewCell: UICollectionViewCell {
   }()
   lazy var shareButton:UIButton = {
     let button = UIButton()
-    button.setImage(#imageLiteral(resourceName: "icons8-share-25.png"), for: .normal)
+    button.setImage(#imageLiteral(resourceName: "icons8-bookmark-25"), for: .normal)
     return button
   }()
   

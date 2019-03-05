@@ -27,7 +27,7 @@ init(productName:String,productId:String,productDescription:String,userId:String
   }
   init(dict:[String:Any]) {
     self.productName = dict["productName"] as? String ?? "no product Name found"
-    self.productId = dict["productId"] as? String ?? "no product Id found"
+    self.productId = dict["dbReference"] as? String ?? "no product Id found"
     self.productDescription = dict["productDescription"] as? String ?? "no product description found"
     self.userId = dict["userId"] as? String ?? "no user id was found"
     self.productImage = dict["productImage"] as? String ?? "no product url found"

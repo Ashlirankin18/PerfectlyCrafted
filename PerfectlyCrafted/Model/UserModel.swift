@@ -29,7 +29,7 @@ struct UserModel:Codable {
   init(dict:[String:Any]) {
     self.userName = dict["userName"] as? String ?? "no user name found"
     self.email = dict["email"] as? String ?? "no email address found"
-    self.profileImageLink = dict["profileImageLink"] as? String ?? "no profile link found"
+    self.profileImageLink = dict["userImage"] as? String ?? "no profile link found"
     self.hairType = dict["hairType"] as? String ?? "no hair type found"
     self.aboutMe = dict["aboutMe"] as? String ?? "no hair type found"
     self.userId = dict["userId"] as? String ?? "no user Id Found"
