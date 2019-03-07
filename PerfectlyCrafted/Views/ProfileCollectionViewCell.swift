@@ -20,7 +20,7 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     label.backgroundColor = .clear
     label.text = "Hair Regimein"
     label.textAlignment = .center
-    label.font = UIFont.init(name: "Times", size: 24.0)
+    label.font = UIFont.init(name: "Helvetica", size: 24.0)
     return label
   }()
   override init(frame: CGRect) {
@@ -34,9 +34,13 @@ class ProfileCollectionViewCell: UICollectionViewCell {
   }
   func commonInit(){
     setupViews()
-    self.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+    self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
   }
-  
+  override func layoutSubviews() {
+    layer.cornerRadius = 6
+    cellBackgroundImage.layer.cornerRadius = 6
+    cellBackgroundImage.layer.masksToBounds = true
+  }
 }
 extension ProfileCollectionViewCell {
   private func setupViews(){

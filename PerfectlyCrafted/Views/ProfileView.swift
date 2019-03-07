@@ -30,7 +30,7 @@ class ProfileView: UIView {
   lazy var userName: UILabel = {
     let label = UILabel()
     label.backgroundColor = .clear
-    label.text = "Username"
+    label.font = UIFont(name: "Helvetica", size: 12)
     label.lineBreakMode = .byWordWrapping
     label.numberOfLines = 0
     label.textAlignment = .justified
@@ -40,7 +40,7 @@ class ProfileView: UIView {
   lazy var hairType: UILabel = {
     let label = UILabel()
     label.backgroundColor = .clear
-    label.text = "Hair type"
+    label.font = UIFont(name: "Helvetica", size: 12)
     label.lineBreakMode = .byWordWrapping
     label.numberOfLines = 0
     label.textAlignment = .justified
@@ -50,7 +50,7 @@ class ProfileView: UIView {
   lazy var aboutMeTextView:UITextView = {
     let textView = UITextView()
     textView.backgroundColor = .clear
-    textView.text = "About Me"
+    textView.font = UIFont(name: "Helvetica", size: 12)
     textView.textAlignment = .justified
     textView.isEditable = false
     textView.isScrollEnabled = false
@@ -77,6 +77,8 @@ class ProfileView: UIView {
     profileImage.layer.borderWidth = 4
     profileImage.layer.borderColor = UIColor.black.cgColor
     userName.layer.cornerRadius = 8
+    bioView.layer.borderWidth = 2
+    bioView.layer.borderColor = UIColor.gray.cgColor
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -128,16 +130,17 @@ extension ProfileView{
     dividerView.translatesAutoresizingMaskIntoConstraints = false
     dividerView.leadingAnchor.constraint(equalToSystemSpacingAfter: profileImage.trailingAnchor, multiplier: 1.3).isActive = true
     dividerView.widthAnchor.constraint(equalToConstant: 3).isActive = true
-    dividerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    dividerView.heightAnchor.constraint(equalToConstant: 125).isActive = true
     dividerView.centerYAnchor.constraint(equalTo: bioView.centerYAnchor, constant: 0).isActive = true
     
   }
   func setUpUserNameLabel(){
     addSubview(userName)
     userName.translatesAutoresizingMaskIntoConstraints = false
-    userName.topAnchor.constraint(equalToSystemSpacingBelow: bioView.topAnchor, multiplier: 1.8).isActive = true
+    userName.topAnchor.constraint(equalToSystemSpacingBelow: bioView.topAnchor, multiplier: 3.5).isActive = true
     userName.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.1).isActive = true
     userName.widthAnchor.constraint(equalToConstant: 150).isActive = true
+   
   }
   func setUpHairtypeLabel(){
     addSubview(hairType)

@@ -26,7 +26,6 @@ class PopUpViewController: UIViewController {
     super.viewDidLoad()
     self.view.addSubview(popUpView)
     view.backgroundColor = .clear
-    setUpPresentationStyle()
     setUpImagePickerController()
     self.barcodeDetector = vision.barcodeDetector()
     addingActionsToButtons()
@@ -43,12 +42,10 @@ class PopUpViewController: UIViewController {
     super.viewWillAppear(true)
     self.allHairProducts = ProductDataManager.getProducts()
   }
-  
-  func setUpPresentationStyle(){
-    let transitionStyleStyle = UIModalTransitionStyle.coverVertical
-    self.modalTransitionStyle = transitionStyleStyle
-    let presenttationStyle = UIModalPresentationStyle.popover
-    self.modalPresentationStyle = presenttationStyle
+  func addingActionsToButtons(){
+    popUpView.addFromCameraButton.addTarget(self, action: #selector(presentCameraOption), for: .touchUpInside)
+    popUpView.addFromGalleryButton.addTarget(self, action: #selector(presentGalleryOption), for: .touchUpInside)
+    popUpView.searchForProductButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
   }
   private func setUpImagePickerController(){
     imagePickerController = UIImagePickerController()
@@ -73,10 +70,7 @@ class PopUpViewController: UIViewController {
       present(myPickerController, animated: true, completion: nil)
     }
   }
-  func addingActionsToButtons(){
-    popUpView.addFromCameraButton.addTarget(self, action: #selector(presentCameraOption), for: .touchUpInside)
-    popUpView.addFromGalleryButton.addTarget(self, action: #selector(presentGalleryOption), for: .touchUpInside)
-  }
+ 
   
   @objc func presentCameraOption(){
     openCamera()
@@ -84,7 +78,12 @@ class PopUpViewController: UIViewController {
   @objc func presentGalleryOption(){
     showImagePickerController()
   }
-  
+  @objc func searchButtonPressed(){
+    let searchController = SearchProductViewController()
+    let navigationController = UINavigationController.init(rootViewController: searchController)
+    
+    self.present(navigationController, animated: true)
+  }
   func makeCallToBarcodeDetector(image:UIImage?){
         if let barcodeReader = self.barcodeDetector {
           if let image = image {

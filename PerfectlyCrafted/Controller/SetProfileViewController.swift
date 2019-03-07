@@ -67,7 +67,7 @@ class SetProfileViewController: UIViewController {
     userSession.updateExistingUser(imageURL: imageURL, userName: userName, hairType: hairType, bio: bio)
      
    let tabbarController = PerfectlyCraftedTabBarViewController()
-    tabbarController.selectedViewController = tabbarController.viewControllers?[2]
+    tabbarController.selectedViewController = tabbarController.viewControllers?[0]
     self.present(tabbarController, animated: true, completion: nil)
     
     }

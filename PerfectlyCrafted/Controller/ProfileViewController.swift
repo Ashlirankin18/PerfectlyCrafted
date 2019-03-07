@@ -14,8 +14,8 @@ class ProfileViewController: UIViewController {
   var profileView = ProfileView()
   var userSession: UserSession!
 
-  let hairCareOptions = ["Hair Products","Hair Regimein","Likes"]
-  let hairOptionImages = [#imageLiteral(resourceName: "hairregimein.jpg"),#imageLiteral(resourceName: "Africa.png"),#imageLiteral(resourceName: "adult-afro-bag-763191.jpg")]
+  let hairCareOptions = ["Hair Products"]
+  let hairOptionImages = [#imageLiteral(resourceName: "hairregimein.jpg")]
   
   
   init(view:ProfileView) {
@@ -33,24 +33,28 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     
     view.addSubview(profileView)
-      profileView.profileCollectionView.delegate = self
-    profileView.profileCollectionView.dataSource = self
-       view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+    view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+    setDelegates()
     let signOutButton = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOutButtonPressed))
     self.navigationItem.rightBarButtonItem = signOutButton
-    userSession = AppDelegate.theUser
-    userSession.userSessionSignOutDelegate = self
-    setUserProfile()
+  
     }
+  private func setDelegates(){
+    userSession = AppDelegate.theUser
+    profileView.profileCollectionView.delegate = self
+    profileView.profileCollectionView.dataSource = self
+      userSession.userSessionSignOutDelegate = self
     
+  }
+  
   @objc func signOutButtonPressed(){
   userSession.signOut()
     
   }
-  private func getProfileImage(imageView:UIButton,imageUrl:String){
+  private func getProfileImage(button:UIButton,imageUrl:String){
     if let image = ImageCache.shared.fetchImageFromCache(urlString: imageUrl){
       DispatchQueue.main.async {
-        imageView.setImage(image, for: .normal)
+        button.setImage(image, for: .normal)
       }
     }else{
       ImageCache.shared.fetchImageFromNetwork(urlString: imageUrl) { (error, image) in
@@ -59,7 +63,7 @@ class ProfileViewController: UIViewController {
         }
         else if let image = image {
           DispatchQueue.main.async {
-            imageView.setImage(image, for: .normal)
+            button.setImage(image, for: .normal)
           }
         }
       }
@@ -68,7 +72,7 @@ class ProfileViewController: UIViewController {
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-
+    setUserProfile()
   }
   
   private func setUserProfile(){
@@ -80,11 +84,13 @@ class ProfileViewController: UIViewController {
           print(error.localizedDescription)
         }
         else if let document = document, document.exists {
-          let userData = document.data()
-          self.profileView.userName.text = userData!["userName"] as? String
-          self.profileView.hairType.text = userData!["hairType"] as? String
-          self.profileView.aboutMeTextView.text = userData!["bio"] as? String
-          self.getProfileImage(imageView: self.profileView.profileImage, imageUrl: user.photoURL?.absoluteString ?? "no url found")
+          guard let userData = document.data() else {return}
+          let profileUser = UserModel.init(dict: userData)
+          self.profileView.hairType.text = "Hair Type: \(profileUser.hairType ?? "")"
+          self.profileView.userName.text = profileUser.userName
+          self.profileView.aboutMeTextView.text = profileUser.aboutMe
+         
+          self.getProfileImage(button:  self.profileView.profileImage, imageUrl: profileUser.profileImageLink!)
         }
       }
     }else{

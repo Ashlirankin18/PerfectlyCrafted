@@ -37,7 +37,16 @@ class PopUpView: UIView {
     label.text = "Add from Gallery"
     return label
   }()
-  
+  lazy var searchForProductButton:UIButton =  {
+    let button = UIButton()
+    button.setImage(#imageLiteral(resourceName: "icons8-search-25"), for: .normal)
+    return button
+  }()
+  lazy var searchForProductButtonLabel:UILabel =  {
+    let label = UILabel()
+    label.text = "Search for product"
+    return label
+  }()
   override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)
     commonInit()
@@ -72,7 +81,8 @@ extension PopUpView {
     setUpTakeFromcameraLabelConstraints()
     setUpAddFromGalleryButtonConstraints()
     setUpAddFromGalleryLabelConstraints()
-   
+    searchButtonConstraints()
+    setUpSearchLabel()
   }
   func setUpTakeFromcameraButtonConstraints(){
     addSubview(addFromCameraButton)
@@ -106,5 +116,20 @@ extension PopUpView {
     NSLayoutConstraint(item: addFromGalleryLabel, attribute: .height, relatedBy: .equal, toItem: addFromGalleryLabel, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
   }
   
+  func setUpSearchLabel(){
+    addSubview(searchForProductButtonLabel)
+    searchForProductButtonLabel.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint(item: searchForProductButtonLabel, attribute: .top, relatedBy: .equal, toItem: addFromGalleryLabel, attribute: .bottom, multiplier: 1.1, constant: 0).isActive = true
+    NSLayoutConstraint(item: searchForProductButtonLabel, attribute: .trailing, relatedBy: .equal, toItem: searchForProductButton, attribute: .leading, multiplier: 0.9, constant: 0).isActive = true
+    NSLayoutConstraint(item: searchForProductButtonLabel, attribute: .leading, relatedBy: .equal, toItem: popUpView, attribute: .leading, multiplier: 1.4, constant: 0).isActive = true
+  }
+  func searchButtonConstraints(){
+addSubview(searchForProductButton)
+searchForProductButton.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint(item: searchForProductButton, attribute: .top, relatedBy: .equal, toItem: addFromGalleryButton, attribute: .bottom, multiplier: 1.1, constant: 0).isActive = true
+    NSLayoutConstraint(item: searchForProductButton, attribute: .trailing, relatedBy: .equal, toItem: popUpView, attribute: .trailing, multiplier: 0.9 , constant: 0).isActive = true
+   NSLayoutConstraint(item: searchForProductButton, attribute: .height, relatedBy: .equal, toItem: searchForProductButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+    
+  }
   
 }

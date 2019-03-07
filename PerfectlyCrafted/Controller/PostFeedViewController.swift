@@ -31,27 +31,6 @@ class PostFeedViewController: UIViewController {
     setUpUi()
     userSession = AppDelegate.theUser
     }
-  private func setUpUi(){
-    guard let product = productToPost else {return}
-    getImage(ImageView: self.productImage, imageURLString: product.productImage)
-    self.productName.text = product.productName
-    
-  }
-  private func getProductInfo(product:ProductModel){
-    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.products).whereField("productName", isEqualTo: product.productName).getDocuments { (snapshot, error) in
-      if let error = error{
-        print(error)
-      }
-      else if let snapshot = snapshot{
-        if let result = snapshot.documents.first?.data(){
-          let newProduct = ProductModel.init(dict: result)
-          self.productToPost = newProduct
-         print(newProduct)
-        }
-      }
-    }
-  }
-  
   @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
     dismiss(animated: true)
   }
@@ -65,6 +44,27 @@ class PostFeedViewController: UIViewController {
     DataBaseManager.postFeedTo(feed: feed, user: theUser)
     dismiss(animated: true)
   }
+  
+  private func setUpUi(){
+    guard let product = productToPost else {return}
+    getImage(ImageView: self.productImage, imageURLString: product.productImage)
+    self.productName.text = product.productName
+    
+  }
+  private func getProductInfo(product:ProductModel){
+DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.products).whereField("productName", isEqualTo: product.productName).getDocuments { (snapshot, error) in
+      if let error = error{
+        print(error)
+      }
+      else if let snapshot = snapshot{
+        if let result = snapshot.documents.first?.data(){
+          let newProduct = ProductModel.init(dict: result)
+          self.productToPost = newProduct
+        }
+      }
+    }
+  }
+  
   
 
   

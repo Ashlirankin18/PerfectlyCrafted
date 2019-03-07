@@ -26,12 +26,15 @@ class SearchProductViewController: UIViewController {
     searchView.productsTableView.dataSource = self
     searchView.productsTableView.delegate = self
     searchView.productSearchBar.delegate = self
+    self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backButtonPressed))
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     self.allHairProducts = ProductDataManager.getProducts().sorted{$0.results.name < $1.results.name}
   }
-  
+  @objc func backButtonPressed(){
+    self.dismiss(animated: true)
+  }
   private func setImage(imageView:UIImageView,urlString:String){
     if let image = ImageCache.shared.fetchImageFromCache(urlString: urlString){
       imageView.image = image

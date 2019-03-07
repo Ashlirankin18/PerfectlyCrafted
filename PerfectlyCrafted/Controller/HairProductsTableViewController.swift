@@ -37,11 +37,14 @@ class HairProductsTableViewController: UITableViewController {
         super.viewDidLoad()
         userSession = AppDelegate.theUser
          self.navigationItem.rightBarButtonItem = self.editButtonItem
-    getUserProducts()
+  getUserProducts()
     self.tableView.dataSource = self
 
     }
-
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    tableView.reloadData()
+  }
   @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
     dismiss(animated: true, completion: nil)
   }
@@ -94,7 +97,7 @@ class HairProductsTableViewController: UITableViewController {
     return 0
   }
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return CGFloat.init(integerLiteral: 200)
+    return CGFloat.init(integerLiteral: 220)
   }
   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     let titles = Array(dict.keys)
