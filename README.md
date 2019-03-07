@@ -12,6 +12,6 @@ The purpose of this app version one is to help African america women. Help other
 - [x] user can sign in
 - [x] user can sign out
 - [ ] forget password
-- [ ] user can create a product and post to firestore
+- [x] user can create a product and post to firestore
 - [x] user can search for a product in the product feed controller 
  
