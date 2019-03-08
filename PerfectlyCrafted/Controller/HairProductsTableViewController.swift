@@ -47,7 +47,6 @@ class HairProductsTableViewController: UITableViewController {
  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-    tableView.reloadData()
   }
   @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
     dismiss(animated: true, completion: nil)
@@ -77,25 +76,24 @@ class HairProductsTableViewController: UITableViewController {
   private func getUserProducts(){
     if let user = userSession.getCurrentUser(){
       let documentReference = DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.products)
-      documentReference.getDocuments { (snapshot, error) in
-        if let error = error {
+  documentReference.addSnapshotListener(includeMetadataChanges: true) { (snapshot, error) in
+    if let error = error{
+      print("the error was: \(error)")
+    }else if let snapshot = snapshot {
+      let qurey = snapshot.query.whereField("userId", isEqualTo: user.uid)
+      qurey.getDocuments(completion: { (snapshot, error) in
+        if let error = error{
           print(error.localizedDescription)
+        } else if let snapshot = snapshot{
+          let document = snapshot.documents
+          self.userProducts.removeAll()
+          document.forEach {
+            let product = ProductModel.init(dict: $0.data())
+            self.userProducts.append(product)
+          }
         }
-        else if let snapshot = snapshot {
-          let qurey = snapshot.query.whereField("userId", isEqualTo: user.uid)
-          qurey.getDocuments(completion: { (snapshot, error) in
-            if let error = error{
-              print(error.localizedDescription)
-            }
-            else if let snapshot = snapshot {
-              let document = snapshot.documents
-              document.forEach{
-               let product =  ProductModel.init(dict: $0.data())
-                self.userProducts.append(product)
-              }
-            }
-          })
-        }
+      })
+    }
       }
     }
   }
@@ -168,7 +166,6 @@ class HairProductsTableViewController: UITableViewController {
     }
     
     share.backgroundColor = UIColor.lightGray
-    
     return [delete, share]
   }
 }

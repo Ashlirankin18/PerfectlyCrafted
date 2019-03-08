@@ -9,6 +9,7 @@
 import UIKit
 
 class FeedsView: UIView {
+  
   lazy var feedsCollectionView:UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
@@ -29,6 +30,7 @@ class FeedsView: UIView {
   }
   private func commonInit(){
     setUpViews()
+    backgroundColor = .white
   }
 
 }

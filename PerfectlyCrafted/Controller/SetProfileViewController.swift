@@ -63,7 +63,6 @@ class SetProfileViewController: UIViewController {
       guard let bio = setUpProfileView.aboutMeTextView.text,
         let userName = setUpProfileView.userNameTextField.text,
         let hairType = setUpProfileView.hairTypeInput.text else {return}
-  
     userSession.updateExistingUser(imageURL: imageURL, userName: userName, hairType: hairType, bio: bio)
      
    let tabbarController = PerfectlyCraftedTabBarViewController()

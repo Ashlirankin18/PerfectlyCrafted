@@ -78,13 +78,11 @@ class ProfileViewController: UIViewController {
   private func setUpImagePicker(){
     imagePickerController = UIImagePickerController()
     imagePickerController.delegate = self
-    imagePickerController.becomeFirstResponder()
     
   }
   @objc func settingsButtonPressed(){
     guard let settingsViewController = UIStoryboard(name: "ProfileOptions", bundle: nil).instantiateViewController(withIdentifier: "navigationController") as? UINavigationController else {return}
-    settingsViewController.modalTransitionStyle = .coverVertical
-    settingsViewController.modalPresentationStyle = .currentContext
+ 
     self.present(settingsViewController, animated: true)
   }
   private func getProfileImage(button:UIButton,imageUrl:String){
@@ -163,6 +161,13 @@ extension ProfileViewController:UICollectionViewDataSource{
       productViewController.modalPresentationStyle = .currentContext
       productViewController.modalTransitionStyle = .coverVertical
       self.present(productViewController, animated: true, completion: nil)
+    }
+    if indexPath.row == 1{
+     let myPostViewController = MyPostViewController()
+      let navigationController = UINavigationController(rootViewController: myPostViewController)
+      navigationController.modalTransitionStyle = .crossDissolve
+      navigationController.modalPresentationStyle = .currentContext
+      self.present(navigationController, animated: true, completion: nil)
     }
   }
 }

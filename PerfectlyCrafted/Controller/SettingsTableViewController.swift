@@ -11,6 +11,8 @@ import FirebaseAuth
 
 class SettingsTableViewController: UITableViewController {
   @IBOutlet var editProfileView: UIView!
+  
+  @IBOutlet weak var emailLabel: UILabel!
   private var initialView: UIView?
   private var updateButton: UIBarButtonItem!
   var userSession: UserSession!
@@ -67,6 +69,7 @@ class SettingsTableViewController: UITableViewController {
         if let userData = snapshot.data(){
           let user = UserModel.init(dict: userData)
           self.firebaseUser = user
+          self.emailLabel.text = "Email: \(user.email)"
         }
       }
     }

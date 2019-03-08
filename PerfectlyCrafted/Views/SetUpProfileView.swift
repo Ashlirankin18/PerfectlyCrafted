@@ -124,7 +124,7 @@ extension SetUpProfileView{
   func setupContainerView(){
     addSubview(profileContainerView)
     profileContainerView.translatesAutoresizingMaskIntoConstraints = false
-    profileContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true
+    profileContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
     profileContainerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
     profileContainerView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2.4).isActive = true
     profileContainerView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
@@ -194,7 +194,7 @@ extension SetUpProfileView{
     setUpButton.translatesAutoresizingMaskIntoConstraints = false
     setUpButton.topAnchor.constraint(equalTo: aboutMeTextView.bottomAnchor, constant: 30).isActive = true
     setUpButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-    setUpButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    setUpButton.bottomAnchor.constraint(equalTo: profileContainerView.bottomAnchor, constant: -20).isActive = true
     setUpButton.leadingAnchor.constraint(equalTo: profileContainerView.leadingAnchor, constant: 120).isActive = true
   }
   

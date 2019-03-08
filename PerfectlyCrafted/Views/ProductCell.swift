@@ -33,16 +33,7 @@ class ProductCell: UICollectionViewCell {
     textView.text = "this is a test"
     return textView
   }()
-  lazy var otherOptionsCollectionView:UICollectionView = {
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .vertical
-    layout.sectionInset = UIEdgeInsets.init(top: 10, left: 5, bottom: 10, right: 5)
-    let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
-    collectionView.register(OtherOptionsCell.self, forCellWithReuseIdentifier: "OptionsCell")
-    collectionView.backgroundColor = .clear
-    return collectionView
-  }()
-  
+ 
   override init(frame: CGRect) {
     super.init(frame: frame)
     commonInit()
@@ -66,7 +57,7 @@ extension ProductCell{
     setUpProductName()
     setUpProductImage()
     setUpProductDescription()
-    setUpOtherOptions()
+ 
   }
  
   func setUpProductName(){
@@ -97,16 +88,7 @@ extension ProductCell{
     productDescriptionTextView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
     
   }
-  
-  func setUpOtherOptions(){
-    addSubview(otherOptionsCollectionView)
-    otherOptionsCollectionView.translatesAutoresizingMaskIntoConstraints = false
-    otherOptionsCollectionView.topAnchor.constraint(equalTo: productDescriptionTextView.bottomAnchor, constant: 10).isActive = true
-    otherOptionsCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-    otherOptionsCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
-    otherOptionsCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-  }
-
+ 
   
 
 }

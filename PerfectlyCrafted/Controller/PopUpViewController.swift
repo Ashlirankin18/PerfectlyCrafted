@@ -80,9 +80,9 @@ class PopUpViewController: UIViewController {
   }
   @objc func searchButtonPressed(){
     let searchController = SearchProductViewController()
+    searchController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: searchController, action: #selector(searchController.backButtonPressed))
     let navigationController = UINavigationController.init(rootViewController: searchController)
-    
-    self.present(navigationController, animated: true)
+        self.present(navigationController, animated: true)
   }
   func makeCallToBarcodeDetector(image:UIImage?){
         if let barcodeReader = self.barcodeDetector {

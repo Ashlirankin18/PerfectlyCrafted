@@ -23,6 +23,7 @@
 		2E57C3CA220E506C00C89FFC /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E57C3C9220E506C00C89FFC /* CreateView.swift */; };
 		2E63590E2224A2CD0053BBD9 /* ProductDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E63590D2224A2CD0053BBD9 /* ProductDataManager.swift */; };
 		2E6359122224F8A30053BBD9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6359112224F8A30053BBD9 /* DatabaseManager.swift */; };
+		2E782B742232BABA00CDBDB2 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E782B732232BABA00CDBDB2 /* MyPostViewController.swift */; };
 		2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */; };
 		2E7946DF220CFABE00219B6A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946DE220CFABE00219B6A /* RatingViewController.swift */; };
 		2E7946E1220CFB8700219B6A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7946E0220CFB8700219B6A /* RatingView.swift */; };
@@ -86,6 +87,7 @@
 		2E57C3C9220E506C00C89FFC /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		2E63590D2224A2CD0053BBD9 /* ProductDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataManager.swift; sourceTree = "<group>"; };
 		2E6359112224F8A30053BBD9 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		2E782B732232BABA00CDBDB2 /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
 		2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E7946DE220CFABE00219B6A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		2E7946E0220CFB8700219B6A /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		2E4A3EA82208D37B00988116 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2E782B732232BABA00CDBDB2 /* MyPostViewController.swift */,
 				2EDB0E50222E1FCB006DB8EE /* PostFeedViewController.swift */,
 				2EED896822284DED00ADDEBD /* HairProductsTableViewController.swift */,
 				2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */,
@@ -469,6 +472,7 @@
 				2EA365B7220A64E700FFDC5E /* LoginViewController.swift in Sources */,
 				2EDB0E51222E1FCB006DB8EE /* PostFeedViewController.swift in Sources */,
 				2E997F9A221B0FCF00730ED7 /* AppError.swift in Sources */,
+				2E782B742232BABA00CDBDB2 /* MyPostViewController.swift in Sources */,
 				2E04A4B6221A76620066568E /* PopUpView.swift in Sources */,
 				2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */,
 				2E984788221D575800204A42 /* SearchProductViewController.swift in Sources */,

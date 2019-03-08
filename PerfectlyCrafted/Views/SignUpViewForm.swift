@@ -165,6 +165,7 @@ emailLabel.translatesAutoresizingMaskIntoConstraints = false
     signUpButton.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.init(item: signUpButton, attribute: .top, relatedBy: .equal, toItem: passwordTextField, attribute: .bottom, multiplier: 1.0, constant: 30).isActive = true
     NSLayoutConstraint.init(item: signUpButton, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 150).isActive = true
+      
   }
   func setUpCancelButton(){
     addSubview(cancelButton)

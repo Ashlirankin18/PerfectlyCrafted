@@ -117,17 +117,39 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSA-X1-820">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZU-eS-fXd">
+                                                    <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AZU-eS-fXd" firstAttribute="leading" secondItem="o9h-21-mWG" secondAttribute="leadingMargin" id="Gqf-hi-zzp"/>
+                                                <constraint firstItem="AZU-eS-fXd" firstAttribute="top" secondItem="o9h-21-mWG" secondAttribute="topMargin" id="T0O-5Y-7pr"/>
+                                                <constraint firstItem="AZU-eS-fXd" firstAttribute="trailing" secondItem="o9h-21-mWG" secondAttribute="trailingMargin" id="i7i-IG-iSW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="AZU-eS-fXd" secondAttribute="bottom" constant="1" id="uLa-tY-Jyw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="np1-BW-iCq">
+                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="np1-BW-iCq" id="Hp8-p4-82z">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAc-Ql-0UX">
                                                     <rect key="frame" x="150" y="7" width="75" height="30"/>
                                                     <state key="normal" title="Edit Profile"/>
                                                     <connections>
-                                                        <action selector="EditProfilePressed:" destination="yUf-mp-vUH" eventType="touchUpInside" id="Od9-VB-PTg"/>
+                                                        <action selector="EditProfilePressed:" destination="yUf-mp-vUH" eventType="touchUpInside" id="NWV-4J-HK3"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GSA-X1-820" firstAttribute="centerY" secondItem="o9h-21-mWG" secondAttribute="centerY" id="ER0-BI-Lmj"/>
-                                                <constraint firstItem="GSA-X1-820" firstAttribute="centerX" secondItem="o9h-21-mWG" secondAttribute="centerX" id="bEu-vf-Iht"/>
+                                                <constraint firstItem="RAc-Ql-0UX" firstAttribute="centerY" secondItem="Hp8-p4-82z" secondAttribute="centerY" id="joM-q7-g8n"/>
+                                                <constraint firstItem="RAc-Ql-0UX" firstAttribute="centerX" secondItem="Hp8-p4-82z" secondAttribute="centerX" id="vhY-BN-zjs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -136,7 +158,7 @@
                             <tableViewSection headerTitle="Exit" id="Rcq-co-wpb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="7yb-oV-t80">
-                                        <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="199.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7yb-oV-t80" id="UA6-rT-y39">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -173,6 +195,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="editProfileView" destination="KQR-hn-YoR" id="mLN-XQ-sVh"/>
+                        <outlet property="emailLabel" destination="AZU-eS-fXd" id="eam-L5-i58"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYG-Qa-chF" userLabel="First Responder" sceneMemberID="firstResponder"/>

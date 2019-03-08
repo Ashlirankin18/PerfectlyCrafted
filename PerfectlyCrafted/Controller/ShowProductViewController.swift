@@ -63,9 +63,7 @@ class ShowProductViewController: UIViewController {
         if snapshot.documents.count == 0 {
           let product = ProductModel.init(productName: theCurrentHairProduct.name, productId: "", productDescription: theCurrentHairProduct.description, userId: user.uid, productImage: imageUrl, category: category, isCompleted: false)
           DataBaseManager.postProductToDatabase(product: product, user: user)
-          self.dismiss(animated: true, completion: nil)
-        }else{
-          self.showAlert(title: "Duplicate Item", message: "You already have this item in your collection")
+         
         }
       }
     }
@@ -101,17 +99,8 @@ class ShowProductViewController: UIViewController {
   
 }
 extension ShowProductViewController:UICollectionViewDataSource{
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    if collectionView == HairProductView.productCollectionView{
-      return 1
-    }
-    let otherOffers = hairProduct.results.sitedetails
-    return otherOffers.count
-  }
-  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-    if collectionView == HairProductView.productCollectionView{
       guard let cell = HairProductView.productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell else {fatalError("No cell found (line 86)")}
       cell.productName.text = hairProduct.results.name.capitalized
       if let description = hairProduct.results.features?.blob {
@@ -122,32 +111,15 @@ extension ShowProductViewController:UICollectionViewDataSource{
       if let urlString = hairProduct.results.images.first?.absoluteString{
         getProductImage(imageView: cell.productImage, urlString: urlString)
       }
-      cell.otherOptionsCollectionView.delegate = self
-      cell.otherOptionsCollectionView.dataSource = self
       return cell
-    }else {
-      guard let cell = HairProductView.productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell,
-      let cellTwo = cell.otherOptionsCollectionView.dequeueReusableCell(withReuseIdentifier: "OptionsCell", for: indexPath) as? OtherOptionsCell else {fatalError("no Productcell found")}
-      let latestOffer = hairProduct.results.sitedetails[indexPath.row]
-      
-      cellTwo.productImage.image = productImage
-    
-      if let seller = latestOffer.latestoffers.first?.seller {
-        cellTwo.sellerLabel.text = seller
-      }else{
-        cellTwo.sellerLabel.text = "Seller name not found"
-      }
-      if let price = latestOffer.latestoffers.first?.price{
-        cellTwo.priceLabel.text = " Price: $\(price)"
-      }else{
-        cellTwo.priceLabel.text = "No price found"
-      }
-      cellTwo.urlLabel.text = latestOffer.url.absoluteString
-    
-      return cellTwo
+  }
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    if collectionView == HairProductView.productCollectionView{
+      return 1
     }
-    }
- 
+    let otherOffers = hairProduct.results.sitedetails
+    return otherOffers.count
+  }
   }
 
 extension ShowProductViewController:UICollectionViewDelegateFlowLayout{
