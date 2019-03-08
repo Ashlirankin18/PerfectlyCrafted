@@ -39,6 +39,7 @@ class ShowProductViewController: UIViewController {
        HairProductView.productCollectionView.dataSource = self
      setUpButtons()
     }
+  
   private func setUpButtons(){
     let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissPressed))
     navigationItem.leftBarButtonItem = backButton
@@ -60,8 +61,9 @@ class ShowProductViewController: UIViewController {
       }
       else if let snapshot = snapshot{
         if snapshot.documents.count == 0 {
-          let product = ProductModel.init(productName: theCurrentHairProduct.name, productId: "", productDescription: theCurrentHairProduct.description, userId: user.uid, productImage: imageUrl, category: category)
+          let product = ProductModel.init(productName: theCurrentHairProduct.name, productId: "", productDescription: theCurrentHairProduct.description, userId: user.uid, productImage: imageUrl, category: category, isCompleted: false)
           DataBaseManager.postProductToDatabase(product: product, user: user)
+          self.dismiss(animated: true, completion: nil)
         }else{
           self.showAlert(title: "Duplicate Item", message: "You already have this item in your collection")
         }

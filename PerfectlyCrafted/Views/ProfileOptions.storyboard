@@ -58,9 +58,10 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzQ-ud-2tc">
                                             <rect key="frame" x="239" y="79" width="65" height="65"/>
-                                            <state key="normal" image="icons8-share-25"/>
+                                            <state key="normal" image="icons8-checked-filled-25"/>
+                                            <state key="selected" image="icons8-checked-filled-25 (1)"/>
                                             <connections>
-                                                <action selector="shareButtonPressed:" destination="9vA-Dp-cjG" eventType="touchUpInside" id="4nV-Fn-yOv"/>
+                                                <action selector="completedButtonPressed:" destination="9vA-Dp-cjG" eventType="touchUpInside" id="4nV-Fn-yOv"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -399,7 +400,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-share-25" width="18.75" height="18.75"/>
+        <image name="icons8-checked-filled-25" width="18.75" height="18.75"/>
+        <image name="icons8-checked-filled-25 (1)" width="150" height="150"/>
         <image name="placeholder" width="512" height="512"/>
     </resources>
 </document>

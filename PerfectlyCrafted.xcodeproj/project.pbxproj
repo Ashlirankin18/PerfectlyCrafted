@@ -214,10 +214,10 @@
 				2E98478B221D5D4400204A42 /* ProductDisplayCell.swift */,
 				2E4A3EAB2208D5D900988116 /* SignUpView.swift */,
 				2E4A3EAF2208E7A200988116 /* SignUpViewForm.swift */,
-				2E984789221D57D600204A42 /* SearchView.swift */,
 				2E063E68220B629A00D85406 /* ProfileCollectionViewCell.swift */,
 				2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */,
 				2EDB0E4A222DC230006DB8EE /* HairTableViewCell.swift */,
+				2E984789221D57D600204A42 /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

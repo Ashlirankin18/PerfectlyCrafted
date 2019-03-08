@@ -57,7 +57,8 @@ final class DataBaseManager {
                                                                                     
                                                             "userId": user.uid ,
                                                             "productImage":product.productImage,
-                                                            "category":product.category],
+                                                            "category":product.category,
+                                                            "isComplete":product.isCompleted],
       completion: { (error) in
                                                                                       if let error = error{
                                                                                         print("There was an error adding the product: \(error)")
@@ -98,5 +99,26 @@ final class DataBaseManager {
         })
       }
     })
+  }
+  static func deleteDocumentFromDatabase(product:ProductModel){
+    firebaseDB.collection(FirebaseCollectionKeys.products).document(product.productId).delete { (error) in
+      if let error = error{
+        print("there was an error deleting the item: \(error)")
+      }else{
+        print("deletion sucessful")
+      }
+    }
+    
+  }
+  static func updateCompletionStatus(product:ProductModel){
+    firebaseDB.collection(FirebaseCollectionKeys.products).document(product.productId)
+      .updateData(["isCompleted" : product.isCompleted]) { (error) in
+        if let error = error{
+          print("there was an error updating completion status: \(error)")
+        }
+        else{
+          print("completion status updated")
+        }
+    }
   }
 }

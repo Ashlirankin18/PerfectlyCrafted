@@ -10,23 +10,24 @@ import UIKit
 import FirebaseAuth
 
 class SettingsTableViewController: UITableViewController {
-   @IBOutlet var editProfileView: UIView!
+  @IBOutlet var editProfileView: UIView!
   private var initialView: UIView?
+  private var updateButton: UIBarButtonItem!
   var userSession: UserSession!
   var firebaseUser: UserModel!
-  var updateButton: UIBarButtonItem!
- 
+
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      userSession = AppDelegate.theUser
-      userSession.userSessionSignOutDelegate = self
-     
-      if let myView = initialView {
-        view = myView
-      }
-      getUserFromFirebase()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    userSession = AppDelegate.theUser
+    userSession.userSessionSignOutDelegate = self
+    
+    if let myView = initialView {
+      view = myView
     }
+    getUserFromFirebase()
+  }
   
   @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
     dismiss(animated: true)
@@ -44,7 +45,7 @@ class SettingsTableViewController: UITableViewController {
     self.view = editProfileView
     
   }
-
+  
   @objc private func updateButtonPressed(){
     guard let currentView = editProfileView as? EditProfileView else {return}
     let url = URL(fileURLWithPath: firebaseUser.profileImageLink!)
@@ -53,12 +54,12 @@ class SettingsTableViewController: UITableViewController {
     updateButton.isEnabled = false
     
   }
-
   
-
+  
+  
   private func getUserFromFirebase() {
     guard let user = userSession.getCurrentUser()else{return}
-DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document(user.uid).getDocument { (snapshot, error) in
+    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document(user.uid).getDocument { (snapshot, error) in
       if let error = error {
         print(error)
       }
@@ -73,8 +74,8 @@ DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document(use
   
   private func setUserData(){
     guard let newView = editProfileView as? EditProfileView,
-    let user = userSession.getCurrentUser(),
-    let firebaseUser = firebaseUser else {return}
+      let user = userSession.getCurrentUser(),
+      let firebaseUser = firebaseUser else {return}
     getImage(ImageView: newView.UserImage, imageURLString: (user.photoURL?.absoluteString)!)
     newView.userName.delegate = self
     newView.userHairType.delegate = self

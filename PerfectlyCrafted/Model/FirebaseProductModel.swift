@@ -16,7 +16,8 @@ struct ProductModel:Codable {
   var userId:String
   var productImage: String
   let category: String
-init(productName:String,productId:String,productDescription:String,userId:String,productImage:String,category:String){
+  var isCompleted: Bool
+  init(productName:String,productId:String,productDescription:String,userId:String,productImage:String,category:String,isCompleted:Bool){
   
     self.productName = productName
     self.productImage = productImage
@@ -24,6 +25,7 @@ init(productName:String,productId:String,productDescription:String,userId:String
     self.productDescription = productDescription
     self.userId = userId
     self.category = category
+    self.isCompleted = isCompleted
   }
   init(dict:[String:Any]) {
     self.productName = dict["productName"] as? String ?? "no product Name found"
@@ -32,6 +34,7 @@ init(productName:String,productId:String,productDescription:String,userId:String
     self.userId = dict["userId"] as? String ?? "no user id was found"
     self.productImage = dict["productImage"] as? String ?? "no product url found"
     self.category = dict["category"] as? String ?? "no category found"
+    self.isCompleted = dict["isCompleted"] as? Bool ?? false
   }
 }
 
