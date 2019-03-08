@@ -37,9 +37,11 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
   }
   override func layoutSubviews() {
-    layer.cornerRadius = 6
+    layer.cornerRadius = 10
     cellBackgroundImage.layer.cornerRadius = 6
     cellBackgroundImage.layer.masksToBounds = true
+    cellBackgroundImage.layer.borderColor = UIColor.lightGray.cgColor
+    cellBackgroundImage.layer.borderWidth = 4
   }
 }
 extension ProfileCollectionViewCell {

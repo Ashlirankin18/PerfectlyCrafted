@@ -30,6 +30,7 @@ class PostFeedViewController: UIViewController {
     containerView.layer.cornerRadius = 10
     setUpUi()
     userSession = AppDelegate.theUser
+    postCaption.delegate = self
     }
   @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
     dismiss(animated: true)
@@ -78,4 +79,12 @@ extension PostFeedViewController: HairProductsTableViewControllerDelegate{
   }
   
   
+}
+extension PostFeedViewController:UITextViewDelegate{
+  func textViewDidBeginEditing(_ textView: UITextView) {
+    
+  }
+  func textViewDidEndEditing(_ textView: UITextView) {
+    textView.resignFirstResponder()
+  }
 }

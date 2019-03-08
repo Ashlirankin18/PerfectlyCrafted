@@ -15,7 +15,8 @@ class FeedsCollectionViewCell: UICollectionViewCell {
     view.backgroundColor = .white
     return view
   }()
-  let profileImage:UIButton = {
+  
+  lazy var profileImage:UIButton = {
     let button = UIButton()
     button.setImage(#imageLiteral(resourceName: "gift-habeshaw-1217521-unsplash-1"), for: .normal)
     button.clipsToBounds = true
@@ -72,7 +73,7 @@ class FeedsCollectionViewCell: UICollectionViewCell {
   }
   override func layoutSubviews() {
   profileImage.layer.cornerRadius = profileImage.bounds.width/2
-  userDetailsView.layer.borderWidth = 2
+//  userDetailsView.layer.borderWidth = 2
 
    
   }

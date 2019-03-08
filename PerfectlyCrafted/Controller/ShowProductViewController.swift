@@ -117,8 +117,6 @@ extension ShowProductViewController:UICollectionViewDataSource{
       }else {
         cell.productDescriptionTextView.text = hairProduct.results.description
       }
-      
-      
       if let urlString = hairProduct.results.images.first?.absoluteString{
         getProductImage(imageView: cell.productImage, urlString: urlString)
       }
@@ -142,9 +140,8 @@ extension ShowProductViewController:UICollectionViewDataSource{
       }else{
         cellTwo.priceLabel.text = "No price found"
       }
-      
-      cellTwo.urlLabel.text = "\(latestOffer.url)"
-      print(latestOffer.url)
+      cellTwo.urlLabel.text = latestOffer.url.absoluteString
+    
       return cellTwo
     }
     }

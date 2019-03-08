@@ -56,6 +56,10 @@ class ProductCell: UICollectionViewCell {
     setUpViews()
     backgroundColor = .clear
   }
+  override func layoutSubviews() {
+    productImage.layer.masksToBounds = true
+    productImage.layer.cornerRadius = 4
+  }
 }
 extension ProductCell{
   func setUpViews(){
@@ -72,7 +76,7 @@ extension ProductCell{
     productName.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
     productName.widthAnchor.constraint(equalToConstant: 300).isActive = true
     productName.heightAnchor.constraint(equalToConstant: 60).isActive = true
-    productName.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+    productName.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
     
   }
   func setUpProductImage(){
@@ -87,10 +91,10 @@ extension ProductCell{
   func setUpProductDescription(){
     addSubview(productDescriptionTextView)
     productDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
-    productDescriptionTextView.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 30).isActive = true
-    productDescriptionTextView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+    productDescriptionTextView.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 20).isActive = true
+    productDescriptionTextView.widthAnchor.constraint(equalToConstant: 300).isActive = true
     productDescriptionTextView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-    productDescriptionTextView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 44).isActive = true
+    productDescriptionTextView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
     
   }
   

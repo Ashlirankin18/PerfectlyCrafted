@@ -13,9 +13,11 @@ class ProfileViewController: UIViewController {
 
   var profileView = ProfileView()
   var userSession: UserSession!
-
-  let hairCareOptions = ["Hair Products"]
-  let hairOptionImages = [#imageLiteral(resourceName: "hairregimein.jpg")]
+  var tapGesture: UITapGestureRecognizer!
+  var imagePickerController: UIImagePickerController!
+  var storageManager: StorageManager!
+  let hairCareOptions = ["Hair Products","My Posts"]
+  let hairOptionImages = [#imageLiteral(resourceName: "hairregimein.jpg"),#imageLiteral(resourceName: "houcine-ncib-667560-unsplash-1")]
   
   
   init(view:ProfileView) {
@@ -30,26 +32,60 @@ class ProfileViewController: UIViewController {
   }
   
   override func viewDidLoad() {
-        super.viewDidLoad()
-    
+        super.viewDidLoad()    
     view.addSubview(profileView)
     view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
     setDelegates()
-    let signOutButton = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOutButtonPressed))
+    let signOutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-settings-25.png"), style: .plain, target: self, action: #selector(settingsButtonPressed))
     self.navigationItem.rightBarButtonItem = signOutButton
-  
+    storageManager = (UIApplication.shared.delegate as? AppDelegate)?.storageManager
+    profileView.profileImage.addTarget(self, action: #selector(profileImagePressed), for: .touchUpInside)
+    setUpImagePicker()
+    storageManager.delegate = self
     }
+
+  private func showImagePickerController(){
+    self.present(imagePickerController, animated: true, completion: nil)
+  }
+  
+  @objc private func profileImagePressed(){
+    let actionSheet = UIAlertController(title: "Options", message: "How would you like to update your profile image?", preferredStyle: .actionSheet)
+    let cameraAction = UIAlertAction(title: "Camera", style: .default) { (alertAction) in
+      if !UIImagePickerController.isSourceTypeAvailable(.camera){
+        alertAction.isEnabled = false
+      }else{
+        self.imagePickerController.sourceType = .camera
+        self.showImagePickerController()
+      }
+    }
+    let galleryAction = UIAlertAction(title: "Gallery", style: .default) { (alertAction) in
+      self.showImagePickerController()
+    }
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+    actionSheet.addAction(cameraAction)
+    actionSheet.addAction(galleryAction)
+    actionSheet.addAction(cancelAction)
+    self.present(actionSheet, animated: true, completion: nil)
+  }
+  
+
   private func setDelegates(){
     userSession = AppDelegate.theUser
     profileView.profileCollectionView.delegate = self
     profileView.profileCollectionView.dataSource = self
-      userSession.userSessionSignOutDelegate = self
     
   }
-  
-  @objc func signOutButtonPressed(){
-  userSession.signOut()
+  private func setUpImagePicker(){
+    imagePickerController = UIImagePickerController()
+    imagePickerController.delegate = self
+    imagePickerController.becomeFirstResponder()
     
+  }
+  @objc func settingsButtonPressed(){
+    guard let settingsViewController = UIStoryboard(name: "ProfileOptions", bundle: nil).instantiateViewController(withIdentifier: "navigationController") as? UINavigationController else {return}
+    settingsViewController.modalTransitionStyle = .coverVertical
+    settingsViewController.modalPresentationStyle = .currentContext
+    self.present(settingsViewController, animated: true)
   }
   private func getProfileImage(button:UIButton,imageUrl:String){
     if let image = ImageCache.shared.fetchImageFromCache(urlString: imageUrl){
@@ -97,6 +133,7 @@ class ProfileViewController: UIViewController {
       print("no user logged in")
     }
   }
+  
 }
 extension ProfileViewController:UICollectionViewDelegateFlowLayout{
  
@@ -123,23 +160,41 @@ extension ProfileViewController:UICollectionViewDataSource{
         return
         
       }
-      
+      productViewController.modalPresentationStyle = .currentContext
+      productViewController.modalTransitionStyle = .coverVertical
       self.present(productViewController, animated: true, completion: nil)
     }
   }
 }
-extension ProfileViewController: UserSessionSignOutDelegate{
-  func didReceiveSignOutError(_ userSession: UserSession, error: Error) {
-    showAlert(title: "Error", message: "There was an error signing out: \(error.localizedDescription)")
+extension ProfileViewController:UINavigationControllerDelegate,UIImagePickerControllerDelegate{
+  
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    dismiss(animated: true)
   }
   
-  func didSignOutUser(_userSession: UserSession) {
-    showAlert(title: "Sign Out Sucessful", message: "You were sucessfully signed out")
-    let window = (UIApplication.shared.delegate as! AppDelegate).window
-    let loginViewController = SignUpViewController()
-    window?.rootViewController = loginViewController
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+      else{
+        print("no original image could be found")
+        return
+    }
+  
+    profileView.profileImage.setImage(image, for: .normal)
+    if let imageData = image.jpegData(compressionQuality: 0.5){
+      storageManager.postImage(withData: imageData)
+    }
+    
+    dismiss(animated: true, completion: nil)
   }
+  
+}
+extension ProfileViewController: StorageManagerDelegate{
+  func didFetchImage(_ storageManager: StorageManager, imageURL: URL) {
+    userSession.updateExistingUser(imageURL: imageURL, userName: profileView.userName.text, hairType: profileView.hairType.text, bio: profileView.aboutMeTextView.text)
+  }
+  
+  
 }
 
-  
+
 

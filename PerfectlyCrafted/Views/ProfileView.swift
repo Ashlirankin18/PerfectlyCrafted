@@ -30,7 +30,7 @@ class ProfileView: UIView {
   lazy var userName: UILabel = {
     let label = UILabel()
     label.backgroundColor = .clear
-    label.font = UIFont(name: "Helvetica", size: 12)
+    label.font = UIFont(name: "Helvetica", size: 16)
     label.lineBreakMode = .byWordWrapping
     label.numberOfLines = 0
     label.textAlignment = .justified
@@ -40,7 +40,7 @@ class ProfileView: UIView {
   lazy var hairType: UILabel = {
     let label = UILabel()
     label.backgroundColor = .clear
-    label.font = UIFont(name: "Helvetica", size: 12)
+    label.font = UIFont(name: "Helvetica", size: 14)
     label.lineBreakMode = .byWordWrapping
     label.numberOfLines = 0
     label.textAlignment = .justified
@@ -50,7 +50,7 @@ class ProfileView: UIView {
   lazy var aboutMeTextView:UITextView = {
     let textView = UITextView()
     textView.backgroundColor = .clear
-    textView.font = UIFont(name: "Helvetica", size: 12)
+    textView.font = UIFont(name: "Helvetica", size: 14)
     textView.textAlignment = .justified
     textView.isEditable = false
     textView.isScrollEnabled = false
@@ -77,8 +77,7 @@ class ProfileView: UIView {
     profileImage.layer.borderWidth = 4
     profileImage.layer.borderColor = UIColor.black.cgColor
     userName.layer.cornerRadius = 8
-    bioView.layer.borderWidth = 2
-    bioView.layer.borderColor = UIColor.gray.cgColor
+    
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -86,8 +85,14 @@ class ProfileView: UIView {
     commonInit()
   }
   func commonInit(){
-    backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+    backgroundColor = UIColor.lightGray
     setUpViews()
+    bioView.layer.cornerRadius = 10
+    bioView.layer.borderColor = UIColor.lightGray.cgColor
+    bioView.layer.borderWidth = 5
+    profileCollectionView.layer.cornerRadius = 10
+    profileCollectionView.layer.borderWidth = 5
+    profileCollectionView.layer.borderColor = UIColor.lightGray.cgColor
   }
   
 }
@@ -138,23 +143,23 @@ extension ProfileView{
     addSubview(userName)
     userName.translatesAutoresizingMaskIntoConstraints = false
     userName.topAnchor.constraint(equalToSystemSpacingBelow: bioView.topAnchor, multiplier: 3.5).isActive = true
-    userName.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.1).isActive = true
-    userName.widthAnchor.constraint(equalToConstant: 150).isActive = true
+    userName.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.4).isActive = true
+    userName.widthAnchor.constraint(equalToConstant: 200).isActive = true
    
   }
   func setUpHairtypeLabel(){
     addSubview(hairType)
     hairType.translatesAutoresizingMaskIntoConstraints = false
     hairType.topAnchor.constraint(equalToSystemSpacingBelow: userName.bottomAnchor, multiplier: 1.8).isActive = true
-    hairType.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.1).isActive = true
-    hairType.widthAnchor.constraint(equalToConstant: 150).isActive = true
+    hairType.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.4).isActive = true
+    hairType.widthAnchor.constraint(equalToConstant: 200).isActive = true
     
   }
   func setUpAboutMeLabel(){
     addSubview(aboutMeTextView)
     aboutMeTextView.translatesAutoresizingMaskIntoConstraints = false
     aboutMeTextView.topAnchor.constraint(equalToSystemSpacingBelow: hairType.bottomAnchor, multiplier: 1.4).isActive = true
-    aboutMeTextView.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.1).isActive = true
+    aboutMeTextView.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.2).isActive = true
     aboutMeTextView.widthAnchor.constraint(equalToConstant: 250).isActive = true
     aboutMeTextView.heightAnchor.constraint(equalToConstant: 80).isActive = true
   }

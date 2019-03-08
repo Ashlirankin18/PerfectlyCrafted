@@ -34,7 +34,7 @@ class SearchView: UIView {
   
   func commonInit(){
     setUpViews()
-    backgroundColor = #colorLiteral(red: 0.6722700215, green: 1, blue: 0.6019102933, alpha: 1)
+    backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
   }
   
 }

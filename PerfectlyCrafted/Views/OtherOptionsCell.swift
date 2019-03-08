@@ -13,10 +13,9 @@ class OtherOptionsCell: UICollectionViewCell {
   lazy var productImage:UIImageView = {
     let imageView = UIImageView()
     imageView.image = #imageLiteral(resourceName: "placeholder")
-    imageView.clipsToBounds = true
     return imageView
   }()
-  let sellerLabel: UILabel = {
+  lazy var sellerLabel: UILabel = {
     let label = UILabel()
     label.backgroundColor = .clear
     label.text = "Seller Label"
@@ -25,7 +24,7 @@ class OtherOptionsCell: UICollectionViewCell {
     label.numberOfLines = 0
     return label
   }()
-  let urlLabel: UILabel = {
+  lazy var urlLabel: UILabel = {
     let label = UILabel()
     label.backgroundColor = .clear
     label.text = "URL"
@@ -34,17 +33,20 @@ class OtherOptionsCell: UICollectionViewCell {
     label.numberOfLines = 0
     return label
   }()
-  let priceLabel: UITextView = {
-    let label = UITextView()
-    label.backgroundColor = .clear
-    label.textAlignment = .center
-    label.isEditable = false
-    label.dataDetectorTypes = .link
-    label.isScrollEnabled = false
-    label.text = "Price"
-    return label
+  lazy var priceLabel: UITextView = {
+    let textView = UITextView()
+    textView.backgroundColor = .clear
+    textView.textAlignment = .justified
+    textView.isEditable = false
+    textView.isScrollEnabled = false
+    textView.text = "Price"
+    textView.dataDetectorTypes = .link
+    return textView
   }()
-  
+  override func layoutSubviews() {
+    productImage.layer.masksToBounds = true
+    productImage.layer.cornerRadius = 4
+  }
   override init(frame: CGRect) {
     super.init(frame: frame)
     commonInit()
@@ -73,7 +75,7 @@ extension OtherOptionsCell{
     productImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
     productImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
     productImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
-    productImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 60).isActive = true
+    productImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 80).isActive = true
     
   }
   func setUpSellerLabel(){

@@ -53,6 +53,8 @@
 		2EB2A1A52227077800525BD4 /* FirebaseCollectionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */; };
 		2EB2A1A722272CC300525BD4 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1A622272CC300525BD4 /* StorageManager.swift */; };
 		2EB2A1A922272DEF00525BD4 /* StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1A822272DEF00525BD4 /* StorageKeys.swift */; };
+		2EC7B543223173AC00D165B1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B542223173AC00D165B1 /* SettingsTableViewController.swift */; };
+		2EC7B5472231911700D165B1 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B5462231911700D165B1 /* EditProfileView.swift */; };
 		2EDB0E4B222DC230006DB8EE /* HairTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB0E4A222DC230006DB8EE /* HairTableViewCell.swift */; };
 		2EDB0E4D222DC49C006DB8EE /* ImageViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB0E4C222DC49C006DB8EE /* ImageViewControllerExtension.swift */; };
 		2EDB0E4F222E1014006DB8EE /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB0E4E222E1014006DB8EE /* FeedModel.swift */; };
@@ -114,6 +116,8 @@
 		2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollectionKeys.swift; sourceTree = "<group>"; };
 		2EB2A1A622272CC300525BD4 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2EB2A1A822272DEF00525BD4 /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
+		2EC7B542223173AC00D165B1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		2EC7B5462231911700D165B1 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		2EDB0E4A222DC230006DB8EE /* HairTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairTableViewCell.swift; sourceTree = "<group>"; };
 		2EDB0E4C222DC49C006DB8EE /* ImageViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewControllerExtension.swift; sourceTree = "<group>"; };
 		2EDB0E4E222E1014006DB8EE /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				2EA365B6220A64E700FFDC5E /* LoginViewController.swift */,
 				2E04A4B3221A76460066568E /* PopUpViewController.swift */,
 				2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */,
+				2EC7B542223173AC00D165B1 /* SettingsTableViewController.swift */,
 				2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */,
 				2E984787221D575800204A42 /* SearchProductViewController.swift */,
 				2E997F9F221B1EFD00730ED7 /* ShowProductViewController.swift */,
@@ -197,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				2EED896622284C9E00ADDEBD /* ProfileOptions.storyboard */,
-				2EDB0E4A222DC230006DB8EE /* HairTableViewCell.swift */,
+				2EC7B5462231911700D165B1 /* EditProfileView.swift */,
 				2EB2A1812225B29700525BD4 /* SetUpProfileView.swift */,
 				2E063E6C220B77C500D85406 /* FeedsView.swift */,
 				2E997FA1221B200D00730ED7 /* HairProductView.swift */,
@@ -212,6 +217,7 @@
 				2E984789221D57D600204A42 /* SearchView.swift */,
 				2E063E68220B629A00D85406 /* ProfileCollectionViewCell.swift */,
 				2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */,
+				2EDB0E4A222DC230006DB8EE /* HairTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -480,6 +486,7 @@
 				2EA365B1220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2E997FA0221B1EFD00730ED7 /* ShowProductViewController.swift in Sources */,
 				2EED896922284DED00ADDEBD /* HairProductsTableViewController.swift in Sources */,
+				2EC7B543223173AC00D165B1 /* SettingsTableViewController.swift in Sources */,
 				2E4A3EB02208E7A200988116 /* SignUpViewForm.swift in Sources */,
 				2E997F94221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift in Sources */,
 				2E997F98221B0E4700730ED7 /* Extension+Alerts.swift in Sources */,
@@ -506,6 +513,7 @@
 				2E4A3EAE2208E77200988116 /* SignUpFormViewController.swift in Sources */,
 				2EA365BB220A760800FFDC5E /* UserSession.swift in Sources */,
 				2E63590E2224A2CD0053BBD9 /* ProductDataManager.swift in Sources */,
+				2EC7B5472231911700D165B1 /* EditProfileView.swift in Sources */,
 				2EA365AA220A300C00FFDC5E /* PersistanceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,6 +656,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ASLRJLYD2S;
 				INFOPLIST_FILE = PerfectlyCrafted/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -655,7 +664,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wmn4future.PerfectlyCrafted;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -667,6 +676,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ASLRJLYD2S;
 				INFOPLIST_FILE = PerfectlyCrafted/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -674,7 +684,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wmn4future.PerfectlyCrafted;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
