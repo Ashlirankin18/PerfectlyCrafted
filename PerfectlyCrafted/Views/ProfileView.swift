@@ -58,11 +58,11 @@ class ProfileView: UIView {
   }()
   lazy var profileCollectionView:UICollectionView = {
     let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .horizontal
+    layout.scrollDirection = .vertical
     layout.sectionInset = UIEdgeInsets.init(top: 15, left: 15, bottom: 15, right: 15)
     let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
     
-    collectionView.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: "ProfileCell")
+    collectionView.register(FeedsCollectionViewCell.self, forCellWithReuseIdentifier: "FeedsCell")
     collectionView.backgroundColor = .white
     
     return collectionView
@@ -89,9 +89,9 @@ class ProfileView: UIView {
     setUpViews()
     bioView.layer.cornerRadius = 10
     bioView.layer.borderColor = UIColor.lightGray.cgColor
-    bioView.layer.borderWidth = 5
+    bioView.layer.borderWidth = 4
     profileCollectionView.layer.cornerRadius = 10
-    profileCollectionView.layer.borderWidth = 5
+    profileCollectionView.layer.borderWidth = 4
     profileCollectionView.layer.borderColor = UIColor.lightGray.cgColor
   }
   

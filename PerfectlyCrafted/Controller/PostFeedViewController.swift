@@ -31,21 +31,33 @@ class PostFeedViewController: UIViewController {
     setUpUi()
     userSession = AppDelegate.theUser
     postCaption.delegate = self
+    textViewSetUp()
+    
+    
     }
   @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
     dismiss(animated: true)
   }
   
-  
   @IBAction func postButtonPressed(_ sender: UIButton) {
     guard let theUser = userSession.getCurrentUser(),
       let product = productToPost,
       let caption = self.postCaption.text else{return}
-    let feed = FeedModel.init(feedId: "", userId: theUser.uid, userImageLink: (theUser.photoURL?.absoluteString)!, productId: product.productId, imageURL: product.productImage, caption: caption, userName: theUser.displayName!)
+      let date = Date()
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateStyle = .long
+      let dateString = dateFormatter.string(from: date)
+      let feed = FeedModel.init(feedId: "", userId: theUser.uid, userImageLink: (theUser.photoURL?.absoluteString)!, productId: product.productId, imageURL: product.productImage, caption: caption, userName: theUser.displayName!, datePosted: dateString)
     DataBaseManager.postFeedTo(feed: feed, user: theUser)
     dismiss(animated: true)
   }
   
+  private func textViewSetUp(){
+    postCaption.text = "Share your experience here"
+    postCaption.textColor = .gray
+    postCaption.enablesReturnKeyAutomatically = true
+    
+  }
   private func setUpUi(){
     guard let product = productToPost else {return}
     getImage(ImageView: self.productImage, imageURLString: product.productImage)
@@ -82,9 +94,16 @@ extension PostFeedViewController: HairProductsTableViewControllerDelegate{
 }
 extension PostFeedViewController:UITextViewDelegate{
   func textViewDidBeginEditing(_ textView: UITextView) {
-    
+    if !textView.text.isEmpty {
+      textView.text = ""
+      textView.textColor = .black
+    }
   }
-  func textViewDidEndEditing(_ textView: UITextView) {
-    textView.resignFirstResponder()
+  func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    if text == "\n"{
+      textView.resignFirstResponder()
+      return false
+    }
+    return true
   }
 }

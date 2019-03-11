@@ -157,14 +157,14 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Exit" id="Rcq-co-wpb">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="7yb-oV-t80">
-                                        <rect key="frame" x="0.0" y="199.5" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="57" id="7yb-oV-t80">
+                                        <rect key="frame" x="0.0" y="199.5" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7yb-oV-t80" id="UA6-rT-y39">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckg-B1-ugs">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckg-B1-ugs">
                                                     <rect key="frame" x="153" y="6" width="56" height="30"/>
                                                     <state key="normal" title="SignOut"/>
                                                     <connections>
@@ -173,8 +173,9 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ckg-B1-ugs" firstAttribute="centerY" secondItem="UA6-rT-y39" secondAttribute="centerY" id="2DG-jG-DKW"/>
-                                                <constraint firstItem="ckg-B1-ugs" firstAttribute="centerX" secondItem="UA6-rT-y39" secondAttribute="centerX" constant="-6.5" id="ain-Pv-njq"/>
+                                                <constraint firstItem="ckg-B1-ugs" firstAttribute="leading" secondItem="UA6-rT-y39" secondAttribute="leading" constant="153" id="DFY-L9-6hM"/>
+                                                <constraint firstItem="ckg-B1-ugs" firstAttribute="centerY" secondItem="UA6-rT-y39" secondAttribute="centerY" constant="-7.25" id="dJ1-V9-qGK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ckg-B1-ugs" secondAttribute="bottom" constant="10" id="m9T-rd-RpJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

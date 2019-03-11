@@ -66,16 +66,22 @@ class FeedsCollectionViewCell: UICollectionViewCell {
     label.adjustsFontSizeToFitWidth = true
     return label
   }()
-  
+  lazy var dateLabel:UILabel = {
+    let label = UILabel()
+    label.text = "Date"
+    label.numberOfLines = 0
+    label.adjustsFontSizeToFitWidth = true
+    label.font = UIFont(name: "Helvetica", size:  11)
+    label.textColor = UIColor.lightGray
+    label.backgroundColor = .white
+    return label
+  }()
   override init(frame: CGRect) {
     super.init(frame: frame)
     commonInit()
   }
   override func layoutSubviews() {
   profileImage.layer.cornerRadius = profileImage.bounds.width/2
-//  userDetailsView.layer.borderWidth = 2
-
-   
   }
   required init?(coder aDecoder: NSCoder) {
   super.init(coder: aDecoder)
@@ -106,6 +112,7 @@ userDetailsView.translatesAutoresizingMaskIntoConstraints = false
     setUpUsernameLabel()
     setUpLocationLabel()
     shareButtonConstraints()
+    
   }
   func setUpProfileImage(){
     addSubview(profileImage)
@@ -143,8 +150,9 @@ commentsAndLikeView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.init(item: commentsAndLikeView, attribute: .top, relatedBy:.equal, toItem: postImage, attribute: .bottom, multiplier: 1.0, constant: 10).isActive = true
     NSLayoutConstraint.init(item: commentsAndLikeView, attribute: .leading, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .leading, multiplier: 1.0, constant: 0).isActive = true
     NSLayoutConstraint.init(item: commentsAndLikeView, attribute: .trailing, relatedBy: .equal, toItem:safeAreaLayoutGuide, attribute: .trailing, multiplier: 1.0, constant: 0).isActive = true
-    NSLayoutConstraint.init(item: commentsAndLikeView, attribute: .height, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .height, multiplier: 0.28, constant: 0).isActive = true
+    NSLayoutConstraint.init(item: commentsAndLikeView, attribute: .height, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .height, multiplier: 0.29, constant: 0).isActive = true
     setUpCaptionLabel()
+    setDateLabel()
 }
   func setUpLikeButtonConstraints(){
   commentsAndLikeView.addSubview(likeButton)
@@ -164,7 +172,7 @@ commentButton.translatesAutoresizingMaskIntoConstraints = false
   func shareButtonConstraints(){
    userDetailsView.addSubview(shareButton)
 shareButton.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint(item: shareButton, attribute: .top, relatedBy: .equal, toItem: userDetailsView, attribute: .top, multiplier: 1.0, constant: 20).isActive = true
+    NSLayoutConstraint(item: shareButton, attribute: .top, relatedBy: .equal, toItem: userDetailsView, attribute: .top, multiplier: 1.0, constant: 10).isActive = true
     NSLayoutConstraint(item: shareButton, attribute: .trailing, relatedBy: .equal, toItem: userDetailsView, attribute: .trailing, multiplier: 1.0, constant: -20).isActive = true
     NSLayoutConstraint(item: shareButton, attribute: .height, relatedBy: .equal, toItem: shareButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
   }
@@ -174,6 +182,15 @@ captionLabel.translatesAutoresizingMaskIntoConstraints = false
     captionLabel.topAnchor.constraint(equalTo: commentsAndLikeView.topAnchor, constant: 10).isActive = true
     captionLabel.leadingAnchor.constraint(equalTo: commentsAndLikeView.leadingAnchor, constant: 10).isActive = true
     captionLabel.trailingAnchor.constraint(equalTo: commentsAndLikeView.trailingAnchor, constant: -10).isActive = true
+    
+  }
+  func setDateLabel(){
+    commentsAndLikeView.addSubview(dateLabel)
+    dateLabel.translatesAutoresizingMaskIntoConstraints = false
+    dateLabel.topAnchor.constraint(equalTo: captionLabel.bottomAnchor, constant: 70).isActive = true
+    dateLabel.leadingAnchor.constraint(equalTo: commentsAndLikeView.leadingAnchor, constant: 10).isActive = true
+    dateLabel.trailingAnchor.constraint(equalTo: commentsAndLikeView.trailingAnchor, constant: -10).isActive = true
+    dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     
   }
 }

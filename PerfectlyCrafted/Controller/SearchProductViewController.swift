@@ -26,7 +26,7 @@ class SearchProductViewController: UIViewController {
     searchView.productsTableView.dataSource = self
     searchView.productsTableView.delegate = self
     searchView.productSearchBar.delegate = self
-   // self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backButtonPressed))
+   
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)

@@ -34,7 +34,7 @@ class HairProductsTableViewController: UITableViewController {
   }
   }
   private var userSession: UserSession!
-  private var selectedProduct: ProductModel!
+  private var selectedProduct: ProductModel?
 
   override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,22 +54,29 @@ class HairProductsTableViewController: UITableViewController {
   
   @IBAction func addProductPressed(_ sender: UIBarButtonItem) {
     let popUpViewController = PopUpViewController()
-    popUpViewController.modalTransitionStyle = .crossDissolve
-    popUpViewController.modalPresentationStyle = .overCurrentContext
-    self.present(popUpViewController, animated: true)
+    let navigationController = UINavigationController(rootViewController: popUpViewController)
+    popUpViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: popUpViewController, action: #selector(popUpViewController.dismissPopUp))
+    
+    self.present(navigationController, animated: true)
   }
   
   @IBAction func completedButtonPressed(_ sender: UIButton) {
     if (sender.currentImage?.isEqual(#imageLiteral(resourceName: "icons8-checked-filled-25.png")))!{
       sender.setImage(#imageLiteral(resourceName: "icons8-checked-filled-25 (1)"), for: .normal)
-      selectedProduct.isCompleted = true
-      DataBaseManager.updateCompletionStatus(product: selectedProduct)
-      sender.isEnabled = false
+      if var selectedProduct = selectedProduct{
+        selectedProduct.isCompleted = true
+        DataBaseManager.updateCompletionStatus(product: selectedProduct)
+        sender.isEnabled = false
+      }
+     
     }else{
       sender.setImage(#imageLiteral(resourceName: "icons8-checked-filled-25.png"), for: .normal)
-      selectedProduct.isCompleted = false
-      DataBaseManager.updateCompletionStatus(product: selectedProduct)
-      sender.isEnabled = false
+      if var selectedProduct = selectedProduct {
+        selectedProduct.isCompleted = false
+        DataBaseManager.updateCompletionStatus(product: selectedProduct)
+        sender.isEnabled = false
+      }
+      
     }
   }
 
@@ -123,7 +130,6 @@ class HairProductsTableViewController: UITableViewController {
     let sectionTitles = Array(dict.keys)
     if let values = dict[sectionTitles[indexPath.section]]{
       let product = values[indexPath.row]
-      print(product)
     getImage(ImageView: cell.productImage, imageURLString: product.productImage)
       cell.productName.text = product.productName
       if product.isCompleted == true{
@@ -142,6 +148,7 @@ class HairProductsTableViewController: UITableViewController {
  
     let section = Array(dict.keys)
     if let values = dict[section[indexPath.section]]{
+      guard values.count != 0 else {return}
       let shareButtonIndex = cell.shareProduct.tag
       let product = values[shareButtonIndex]
       self.selectedProduct = product
@@ -161,7 +168,10 @@ class HairProductsTableViewController: UITableViewController {
     let share = UITableViewRowAction(style: .normal, title: "Share") { (action, indexPath) in
       let storyBoard = UIStoryboard.init(name: "ProfileOptions", bundle: nil)
       guard let postViewController = storyBoard.instantiateViewController(withIdentifier: "PostFeedViewController") as? PostFeedViewController else {return}
-      postViewController.sendSelectedProduct(self, selectedProduct: self.selectedProduct)
+      if let selectedProduct = self.selectedProduct{
+        postViewController.sendSelectedProduct(self, selectedProduct: selectedProduct)
+      }
+    
       self.present(postViewController, animated: true)
     }
     

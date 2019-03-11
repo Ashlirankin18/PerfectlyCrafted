@@ -15,8 +15,8 @@ struct FeedModel {
   let imageURL:String
   let caption:String
   let userName:String
-  
-  init(feedId:String,userId:String,userImageLink:String,productId:String,imageURL:String,caption:String,userName:String){
+  let datePosted: String
+  init(feedId:String,userId:String,userImageLink:String,productId:String,imageURL:String,caption:String,userName:String,datePosted:String){
     self.feedId = feedId
     self.userId = userId
     self.userImageLink = userImageLink
@@ -24,6 +24,7 @@ struct FeedModel {
     self.imageURL = imageURL
     self.caption = caption
     self.userName = userName
+    self.datePosted = datePosted
   }
   init(dict:[String:Any]){
     self.feedId = dict["feedId"] as? String ?? "no feed id found"
@@ -33,5 +34,6 @@ struct FeedModel {
     self.imageURL = dict["imageUrl"] as? String ?? "no image url found"
     self.caption = dict["caption"] as? String ?? "no caption found "
     self.userName = dict["userName"] as? String ?? "no userName found"
-  }
+    self.datePosted = dict["datePosted"] as? String ?? " no date found"
+}
 }

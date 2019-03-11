@@ -15,6 +15,7 @@ class FeedsViewController: UIViewController {
     didSet{
       DispatchQueue.main.async {
         self.feedsView.feedsCollectionView.reloadData()
+        self.userFeed.sort{$0.datePosted < $1.datePosted}
       }
     }
   }
@@ -34,19 +35,22 @@ class FeedsViewController: UIViewController {
     feedsView.feedsCollectionView.dataSource = self
   }
   private func getTheNewsFeeds(){
-    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.feed).getDocuments { (snapshot, error) in
-      if let error = error{
-        print(error)
+    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.feed).addSnapshotListener { (snapshot, error) in
+      if let error = error {
+        print(error.localizedDescription)
       }
       else if let snapshot = snapshot{
-        snapshot.documents.forEach{
-          let results =  $0.data()
+        self.userFeed.removeAll()
+        snapshot.documents.forEach {
+          let results = $0.data()
           let feed = FeedModel.init(dict: results)
           self.userFeed.append(feed)
         }
       }
     }
-  }
+      }
+    }
+
   private func setImageOnButton(button:UIButton,urlString:String){
     if let image = ImageCache.shared.fetchImageFromCache(urlString: urlString){
       DispatchQueue.main.async {
@@ -64,11 +68,10 @@ class FeedsViewController: UIViewController {
       }
     }
   }
-  
-}
+
 extension FeedsViewController:UICollectionViewDelegateFlowLayout{
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize.init(width: 400, height:600)
+    return CGSize.init(width: 400, height:550)
   }
   
 }
@@ -82,7 +85,8 @@ extension FeedsViewController:UICollectionViewDataSource{
     let feed = userFeed[indexPath.row]
     getImage(ImageView: cell.postImage, imageURLString: feed.imageURL)
     cell.userName.text = feed.userName
-    cell.captionLabel.text = feed.caption
+    cell.captionLabel.text = "\(feed.caption)"
+    cell.dateLabel.text = "\(feed.datePosted)"
     setImageOnButton(button: cell.profileImage, urlString: feed.userImageLink)
     return cell
     

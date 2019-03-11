@@ -16,9 +16,12 @@ class ProfileViewController: UIViewController {
   var tapGesture: UITapGestureRecognizer!
   var imagePickerController: UIImagePickerController!
   var storageManager: StorageManager!
-  let hairCareOptions = ["Hair Products","My Posts"]
-  let hairOptionImages = [#imageLiteral(resourceName: "hairregimein.jpg"),#imageLiteral(resourceName: "houcine-ncib-667560-unsplash-1")]
   
+  private var myPosts = [FeedModel](){
+    didSet{
+      self.profileView.profileCollectionView.reloadData()
+    }
+  }
   
   init(view:ProfileView) {
     super.init(nibName: nil, bundle: nil)
@@ -42,6 +45,7 @@ class ProfileViewController: UIViewController {
     profileView.profileImage.addTarget(self, action: #selector(profileImagePressed), for: .touchUpInside)
     setUpImagePicker()
     storageManager.delegate = self
+    getMyPost()
     }
 
   private func showImagePickerController(){
@@ -131,45 +135,48 @@ class ProfileViewController: UIViewController {
       print("no user logged in")
     }
   }
-  
+private func getMyPost(){
+    guard let user = userSession.getCurrentUser() else {return}
+    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.feed).addSnapshotListener { (snapshot, error) in
+      if let error = error{
+        print(error.localizedDescription)
+      }
+      else if let snapshot = snapshot{
+        snapshot.query.whereField("userId", isEqualTo: user.uid).getDocuments(completion: { (snapshot, error) in
+          self.myPosts.removeAll()
+          snapshot?.documents.forEach{
+            let results = $0.data()
+            let myFeed = FeedModel(dict: results)
+            self.myPosts.append(myFeed)
+          }
+        })
+      }
+    }
+  }
 }
 extension ProfileViewController:UICollectionViewDelegateFlowLayout{
  
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize.init(width: 250, height: 500)
+    return CGSize.init(width: 400, height: 550)
   }
 }
 extension ProfileViewController:UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
    
-      return hairCareOptions.count
+      return myPosts.count
     
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = profileView.profileCollectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as? ProfileCollectionViewCell else {fatalError("No cell could be dequeue")}
-    cell.collectionLabel.text = hairCareOptions[indexPath.row]
-    cell.cellBackgroundImage.image = hairOptionImages[indexPath.row]
+    guard let cell = profileView.profileCollectionView.dequeueReusableCell(withReuseIdentifier: "FeedsCell", for: indexPath) as? FeedsCollectionViewCell else {fatalError("No cell could be dequeue")}
+    let feed = myPosts[indexPath.row]
+    cell.userName.text = feed.userName
+    cell.captionLabel.text = feed.caption
+    cell.dateLabel.text = feed.datePosted
+    getProfileImage(button: cell.profileImage, imageUrl: feed.userImageLink)
+    getImage(ImageView: cell.postImage, imageURLString: feed.imageURL)
     return cell
   }
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    if indexPath.row == 0 {
-      guard let productViewController = UIStoryboard(name: "ProfileOptions", bundle: nil).instantiateViewController(withIdentifier: "HairProductsTableViewController") as? HairProductsTableViewController else {
-        print("No HairProductsTableViewController found")
-        return
-        
-      }
-      productViewController.modalPresentationStyle = .currentContext
-      productViewController.modalTransitionStyle = .coverVertical
-      self.present(productViewController, animated: true, completion: nil)
-    }
-    if indexPath.row == 1{
-     let myPostViewController = MyPostViewController()
-      let navigationController = UINavigationController(rootViewController: myPostViewController)
-      navigationController.modalTransitionStyle = .crossDissolve
-      navigationController.modalPresentationStyle = .currentContext
-      self.present(navigationController, animated: true, completion: nil)
-    }
-  }
+  
 }
 extension ProfileViewController:UINavigationControllerDelegate,UIImagePickerControllerDelegate{
   
