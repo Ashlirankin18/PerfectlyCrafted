@@ -89,9 +89,9 @@ class UserSession {
         DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users)
         .document(user.uid)
           .updateData(["imageURL": imageURL?.absoluteString,
-                       "userName": userName!,
-                       "hairType": hairType!,
-                       "bio":bio!], completion: { (error) in
+                       "userName": userName ?? "no userName found",
+                       "hairType": hairType ?? "No hair type found",
+                       "bio":bio ?? "no bio found"], completion: { (error) in
             guard let error = error else {
               print("sucessful")
               return

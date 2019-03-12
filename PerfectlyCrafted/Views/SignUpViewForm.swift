@@ -19,7 +19,6 @@ class SignUpViewForm: UIView {
     label.font = UIFont(name: "Times", size: 30)
     return label
   }()
-  
 
   lazy var passwordTextField: UITextField = {
     let textField = UITextField()

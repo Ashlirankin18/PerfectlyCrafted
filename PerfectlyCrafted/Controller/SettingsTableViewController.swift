@@ -15,8 +15,8 @@ class SettingsTableViewController: UITableViewController {
   @IBOutlet weak var emailLabel: UILabel!
   private var initialView: UIView?
   private var updateButton: UIBarButtonItem!
-  var userSession: UserSession!
-  var firebaseUser: UserModel!
+  weak var userSession: UserSession!
+  private var firebaseUser: UserModel!
 
   
   
@@ -50,8 +50,14 @@ class SettingsTableViewController: UITableViewController {
   
   @objc private func updateButtonPressed(){
     guard let currentView = editProfileView as? EditProfileView else {return}
-    let url = URL(fileURLWithPath: firebaseUser.profileImageLink!)
-    userSession.updateExistingUser(imageURL: url, userName: currentView.userName.text , hairType: currentView.userHairType.text, bio: currentView.userBio.text)
+DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document().updateData(["userName":currentView.userName.text ?? "no username found",
+                                                                                               "hairType":currentView.userHairType.text ?? "no hair type found", "bio":currentView.userBio.text                                                            ]) { (error) in
+                                                                                                if let error = error{
+                                                                                                  print(error.localizedDescription)
+                                                                                                }
+                                                                                                print("fields sucessfully updated")
+                                                                                              
+    }
     view = initialView
     updateButton.isEnabled = false
     
@@ -61,30 +67,31 @@ class SettingsTableViewController: UITableViewController {
   
   private func getUserFromFirebase() {
     guard let user = userSession.getCurrentUser()else{return}
-    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document(user.uid).getDocument { (snapshot, error) in
-      if let error = error {
-        print(error)
-      }
-      else if let snapshot = snapshot{
+    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document(user.uid).addSnapshotListener({ [weak self] (snapshot, error) in
+      if let error = error{
+        print(error.localizedDescription)
+      }else if let snapshot = snapshot {
         if let userData = snapshot.data(){
-          let user = UserModel.init(dict: userData)
-          self.firebaseUser = user
-          self.emailLabel.text = "Email: \(user.email)"
+          self?.firebaseUser = UserModel.init(dict: userData)
         }
       }
+    })
+    
     }
-  }
   
+
   private func setUserData(){
     guard let newView = editProfileView as? EditProfileView,
-      let user = userSession.getCurrentUser(),
       let firebaseUser = firebaseUser else {return}
-    getImage(ImageView: newView.UserImage, imageURLString: (user.photoURL?.absoluteString)!)
     newView.userName.delegate = self
     newView.userHairType.delegate = self
     newView.userName.text = firebaseUser.userName
     newView.userHairType.text = firebaseUser.hairType
     newView.userBio.text = firebaseUser.aboutMe
+    if let userImage = firebaseUser.profileImageLink{
+      newView.UserImage.kf.setImage(with: URL(string: userImage),placeholder:#imageLiteral(resourceName: "placeholder.png"))
+    }
+   
   }
 }
 
@@ -107,3 +114,4 @@ extension SettingsTableViewController: UITextFieldDelegate{
     return true
   }
 }
+

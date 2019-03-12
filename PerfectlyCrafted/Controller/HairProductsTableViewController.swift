@@ -8,14 +8,14 @@
 
 import UIKit
 import FirebaseFirestore
-
+import ExpandingMenu
+import Firebase
 protocol HairProductsTableViewControllerDelegate:AnyObject {
   func sendSelectedProduct(_ controller:HairProductsTableViewController,selectedProduct: ProductModel)
 }
 
 class HairProductsTableViewController: UITableViewController {
   weak var delegate: HairProductsTableViewControllerDelegate?
-  
   @IBOutlet weak var backButton: UIBarButtonItem!
   
   private var userProducts = [ProductModel](){
@@ -35,7 +35,12 @@ class HairProductsTableViewController: UITableViewController {
   }
   private var userSession: UserSession!
   private var selectedProduct: ProductModel?
-
+  lazy var vision = Vision.vision()
+  public weak var barcodeDetector: VisionBarcodeDetector?
+  public var imagePickerController: UIImagePickerController!
+  var allHairProducts = [AllHairProducts]()
+  
+  
   override func viewDidLoad() {
         super.viewDidLoad()
       userSession = AppDelegate.theUser
@@ -43,22 +48,54 @@ class HairProductsTableViewController: UITableViewController {
       self.navigationItem.rightBarButtonItem = self.editButtonItem
       self.tableView.dataSource = self
       getUserProducts()
+      setExpandingButton()
+    self.barcodeDetector = vision.barcodeDetector()
+    allHairProducts =  ProductDataManager.getProducts()
+    setUpImagePickerController()
+    
     }
  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
   }
-  @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-    dismiss(animated: true, completion: nil)
+  private func setUpImagePickerController(){
+    imagePickerController = UIImagePickerController()
+    imagePickerController.delegate = self
+    
+  }
+  private func showImagePickerController(){
+    self.present(imagePickerController, animated: true, completion: nil)
+  }
+  private func openCamera(){
+    if UIImagePickerController.isSourceTypeAvailable(.camera){
+      let myPickerController = UIImagePickerController()
+      myPickerController.delegate = self
+      myPickerController.sourceType = .camera
+      present(myPickerController, animated: true, completion: nil)
+    }
   }
   
-  @IBAction func addProductPressed(_ sender: UIBarButtonItem) {
-    let popUpViewController = PopUpViewController()
-    let navigationController = UINavigationController(rootViewController: popUpViewController)
-    popUpViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: popUpViewController, action: #selector(popUpViewController.dismissPopUp))
+  private func setExpandingButton(){
+    let menuButtonSize: CGSize = CGSize(width: 70, height: 70)
+    let menuButton = ExpandingMenuButton(frame: CGRect.init(origin: CGPoint.zero, size: menuButtonSize), image: #imageLiteral(resourceName: "icons8-news-feed-filled-50.png"), rotatedImage:#imageLiteral(resourceName: "icons8-plus-math-25.png"))
+    menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 150.0)
     
-    self.present(navigationController, animated: true)
+    view.addSubview(menuButton)
+    let camera = ExpandingMenuItem(title: "Camera", image: #imageLiteral(resourceName: "icons8-screenshot-40 (1).png"), highlightedImage: #imageLiteral(resourceName: "icons8-screenshot-40 (1).png"), backgroundImage: nil, backgroundHighlightedImage: nil) {
+      self.openCamera()
+    }
+    let gallery = ExpandingMenuItem(title: "Gallery", image:#imageLiteral(resourceName: "icons8-picture-40.png") , highlightedImage:#imageLiteral(resourceName: "icons8-picture-40.png") , backgroundImage: nil, backgroundHighlightedImage: nil) {
+      self.present(self.imagePickerController, animated: true, completion: nil)
+    }
+    let search = ExpandingMenuItem(title: "Search", image: #imageLiteral(resourceName: "icons8-search-25.png"), highlightedImage: #imageLiteral(resourceName: "icons8-search-25.png"), backgroundImage: nil, backgroundHighlightedImage: nil) {
+      let searchController = SearchProductViewController()
+       searchController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: searchController, action: #selector(searchController.backButtonPressed))
+      let searchNavigation = UINavigationController(rootViewController: searchController)
+      self.present(searchNavigation, animated: true)
+    }
+    menuButton.addMenuItems([camera,gallery,search])
   }
+ 
   
   @IBAction func completedButtonPressed(_ sender: UIButton) {
     if (sender.currentImage?.isEqual(#imageLiteral(resourceName: "icons8-checked-filled-25.png")))!{
@@ -68,7 +105,6 @@ class HairProductsTableViewController: UITableViewController {
         DataBaseManager.updateCompletionStatus(product: selectedProduct)
         sender.isEnabled = false
       }
-     
     }else{
       sender.setImage(#imageLiteral(resourceName: "icons8-checked-filled-25.png"), for: .normal)
       if var selectedProduct = selectedProduct {
@@ -83,7 +119,7 @@ class HairProductsTableViewController: UITableViewController {
   private func getUserProducts(){
     if let user = userSession.getCurrentUser(){
       let documentReference = DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.products)
-  documentReference.addSnapshotListener(includeMetadataChanges: true) { (snapshot, error) in
+  documentReference.addSnapshotListener(includeMetadataChanges: true) { [weak self] (snapshot, error) in
     if let error = error{
       print("the error was: \(error)")
     }else if let snapshot = snapshot {
@@ -93,16 +129,17 @@ class HairProductsTableViewController: UITableViewController {
           print(error.localizedDescription)
         } else if let snapshot = snapshot{
           let document = snapshot.documents
-          self.userProducts.removeAll()
+          self?.userProducts.removeAll()
           document.forEach {
             let product = ProductModel.init(dict: $0.data())
-            self.userProducts.append(product)
+            self?.userProducts.append(product)
           }
         }
       })
     }
       }
     }
+    
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -162,7 +199,6 @@ class HairProductsTableViewController: UITableViewController {
       guard let values = self.dict[section[indexPath.section]] else {return}
       let product = values[indexPath.row]
       DataBaseManager.deleteDocumentFromDatabase(product: product)
-      tableView.reloadData()
     }
     
     let share = UITableViewRowAction(style: .normal, title: "Share") { (action, indexPath) in
@@ -179,4 +215,21 @@ class HairProductsTableViewController: UITableViewController {
     return [delete, share]
   }
 }
+extension HairProductsTableViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    dismiss(animated: true)
+  }
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+   
+    if let productImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+      makeCallToBarcodeDetector(image: productImage)
+      
+    } else {
+      
+      print("No image was found")
+    }
+    
+    dismiss(animated: true, completion: nil)
+  }
+  }
 

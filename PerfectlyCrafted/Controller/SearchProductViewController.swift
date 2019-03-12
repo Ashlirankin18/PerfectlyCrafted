@@ -17,16 +17,18 @@ class SearchProductViewController: UIViewController {
       }
     }
   }
-  
   let searchView = SearchView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     view.addSubview(searchView)
+    setDelegates()
+  }
+  private func setDelegates(){
     searchView.productsTableView.dataSource = self
     searchView.productsTableView.delegate = self
     searchView.productSearchBar.delegate = self
-   
+    
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
@@ -35,22 +37,7 @@ class SearchProductViewController: UIViewController {
   @objc func backButtonPressed(){
     self.dismiss(animated: true)
   }
-  private func setImage(imageView:UIImageView,urlString:String){
-    if let image = ImageCache.shared.fetchImageFromCache(urlString: urlString){
-      imageView.image = image
-    } else {
-      ImageCache.shared.fetchImageFromNetwork(urlString: urlString) { (error, image) in
-        if let error = error{
-          print(error.errorMessage())
-        }
-        if let image = image{
-          DispatchQueue.main.async {
-            imageView.image = image
-          }
-        }
-      }
-    }
-  }
+  
 }
   extension SearchProductViewController:UITableViewDataSource{
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,7 +49,7 @@ class SearchProductViewController: UIViewController {
     let urlString = hairProduct.results.images.first?.absoluteString ?? "no string found"
     cell.productName.text = hairProduct.results.name.capitalized
     cell.categoryLabel.text = hairProduct.results.category
-    setImage(imageView: cell.productImage, urlString: urlString)
+    getImage(ImageView: cell.productImage, imageURLString: urlString)
     return cell
     }
     

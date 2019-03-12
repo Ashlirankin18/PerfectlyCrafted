@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Kingfisher
+import Toucan
+
 protocol SetProfileViewControllerDelegate: AnyObject {
   func profileCreated(_ controller: SetProfileViewController,userProfile:UserModel)
 }
@@ -16,7 +19,6 @@ class SetProfileViewController: UIViewController {
   weak var delegate: SetProfileViewControllerDelegate?
   weak var userSession: UserSession!
   private var storageManager: StorageManager!
-  var imageUrl: URL?
   let setUpProfileView = SetUpProfileView()
   var tapGesture: UITapGestureRecognizer!
   
@@ -87,7 +89,8 @@ extension SetProfileViewController:UINavigationControllerDelegate,UIImagePickerC
       showAlert(title: "Error with image", message: "Try Again")
       return}
     setUpProfileView.profileImage.image = originalImage
-  let imageData = originalImage.jpegData(compressionQuality: 0.5)
+    let resizedImage = Toucan(image: originalImage).resize(CGSize.init(width: 500, height: 500)).maskWithEllipse().image
+    let imageData = resizedImage?.jpegData(compressionQuality: 0.5)
     storageManager.postImage(withData: imageData!)
     dismiss(animated: true, completion: nil)
   }

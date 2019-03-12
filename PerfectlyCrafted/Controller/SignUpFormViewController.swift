@@ -11,8 +11,7 @@ import FirebaseAuth
 
 class SignUpFormViewController: UIViewController {
 
-  let signUpForm = SignUpViewForm()
-  
+  private let signUpForm = SignUpViewForm()
   private var userSession: UserSession!
   
     override func viewDidLoad() {
@@ -20,9 +19,8 @@ class SignUpFormViewController: UIViewController {
       self.view.addSubview(signUpForm)
   
       setTheDelegates()
-      signUpForm.cancelButton.addTarget(self, action: #selector(dismissPage), for: .touchUpInside)
       signUpButtonAction()
-      
+      signUpForm.cancelButton.addTarget(self, action: #selector(dismissPage), for: .touchUpInside)
     
     }
   private func setTheDelegates(){

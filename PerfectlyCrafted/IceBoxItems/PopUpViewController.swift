@@ -11,16 +11,16 @@ import Firebase
 
 class PopUpViewController: UIViewController {
   
-  let popUpView = PopUpView()
-  var imagePickerController: UIImagePickerController!
-  lazy var vision = Vision.vision()
-  var barcodeDetector: VisionBarcodeDetector?
+ private let popUpView = PopUpView()
+  private var imagePickerController: UIImagePickerController!
+  private lazy var vision = Vision.vision()
+  private weak var barcodeDetector: VisionBarcodeDetector?
   var allHairProducts = [AllHairProducts](){
     didSet{
       allHairProducts.sort{$0.results.name < $1.results.name}
     }
   }
- var tapGesture: UITapGestureRecognizer!
+  var tapGesture: UITapGestureRecognizer!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -72,33 +72,33 @@ class PopUpViewController: UIViewController {
   }
  
   
-  @objc func presentCameraOption(){
+ @objc private func presentCameraOption(){
     openCamera()
   }
-  @objc func presentGalleryOption(){
+ @objc private func presentGalleryOption(){
     showImagePickerController()
   }
-  @objc func searchButtonPressed(){
+  @objc private func searchButtonPressed(){
     let searchController = SearchProductViewController()
     searchController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: searchController, action: #selector(searchController.backButtonPressed))
     let navigationController = UINavigationController.init(rootViewController: searchController)
         self.present(navigationController, animated: true)
   }
-  func makeCallToBarcodeDetector(image:UIImage?){
+ private func makeCallToBarcodeDetector(image:UIImage?){
         if let barcodeReader = self.barcodeDetector {
           if let image = image {
              let visionImage = VisionImage(image: image)
-            barcodeReader.detect(in: visionImage, completion: { (barcodes, error) in
+            barcodeReader.detect(in: visionImage, completion: { [weak self] (barcodes, error) in
               if let error = error{
                 print(error.localizedDescription)
               }
               else if let barcodes = barcodes {
                 for barcode in barcodes {
                   if let barcodeNumber = barcode.rawValue{
-                    if let product = self.getProductFromBarcode(barcodeNumber: barcodeNumber){
+                    if let product = self?.getProductFromBarcode(barcodeNumber: barcodeNumber){
                       let productViewController = ShowProductViewController.init(hairProduct: product, view: HairProductView())
                       let navController = UINavigationController(rootViewController: productViewController)
-                      self.present(navController, animated: true, completion: nil)
+                      self?.present(navController, animated: true, completion: nil)
                     }else{
                       print("no product was found")
                     }

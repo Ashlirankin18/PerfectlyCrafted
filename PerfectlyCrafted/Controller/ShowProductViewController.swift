@@ -46,7 +46,7 @@ class ShowProductViewController: UIViewController {
     let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addButtonPressed))
     navigationItem.rightBarButtonItem = addButton
     navigationItem.title = "Category: \(hairProduct.results.category.capitalized)"
-    navigationItem.largeTitleDisplayMode = .always
+    
   }
   @objc private func dismissPressed(){
     dismiss(animated: true, completion: nil)
@@ -101,7 +101,7 @@ class ShowProductViewController: UIViewController {
 extension ShowProductViewController:UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-      guard let cell = HairProductView.productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell else {fatalError("No cell found (line 86)")}
+      guard let cell = HairProductView.productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell else {fatalError("No cell found (line 104)")}
       cell.productName.text = hairProduct.results.name.capitalized
       if let description = hairProduct.results.features?.blob {
         cell.productDescriptionTextView.text = description
@@ -114,21 +114,16 @@ extension ShowProductViewController:UICollectionViewDataSource{
       return cell
   }
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    if collectionView == HairProductView.productCollectionView{
+    
       return 1
-    }
-    let otherOffers = hairProduct.results.sitedetails
-    return otherOffers.count
   }
   }
 
 extension ShowProductViewController:UICollectionViewDelegateFlowLayout{
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    if collectionView == HairProductView.productCollectionView {
+   
       return CGSize.init(width: collectionView.frame.width, height: collectionView.frame.height)
-    }else{
-      return CGSize.init(width: 250, height: 300)
-    }
+    
   }
 
 }

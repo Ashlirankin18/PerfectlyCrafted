@@ -10,15 +10,10 @@ import UIKit
 
 class PopUpView: UIView {
   
-  lazy var visualEffectsViews:UIVisualEffectView = {
-    let view = UIVisualEffectView()
-    view.effect = UIBlurEffect(style: .light)
-    
-    return view
-  }()
+
   lazy var popUpView: UIView = {
     let view = UIView()
-    view.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+    view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.51)
     view.layer.cornerRadius = 10
     view.layer.masksToBounds = true
     return view
@@ -70,22 +65,12 @@ class PopUpView: UIView {
 }
 extension PopUpView {
   func setUpViews(){
-    
-   setUpVisualEffectViewConstraints()
-    
-  }
-  func setUpVisualEffectViewConstraints(){
-    addSubview(visualEffectsViews)
-    visualEffectsViews.translatesAutoresizingMaskIntoConstraints = false
-    visualEffectsViews.topAnchor.constraint(equalTo: topAnchor).isActive = true
-    visualEffectsViews.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-    visualEffectsViews.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-    visualEffectsViews.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-     setUpPopUpView()
+    setUpPopUpView()
     setUpProductChoicesConstraints()
   }
+  
   func setUpPopUpView(){
-   visualEffectsViews.contentView.addSubview(popUpView)
+  addSubview(popUpView)
     popUpView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint(item: popUpView, attribute: .centerX, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .centerX, multiplier: 1.0, constant: 0).isActive = true
     NSLayoutConstraint(item: popUpView, attribute: .centerY, relatedBy: .equal, toItem: safeAreaLayoutGuide, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true

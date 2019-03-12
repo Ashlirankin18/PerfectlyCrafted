@@ -22,18 +22,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
-                                <navigationItem title="Hair Products" id="Az5-oO-eiS">
-                                    <barButtonItem key="leftBarButtonItem" title="Back" id="Yyh-tB-khd">
-                                        <connections>
-                                            <action selector="backButtonPressed:" destination="9vA-Dp-cjG" id="FAT-U4-uDj"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="yiW-bC-mAs">
-                                        <connections>
-                                            <action selector="addProductPressed:" destination="9vA-Dp-cjG" id="4Kl-nB-HHq"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
+                                <navigationItem title="Hair Products" id="Az5-oO-eiS"/>
                             </items>
                         </navigationBar>
                         <prototypes>
@@ -91,9 +80,6 @@
                             <outlet property="delegate" destination="9vA-Dp-cjG" id="FC3-Zj-vnl"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="backButton" destination="Yyh-tB-khd" id="cnI-BF-gGb"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bad-Vq-ST1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

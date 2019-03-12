@@ -13,6 +13,7 @@
 		2E063E69220B629A00D85406 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E68220B629A00D85406 /* ProfileCollectionViewCell.swift */; };
 		2E063E6D220B77C500D85406 /* FeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E6C220B77C500D85406 /* FeedsView.swift */; };
 		2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */; };
+		2E2607422237DBC8009FD3FB /* BarcodeExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2607412237DBC8009FD3FB /* BarcodeExt.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
@@ -62,8 +63,8 @@
 		2EED896722284C9E00ADDEBD /* ProfileOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED896622284C9E00ADDEBD /* ProfileOptions.storyboard */; };
 		2EED896922284DED00ADDEBD /* HairProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED896822284DED00ADDEBD /* HairProductsTableViewController.swift */; };
 		2EED896D2229993700ADDEBD /* FirebaseProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED896C2229993700ADDEBD /* FirebaseProductModel.swift */; };
-		2EF32CDB221753F1006E2B1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EF32CDA221753F1006E2B1F /* GoogleService-Info.plist */; };
 		2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = 2EF32CDC22175881006E2B1F /* hairProducts.json */; };
+		2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */; };
 		7F85C178E33B0973E639D521 /* Pods_PerfectlyCrafted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E5E6A95569DFFB2B1E3660 /* Pods_PerfectlyCrafted.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		2E063E68220B629A00D85406 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E063E6C220B77C500D85406 /* FeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsView.swift; sourceTree = "<group>"; };
 		2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCollectionViewCell.swift; sourceTree = "<group>"; };
+		2E2607412237DBC8009FD3FB /* BarcodeExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeExt.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4A3E992208D2CB00988116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,8 +127,8 @@
 		2EED896622284C9E00ADDEBD /* ProfileOptions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileOptions.storyboard; sourceTree = "<group>"; };
 		2EED896822284DED00ADDEBD /* HairProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairProductsTableViewController.swift; sourceTree = "<group>"; };
 		2EED896C2229993700ADDEBD /* FirebaseProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProductModel.swift; sourceTree = "<group>"; };
-		2EF32CDA221753F1006E2B1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2EF32CDC22175881006E2B1F /* hairProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hairProducts.json; sourceTree = "<group>"; };
+		2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A42CEA839D18BBDCFF244C5F /* Pods-PerfectlyCrafted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectlyCrafted.debug.xcconfig"; path = "Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted.debug.xcconfig"; sourceTree = "<group>"; };
 		B0E5E6A95569DFFB2B1E3660 /* Pods_PerfectlyCrafted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerfectlyCrafted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAC954F100F5834890E3610 /* Pods-PerfectlyCrafted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectlyCrafted.release.xcconfig"; path = "Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +175,7 @@
 				2EA365AC220A302200FFDC5E /* NetworkServices */,
 				2EA365AD220A303000FFDC5E /* SupportingFiles */,
 				2E4A3E9E2208D2CB00988116 /* Info.plist */,
-				2EF32CDA221753F1006E2B1F /* GoogleService-Info.plist */,
+				2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */,
 			);
 			path = PerfectlyCrafted;
 			sourceTree = "<group>";
@@ -181,11 +183,11 @@
 		2E4A3EA82208D37B00988116 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2EB2A17F2225B27B00525BD4 /* SetProfileViewController.swift */,
 				2EDB0E50222E1FCB006DB8EE /* PostFeedViewController.swift */,
 				2EED896822284DED00ADDEBD /* HairProductsTableViewController.swift */,
 				2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */,
 				2EA365B6220A64E700FFDC5E /* LoginViewController.swift */,
-				2E04A4B3221A76460066568E /* PopUpViewController.swift */,
 				2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */,
 				2EC7B542223173AC00D165B1 /* SettingsTableViewController.swift */,
 				2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */,
@@ -207,7 +209,6 @@
 				2E997FA1221B200D00730ED7 /* HairProductView.swift */,
 				2EA365B8220A678200FFDC5E /* LoginView.swift */,
 				2E997FA7221B751300730ED7 /* OtherOptionsCell.swift */,
-				2EB2A17F2225B27B00525BD4 /* SetProfileViewController.swift */,
 				2E04A4B5221A76620066568E /* PopUpView.swift */,
 				2E997FAB221BB5BE00730ED7 /* ProductCell.swift */,
 				2E063E66220B5E9C00D85406 /* ProfileView.swift */,
@@ -264,6 +265,7 @@
 		2EED896A222989D000ADDEBD /* IceBoxItems */ = {
 			isa = PBXGroup;
 			children = (
+				2E04A4B3221A76460066568E /* PopUpViewController.swift */,
 				2E57C3C9220E506C00C89FFC /* CreateView.swift */,
 				2E7946A0220C816D00219B6A /* RatingCollectionViewCell.swift */,
 				2E7946E0220CFB8700219B6A /* RatingView.swift */,
@@ -275,6 +277,7 @@
 		2EED896B22298A1C00ADDEBD /* Firebase Files */ = {
 			isa = PBXGroup;
 			children = (
+				2E2607412237DBC8009FD3FB /* BarcodeExt.swift */,
 				2EB2A1A622272CC300525BD4 /* StorageManager.swift */,
 				2E6359112224F8A30053BBD9 /* DatabaseManager.swift */,
 				2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */,
@@ -363,8 +366,8 @@
 			files = (
 				2EED896722284C9E00ADDEBD /* ProfileOptions.storyboard in Resources */,
 				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
-				2EF32CDB221753F1006E2B1F /* GoogleService-Info.plist in Resources */,
 				2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */,
+				2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */,
 				2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,11 +429,15 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/ExpandingMenu/ExpandingMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NewPopMenu/PopMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -441,11 +448,15 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandingMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toucan.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -471,6 +482,7 @@
 				2E997F9A221B0FCF00730ED7 /* AppError.swift in Sources */,
 				2E04A4B6221A76620066568E /* PopUpView.swift in Sources */,
 				2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */,
+				2E2607422237DBC8009FD3FB /* BarcodeExt.swift in Sources */,
 				2E984788221D575800204A42 /* SearchProductViewController.swift in Sources */,
 				2E4A3EAC2208D5D900988116 /* SignUpView.swift in Sources */,
 				2E997F9E221B18AA00730ED7 /* HairProductModel.swift in Sources */,

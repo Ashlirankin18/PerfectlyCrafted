@@ -156,7 +156,7 @@ extension SetUpProfileView{
   func setUpUserNameTextField(){
     profileContainerView.addSubview(userNameTextField)
     userNameTextField.translatesAutoresizingMaskIntoConstraints = false
-    userNameTextField.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 30).isActive = true
+    userNameTextField.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: -10).isActive = true
     userNameTextField.leadingAnchor.constraint(equalTo: userNameLabel.trailingAnchor, constant: 20).isActive = true
     userNameTextField.widthAnchor.constraint(equalToConstant: 180).isActive = true
     

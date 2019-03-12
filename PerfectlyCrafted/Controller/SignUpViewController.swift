@@ -7,8 +7,6 @@
 //
 
 import UIKit
-
-
 class SignUpViewController: UIViewController {
   
   let signUpView = SignUpView()
@@ -16,9 +14,12 @@ class SignUpViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.addSubview(signUpView)
+    setButtons()
+  }
+  
+  private func setButtons(){
     signUpView.signUpButton.addTarget(self, action: #selector(presentMainPage), for: .touchUpInside)
     signUpView.loginButton.addTarget(self, action: #selector(presentLoginPage), for: .touchUpInside)
-    
   }
   
   @objc private func presentMainPage(){

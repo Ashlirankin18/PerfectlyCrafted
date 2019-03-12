@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 class LoginViewController: UIViewController {
   
-  let loginView = LoginView()
+  private let loginView = LoginView()
   private var userSession: UserSession!
   
     override func viewDidLoad() {

@@ -65,14 +65,14 @@ class PostFeedViewController: UIViewController {
     
   }
   private func getProductInfo(product:ProductModel){
-DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.products).whereField("productName", isEqualTo: product.productName).getDocuments { (snapshot, error) in
+DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.products).whereField("productName", isEqualTo: product.productName).getDocuments { [weak self] (snapshot, error) in
       if let error = error{
         print(error)
       }
       else if let snapshot = snapshot{
         if let result = snapshot.documents.first?.data(){
           let newProduct = ProductModel.init(dict: result)
-          self.productToPost = newProduct
+          self?.productToPost = newProduct
         }
       }
     }

@@ -8,18 +8,20 @@
 
 import UIKit
 import FirebaseAuth
-
+import Toucan
 class ProfileViewController: UIViewController {
 
-  var profileView = ProfileView()
-  var userSession: UserSession!
-  var tapGesture: UITapGestureRecognizer!
-  var imagePickerController: UIImagePickerController!
-  var storageManager: StorageManager!
+ private var profileView = ProfileView()
+ private var userSession: UserSession!
+ private var tapGesture: UITapGestureRecognizer!
+ private var imagePickerController: UIImagePickerController!
+ private var storageManager: StorageManager!
+  private var appUser: UserModel!
   
   private var myPosts = [FeedModel](){
     didSet{
       self.profileView.profileCollectionView.reloadData()
+      self.myPosts.sort{$0.datePosted < $1.datePosted}
     }
   }
   
@@ -39,15 +41,18 @@ class ProfileViewController: UIViewController {
     view.addSubview(profileView)
     view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
     setDelegates()
-    let signOutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-settings-25.png"), style: .plain, target: self, action: #selector(settingsButtonPressed))
-    self.navigationItem.rightBarButtonItem = signOutButton
     storageManager = (UIApplication.shared.delegate as? AppDelegate)?.storageManager
-    profileView.profileImage.addTarget(self, action: #selector(profileImagePressed), for: .touchUpInside)
+     storageManager.delegate = self
+    setUpButtons()
     setUpImagePicker()
-    storageManager.delegate = self
+  
     getMyPost()
     }
-
+  private func setUpButtons(){
+    let signOutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-settings-25.png"), style: .plain, target: self, action: #selector(settingsButtonPressed))
+    self.navigationItem.rightBarButtonItem = signOutButton
+    profileView.profileImage.addTarget(self, action: #selector(profileImagePressed), for: .touchUpInside)
+  }
   private func showImagePickerController(){
     self.present(imagePickerController, animated: true, completion: nil)
   }
@@ -84,30 +89,12 @@ class ProfileViewController: UIViewController {
     imagePickerController.delegate = self
     
   }
-  @objc func settingsButtonPressed(){
+  @objc private func settingsButtonPressed(){
     guard let settingsViewController = UIStoryboard(name: "ProfileOptions", bundle: nil).instantiateViewController(withIdentifier: "navigationController") as? UINavigationController else {return}
  
     self.present(settingsViewController, animated: true)
   }
-  private func getProfileImage(button:UIButton,imageUrl:String){
-    if let image = ImageCache.shared.fetchImageFromCache(urlString: imageUrl){
-      DispatchQueue.main.async {
-        button.setImage(image, for: .normal)
-      }
-    }else{
-      ImageCache.shared.fetchImageFromNetwork(urlString: imageUrl) { (error, image) in
-        if let error = error{
-          print(error.errorMessage())
-        }
-        else if let image = image {
-          DispatchQueue.main.async {
-            button.setImage(image, for: .normal)
-          }
-        }
-      }
-    }
-    
-  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     setUserProfile()
@@ -116,38 +103,42 @@ class ProfileViewController: UIViewController {
   private func setUserProfile(){
     if let user = userSession.getCurrentUser(){
     
-      let documentRef = DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document(user.uid)
-      documentRef.getDocument { (document, error) in
+      _ = DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document(user.uid).addSnapshotListener { [weak self] (snapshot, error) in
         if let error = error{
           print(error.localizedDescription)
         }
-        else if let document = document, document.exists {
-          guard let userData = document.data() else {return}
+        else if let snapshot = snapshot{
+          guard let userData = snapshot.data() else {return}
           let profileUser = UserModel.init(dict: userData)
-          self.profileView.hairType.text = "Hair Type: \(profileUser.hairType ?? "")"
-          self.profileView.userName.text = profileUser.userName
-          self.profileView.aboutMeTextView.text = profileUser.aboutMe
-         
-          self.getProfileImage(button:  self.profileView.profileImage, imageUrl: profileUser.profileImageLink!)
+          self?.setUpUi(user: profileUser)
+          self?.appUser = profileUser
         }
       }
-    }else{
+      }else{
       print("no user logged in")
     }
   }
+  
+  private func setUpUi(user:UserModel){
+    self.profileView.hairType.text = "\(user.hairType ?? "")"
+    self.profileView.userName.text = user.userName
+    self.profileView.aboutMeTextView.text = user.aboutMe
+    
+    self.profileView.profileImage.kf.setImage(with: URL(string: user.profileImageLink!), for: .normal,placeholder:#imageLiteral(resourceName: "placeholder.png"))
+  }
 private func getMyPost(){
     guard let user = userSession.getCurrentUser() else {return}
-    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.feed).addSnapshotListener { (snapshot, error) in
+    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.feed).addSnapshotListener { [weak self ](snapshot, error) in
       if let error = error{
         print(error.localizedDescription)
       }
       else if let snapshot = snapshot{
-        snapshot.query.whereField("userId", isEqualTo: user.uid).getDocuments(completion: { (snapshot, error) in
-          self.myPosts.removeAll()
+        snapshot.query.whereField("userId", isEqualTo: user.uid).getDocuments(completion: { [weak self] (snapshot, error) in
+          self?.myPosts.removeAll()
           snapshot?.documents.forEach{
             let results = $0.data()
             let myFeed = FeedModel(dict: results)
-            self.myPosts.append(myFeed)
+            self?.myPosts.append(myFeed)
           }
         })
       }
@@ -157,7 +148,7 @@ private func getMyPost(){
 extension ProfileViewController:UICollectionViewDelegateFlowLayout{
  
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize.init(width: 400, height: 550)
+    return CGSize.init(width: 400, height: 600)
   }
 }
 extension ProfileViewController:UICollectionViewDataSource{
@@ -172,8 +163,12 @@ extension ProfileViewController:UICollectionViewDataSource{
     cell.userName.text = feed.userName
     cell.captionLabel.text = feed.caption
     cell.dateLabel.text = feed.datePosted
-    getProfileImage(button: cell.profileImage, imageUrl: feed.userImageLink)
-    getImage(ImageView: cell.postImage, imageURLString: feed.imageURL)
+    cell.postImage.kf.setImage(with: URL(string: feed.imageURL),placeholder:#imageLiteral(resourceName: "placeholder.png") )
+    if let imageUrl = appUser.profileImageLink{
+      cell.profileImage.kf.setImage(with: URL(string: imageUrl), for: .normal,placeholder:#imageLiteral(resourceName: "placeholder.png"))
+    }
+   
+    cell.postImage.kf.indicatorType = .activity
     return cell
   }
   
@@ -190,9 +185,10 @@ extension ProfileViewController:UINavigationControllerDelegate,UIImagePickerCont
         print("no original image could be found")
         return
     }
-  
-    profileView.profileImage.setImage(image, for: .normal)
-    if let imageData = image.jpegData(compressionQuality: 0.5){
+
+  let resizedImages = Toucan(image: image).resize(CGSize.init(width: 500, height: 500)).maskWithEllipse().image
+        profileView.profileImage.setImage(resizedImages, for: .normal)
+    if let imageData = resizedImages?.jpegData(compressionQuality: 0.5){
       storageManager.postImage(withData: imageData)
     }
     
@@ -202,7 +198,11 @@ extension ProfileViewController:UINavigationControllerDelegate,UIImagePickerCont
 }
 extension ProfileViewController: StorageManagerDelegate{
   func didFetchImage(_ storageManager: StorageManager, imageURL: URL) {
-    userSession.updateExistingUser(imageURL: imageURL, userName: profileView.userName.text, hairType: profileView.hairType.text, bio: profileView.aboutMeTextView.text)
+    DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document((self.userSession.getCurrentUser()?.uid)!).updateData(["imageURL":imageURL.absoluteString]) { (error) in
+      if let error = error{
+        print(error.localizedDescription)
+      }
+    }
   }
   
   

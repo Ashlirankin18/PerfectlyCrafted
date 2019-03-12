@@ -12,4 +12,8 @@ pod 'Firebase/MLVision'
 pod 'Firebase/MLVisionBarcodeModel'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
+pod 'Kingfisher'
+pod 'Toucan'
+pod 'NewPopMenu'
+ pod 'ExpandingMenu'
 end

@@ -193,4 +193,5 @@ captionLabel.translatesAutoresizingMaskIntoConstraints = false
     dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     
   }
+  
 }
