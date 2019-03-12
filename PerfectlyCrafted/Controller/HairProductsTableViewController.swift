@@ -76,23 +76,24 @@ class HairProductsTableViewController: UITableViewController {
   }
   
   private func setExpandingButton(){
-    let menuButtonSize: CGSize = CGSize(width: 70, height: 70)
-    let menuButton = ExpandingMenuButton(frame: CGRect.init(origin: CGPoint.zero, size: menuButtonSize), image: #imageLiteral(resourceName: "icons8-news-feed-filled-50.png"), rotatedImage:#imageLiteral(resourceName: "icons8-plus-math-25.png"))
+    let menuButtonSize: CGSize = CGSize(width: 70, height: 100)
+    let menuButton = ExpandingMenuButton(frame: CGRect.init(origin: CGPoint.zero, size: menuButtonSize), image: #imageLiteral(resourceName: "icons8-plus-filled-40"), rotatedImage:#imageLiteral(resourceName: "icons8-plus-filled-40"))
     menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 150.0)
     
     view.addSubview(menuButton)
-    let camera = ExpandingMenuItem(title: "Camera", image: #imageLiteral(resourceName: "icons8-screenshot-40 (1).png"), highlightedImage: #imageLiteral(resourceName: "icons8-screenshot-40 (1).png"), backgroundImage: nil, backgroundHighlightedImage: nil) {
+    let camera = ExpandingMenuItem(size: CGSize.init(width: 60, height: 100), title: "Camera", titleColor: nil, image: #imageLiteral(resourceName: "icons8-screenshot-40 (1).png"), highlightedImage: #imageLiteral(resourceName: "icons8-screenshot-40 (1)"), backgroundImage: nil, backgroundHighlightedImage: nil) {
       self.openCamera()
     }
-    let gallery = ExpandingMenuItem(title: "Gallery", image:#imageLiteral(resourceName: "icons8-picture-40.png") , highlightedImage:#imageLiteral(resourceName: "icons8-picture-40.png") , backgroundImage: nil, backgroundHighlightedImage: nil) {
-      self.present(self.imagePickerController, animated: true, completion: nil)
+    let gallery = ExpandingMenuItem(size: CGSize.init(width: 60, height: 100), title: "Gallery", titleColor: nil, image: #imageLiteral(resourceName: "icons8-picture-40.png"), highlightedImage: #imageLiteral(resourceName: "icons8-picture-40.png"), backgroundImage: nil, backgroundHighlightedImage: nil) {
+         self.present(self.imagePickerController, animated: true, completion: nil)
     }
-    let search = ExpandingMenuItem(title: "Search", image: #imageLiteral(resourceName: "icons8-search-25.png"), highlightedImage: #imageLiteral(resourceName: "icons8-search-25.png"), backgroundImage: nil, backgroundHighlightedImage: nil) {
+    let search = ExpandingMenuItem(size: CGSize.init(width: 60, height: 100), title: "Search", titleColor: nil, image: #imageLiteral(resourceName: "icons8-search-40"), highlightedImage: #imageLiteral(resourceName: "icons8-search-25"), backgroundImage: nil, backgroundHighlightedImage: nil) {
       let searchController = SearchProductViewController()
-       searchController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: searchController, action: #selector(searchController.backButtonPressed))
+      searchController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: searchController, action: #selector(searchController.backButtonPressed))
       let searchNavigation = UINavigationController(rootViewController: searchController)
       self.present(searchNavigation, animated: true)
     }
+    
     menuButton.addMenuItems([camera,gallery,search])
   }
  

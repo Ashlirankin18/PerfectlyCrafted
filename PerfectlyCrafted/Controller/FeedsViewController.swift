@@ -16,7 +16,7 @@ class FeedsViewController: UIViewController {
     didSet{
       DispatchQueue.main.async {
         self.feedsView.feedsCollectionView.reloadData()
-        self.userFeed.sort{$0.datePosted < $1.datePosted}
+        self.userFeed.sort{$0.datePosted > $1.datePosted}
       }
     }
   }
