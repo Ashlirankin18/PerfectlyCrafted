@@ -50,7 +50,7 @@ class ProfileView: UIView {
   lazy var aboutMeTextView:UITextView = {
     let textView = UITextView()
     textView.backgroundColor = .clear
-    textView.font = UIFont(name: "Helvetica", size: 14)
+    textView.font = UIFont(name: "Helvetica", size: 12)
     textView.textAlignment = .justified
     textView.isEditable = false
     textView.isScrollEnabled = false

@@ -50,7 +50,7 @@ class SettingsTableViewController: UITableViewController {
   
   @objc private func updateButtonPressed(){
     guard let currentView = editProfileView as? EditProfileView else {return}
-DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document().updateData(["userName":currentView.userName.text ?? "no username found",
+DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document(firebaseUser.userId).updateData(["userName":currentView.userName.text ?? "no username found",
                                                                                                "hairType":currentView.userHairType.text ?? "no hair type found", "bio":currentView.userBio.text                                                            ]) { (error) in
                                                                                                 if let error = error{
                                                                                                   print(error.localizedDescription)
@@ -73,6 +73,7 @@ DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document().u
       }else if let snapshot = snapshot {
         if let userData = snapshot.data(){
           self?.firebaseUser = UserModel.init(dict: userData)
+          self?.emailLabel.text = self?.firebaseUser.email
         }
       }
     })
@@ -91,7 +92,7 @@ DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.users).document().u
     if let userImage = firebaseUser.profileImageLink{
       newView.UserImage.kf.setImage(with: URL(string: userImage),placeholder:#imageLiteral(resourceName: "placeholder.png"))
     }
-   
+    
   }
 }
 

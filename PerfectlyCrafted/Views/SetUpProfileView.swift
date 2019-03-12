@@ -149,14 +149,14 @@ extension SetUpProfileView{
   func setUpUserNameLabel(){
     profileContainerView.addSubview(userNameLabel)
     userNameLabel.translatesAutoresizingMaskIntoConstraints = false
-    userNameLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 30).isActive = true
+    userNameLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 10).isActive = true
     userNameLabel.leadingAnchor.constraint(equalTo: profileContainerView.leadingAnchor, constant: 10).isActive = true
     
   }
   func setUpUserNameTextField(){
     profileContainerView.addSubview(userNameTextField)
     userNameTextField.translatesAutoresizingMaskIntoConstraints = false
-    userNameTextField.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: -10).isActive = true
+    userNameTextField.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 10).isActive = true
     userNameTextField.leadingAnchor.constraint(equalTo: userNameLabel.trailingAnchor, constant: 20).isActive = true
     userNameTextField.widthAnchor.constraint(equalToConstant: 180).isActive = true
     

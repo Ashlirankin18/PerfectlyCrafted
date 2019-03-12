@@ -76,9 +76,9 @@ class HairProductsTableViewController: UITableViewController {
   }
   
   private func setExpandingButton(){
-    let menuButtonSize: CGSize = CGSize(width: 70, height: 100)
+    let menuButtonSize: CGSize = CGSize(width: 80, height: 120)
     let menuButton = ExpandingMenuButton(frame: CGRect.init(origin: CGPoint.zero, size: menuButtonSize), image: #imageLiteral(resourceName: "icons8-plus-filled-40"), rotatedImage:#imageLiteral(resourceName: "icons8-plus-filled-40"))
-    menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 150.0)
+    menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 110.0)
     
     view.addSubview(menuButton)
     let camera = ExpandingMenuItem(size: CGSize.init(width: 60, height: 100), title: "Camera", titleColor: nil, image: #imageLiteral(resourceName: "icons8-screenshot-40 (1).png"), highlightedImage: #imageLiteral(resourceName: "icons8-screenshot-40 (1)"), backgroundImage: nil, backgroundHighlightedImage: nil) {

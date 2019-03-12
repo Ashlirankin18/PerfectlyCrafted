@@ -27,6 +27,9 @@ class SetProfileViewController: UIViewController {
       view.addSubview(setUpProfileView)
        userSession = AppDelegate.theUser
       setUpButtonAction()
+      setUpProfileView.userNameTextField.delegate = self
+      setUpProfileView.aboutMeTextView.delegate = self
+      textViewSetUp()
     }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
@@ -34,7 +37,13 @@ class SetProfileViewController: UIViewController {
     setUpImagePickerController()
     storageManager = (UIApplication.shared.delegate as! AppDelegate).storageManager
     storageManager.delegate = self
-
+    
+  }
+  private func textViewSetUp(){
+    setUpProfileView.aboutMeTextView.text = "Let your friends know how amazing you are"
+    setUpProfileView.aboutMeTextView.textColor = .gray
+    setUpProfileView.userNameTextField.placeholder = "Enter your username"
+    setUpProfileView.hairTypeInput.placeholder = "Enter your hair type"
   }
   func showImagePickerController(){
     present(imagePickerController, animated: true, completion: nil)
@@ -105,4 +114,19 @@ extension SetProfileViewController: StorageManagerDelegate {
   }
   
   
+}
+extension SetProfileViewController:UITextViewDelegate{
+  func textViewDidBeginEditing(_ textView: UITextView) {
+    if !textView.text.isEmpty {
+      textView.text = ""
+      textView.textColor = .black
+    }
+  }
+  func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    if text == "\n"{
+      textView.resignFirstResponder()
+      return false
+    }
+    return true
+  }
 }
