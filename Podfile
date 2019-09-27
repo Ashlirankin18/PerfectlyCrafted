@@ -14,6 +14,5 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'Kingfisher'
 pod 'Toucan'
-pod 'NewPopMenu'
- pod 'ExpandingMenu'
+pod 'ExpandingMenu'
 end

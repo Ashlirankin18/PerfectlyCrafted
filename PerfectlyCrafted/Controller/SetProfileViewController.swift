@@ -13,6 +13,7 @@ import Toucan
 protocol SetProfileViewControllerDelegate: AnyObject {
   func profileCreated(_ controller: SetProfileViewController,userProfile:UserModel)
 }
+
 class SetProfileViewController: UIViewController {
   var imageURL: URL?
   var imagePickerController: UIImagePickerController!
@@ -23,9 +24,9 @@ class SetProfileViewController: UIViewController {
   var tapGesture: UITapGestureRecognizer!
   
     override func viewDidLoad() {
-        super.viewDidLoad()
+      super.viewDidLoad()
       view.addSubview(setUpProfileView)
-       userSession = AppDelegate.theUser
+      userSession = AppDelegate.theUser
       setUpButtonAction()
       setUpProfileView.userNameTextField.delegate = self
       setUpProfileView.aboutMeTextView.delegate = self
@@ -33,7 +34,6 @@ class SetProfileViewController: UIViewController {
     }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-   
     setUpImagePickerController()
     storageManager = (UIApplication.shared.delegate as! AppDelegate).storageManager
     storageManager.delegate = self

@@ -17,11 +17,13 @@ class SearchView: UIView {
     searchBar.showsCancelButton = true
     return searchBar
   }()
+  
   lazy var productsTableView:UITableView = {
     let tableView = UITableView()
     tableView.register(ProductDisplayCell.self, forCellReuseIdentifier: "DisplayCell")
     return tableView
   }()
+  
   override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)
     commonInit()
