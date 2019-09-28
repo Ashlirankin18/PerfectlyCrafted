@@ -14,8 +14,7 @@
 		2E063E6D220B77C500D85406 /* FeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E6C220B77C500D85406 /* FeedsView.swift */; };
 		2E063E6F220B78DC00D85406 /* FeedsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */; };
 		2E1F8BF1233D9DD3004E15F3 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1F8BF0233D9DD3004E15F3 /* SignUp.storyboard */; };
-		2E1F8BF4233D9F09004E15F3 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F8BF2233D9F09004E15F3 /* UserInfoTableViewCell.swift */; };
-		2E1F8BF5233D9F09004E15F3 /* UserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1F8BF3233D9F09004E15F3 /* UserInfoTableViewCell.xib */; };
+		2E1F8C00233E402E004E15F3 /* SignUpFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F8BFF233E402E004E15F3 /* SignUpFormTableViewController.swift */; };
 		2E2607422237DBC8009FD3FB /* BarcodeExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2607412237DBC8009FD3FB /* BarcodeExt.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
@@ -79,8 +78,7 @@
 		2E063E6C220B77C500D85406 /* FeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsView.swift; sourceTree = "<group>"; };
 		2E063E6E220B78DC00D85406 /* FeedsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E1F8BF0233D9DD3004E15F3 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
-		2E1F8BF2233D9F09004E15F3 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
-		2E1F8BF3233D9F09004E15F3 /* UserInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoTableViewCell.xib; sourceTree = "<group>"; };
+		2E1F8BFF233E402E004E15F3 /* SignUpFormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormTableViewController.swift; sourceTree = "<group>"; };
 		2E2607412237DBC8009FD3FB /* BarcodeExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeExt.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +153,7 @@
 		2E1F8BF6233D9F11004E15F3 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				2E1F8C01233E4032004E15F3 /* Controller */,
 				2E1F8BF7233D9F2E004E15F3 /* Views */,
 			);
 			path = SignUp;
@@ -163,10 +162,24 @@
 		2E1F8BF7233D9F2E004E15F3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2E1F8BF3233D9F09004E15F3 /* UserInfoTableViewCell.xib */,
-				2E1F8BF2233D9F09004E15F3 /* UserInfoTableViewCell.swift */,
+				2E1F8BF0233D9DD3004E15F3 /* SignUp.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2E1F8BFE233E3F83004E15F3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2E1F8C01233E4032004E15F3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2E1F8BFF233E402E004E15F3 /* SignUpFormTableViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		2E4A3E862208D2C800988116 = {
@@ -190,6 +203,7 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2E1F8BFE233E3F83004E15F3 /* Extensions */,
 				2EA365AB220A301400FFDC5E /* Model */,
 				2E1F8BF6233D9F11004E15F3 /* SignUp */,
 				2E4A3EB12208E7B100988116 /* Views */,
@@ -226,7 +240,6 @@
 		2E4A3EB12208E7B100988116 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2E1F8BF0233D9DD3004E15F3 /* SignUp.storyboard */,
 				2EED896622284C9E00ADDEBD /* ProfileOptions.storyboard */,
 				2EC7B5462231911700D165B1 /* EditProfileView.swift */,
 				2EB2A1812225B29700525BD4 /* SetUpProfileView.swift */,
@@ -390,7 +403,6 @@
 			files = (
 				2EED896722284C9E00ADDEBD /* ProfileOptions.storyboard in Resources */,
 				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
-				2E1F8BF5233D9F09004E15F3 /* UserInfoTableViewCell.xib in Resources */,
 				2E1F8BF1233D9DD3004E15F3 /* SignUp.storyboard in Resources */,
 				2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */,
 				2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */,
@@ -523,8 +535,8 @@
 				2E6359122224F8A30053BBD9 /* DatabaseManager.swift in Sources */,
 				2E997F9C221B0FFD00730ED7 /* ImageCache.swift in Sources */,
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,
+				2E1F8C00233E402E004E15F3 /* SignUpFormTableViewController.swift in Sources */,
 				2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */,
-				2E1F8BF4233D9F09004E15F3 /* UserInfoTableViewCell.swift in Sources */,
 				2E4A3EAE2208E77200988116 /* SignUpFormViewController.swift in Sources */,
 				2EA365BB220A760800FFDC5E /* UserSession.swift in Sources */,
 				2E63590E2224A2CD0053BBD9 /* ProductDataManager.swift in Sources */,
