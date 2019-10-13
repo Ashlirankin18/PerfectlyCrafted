@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -65,6 +65,8 @@
 		2EED896D2229993700ADDEBD /* FirebaseProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED896C2229993700ADDEBD /* FirebaseProductModel.swift */; };
 		2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = 2EF32CDC22175881006E2B1F /* hairProducts.json */; };
 		2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */; };
+		5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5ED21A23538100000227D1 /* Feeds.storyboard */; };
+		5B5ED221235382D9000227D1 /* FeedsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED220235382D9000227D1 /* FeedsCollectionViewDataSource.swift */; };
 		7F85C178E33B0973E639D521 /* Pods_PerfectlyCrafted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E5E6A95569DFFB2B1E3660 /* Pods_PerfectlyCrafted.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +131,8 @@
 		2EED896C2229993700ADDEBD /* FirebaseProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProductModel.swift; sourceTree = "<group>"; };
 		2EF32CDC22175881006E2B1F /* hairProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hairProducts.json; sourceTree = "<group>"; };
 		2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B5ED21A23538100000227D1 /* Feeds.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feeds.storyboard; sourceTree = "<group>"; };
+		5B5ED220235382D9000227D1 /* FeedsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCollectionViewDataSource.swift; sourceTree = SOURCE_ROOT; };
 		A42CEA839D18BBDCFF244C5F /* Pods-PerfectlyCrafted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectlyCrafted.debug.xcconfig"; path = "Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted.debug.xcconfig"; sourceTree = "<group>"; };
 		B0E5E6A95569DFFB2B1E3660 /* Pods_PerfectlyCrafted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerfectlyCrafted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAC954F100F5834890E3610 /* Pods-PerfectlyCrafted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectlyCrafted.release.xcconfig"; path = "Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				5B5ED219235380BF000227D1 /* Feed */,
 				2EA365AB220A301400FFDC5E /* Model */,
 				2E4A3EB12208E7B100988116 /* Views */,
 				2E4A3EA82208D37B00988116 /* Controller */,
@@ -295,6 +300,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5B5ED219235380BF000227D1 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				5B5ED21F235382AB000227D1 /* DataSource */,
+				5B5ED21C2353810B000227D1 /* Views */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		5B5ED21C2353810B000227D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B5ED21A23538100000227D1 /* Feeds.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B5ED21F235382AB000227D1 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				5B5ED220235382D9000227D1 /* FeedsCollectionViewDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		703741C6F38706896E8BB0AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */,
 				2EED896722284C9E00ADDEBD /* ProfileOptions.storyboard in Resources */,
 				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
 				2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */,
@@ -403,16 +434,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -425,42 +451,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/ExpandingMenu/ExpandingMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/NewPopMenu/PopMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandingMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toucan.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -503,6 +498,7 @@
 				2E997F94221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift in Sources */,
 				2E997F98221B0E4700730ED7 /* Extension+Alerts.swift in Sources */,
 				2E04A4B4221A76460066568E /* PopUpViewController.swift in Sources */,
+				5B5ED221235382D9000227D1 /* FeedsCollectionViewDataSource.swift in Sources */,
 				2EED896D2229993700ADDEBD /* FirebaseProductModel.swift in Sources */,
 				2E063E6D220B77C500D85406 /* FeedsView.swift in Sources */,
 				2EB2A1A922272DEF00525BD4 /* StorageKeys.swift in Sources */,
