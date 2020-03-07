@@ -22,6 +22,8 @@
 		2E31880F2413F45E003FC8B0 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */; };
 		2E3188122413F55D003FC8B0 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */; };
 		2E3188132413F55D003FC8B0 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3188112413F55D003FC8B0 /* DescriptionTableViewCell.xib */; };
+		2E31881524140C48003FC8B0 /* AddProductHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */; };
+		2E31881724140C54003FC8B0 /* AddProductHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
@@ -97,6 +99,8 @@
 		2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		2E3188112413F55D003FC8B0 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductHeaderView.swift; sourceTree = "<group>"; };
+		2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductHeaderView.xib; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4A3E992208D2CB00988116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */,
 				2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */,
 				2E3188112413F55D003FC8B0 /* DescriptionTableViewCell.xib */,
+				2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */,
+				2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -467,6 +473,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E31881724140C54003FC8B0 /* AddProductHeaderView.xib in Resources */,
 				2E31880B2413F411003FC8B0 /* AddPostViewController.xib in Resources */,
 				2E3188132413F55D003FC8B0 /* DescriptionTableViewCell.xib in Resources */,
 				5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */,
@@ -569,6 +576,7 @@
 				2EB2A1822225B29700525BD4 /* SetUpProfileView.swift in Sources */,
 				2E7946DF220CFABE00219B6A /* RatingViewController.swift in Sources */,
 				2EDB0E4F222E1014006DB8EE /* FeedModel.swift in Sources */,
+				2E31881524140C48003FC8B0 /* AddProductHeaderView.swift in Sources */,
 				2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */,
 				2EA365B1220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2E3187CD241344FE003FC8B0 /* UIView+InstantiateFromNib.swift in Sources */,
