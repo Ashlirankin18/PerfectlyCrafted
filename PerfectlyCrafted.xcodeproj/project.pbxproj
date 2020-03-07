@@ -191,7 +191,6 @@
 				2EB2A17F2225B27B00525BD4 /* SetProfileViewController.swift */,
 				2EDB0E50222E1FCB006DB8EE /* PostFeedViewController.swift */,
 				2EED896822284DED00ADDEBD /* HairProductsTableViewController.swift */,
-				2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */,
 				2EA365B6220A64E700FFDC5E /* LoginViewController.swift */,
 				2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */,
 				2EC7B542223173AC00D165B1 /* SettingsTableViewController.swift */,
@@ -226,6 +225,14 @@
 				2E984789221D57D600204A42 /* SearchView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2E81CE34241323BE002F506D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		2EA365AB220A301400FFDC5E /* Model */ = {
@@ -303,6 +310,7 @@
 		5B5ED219235380BF000227D1 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				2E81CE34241323BE002F506D /* Controllers */,
 				5B5ED21F235382AB000227D1 /* DataSource */,
 				5B5ED21C2353810B000227D1 /* Views */,
 			);
@@ -661,6 +669,7 @@
 			baseConfigurationReference = A42CEA839D18BBDCFF244C5F /* Pods-PerfectlyCrafted.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ASLRJLYD2S;
 				INFOPLIST_FILE = PerfectlyCrafted/Info.plist;
@@ -671,6 +680,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wmn4future.PerfectlyCrafted;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -681,6 +691,7 @@
 			baseConfigurationReference = DBAC954F100F5834890E3610 /* Pods-PerfectlyCrafted.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ASLRJLYD2S;
 				INFOPLIST_FILE = PerfectlyCrafted/Info.plist;
@@ -691,6 +702,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wmn4future.PerfectlyCrafted;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

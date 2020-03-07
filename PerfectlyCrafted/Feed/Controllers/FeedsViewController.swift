@@ -22,19 +22,22 @@ class FeedsViewController: UIViewController {
     }
     private var userSession: UserSession!
     private var appUser: UserModel!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+  
         setUpDelegates()
         getTheNewsFeeds()
         setUserProfile()
-        feedsCollectionView.register(FeedsCollectionViewCell.self, forCellWithReuseIdentifier: "FeedsCell")
+        
     }
     
     private func setUpDelegates(){
         self.userSession = AppDelegate.theUser
-//        feedsView.feedsCollectionView.delegate = self
-//        feedsView.feedsCollectionView.dataSource = self
+        feedsCollectionView.delegate = self
+        feedsCollectionView.dataSource = self
     }
+    
     private func getTheNewsFeeds(){
         DataBaseManager.firebaseDB.collection(FirebaseCollectionKeys.feed).addSnapshotListener { [weak self] (snapshot, error) in
             if let error = error {
@@ -85,7 +88,7 @@ extension FeedsViewController:UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = feedsView.feedsCollectionView.dequeueReusableCell(withReuseIdentifier: "FeedsCell", for: indexPath) as? FeedsCollectionViewCell else {fatalError("No feed cell was found")}
+        guard let cell = feedsCollectionView.dequeueReusableCell(withReuseIdentifier: "FeedsCell", for: indexPath) as? FeedsCollectionViewCell else {fatalError("No feed cell was found")}
         let feed = userFeed[indexPath.row]
         cell.userName.text = feed.userName
         cell.captionLabel.text = "\(feed.caption)"

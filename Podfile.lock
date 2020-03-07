@@ -162,7 +162,7 @@ DEPENDENCIES:
   - Toucan
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - BoringSSL
     - ExpandingMenu
     - Firebase
@@ -222,4 +222,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 06301aee4d6139e9698db6943efb90d5f7824566
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.9.0
