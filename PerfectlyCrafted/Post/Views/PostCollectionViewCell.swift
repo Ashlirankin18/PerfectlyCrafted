@@ -10,8 +10,19 @@ import UIKit
 
 /// `UICollectionViewCell` subclass which displays a post
 final class PostCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet private weak var postImageView: UIImageView!
     
-    @IBOutlet private weak var captionView: UIView!
+    struct ViewModel {
+        let postImage: UIImage
+        let captionViewModel: CaptionView.ViewModel
+    }
+    
+    @IBOutlet private weak var postImageView: UIImageView!
+    @IBOutlet private weak var captionView: CaptionView!
+    
+    var viewModel: ViewModel? {
+        didSet {
+          postImageView.image = viewModel?.postImage
+          captionView.viewModel = viewModel?.captionViewModel
+        }
+    }
 }

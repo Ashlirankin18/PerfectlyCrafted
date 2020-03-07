@@ -16,45 +16,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="275" height="357"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uad-Nw-Umx">
-                        <rect key="frame" x="0.0" y="0.0" width="275" height="357"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pli-4R-cmy">
+                        <rect key="frame" x="20" y="20" width="237" height="317"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xy6-Ca-f8P">
-                                <rect key="frame" x="17" y="17" width="241" height="265"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5j-Wy-nBH">
+                                <rect key="frame" x="0.0" y="0.0" width="237" height="222"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-BE-5Gk">
-                                <rect key="frame" x="17" y="282" width="241" height="75"/>
-                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="nIq-DR-Gue"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpo-md-qen" customClass="CaptionView" customModule="PerfectlyCrafted" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="234" width="237" height="83"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Jcn-BE-5Gk" secondAttribute="trailing" constant="17" id="4Uv-85-kBa"/>
-                            <constraint firstItem="Jcn-BE-5Gk" firstAttribute="leading" secondItem="Uad-Nw-Umx" secondAttribute="leading" constant="17" id="5LH-jZ-axn"/>
-                            <constraint firstItem="Jcn-BE-5Gk" firstAttribute="top" secondItem="Xy6-Ca-f8P" secondAttribute="bottom" id="B3Z-5x-ZEa"/>
-                            <constraint firstAttribute="bottom" secondItem="Jcn-BE-5Gk" secondAttribute="bottom" id="dAY-dR-bVm"/>
-                            <constraint firstItem="Xy6-Ca-f8P" firstAttribute="top" secondItem="Uad-Nw-Umx" secondAttribute="top" constant="17" id="hma-pS-4Rj"/>
-                            <constraint firstAttribute="trailing" secondItem="Xy6-Ca-f8P" secondAttribute="trailing" constant="17" id="j4R-lD-qcm"/>
-                            <constraint firstItem="Xy6-Ca-f8P" firstAttribute="leading" secondItem="Uad-Nw-Umx" secondAttribute="leading" constant="17" id="uic-X6-pv9"/>
-                        </constraints>
-                    </view>
+                    </stackView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="Uad-Nw-Umx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="G0W-tW-egF"/>
-                <constraint firstAttribute="trailing" secondItem="Uad-Nw-Umx" secondAttribute="trailing" id="ReX-az-NqI"/>
-                <constraint firstAttribute="bottom" secondItem="Uad-Nw-Umx" secondAttribute="bottom" id="aYa-Cw-dYH"/>
-                <constraint firstItem="Uad-Nw-Umx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tcn-vv-FXa"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="pli-4R-cmy" secondAttribute="bottom" constant="20" id="P5r-eE-XtF"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="pli-4R-cmy" secondAttribute="top" constant="24" id="T5l-No-4w3"/>
+                <constraint firstItem="pli-4R-cmy" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="f2B-iw-2PV"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="pli-4R-cmy" secondAttribute="trailing" constant="18" id="jHh-So-dep"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="275" height="357"/>
             <connections>
-                <outlet property="captionView" destination="Jcn-BE-5Gk" id="bH3-h4-SnU"/>
-                <outlet property="postImageView" destination="Xy6-Ca-f8P" id="vwI-2d-xu9"/>
+                <outlet property="captionView" destination="fpo-md-qen" id="67z-ky-rqD"/>
+                <outlet property="postImageView" destination="V5j-Wy-nBH" id="9l5-Wd-pa9"/>
             </connections>
             <point key="canvasLocation" x="161.59420289855075" y="182.47767857142856"/>
         </collectionViewCell>
