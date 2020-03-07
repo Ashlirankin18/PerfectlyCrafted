@@ -10,8 +10,32 @@ import UIKit
 
 /// `UICollectionViewCell` subclass which displays a post
 final class PostCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet private weak var postImageView: UIImageView!
     
-    @IBOutlet private weak var captionView: UIView!
+    /// Contains the information needed to configure the `PostCollectionViewCell`
+    struct ViewModel {
+        
+        /// The image of the post.
+        let postImage: UIImage?
+        
+        let caption: String?
+    }
+    
+    @IBOutlet private weak var moreOptionsButton: UIButton!
+    @IBOutlet private weak var postImageView: UIImageView!
+    @IBOutlet private weak var captionLabel: UILabel!
+    
+    
+    /// The single point of configuration of the `PostCollectionViewCell`
+    var viewModel: ViewModel? {
+        didSet {
+            postImageView.image = viewModel?.postImage
+            captionLabel.text = viewModel?.caption
+        }
+    }
+    
+    var editButtonTapped: (() -> Void)?
+    
+    @IBAction func moreOptionButtonTapped(_ sender: Any) {
+        editButtonTapped?()
+    }
 }

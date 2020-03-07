@@ -9,19 +9,32 @@
 import UIKit
 import Kingfisher
 
-class PostViewController: UIViewController {
+/// `UIViewController` subclass which displays posts.
+final class PostViewController: UIViewController {
     
     @IBOutlet private weak var feedsCollectionView: UICollectionView!
     
     private let postCollectionViewDataSource = PostsCollectionViewDataSource()
     
+    private lazy var addPostBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonTapped(sender:)))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureBarButtonItem()
         configureCollectionView()
     }
     
     private func configureCollectionView() {
         feedsCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostCell")
         feedsCollectionView.dataSource = postCollectionViewDataSource
+        feedsCollectionView.reloadData()
+    }
+    
+    private func configureBarButtonItem() {
+        navigationItem.rightBarButtonItem = addPostBarButtonItem
+    }
+    
+    @objc private func addButtonTapped(sender: UIBarButtonItem) {
+        print("add")
     }
 }

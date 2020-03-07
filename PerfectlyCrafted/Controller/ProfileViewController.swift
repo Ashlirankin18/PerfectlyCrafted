@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController {
     view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
     setDelegates()
     storageManager = (UIApplication.shared.delegate as? AppDelegate)?.storageManager
-     storageManager.delegate = self
+        //   storageManager.delegate = self
     setUpButtons()
     setUpImagePicker()
   

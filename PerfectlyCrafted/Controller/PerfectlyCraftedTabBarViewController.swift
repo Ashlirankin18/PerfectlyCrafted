@@ -25,6 +25,7 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
     let profileViewController = ProfileViewController.init(view: ProfileView())
     let profileNavigationController = UINavigationController(rootViewController: profileViewController)
     let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
+    
     let searchViewController = SearchProductViewController()
     let searchNavigationController = UINavigationController(rootViewController: searchViewController)
     let myProductViewController = UIStoryboard.init(name: "ProfileOptions", bundle: nil).instantiateViewController(withIdentifier: "HairProductsTableViewController")
