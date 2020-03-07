@@ -45,7 +45,7 @@
 		2EA365AA220A300C00FFDC5E /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */; };
 		2EA365B1220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */; };
 		2EA365B3220A59A900FFDC5E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */; };
-		2EA365B5220A59B900FFDC5E /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */; };
+		2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B4220A59B900FFDC5E /* PostViewController.swift */; };
 		2EA365B7220A64E700FFDC5E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B6220A64E700FFDC5E /* LoginViewController.swift */; };
 		2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B8220A678200FFDC5E /* LoginView.swift */; };
 		2EA365BB220A760800FFDC5E /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365BA220A760800FFDC5E /* UserSession.swift */; };
@@ -112,7 +112,7 @@
 		2EA365A9220A300C00FFDC5E /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		2EA365B0220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectlyCraftedTabBarViewController.swift; sourceTree = "<group>"; };
 		2EA365B2220A59A900FFDC5E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
+		2EA365B4220A59B900FFDC5E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		2EA365B6220A64E700FFDC5E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2EA365B8220A678200FFDC5E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2EA365BA220A760800FFDC5E /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		2E81CE34241323BE002F506D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2EA365B4220A59B900FFDC5E /* FeedsViewController.swift */,
+				2EA365B4220A59B900FFDC5E /* PostViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -527,7 +527,7 @@
 				2E7946E1220CFB8700219B6A /* RatingView.swift in Sources */,
 				2EB2A1A52227077800525BD4 /* FirebaseCollectionKeys.swift in Sources */,
 				2E997FA8221B751300730ED7 /* OtherOptionsCell.swift in Sources */,
-				2EA365B5220A59B900FFDC5E /* FeedsViewController.swift in Sources */,
+				2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */,
 				2E063E67220B5E9C00D85406 /* ProfileView.swift in Sources */,
 				2EB2A1802225B27B00525BD4 /* SetProfileViewController.swift in Sources */,
 				2EA365B3220A59A900FFDC5E /* ProfileViewController.swift in Sources */,

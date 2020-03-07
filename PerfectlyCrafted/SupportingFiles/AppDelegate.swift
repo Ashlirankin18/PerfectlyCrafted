@@ -18,21 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   static var theUser = (UIApplication.shared.delegate as? AppDelegate)?.userSession
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    FirebaseApp.configure()
-    userSession = UserSession()
-     storageManager = StorageManager()
-    if let _ = userSession?.getCurrentUser(){
-      window = UIWindow.init(frame: UIScreen.main.bounds)
-      let loginViewController = PerfectlyCraftedTabBarViewController()
-      window?.rootViewController = loginViewController
-      window?.makeKeyAndVisible()
-    }else{
-      window = UIWindow.init(frame: UIScreen.main.bounds)
-      let signUpViewController = SignUpViewController()
-      window?.rootViewController = signUpViewController
-      window?.makeKeyAndVisible()
-    }
-   
+    window = UIWindow(frame: UIScreen.main.bounds)
+    let tabBarController = PerfectlyCraftedTabBarViewController()
+    window?.rootViewController = tabBarController
+    window?.makeKeyAndVisible()
     return true
   }
 

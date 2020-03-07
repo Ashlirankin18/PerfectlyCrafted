@@ -11,5 +11,7 @@ import UIKit
 /// `UICollectionViewCell` subclass which displays a post
 final class PostCollectionViewCell: UICollectionViewCell {
 
- 
+    @IBOutlet private weak var postImageView: UIImageView!
+    
+    @IBOutlet private weak var captionView: UIView!
 }

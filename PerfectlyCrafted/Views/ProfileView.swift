@@ -62,7 +62,7 @@ class ProfileView: UIView {
     layout.sectionInset = UIEdgeInsets.init(top: 15, left: 15, bottom: 15, right: 15)
     let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
     
-    collectionView.register(FeedsCollectionViewCell.self, forCellWithReuseIdentifier: "FeedsCell")
+    collectionView.register(PostCollectionViewCell.self, forCellWithReuseIdentifier: "FeedsCell")
     collectionView.backgroundColor = .white
     
     return collectionView

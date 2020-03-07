@@ -158,21 +158,13 @@ extension ProfileViewController:UICollectionViewDataSource{
     
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = profileView.profileCollectionView.dequeueReusableCell(withReuseIdentifier: "FeedsCell", for: indexPath) as? FeedsCollectionViewCell else {fatalError("No cell could be dequeue")}
-    let feed = myPosts[indexPath.row]
-    cell.userName.text = feed.userName
-    cell.captionLabel.text = feed.caption
-    cell.dateLabel.text = feed.datePosted
-    cell.postImage.kf.setImage(with: URL(string: feed.imageURL),placeholder:#imageLiteral(resourceName: "placeholder.png") )
-    if let imageUrl = appUser.profileImageLink{
-      cell.profileImage.kf.setImage(with: URL(string: imageUrl), for: .normal,placeholder:#imageLiteral(resourceName: "placeholder.png"))
-    }
-   
-    cell.postImage.kf.indicatorType = .activity
+    guard let cell = profileView.profileCollectionView.dequeueReusableCell(withReuseIdentifier: "FeedsCell", for: indexPath) as? PostCollectionViewCell else { fatalError("No cell could be dequeue") }
+    
+    
     return cell
+    }
   }
   
-}
 extension ProfileViewController:UINavigationControllerDelegate,UIImagePickerControllerDelegate{
   
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
