@@ -52,8 +52,6 @@
 		2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B8220A678200FFDC5E /* LoginView.swift */; };
 		2EA365BB220A760800FFDC5E /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365BA220A760800FFDC5E /* UserSession.swift */; };
 		2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */; };
-		2EB00BE424133DD700AEF017 /* CaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BE324133DD700AEF017 /* CaptionView.swift */; };
-		2EB00BE624133E1000AEF017 /* CaptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB00BE524133E1000AEF017 /* CaptionView.xib */; };
 		2EB2A1802225B27B00525BD4 /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A17F2225B27B00525BD4 /* SetProfileViewController.swift */; };
 		2EB2A1822225B29700525BD4 /* SetUpProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1812225B29700525BD4 /* SetUpProfileView.swift */; };
 		2EB2A1A52227077800525BD4 /* FirebaseCollectionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */; };
@@ -122,8 +120,6 @@
 		2EA365B8220A678200FFDC5E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2EA365BA220A760800FFDC5E /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectible.swift"; sourceTree = "<group>"; };
-		2EB00BE324133DD700AEF017 /* CaptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionView.swift; sourceTree = "<group>"; };
-		2EB00BE524133E1000AEF017 /* CaptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptionView.xib; sourceTree = "<group>"; };
 		2EB2A17F2225B27B00525BD4 /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		2EB2A1812225B29700525BD4 /* SetUpProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpProfileView.swift; sourceTree = "<group>"; };
 		2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollectionKeys.swift; sourceTree = "<group>"; };
@@ -290,15 +286,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		2EB00BE724133E1A00AEF017 /* Captions */ = {
-			isa = PBXGroup;
-			children = (
-				2EB00BE324133DD700AEF017 /* CaptionView.swift */,
-				2EB00BE524133E1000AEF017 /* CaptionView.xib */,
-			);
-			path = Captions;
-			sourceTree = "<group>";
-		};
 		2EED896A222989D000ADDEBD /* IceBoxItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,7 +335,6 @@
 				5B5ED21A23538100000227D1 /* Feeds.storyboard */,
 				2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */,
 				2E81CE3624132A34002F506D /* PostCollectionViewCell.xib */,
-				2EB00BE724133E1A00AEF017 /* Captions */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -431,7 +417,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */,
-				2EB00BE624133E1000AEF017 /* CaptionView.xib in Resources */,
 				2EED896722284C9E00ADDEBD /* ProfileOptions.storyboard in Resources */,
 				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
 				2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */,
@@ -512,7 +497,6 @@
 				2E997FAA221B99A300730ED7 /* DateExtension.swift in Sources */,
 				2EA365B7220A64E700FFDC5E /* LoginViewController.swift in Sources */,
 				2EDB0E51222E1FCB006DB8EE /* PostFeedViewController.swift in Sources */,
-				2EB00BE424133DD700AEF017 /* CaptionView.swift in Sources */,
 				2E997F9A221B0FCF00730ED7 /* AppError.swift in Sources */,
 				2E04A4B6221A76620066568E /* PopUpView.swift in Sources */,
 				2E2607422237DBC8009FD3FB /* BarcodeExt.swift in Sources */,
