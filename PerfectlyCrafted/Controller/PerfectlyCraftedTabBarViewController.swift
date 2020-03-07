@@ -21,7 +21,7 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
 
 
   private func setUpTabbarItems(){
-    let feedsViewController = FeedsViewController()
+    let feedsViewController = UIStoryboard(name: "Feeds", bundle: Bundle.main).instantiateViewController(identifier: "FeedsViewController") 
     let profileViewController = ProfileViewController.init(view: ProfileView())
     let profileNavigationController = UINavigationController(rootViewController: profileViewController)
     let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)

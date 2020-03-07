@@ -29,7 +29,7 @@ class FeedsViewController: UIViewController {
         setUpDelegates()
         getTheNewsFeeds()
         setUserProfile()
-        
+        feedsCollectionView.register(FeedsCollectionViewCell.self, forCellWithReuseIdentifier: "FeedsCell")
     }
     
     private func setUpDelegates(){
