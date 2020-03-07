@@ -23,5 +23,6 @@ class PostViewController: UIViewController {
     private func configureCollectionView() {
         feedsCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostCell")
         feedsCollectionView.dataSource = postCollectionViewDataSource
+        feedsCollectionView.reloadData()
     }
 }
