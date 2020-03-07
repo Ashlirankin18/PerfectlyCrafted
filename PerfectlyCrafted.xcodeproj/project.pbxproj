@@ -50,6 +50,7 @@
 		2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B8220A678200FFDC5E /* LoginView.swift */; };
 		2EA365BB220A760800FFDC5E /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365BA220A760800FFDC5E /* UserSession.swift */; };
 		2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */; };
+		2EB00BE024133BD200AEF017 /* FeedsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BDF24133BD200AEF017 /* FeedsCollectionViewDataSource.swift */; };
 		2EB2A1802225B27B00525BD4 /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A17F2225B27B00525BD4 /* SetProfileViewController.swift */; };
 		2EB2A1822225B29700525BD4 /* SetUpProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1812225B29700525BD4 /* SetUpProfileView.swift */; };
 		2EB2A1A52227077800525BD4 /* FirebaseCollectionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */; };
@@ -67,7 +68,6 @@
 		2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = 2EF32CDC22175881006E2B1F /* hairProducts.json */; };
 		2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */; };
 		5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5ED21A23538100000227D1 /* Feeds.storyboard */; };
-		5B5ED221235382D9000227D1 /* FeedsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED220235382D9000227D1 /* FeedsCollectionViewDataSource.swift */; };
 		7F85C178E33B0973E639D521 /* Pods_PerfectlyCrafted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E5E6A95569DFFB2B1E3660 /* Pods_PerfectlyCrafted.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +117,7 @@
 		2EA365B8220A678200FFDC5E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2EA365BA220A760800FFDC5E /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectible.swift"; sourceTree = "<group>"; };
+		2EB00BDF24133BD200AEF017 /* FeedsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		2EB2A17F2225B27B00525BD4 /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		2EB2A1812225B29700525BD4 /* SetUpProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpProfileView.swift; sourceTree = "<group>"; };
 		2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollectionKeys.swift; sourceTree = "<group>"; };
@@ -134,7 +135,6 @@
 		2EF32CDC22175881006E2B1F /* hairProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hairProducts.json; sourceTree = "<group>"; };
 		2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B5ED21A23538100000227D1 /* Feeds.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feeds.storyboard; sourceTree = "<group>"; };
-		5B5ED220235382D9000227D1 /* FeedsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCollectionViewDataSource.swift; sourceTree = SOURCE_ROOT; };
 		A42CEA839D18BBDCFF244C5F /* Pods-PerfectlyCrafted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectlyCrafted.debug.xcconfig"; path = "Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted.debug.xcconfig"; sourceTree = "<group>"; };
 		B0E5E6A95569DFFB2B1E3660 /* Pods_PerfectlyCrafted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerfectlyCrafted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAC954F100F5834890E3610 /* Pods-PerfectlyCrafted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectlyCrafted.release.xcconfig"; path = "Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted.release.xcconfig"; sourceTree = "<group>"; };
@@ -339,7 +339,7 @@
 		5B5ED21F235382AB000227D1 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				5B5ED220235382D9000227D1 /* FeedsCollectionViewDataSource.swift */,
+				2EB00BDF24133BD200AEF017 /* FeedsCollectionViewDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -518,7 +518,7 @@
 				2E997F94221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift in Sources */,
 				2E997F98221B0E4700730ED7 /* Extension+Alerts.swift in Sources */,
 				2E04A4B4221A76460066568E /* PopUpViewController.swift in Sources */,
-				5B5ED221235382D9000227D1 /* FeedsCollectionViewDataSource.swift in Sources */,
+				2EB00BE024133BD200AEF017 /* FeedsCollectionViewDataSource.swift in Sources */,
 				2EED896D2229993700ADDEBD /* FirebaseProductModel.swift in Sources */,
 				2EB2A1A922272DEF00525BD4 /* StorageKeys.swift in Sources */,
 				2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */,

@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="275" height="357"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xy6-Ca-f8P">
-                                <rect key="frame" x="17" y="17" width="241" height="248"/>
+                                <rect key="frame" x="17" y="17" width="241" height="265"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-BE-5Gk">
@@ -35,7 +35,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Jcn-BE-5Gk" secondAttribute="trailing" constant="17" id="4Uv-85-kBa"/>
                             <constraint firstItem="Jcn-BE-5Gk" firstAttribute="leading" secondItem="Uad-Nw-Umx" secondAttribute="leading" constant="17" id="5LH-jZ-axn"/>
-                            <constraint firstItem="Jcn-BE-5Gk" firstAttribute="top" secondItem="Xy6-Ca-f8P" secondAttribute="bottom" constant="17" id="B3Z-5x-ZEa"/>
+                            <constraint firstItem="Jcn-BE-5Gk" firstAttribute="top" secondItem="Xy6-Ca-f8P" secondAttribute="bottom" id="B3Z-5x-ZEa"/>
                             <constraint firstAttribute="bottom" secondItem="Jcn-BE-5Gk" secondAttribute="bottom" id="dAY-dR-bVm"/>
                             <constraint firstItem="Xy6-Ca-f8P" firstAttribute="top" secondItem="Uad-Nw-Umx" secondAttribute="top" constant="17" id="hma-pS-4Rj"/>
                             <constraint firstAttribute="trailing" secondItem="Xy6-Ca-f8P" secondAttribute="trailing" constant="17" id="j4R-lD-qcm"/>
