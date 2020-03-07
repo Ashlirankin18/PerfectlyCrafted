@@ -50,7 +50,7 @@
 		2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B8220A678200FFDC5E /* LoginView.swift */; };
 		2EA365BB220A760800FFDC5E /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365BA220A760800FFDC5E /* UserSession.swift */; };
 		2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */; };
-		2EB00BE024133BD200AEF017 /* FeedsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BDF24133BD200AEF017 /* FeedsCollectionViewDataSource.swift */; };
+		2EB00BE224133C5300AEF017 /* PostsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BE124133C5300AEF017 /* PostsCollectionViewDataSource.swift */; };
 		2EB2A1802225B27B00525BD4 /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A17F2225B27B00525BD4 /* SetProfileViewController.swift */; };
 		2EB2A1822225B29700525BD4 /* SetUpProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1812225B29700525BD4 /* SetUpProfileView.swift */; };
 		2EB2A1A52227077800525BD4 /* FirebaseCollectionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */; };
@@ -117,7 +117,7 @@
 		2EA365B8220A678200FFDC5E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2EA365BA220A760800FFDC5E /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectible.swift"; sourceTree = "<group>"; };
-		2EB00BDF24133BD200AEF017 /* FeedsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		2EB00BE124133C5300AEF017 /* PostsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		2EB2A17F2225B27B00525BD4 /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		2EB2A1812225B29700525BD4 /* SetUpProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpProfileView.swift; sourceTree = "<group>"; };
 		2EB2A1A42227077800525BD4 /* FirebaseCollectionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollectionKeys.swift; sourceTree = "<group>"; };
@@ -339,7 +339,7 @@
 		5B5ED21F235382AB000227D1 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				2EB00BDF24133BD200AEF017 /* FeedsCollectionViewDataSource.swift */,
+				2EB00BE124133C5300AEF017 /* PostsCollectionViewDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -518,7 +518,6 @@
 				2E997F94221B0E1600730ED7 /* HairProductDatabaseApiCleient.swift in Sources */,
 				2E997F98221B0E4700730ED7 /* Extension+Alerts.swift in Sources */,
 				2E04A4B4221A76460066568E /* PopUpViewController.swift in Sources */,
-				2EB00BE024133BD200AEF017 /* FeedsCollectionViewDataSource.swift in Sources */,
 				2EED896D2229993700ADDEBD /* FirebaseProductModel.swift in Sources */,
 				2EB2A1A922272DEF00525BD4 /* StorageKeys.swift in Sources */,
 				2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */,
@@ -535,6 +534,7 @@
 				2EB2A1A722272CC300525BD4 /* StorageManager.swift in Sources */,
 				2EDB0E4B222DC230006DB8EE /* HairTableViewCell.swift in Sources */,
 				2E6359122224F8A30053BBD9 /* DatabaseManager.swift in Sources */,
+				2EB00BE224133C5300AEF017 /* PostsCollectionViewDataSource.swift in Sources */,
 				2E997F9C221B0FFD00730ED7 /* ImageCache.swift in Sources */,
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,
 				2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */,
