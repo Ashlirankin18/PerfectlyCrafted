@@ -11,14 +11,20 @@ import UIKit
 /// `UICollectionViewCell` subclass which displays a post
 final class PostCollectionViewCell: UICollectionViewCell {
     
+    /// Contains the information needed to configure the `PostCollectionViewCell`
     struct ViewModel {
-        let postImage: UIImage
+        
+        /// The image of the post.
+        let postImage: UIImage?
+        
+        /// The caption of the image
         let captionViewModel: CaptionView.ViewModel
     }
     
     @IBOutlet private weak var postImageView: UIImageView!
     @IBOutlet private weak var captionView: CaptionView!
     
+    /// The single point of configuration of the `PostCollectionViewCell`
     var viewModel: ViewModel? {
         didSet {
           postImageView.image = viewModel?.postImage
