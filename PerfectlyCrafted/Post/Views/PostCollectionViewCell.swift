@@ -17,18 +17,25 @@ final class PostCollectionViewCell: UICollectionViewCell {
         /// The image of the post.
         let postImage: UIImage?
         
-        /// The caption of the image
-        let captionViewModel: CaptionView.ViewModel
+        let caption: String?
     }
     
+    @IBOutlet private weak var moreOptionsButton: UIButton!
     @IBOutlet private weak var postImageView: UIImageView!
-    @IBOutlet private weak var captionView: CaptionView!
+    @IBOutlet private weak var captionLabel: UILabel!
+    
     
     /// The single point of configuration of the `PostCollectionViewCell`
     var viewModel: ViewModel? {
         didSet {
-          postImageView.image = viewModel?.postImage
-          captionView.viewModel = viewModel?.captionViewModel
+            postImageView.image = viewModel?.postImage
+            captionLabel.text = viewModel?.caption
         }
+    }
+    
+    var editButtonTapped: (() -> Void)?
+    
+    @IBAction func moreOptionButtonTapped(_ sender: Any) {
+        editButtonTapped?()
     }
 }
