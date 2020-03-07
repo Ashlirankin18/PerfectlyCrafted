@@ -21,9 +21,7 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
 
 
   private func setUpTabbarItems(){
-    let feedsViewController = UIStoryboard(name: "Feeds", bundle: Bundle.main).instantiateViewController(identifier: "PostViewController") 
-    let profileViewController = ProfileViewController.init(view: ProfileView())
-    let profileNavigationController = UINavigationController(rootViewController: profileViewController)
+    let feedsViewController = UIStoryboard(name: "Feeds", bundle: Bundle.main).instantiateViewController(identifier: "PostViewController")
     let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
     
     let searchViewController = SearchProductViewController()
@@ -31,14 +29,12 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
     let myProductViewController = UIStoryboard.init(name: "ProfileOptions", bundle: nil).instantiateViewController(withIdentifier: "HairProductsTableViewController")
     feedsViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-hashtag-activity-feed-25")
     feedsViewController.title = "News Feed"
-    profileViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-user-26")
-    profileViewController.title = "Profile"
     searchViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-search-25")
     searchViewController.title = "Search"
     myProductViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-spray-filled-25.png")
       myProductViewController.title = "My Products"
     
-    self.viewControllers = [newsFeedNavigationController,searchNavigationController,myProductViewController, profileNavigationController]
+    self.viewControllers = [newsFeedNavigationController,searchNavigationController,myProductViewController]
     
   }
   private func getAllHairProducts(){

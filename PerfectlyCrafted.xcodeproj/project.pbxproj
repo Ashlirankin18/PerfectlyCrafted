@@ -14,6 +14,17 @@
 		2E2607422237DBC8009FD3FB /* BarcodeExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2607412237DBC8009FD3FB /* BarcodeExt.swift */; };
 		2E3187CD241344FE003FC8B0 /* UIView+InstantiateFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187CC241344FE003FC8B0 /* UIView+InstantiateFromNib.swift */; };
 		2E3187CF2413C505003FC8B0 /* PostsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187CE2413C505003FC8B0 /* PostsCollectionViewDataSource.swift */; };
+		2E3187F52413DE25003FC8B0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3187F42413DE25003FC8B0 /* CloudKit.framework */; };
+		2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */; };
+		2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188082413F411003FC8B0 /* AddPostViewController.swift */; };
+		2E31880B2413F411003FC8B0 /* AddPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3188092413F411003FC8B0 /* AddPostViewController.xib */; };
+		2E31880E2413F45E003FC8B0 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31880C2413F45E003FC8B0 /* TitleTableViewCell.swift */; };
+		2E31880F2413F45E003FC8B0 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */; };
+		2E3188122413F55D003FC8B0 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */; };
+		2E3188132413F55D003FC8B0 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3188112413F55D003FC8B0 /* DescriptionTableViewCell.xib */; };
+		2E31881524140C48003FC8B0 /* AddProductHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */; };
+		2E31881724140C54003FC8B0 /* AddProductHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */; };
+		2E31881924142961003FC8B0 /* UITextView+AddToolBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881824142961003FC8B0 /* UITextView+AddToolBarItem.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
@@ -80,6 +91,18 @@
 		2E2607412237DBC8009FD3FB /* BarcodeExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeExt.swift; sourceTree = "<group>"; };
 		2E3187CC241344FE003FC8B0 /* UIView+InstantiateFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+InstantiateFromNib.swift"; sourceTree = "<group>"; };
 		2E3187CE2413C505003FC8B0 /* PostsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PerfectlyCrafted.entitlements; sourceTree = "<group>"; };
+		2E3187F42413DE25003FC8B0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		2E3187FB2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PerfectlyCrafted.xcdatamodel; sourceTree = "<group>"; };
+		2E3188082413F411003FC8B0 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		2E3188092413F411003FC8B0 /* AddPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPostViewController.xib; sourceTree = "<group>"; };
+		2E31880C2413F45E003FC8B0 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
+		2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		2E3188112413F55D003FC8B0 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductHeaderView.swift; sourceTree = "<group>"; };
+		2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductHeaderView.xib; sourceTree = "<group>"; };
+		2E31881824142961003FC8B0 /* UITextView+AddToolBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+AddToolBarItem.swift"; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4A3E992208D2CB00988116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,12 +171,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F85C178E33B0973E639D521 /* Pods_PerfectlyCrafted.framework in Frameworks */,
+				2E3187F52413DE25003FC8B0 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E3187FD2413E6C1003FC8B0 /* Add Post */ = {
+			isa = PBXGroup;
+			children = (
+				2E3188052413E7D2003FC8B0 /* Views */,
+				2E3188022413E703003FC8B0 /* Controllers */,
+			);
+			path = "Add Post";
+			sourceTree = "<group>";
+		};
+		2E3188022413E703003FC8B0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E3188082413F411003FC8B0 /* AddPostViewController.swift */,
+				2E3188092413F411003FC8B0 /* AddPostViewController.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2E3188052413E7D2003FC8B0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E31880C2413F45E003FC8B0 /* TitleTableViewCell.swift */,
+				2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */,
+				2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */,
+				2E3188112413F55D003FC8B0 /* DescriptionTableViewCell.xib */,
+				2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */,
+				2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2E4A3E862208D2C800988116 = {
 			isa = PBXGroup;
 			children = (
@@ -175,7 +230,9 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */,
 				2EB00BDC24132EFF00AEF017 /* Extensions */,
+				2E3187FD2413E6C1003FC8B0 /* Add Post */,
 				5B5ED219235380BF000227D1 /* Post */,
 				2EA365AB220A301400FFDC5E /* Model */,
 				2E4A3EB12208E7B100988116 /* Views */,
@@ -246,6 +303,7 @@
 				2EA365A7220A2F0400FFDC5E /* UserModel.swift */,
 				2EDB0E4E222E1014006DB8EE /* FeedModel.swift */,
 				2EA365BA220A760800FFDC5E /* UserSession.swift */,
+				2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +340,7 @@
 			children = (
 				2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */,
 				2E3187CC241344FE003FC8B0 /* UIView+InstantiateFromNib.swift */,
+				2E31881824142961003FC8B0 /* UITextView+AddToolBarItem.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -350,6 +409,7 @@
 		703741C6F38706896E8BB0AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E3187F42413DE25003FC8B0 /* CloudKit.framework */,
 				B0E5E6A95569DFFB2B1E3660 /* Pods_PerfectlyCrafted.framework */,
 			);
 			name = Frameworks;
@@ -416,11 +476,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E31881724140C54003FC8B0 /* AddProductHeaderView.xib in Resources */,
+				2E31880B2413F411003FC8B0 /* AddPostViewController.xib in Resources */,
+				2E3188132413F55D003FC8B0 /* DescriptionTableViewCell.xib in Resources */,
 				5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */,
 				2EED896722284C9E00ADDEBD /* ProfileOptions.storyboard in Resources */,
 				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
 				2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */,
 				2E81CE3824132A34002F506D /* PostCollectionViewCell.xib in Resources */,
+				2E31880F2413F45E003FC8B0 /* TitleTableViewCell.xib in Resources */,
 				2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */,
 				2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */,
 			);
@@ -496,10 +560,12 @@
 				2E997F96221B0E2800730ED7 /* NetworkHelper.swift in Sources */,
 				2E997FAA221B99A300730ED7 /* DateExtension.swift in Sources */,
 				2EA365B7220A64E700FFDC5E /* LoginViewController.swift in Sources */,
+				2E31881924142961003FC8B0 /* UITextView+AddToolBarItem.swift in Sources */,
 				2EDB0E51222E1FCB006DB8EE /* PostFeedViewController.swift in Sources */,
 				2E997F9A221B0FCF00730ED7 /* AppError.swift in Sources */,
 				2E04A4B6221A76620066568E /* PopUpView.swift in Sources */,
 				2E2607422237DBC8009FD3FB /* BarcodeExt.swift in Sources */,
+				2E3188122413F55D003FC8B0 /* DescriptionTableViewCell.swift in Sources */,
 				2E984788221D575800204A42 /* SearchProductViewController.swift in Sources */,
 				2E4A3EAC2208D5D900988116 /* SignUpView.swift in Sources */,
 				2E997F9E221B18AA00730ED7 /* HairProductModel.swift in Sources */,
@@ -514,9 +580,12 @@
 				2EB2A1822225B29700525BD4 /* SetUpProfileView.swift in Sources */,
 				2E7946DF220CFABE00219B6A /* RatingViewController.swift in Sources */,
 				2EDB0E4F222E1014006DB8EE /* FeedModel.swift in Sources */,
+				2E31881524140C48003FC8B0 /* AddProductHeaderView.swift in Sources */,
+				2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */,
 				2EA365B1220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2E3187CD241344FE003FC8B0 /* UIView+InstantiateFromNib.swift in Sources */,
 				2E997FA0221B1EFD00730ED7 /* ShowProductViewController.swift in Sources */,
+				2E31880E2413F45E003FC8B0 /* TitleTableViewCell.swift in Sources */,
 				2EED896922284DED00ADDEBD /* HairProductsTableViewController.swift in Sources */,
 				2EC7B543223173AC00D165B1 /* SettingsTableViewController.swift in Sources */,
 				2E4A3EB02208E7A200988116 /* SignUpViewForm.swift in Sources */,
@@ -536,6 +605,7 @@
 				2EB2A1802225B27B00525BD4 /* SetProfileViewController.swift in Sources */,
 				2EA365B3220A59A900FFDC5E /* ProfileViewController.swift in Sources */,
 				2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */,
+				2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */,
 				2EB2A1A722272CC300525BD4 /* StorageManager.swift in Sources */,
 				2EDB0E4B222DC230006DB8EE /* HairTableViewCell.swift in Sources */,
 				2E6359122224F8A30053BBD9 /* DatabaseManager.swift in Sources */,
@@ -685,6 +755,7 @@
 			baseConfigurationReference = A42CEA839D18BBDCFF244C5F /* Pods-PerfectlyCrafted.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PerfectlyCrafted/PerfectlyCrafted.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ASLRJLYD2S;
@@ -707,6 +778,7 @@
 			baseConfigurationReference = DBAC954F100F5834890E3610 /* Pods-PerfectlyCrafted.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PerfectlyCrafted/PerfectlyCrafted.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ASLRJLYD2S;
@@ -746,6 +818,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2E3187FB2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodel */,
+			);
+			currentVersion = 2E3187FB2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodel */;
+			path = PerfectlyCrafted.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2E4A3E872208D2C800988116 /* Project object */;
 }
