@@ -12,6 +12,11 @@ protocol DescriptionTableViewCellDelegate: AnyObject {
 }
 class DescriptionTableViewCell: UITableViewCell {
     
+    struct ViewModel {
+        
+        let placeholder: String
+    }
+    
     @IBOutlet private weak var descriptionTextView: UITextView!
     
     weak var delegate : DescriptionTableViewCellDelegate?
@@ -21,8 +26,19 @@ class DescriptionTableViewCell: UITableViewCell {
         descriptionTextView.delegate = self
     }
     
-
+    var viewModel: ViewModel? {
+        didSet {
+            descriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+            descriptionTextView.text = viewModel?.placeholder
+            descriptionTextView.textColor = .lightGray
+        }
+    }
+    
+    @objc func tapDone(sender: Any) {
+        endEditing(true)
+    }
 }
+
 
 extension DescriptionTableViewCell: UITextViewDelegate {
     func textViewDidChangeSelection(_ textView: UITextView) {
@@ -30,6 +46,11 @@ extension DescriptionTableViewCell: UITextViewDelegate {
             deletate.updateHeightOfRow(self, textView.bounds.size)
         }
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if !descriptionTextView.text.isEmpty {
+            descriptionTextView.textColor = .black
+            descriptionTextView.text = ""
+        }
+    }
 }
-
-

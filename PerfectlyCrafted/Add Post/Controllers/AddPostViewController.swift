@@ -11,11 +11,7 @@ import UIKit
 final class AddPostViewController: UIViewController {
     
     @IBOutlet private weak var addGameTableView: UITableView!
-    
     @IBOutlet private weak var saveButton: UIButton!
-    
-    @IBAction private func saveButtonTapped(_ sender: UIButton) {
-    }
     
     private lazy var addProductHeaderView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
@@ -23,6 +19,7 @@ final class AddPostViewController: UIViewController {
         super.viewDidLoad()
         configureTableView()
         updateHeaderView()
+        addKeyboardNotificationObservers()
     }
     
     private func configureTableView() {
@@ -35,9 +32,48 @@ final class AddPostViewController: UIViewController {
     }
     
     private func updateHeaderView() {
-        addProductHeaderView.addImageButtonTapped = { 
+        addProductHeaderView.addImageButtonTapped = {
             print("TO DO Present action sheet.")
         }
+    }
+    
+    private func addKeyboardNotificationObservers() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(willHideKeyboard(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(willShowKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    @IBAction private func saveButtonTapped(_ sender: UIButton) {
+        
+        
+        view.endEditing(true)
+    }
+    
+    @objc private func willHideKeyboard(notification: Notification) {
+        
+        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else {
+            return
+        }
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration, delay: 0.0, options: [], animations: { [weak self] in
+            self?.saveButton.transform = CGAffineTransform.identity
+            self?.addGameTableView.transform = CGAffineTransform.identity
+        }, completion: nil)
+        
+    }
+    
+    @objc private func willShowKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        addGameTableView.transform = CGAffineTransform(translationX: 0, y: -keyboardScreenEndFrame.height)
+        saveButton.transform = CGAffineTransform(translationX: 0, y: -keyboardScreenEndFrame.height)
+        
+    }
+    
+    deinit {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
     }
 }
 
@@ -55,12 +91,16 @@ extension AddPostViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleTableViewCell else {
                 return UITableViewCell()
             }
+            cell.textFieldDidEndEditing = { (textfield) in
+                textfield.resignFirstResponder()
+            }
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionTableViewCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
+            cell.viewModel = DescriptionTableViewCell.ViewModel(placeholder: "Enter view model here.")
             return cell
         default:
             return UITableViewCell()

@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ib8-yX-XyF">
-                        <rect key="frame" x="10" y="10" width="357" height="124"/>
+                        <rect key="frame" x="9" y="10" width="358" height="124"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6X-VF-3Ge">
-                                <rect key="frame" x="0.0" y="0.0" width="357" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="358" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fQu-nE-knY">
-                                <rect key="frame" x="0.0" y="35.5" width="357" height="88.5"/>
+                                <rect key="frame" x="0.0" y="35.5" width="358" height="88.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -37,7 +37,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ib8-yX-XyF" secondAttribute="trailing" constant="10" id="Jpm-We-FdV"/>
-                    <constraint firstItem="ib8-yX-XyF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="QLB-Qh-RJn"/>
+                    <constraint firstItem="ib8-yX-XyF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="QLB-Qh-RJn"/>
                     <constraint firstAttribute="bottom" secondItem="ib8-yX-XyF" secondAttribute="bottom" constant="10" id="vyR-g9-xnT"/>
                     <constraint firstItem="ib8-yX-XyF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="zCK-eh-4mb"/>
                 </constraints>
