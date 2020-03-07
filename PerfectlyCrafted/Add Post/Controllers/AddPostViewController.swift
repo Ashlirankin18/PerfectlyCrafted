@@ -17,16 +17,34 @@ final class AddPostViewController: UIViewController {
     @IBAction private func saveButtonTapped(_ sender: UIButton) {
     }
     
+    private lazy var addProductHeaderView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
+        updateHeaderView()
+    }
+    
+    private func configureTableView() {
         addGameTableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
         addGameTableView.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
         addGameTableView.estimatedRowHeight = UITableView.automaticDimension
         addGameTableView.dataSource = self
+        addGameTableView.delegate = self
         addGameTableView.reloadData()
     }
+    
+    private func updateHeaderView() {
+        addProductHeaderView.addImageButtonTapped = { 
+            print("TO DO Present action sheet.")
+        }
+    }
 }
+
 extension AddPostViewController: UITableViewDataSource {
+    
+    // MARK: - UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -51,6 +69,9 @@ extension AddPostViewController: UITableViewDataSource {
 }
 
 extension AddPostViewController: DescriptionTableViewCellDelegate {
+    
+    // MARK: - DescriptionTableViewCellDelegate
+    
     func updateHeightOfRow(_ cell: DescriptionTableViewCell, _ textViewSize: CGSize) {
         let size = textViewSize
         let newSize = addGameTableView.sizeThatFits(CGSize(width: size.width,
@@ -68,3 +89,12 @@ extension AddPostViewController: DescriptionTableViewCellDelegate {
     
 }
 
+extension AddPostViewController: UITableViewDelegate {
+    
+    // MARK: -UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: UIImage(named: "placeholder") ?? UIImage())
+        return addProductHeaderView
+    }
+}
