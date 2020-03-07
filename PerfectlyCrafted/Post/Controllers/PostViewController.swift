@@ -35,6 +35,7 @@ final class PostViewController: UIViewController {
     }
     
     @objc private func addButtonTapped(sender: UIBarButtonItem) {
-        print("add")
+        let addPostViewController = AddPostViewController(nibName: "AddPostViewController", bundle: Bundle.main)
+        present(addPostViewController, animated: true)
     }
 }
