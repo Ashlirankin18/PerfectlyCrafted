@@ -13,6 +13,8 @@ final class AddPostViewController: UIViewController {
     @IBOutlet private weak var addGameTableView: UITableView!
     @IBOutlet private weak var saveButton: UIButton!
     
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     private lazy var addProductHeaderView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
     override func viewDidLoad() {
