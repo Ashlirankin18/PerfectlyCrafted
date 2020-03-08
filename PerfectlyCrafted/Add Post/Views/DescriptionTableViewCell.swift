@@ -9,6 +9,8 @@
 import UIKit
 protocol DescriptionTableViewCellDelegate: AnyObject {
     func updateHeightOfRow(_ cell: DescriptionTableViewCell, _ textViewSize: CGSize)
+    
+    func textViewDidEndEditing(_ cell: DescriptionTableViewCell, _ text: String)
 }
 class DescriptionTableViewCell: UITableViewCell {
     
@@ -34,7 +36,8 @@ class DescriptionTableViewCell: UITableViewCell {
         }
     }
     
-    @objc func tapDone(sender: Any) {
+    @objc private func tapDone(sender: Any) {
+        delegate?.textViewDidEndEditing(self, descriptionTextView.text)
         endEditing(true)
     }
 }
@@ -53,4 +56,9 @@ extension DescriptionTableViewCell: UITextViewDelegate {
             descriptionTextView.text = ""
         }
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        delegate?.textViewDidEndEditing(self, textView.text)
+    }
+
 }

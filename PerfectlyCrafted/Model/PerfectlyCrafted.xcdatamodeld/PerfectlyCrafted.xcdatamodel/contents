@@ -6,20 +6,24 @@
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="comment" inverseEntity="Product"/>
     </entity>
     <entity name="Post" representedClassName="Post" syncable="YES" codeGenerationType="class">
-        <attribute name="caption" optional="YES" attributeType="String"/>
-        <attribute name="image" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="photoIdentfier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="postDescription" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="title" optional="YES" attributeType="String" defaultValueString=""/>
     </entity>
     <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
         <attribute name="dateComplete" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="isFinished" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="name" attributeType="String"/>
-        <attribute name="productDescription" optional="YES" attributeType="String"/>
+        <attribute name="isFinished" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="productDescription" optional="YES" attributeType="String" defaultValueString=""/>
         <relationship name="comment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="product" inverseEntity="Comment"/>
     </entity>
     <elements>
-        <element name="Post" positionX="-12.29296875" positionY="-82.24609375" width="128" height="73"/>
-        <element name="Product" positionX="422.984375" positionY="85.90234375" width="128" height="133"/>
         <element name="Comment" positionX="-36" positionY="54" width="128" height="88"/>
+        <element name="Post" positionX="-12.29296875" positionY="-82.24609375" width="128" height="133"/>
+        <element name="Product" positionX="422.984375" positionY="85.90234375" width="128" height="133"/>
     </elements>
 </model>

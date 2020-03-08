@@ -15,13 +15,16 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rnI-2T-LOC">
                     <rect key="frame" x="0.0" y="44" width="390" height="341"/>
-                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2K-fd-kPi">
                     <rect key="frame" x="0.0" y="44" width="390" height="341"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" button="YES" header="YES"/>
                     </accessibility>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="341" id="rY5-Mv-h6I"/>
+                        <constraint firstAttribute="width" constant="390" id="tm0-KZ-1w4"/>
+                    </constraints>
                     <connections>
                         <action selector="addImageButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="KvA-oo-cYl"/>
                     </connections>
