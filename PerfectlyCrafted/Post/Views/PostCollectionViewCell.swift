@@ -17,8 +17,10 @@ final class PostCollectionViewCell: UICollectionViewCell {
         /// The image of the post.
         let postImage: UIImage?
         
-        let caption: String
+        /// The title of the post.
+        let title: String
         
+        /// The description of the post.
         let description: String
     }
     
@@ -31,15 +33,17 @@ final class PostCollectionViewCell: UICollectionViewCell {
     /// The single point of configuration of the `PostCollectionViewCell`
     var viewModel: ViewModel? {
         didSet {
+            postImageView.isHidden = viewModel?.postImage == nil ? true : false
             postImageView.image = viewModel?.postImage
-            captionLabel.text = viewModel?.caption
+            captionLabel.text = viewModel?.title
             descriptionLabel.text = viewModel?.description
         }
     }
     
+    /// Is called when the edit button is tapped.
     var editButtonTapped: (() -> Void)?
     
-    @IBAction func moreOptionButtonTapped(_ sender: Any) {
+    @IBAction private func moreOptionButtonTapped(_ sender: Any) {
         editButtonTapped?()
     }
 }
