@@ -20,12 +20,18 @@ final class AddPostViewController: UIViewController {
     
     private lazy var addProductHeaderView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
+    private var imagePickerController: UIImagePickerController!
+    
+    private var localImageManager = try! LocalImageManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         updateHeaderView()
         addKeyboardNotificationObservers()
         createPost()
+        imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
     }
     
     private func configureTableView() {
@@ -39,22 +45,33 @@ final class AddPostViewController: UIViewController {
     
     private func updateHeaderView() {
         addProductHeaderView.addImageButtonTapped = { [weak self] in
-            let alertController = UIAlertController(title: "Add image to this post using:", message: "", preferredStyle: .actionSheet)
-            
-            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
-                
-            }
-            
-            let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
-                
-            }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-            alertController.addAction(photoLibraryAction)
-            alertController.addAction(cameraAction)
-            alertController.addAction(cancelAction)
-            self?.present(alertController, animated: true)
+            self?.presentAlertController()
         }
+    }
+    
+    private func presentAlertController () {
+        let alertController = UIAlertController(title: "Add image to this post using:", message: "", preferredStyle: .actionSheet)
+        
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { [weak self] _ in
+            self?.imagePickerController.sourceType = .photoLibrary
+            self?.presentImagePickerController()
+        }
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { [weak self] (action) in
+            action.isEnabled = !UIImagePickerController.isSourceTypeAvailable(.camera) ? false : true
+            self?.imagePickerController.sourceType = .camera
+            self?.presentImagePickerController()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(photoLibraryAction)
+        alertController.addAction(cameraAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+    
+    private func presentImagePickerController() {
+        present(imagePickerController, animated: true)
     }
     
     private func createPost() {
@@ -78,11 +95,12 @@ final class AddPostViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil ) {
+    private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
         let post = Post(context: context)
         post.title = title
         post.postDescription = postDescription
         post.photoIdentfier = photoIdentifier
+        post.image = imageData
     }
     
     private func savePost() {
@@ -101,7 +119,7 @@ final class AddPostViewController: UIViewController {
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration, delay: 0.0, options: [], animations: { [weak self] in
             self?.saveButton.transform = CGAffineTransform.identity
             self?.addGameTableView.transform = CGAffineTransform.identity
-        }, completion: nil)
+            }, completion: nil)
         
     }
     
@@ -186,3 +204,30 @@ extension AddPostViewController: UITableViewDelegate {
         return addProductHeaderView
     }
 }
+
+extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+            else{
+                print("no original image could be found")
+                return
+        }
+        let photoIdentifier = UUID()
+        updatePost(photoIdentifier: photoIdentifier)
+        localImageManager.saveImage(image, key: photoIdentifier)
+        do {
+            let data = try image.heicData()
+            updatePost(imageData: data)
+        } catch {
+            print(error)
+        }
+        addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: image)
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+
