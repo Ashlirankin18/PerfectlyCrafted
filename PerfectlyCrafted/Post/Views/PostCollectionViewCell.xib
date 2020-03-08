@@ -20,10 +20,10 @@
                         <rect key="frame" x="0.0" y="44" width="365" height="399"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVh-aw-3TI">
-                                <rect key="frame" x="330" y="0.0" width="30" height="30"/>
+                                <rect key="frame" x="325" y="0.0" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gVh-aw-3TI" secondAttribute="height" multiplier="1:1" id="SCT-zz-HRD"/>
-                                    <constraint firstAttribute="width" constant="30" id="qwx-LB-Zed"/>
+                                    <constraint firstAttribute="width" constant="35" id="qwx-LB-Zed"/>
                                 </constraints>
                                 <state key="normal" image="ellipsis" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
