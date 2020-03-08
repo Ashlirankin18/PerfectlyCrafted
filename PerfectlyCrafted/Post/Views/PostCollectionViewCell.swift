@@ -17,12 +17,15 @@ final class PostCollectionViewCell: UICollectionViewCell {
         /// The image of the post.
         let postImage: UIImage?
         
-        let caption: String?
+        let caption: String
+        
+        let description: String
     }
     
     @IBOutlet private weak var moreOptionsButton: UIButton!
     @IBOutlet private weak var postImageView: UIImageView!
     @IBOutlet private weak var captionLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     
     /// The single point of configuration of the `PostCollectionViewCell`
@@ -30,6 +33,7 @@ final class PostCollectionViewCell: UICollectionViewCell {
         didSet {
             postImageView.image = viewModel?.postImage
             captionLabel.text = viewModel?.caption
+            descriptionLabel.text = viewModel?.description
         }
     }
     
