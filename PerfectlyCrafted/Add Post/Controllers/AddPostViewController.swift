@@ -217,14 +217,13 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
                 return
         }
         let photoIdentifier = UUID()
-        updatePost(photoIdentifier: photoIdentifier)
-        localImageManager.saveImage(image, key: photoIdentifier)
         do {
             let data = try image.heicData()
-            updatePost(imageData: data)
+            updatePost(photoIdentifier: photoIdentifier, imageData: data)
         } catch {
             print(error)
         }
+        localImageManager.saveImage(image, key: photoIdentifier)
         addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: image)
         dismiss(animated: true, completion: nil)
     }
