@@ -7,7 +7,9 @@
     </entity>
     <entity name="Post" representedClassName="Post" syncable="YES" codeGenerationType="class">
         <attribute name="caption" optional="YES" attributeType="String"/>
-        <attribute name="image" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="photoIdentfier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
         <attribute name="dateComplete" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -18,8 +20,8 @@
         <relationship name="comment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="product" inverseEntity="Comment"/>
     </entity>
     <elements>
-        <element name="Post" positionX="-12.29296875" positionY="-82.24609375" width="128" height="73"/>
-        <element name="Product" positionX="422.984375" positionY="85.90234375" width="128" height="133"/>
         <element name="Comment" positionX="-36" positionY="54" width="128" height="88"/>
+        <element name="Post" positionX="-12.29296875" positionY="-82.24609375" width="128" height="103"/>
+        <element name="Product" positionX="422.984375" positionY="85.90234375" width="128" height="133"/>
     </elements>
 </model>

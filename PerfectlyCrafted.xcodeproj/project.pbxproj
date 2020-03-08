@@ -25,6 +25,9 @@
 		2E31881524140C48003FC8B0 /* AddProductHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */; };
 		2E31881724140C54003FC8B0 /* AddProductHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */; };
 		2E31881924142961003FC8B0 /* UITextView+AddToolBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881824142961003FC8B0 /* UITextView+AddToolBarItem.swift */; };
+		2E31881B24153736003FC8B0 /* UIImage+HEIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881A24153736003FC8B0 /* UIImage+HEIC.swift */; };
+		2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881D241537B5003FC8B0 /* ImageManager.swift */; };
+		2E318820241537E7003FC8B0 /* LocalImageLaoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881F241537E7003FC8B0 /* LocalImageLaoder.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
@@ -103,6 +106,9 @@
 		2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductHeaderView.swift; sourceTree = "<group>"; };
 		2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductHeaderView.xib; sourceTree = "<group>"; };
 		2E31881824142961003FC8B0 /* UITextView+AddToolBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+AddToolBarItem.swift"; sourceTree = "<group>"; };
+		2E31881A24153736003FC8B0 /* UIImage+HEIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+HEIC.swift"; sourceTree = "<group>"; };
+		2E31881D241537B5003FC8B0 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		2E31881F241537E7003FC8B0 /* LocalImageLaoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageLaoder.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4A3E992208D2CB00988116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -209,6 +215,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2E31881C241537A2003FC8B0 /* ImageManagement */ = {
+			isa = PBXGroup;
+			children = (
+				2E31881D241537B5003FC8B0 /* ImageManager.swift */,
+				2E31881F241537E7003FC8B0 /* LocalImageLaoder.swift */,
+			);
+			path = ImageManagement;
+			sourceTree = "<group>";
+		};
 		2E4A3E862208D2C800988116 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +245,7 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2E31881C241537A2003FC8B0 /* ImageManagement */,
 				2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */,
 				2EB00BDC24132EFF00AEF017 /* Extensions */,
 				2E3187FD2413E6C1003FC8B0 /* Add Post */,
@@ -341,6 +357,7 @@
 				2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */,
 				2E3187CC241344FE003FC8B0 /* UIView+InstantiateFromNib.swift */,
 				2E31881824142961003FC8B0 /* UITextView+AddToolBarItem.swift */,
+				2E31881A24153736003FC8B0 /* UIImage+HEIC.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -555,11 +572,13 @@
 				2E063E69220B629A00D85406 /* ProfileCollectionViewCell.swift in Sources */,
 				2EA365A8220A2F0400FFDC5E /* UserModel.swift in Sources */,
 				2EDB0E4D222DC49C006DB8EE /* ImageViewControllerExtension.swift in Sources */,
+				2E31881B24153736003FC8B0 /* UIImage+HEIC.swift in Sources */,
 				2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */,
 				2E997FA2221B200D00730ED7 /* HairProductView.swift in Sources */,
 				2E3187CF2413C505003FC8B0 /* PostsCollectionViewDataSource.swift in Sources */,
 				2E4A3EA72208D37500988116 /* SignUpViewController.swift in Sources */,
 				2E997FAC221BB5BE00730ED7 /* ProductCell.swift in Sources */,
+				2E318820241537E7003FC8B0 /* LocalImageLaoder.swift in Sources */,
 				2EB2A1822225B29700525BD4 /* SetUpProfileView.swift in Sources */,
 				2E7946DF220CFABE00219B6A /* RatingViewController.swift in Sources */,
 				2EDB0E4F222E1014006DB8EE /* FeedModel.swift in Sources */,
@@ -568,6 +587,7 @@
 				2EA365B1220A598D00FFDC5E /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2E3187CD241344FE003FC8B0 /* UIView+InstantiateFromNib.swift in Sources */,
 				2E997FA0221B1EFD00730ED7 /* ShowProductViewController.swift in Sources */,
+				2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */,
 				2E31880E2413F45E003FC8B0 /* TitleTableViewCell.swift in Sources */,
 				2EED896922284DED00ADDEBD /* HairProductsTableViewController.swift in Sources */,
 				2EC7B543223173AC00D165B1 /* SettingsTableViewController.swift in Sources */,

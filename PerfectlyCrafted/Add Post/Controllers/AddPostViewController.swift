@@ -13,7 +13,7 @@ final class AddPostViewController: UIViewController {
     @IBOutlet private weak var addGameTableView: UITableView!
     @IBOutlet private weak var saveButton: UIButton!
     
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private lazy var addProductHeaderView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
@@ -136,7 +136,7 @@ extension AddPostViewController: UITableViewDelegate {
     // MARK: -UITableViewDelegate
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: UIImage(named: "placeholder") ?? UIImage())
+        addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: UIImage(systemName: "camera.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 300.0)) ?? UIImage())
         return addProductHeaderView
     }
 }
