@@ -20,7 +20,7 @@ final class PostViewController: UIViewController {
 
     private lazy var postCollectionViewDataSource: PostsCollectionViewDataSource = {
         let postDataSource = PostsCollectionViewDataSource(collectionView: postsCollectionView) { (collectionView, indexPath, post) -> UICollectionViewCell in
-            self.configureCell(collectionView: collectionView, indexPath: indexPath, posts: post)
+            self.configureCell(collectionView: collectionView, indexPath: indexPath, post: post)
         }
         postsCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostCell")
         return postDataSource
@@ -43,19 +43,35 @@ final class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         configureBarButtonItem()
        configureFetchResultsController()
     }
     
-    private func configureCell (collectionView: UICollectionView, indexPath: IndexPath, posts: Post ) -> UICollectionViewCell {
+    private func configureCell (collectionView: UICollectionView, indexPath: IndexPath, post: Post ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as? PostCollectionViewCell else {
             return UICollectionViewCell()
         }
+       configureCellViewModel(cell: cell, post: post)
+        
         cell.editButtonTapped = {
             print("edit button tapped.")
         }
         return cell
+    }
+    
+    private func configureCellViewModel(cell: PostCollectionViewCell, post: Post) {
+        if let photoIdentifier = post.photoIdentfier {
+            localImageManager.loadImage(forKey: photoIdentifier) { (result) in
+                switch result {
+                case let .success(image):
+                    cell.viewModel = PostCollectionViewCell.ViewModel(postImage: image, title: post.title ?? "", description: post.postDescription ?? "")
+                case let .failure(error):
+                   print("There was an error \(error)")
+                }
+            }
+        } else {
+          cell.viewModel = PostCollectionViewCell.ViewModel(postImage: nil, title: post.title ?? "", description: post.postDescription ?? "")
+        }
     }
     
     private func configureFetchResultsController() {
@@ -70,6 +86,8 @@ final class PostViewController: UIViewController {
         try fetchResultsController?.performFetch()
             if let posts = fetchResultsController?.fetchedObjects {
                 updateDataSource(items: posts)
+                
+                //TODO: - HANDLE THE EMPTY STATE OF NOT HAVING ENTRIES.
             }
         } catch {
           print(error)
