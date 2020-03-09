@@ -59,6 +59,6 @@ extension DescriptionTableViewCell: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         delegate?.textViewDidEndEditing(self, textView.text)
+        endEditing(true)
     }
-
 }
