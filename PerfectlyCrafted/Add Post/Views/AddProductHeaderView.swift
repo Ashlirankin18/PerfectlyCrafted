@@ -23,6 +23,7 @@ final class AddProductHeaderView: UIView {
     var viewModel: ViewModel? {
         didSet {
             postImageView.image = viewModel?.image
+            addImageButton.imageView?.image = UIImage()
         }
     }
     

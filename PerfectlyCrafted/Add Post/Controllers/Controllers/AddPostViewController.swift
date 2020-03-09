@@ -12,8 +12,7 @@ import CoreData
 final class AddPostViewController: UIViewController {
     
     @IBOutlet private weak var addPostTableView: UITableView!
-    @IBOutlet private weak var saveButton: UIButton!
-    
+
     private let  childContext: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     
     private var postId: UUID
@@ -21,11 +20,11 @@ final class AddPostViewController: UIViewController {
     private var imagePickerController: UIImagePickerController!
     
     private var localImageManager = try! LocalImageManager()
-   
+    
     private let persistenceController: PersistenceController
     
     private var posts = [Post]()
-   
+    
     private lazy var addPostTableViewDataSource: AddPostTableViewDataSource = {
         let addPostTableViewDataSource = AddPostTableViewDataSource { (tableView, index) -> UITableViewCell in
             self.configureCell(tableView: tableView,indexPath: index)
@@ -34,15 +33,18 @@ final class AddPostViewController: UIViewController {
         addPostTableView.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
         return addPostTableViewDataSource
     }()
-   
+    private lazy var cancelButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "multiply"), style: .plain, target: self, action: #selector(cancelButtonTapped(sender:)))
+    
+    private lazy var saveButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "checkmark"), style: .plain, target: self, action: #selector(saveButtonTapped(sender:)))
+    
     private lazy var addProductHeaderView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
     init(postId: UUID, persistenceController: PersistenceController) {
         self.postId = postId
         self.persistenceController = persistenceController
-       
+        
         super.init(nibName: "AddPostViewController", bundle: Bundle.main)
-         childContext.parent = persistenceController.mainContext
+        childContext.parent = persistenceController.mainContext
     }
     
     required init?(coder: NSCoder) {
@@ -51,14 +53,28 @@ final class AddPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureBarButtonItems()
         configureTableView()
         updateHeaderView()
-        addKeyboardNotificationObservers()
         createPost()
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
     }
     
+    private func configureBarButtonItems() {
+        navigationItem.leftBarButtonItem = cancelButton
+        navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc private func cancelButtonTapped(sender: UIBarButtonItem) {
+        childContext.reset()
+        dismiss(animated: true)
+    }
+    
+    @objc private func saveButtonTapped(sender: UIBarButtonItem) {
+        saveToChildContext()
+        dismiss(animated: true)
+    }
     private func configureCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
@@ -132,17 +148,6 @@ final class AddPostViewController: UIViewController {
         posts.append(newPost)
     }
     
-    private func addKeyboardNotificationObservers() {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(willHideKeyboard(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(willShowKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-    }
-    
-    @IBAction private func saveButtonTapped(_ sender: UIButton) {
-        saveToChildContext()
-        dismiss(animated: true)
-    }
-    
     private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
         
         guard let initialPost = posts.first, let id = initialPost.id else {
@@ -183,34 +188,6 @@ final class AddPostViewController: UIViewController {
             print("error: \(error)")
         }
     }
-    
-    @objc private func willHideKeyboard(notification: Notification) {
-        
-        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else {
-            return
-        }
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration, delay: 0.0, options: [], animations: { [weak self] in
-            self?.saveButton.transform = CGAffineTransform.identity
-            self?.addPostTableView.transform = CGAffineTransform.identity
-            }, completion: nil)
-        
-    }
-    
-    @objc private func willShowKeyboard(notification: Notification) {
-        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
-            return
-        }
-        let keyboardScreenEndFrame = keyboardValue.cgRectValue
-        addPostTableView.transform = CGAffineTransform(translationX: 0, y: -keyboardScreenEndFrame.height)
-        saveButton.transform = CGAffineTransform(translationX: 0, y: -keyboardScreenEndFrame.height)
-        
-    }
-    
-    deinit {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.removeObserver(self)
-    }
-    
 }
 
 extension AddPostViewController: DescriptionTableViewCellDelegate {
@@ -242,7 +219,6 @@ extension AddPostViewController: UITableViewDelegate {
     // MARK: -UITableViewDelegate
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: UIImage(systemName: "camera.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 300.0)) ?? UIImage())
         return addProductHeaderView
     }
 }
@@ -266,6 +242,7 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
             print(error)
         }
         localImageManager.saveImage(image, key: photoIdentifier)
+        
         addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: image)
         dismiss(animated: true, completion: nil)
     }

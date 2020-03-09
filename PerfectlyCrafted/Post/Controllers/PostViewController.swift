@@ -100,7 +100,8 @@ final class PostViewController: UIViewController {
     
     @objc private func addButtonTapped(sender: UIBarButtonItem) {
         let addPostViewController = AddPostViewController(postId: UUID(), persistenceController: persistenceController)
-        present(addPostViewController, animated: true)
+        let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
+        present(addPostNavigationController, animated: false)
     }
     
     func updateDataSource(items: [Post]) {
