@@ -11,14 +11,12 @@ import CoreData
 
 final class AddPostViewController: UIViewController {
     
-    @IBOutlet private weak var addGameTableView: UITableView!
+    @IBOutlet private weak var addPostTableView: UITableView!
     @IBOutlet private weak var saveButton: UIButton!
     
     private let  childContext: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     
     private var postId: UUID
-    
-    private lazy var addProductHeaderView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
     private var imagePickerController: UIImagePickerController!
     
@@ -27,6 +25,17 @@ final class AddPostViewController: UIViewController {
     private let persistenceController: PersistenceController
     
     private var posts = [Post]()
+   
+    private lazy var addPostTableViewDataSource: AddPostTableViewDataSource = {
+        let addPostTableViewDataSource = AddPostTableViewDataSource { (tableView, index) -> UITableViewCell in
+            self.configureCell(tableView: tableView,indexPath: index)
+        }
+        addPostTableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
+        addPostTableView.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
+        return addPostTableViewDataSource
+    }()
+   
+    private lazy var addProductHeaderView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
     init(postId: UUID, persistenceController: PersistenceController) {
         self.postId = postId
@@ -50,13 +59,35 @@ final class AddPostViewController: UIViewController {
         imagePickerController.delegate = self
     }
     
+    private func configureCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.textFieldDidEndEditing = { [weak self] textfield in
+                self?.updatePost(title: textfield.text)
+            }
+            
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.delegate = self
+            cell.viewModel = DescriptionTableViewCell.ViewModel(placeholder: "Give your entry a description")
+            return cell
+        default:
+            return UITableViewCell()
+        }
+    }
+    
     private func configureTableView() {
-        addGameTableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
-        addGameTableView.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
-        addGameTableView.estimatedRowHeight = UITableView.automaticDimension
-        addGameTableView.dataSource = self
-        addGameTableView.delegate = self
-        addGameTableView.reloadData()
+        
+        addPostTableView.estimatedRowHeight = UITableView.automaticDimension
+        addPostTableView.dataSource = addPostTableViewDataSource
+        addPostTableView.delegate = self
+        addPostTableView.reloadData()
     }
     
     private func updateHeaderView() {
@@ -112,7 +143,7 @@ final class AddPostViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    private func updatePost(identifier: UUID, title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
+    private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
         
         guard let initialPost = posts.first, let id = initialPost.id else {
             return
@@ -160,7 +191,7 @@ final class AddPostViewController: UIViewController {
         }
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration, delay: 0.0, options: [], animations: { [weak self] in
             self?.saveButton.transform = CGAffineTransform.identity
-            self?.addGameTableView.transform = CGAffineTransform.identity
+            self?.addPostTableView.transform = CGAffineTransform.identity
             }, completion: nil)
         
     }
@@ -170,7 +201,7 @@ final class AddPostViewController: UIViewController {
             return
         }
         let keyboardScreenEndFrame = keyboardValue.cgRectValue
-        addGameTableView.transform = CGAffineTransform(translationX: 0, y: -keyboardScreenEndFrame.height)
+        addPostTableView.transform = CGAffineTransform(translationX: 0, y: -keyboardScreenEndFrame.height)
         saveButton.transform = CGAffineTransform(translationX: 0, y: -keyboardScreenEndFrame.height)
         
     }
@@ -181,39 +212,6 @@ final class AddPostViewController: UIViewController {
     }
     
 }
-extension AddPostViewController: UITableViewDataSource {
-    
-    // MARK: - UITableViewDataSource
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.textFieldDidEndEditing = { [weak self] (textfield) in
-                guard let self = self else {
-                    return
-                }
-                self.updatePost(identifier: self.postId, title: textfield.text)
-            }
-            return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.delegate = self
-            cell.viewModel = DescriptionTableViewCell.ViewModel(placeholder: "Enter description here.")
-            return cell
-        default:
-            return UITableViewCell()
-        }
-    }
-}
 
 extension AddPostViewController: DescriptionTableViewCellDelegate {
     
@@ -221,21 +219,21 @@ extension AddPostViewController: DescriptionTableViewCellDelegate {
     
     func updateHeightOfRow(_ cell: DescriptionTableViewCell, _ textViewSize: CGSize) {
         let size = textViewSize
-        let newSize = addGameTableView.sizeThatFits(CGSize(width: size.width,
+        let newSize = addPostTableView.sizeThatFits(CGSize(width: size.width,
                                                            height: CGFloat.greatestFiniteMagnitude))
         if size.height != newSize.height {
             UIView.setAnimationsEnabled(false)
-            addGameTableView?.beginUpdates()
-            addGameTableView?.endUpdates()
+            addPostTableView?.beginUpdates()
+            addPostTableView?.endUpdates()
             UIView.setAnimationsEnabled(true)
-            if let thisIndexPath = addGameTableView.indexPath(for: cell) {
-                addGameTableView.scrollToRow(at: thisIndexPath, at: .bottom, animated: false)
+            if let thisIndexPath = addPostTableView.indexPath(for: cell) {
+                addPostTableView.scrollToRow(at: thisIndexPath, at: .bottom, animated: false)
             }
         }
     }
     
     func textViewDidEndEditing(_ cell: DescriptionTableViewCell, _ text: String) {
-        updatePost(identifier: postId, postDescription: text)
+        updatePost(postDescription: text)
     }
 }
 
@@ -263,7 +261,7 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
         let photoIdentifier = UUID()
         do {
             let data = try image.heicData()
-            updatePost(identifier: postId, photoIdentifier: photoIdentifier, imageData: data)
+            updatePost(photoIdentifier: photoIdentifier, imageData: data)
         } catch {
             print(error)
         }
