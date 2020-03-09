@@ -108,7 +108,7 @@ final class AddPostViewController: UIViewController {
     }
     
     @IBAction private func saveButtonTapped(_ sender: UIButton) {
-        savePost()
+        saveToChildContext()
         dismiss(animated: true)
     }
     
@@ -140,15 +140,9 @@ final class AddPostViewController: UIViewController {
             } else {
                 print("here")
             }
-            
         } catch {
             print("Error here \(error)")
         }
-        saveToChildContext()
-    }
-    
-    private func savePost() {
-        persistenceController.saveContext()
     }
     
     private func saveToChildContext() {

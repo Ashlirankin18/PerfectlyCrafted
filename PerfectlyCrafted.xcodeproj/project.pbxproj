@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E01615B24169DE5006A8723 /* PostsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01615A24169DE5006A8723 /* PostsCollectionViewDataSource.swift */; };
 		2E04A4B4221A76460066568E /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E04A4B3221A76460066568E /* PopUpViewController.swift */; };
 		2E04A4B6221A76620066568E /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E04A4B5221A76620066568E /* PopUpView.swift */; };
 		2E063E67220B5E9C00D85406 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E66220B5E9C00D85406 /* ProfileView.swift */; };
 		2E063E69220B629A00D85406 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E68220B629A00D85406 /* ProfileCollectionViewCell.swift */; };
 		2E2607422237DBC8009FD3FB /* BarcodeExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2607412237DBC8009FD3FB /* BarcodeExt.swift */; };
 		2E3187CD241344FE003FC8B0 /* UIView+InstantiateFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187CC241344FE003FC8B0 /* UIView+InstantiateFromNib.swift */; };
-		2E3187CF2413C505003FC8B0 /* PostsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187CE2413C505003FC8B0 /* PostsCollectionViewDataSource.swift */; };
 		2E3187F52413DE25003FC8B0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3187F42413DE25003FC8B0 /* CloudKit.framework */; };
 		2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */; };
 		2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188082413F411003FC8B0 /* AddPostViewController.swift */; };
@@ -88,13 +88,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E01615A24169DE5006A8723 /* PostsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsCollectionViewDataSource.swift; sourceTree = SOURCE_ROOT; };
 		2E04A4B3221A76460066568E /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		2E04A4B5221A76620066568E /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		2E063E66220B5E9C00D85406 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2E063E68220B629A00D85406 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E2607412237DBC8009FD3FB /* BarcodeExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeExt.swift; sourceTree = "<group>"; };
 		2E3187CC241344FE003FC8B0 /* UIView+InstantiateFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+InstantiateFromNib.swift"; sourceTree = "<group>"; };
-		2E3187CE2413C505003FC8B0 /* PostsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PerfectlyCrafted.entitlements; sourceTree = "<group>"; };
 		2E3187F42413DE25003FC8B0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2E3187FB2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PerfectlyCrafted.xcdatamodel; sourceTree = "<group>"; };
@@ -429,7 +429,7 @@
 		5B5ED21F235382AB000227D1 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				2E3187CE2413C505003FC8B0 /* PostsCollectionViewDataSource.swift */,
+				2E01615A24169DE5006A8723 /* PostsCollectionViewDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -586,7 +586,6 @@
 				2E31881B24153736003FC8B0 /* UIImage+HEIC.swift in Sources */,
 				2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */,
 				2E997FA2221B200D00730ED7 /* HairProductView.swift in Sources */,
-				2E3187CF2413C505003FC8B0 /* PostsCollectionViewDataSource.swift in Sources */,
 				2E4A3EA72208D37500988116 /* SignUpViewController.swift in Sources */,
 				2E997FAC221BB5BE00730ED7 /* ProductCell.swift in Sources */,
 				2E318820241537E7003FC8B0 /* LocalImageLaoder.swift in Sources */,
@@ -622,6 +621,7 @@
 				2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */,
 				2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */,
 				2EB2A1A722272CC300525BD4 /* StorageManager.swift in Sources */,
+				2E01615B24169DE5006A8723 /* PostsCollectionViewDataSource.swift in Sources */,
 				2EDB0E4B222DC230006DB8EE /* HairTableViewCell.swift in Sources */,
 				2E6359122224F8A30053BBD9 /* DatabaseManager.swift in Sources */,
 				2E997F9C221B0FFD00730ED7 /* ImageCache.swift in Sources */,

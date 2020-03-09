@@ -8,16 +8,36 @@
 
 import UIKit
 
-final class PostsCollectionViewDataSource: NSObject, UICollectionViewDataSource {
-    
-    var posts: [String] = []
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+final class PostsCollectionViewDataSource: NSObject {
+    enum Section {
+       case main
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as? PostCollectionViewCell else {fatalError("No feed cell was found")}
-        return cell
+    typealias CellConfiguration = (UICollectionView, IndexPath, Post) -> UICollectionViewCell
+    
+    let cellConfiguration: CellConfiguration
+    
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Post>? = {
+        
+        guard let collectionView = collectionView else {
+            return nil
+        }
+        let dataSource = UICollectionViewDiffableDataSource<Section, Post>(collectionView: collectionView) { (collectionView, indexPath, post) -> UICollectionViewCell? in
+            self.cellConfiguration(collectionView, indexPath, post)
+        }
+        return dataSource
+    }()
+    
+    private weak var collectionView: UICollectionView?
+    
+    init(collectionView: UICollectionView, cellConfiguration: @escaping CellConfiguration) {
+        self.collectionView = collectionView
+        self.cellConfiguration = cellConfiguration
     }
+    
+    func updateSnapshot(_ snapshot: NSDiffableDataSourceSnapshot<Section, Post>) {
+        dataSource?.apply(snapshot)
+    }
+    
+    
 }
