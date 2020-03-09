@@ -22,7 +22,6 @@ class ShowProductViewController: UIViewController {
     self.HairProductView = view
      let hairProductView = view
     self.view.addSubview(hairProductView)
-    userSession = AppDelegate.theUser
     
   }
   
