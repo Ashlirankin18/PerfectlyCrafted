@@ -14,15 +14,31 @@ final class AddPostViewController: UIViewController {
     @IBOutlet private weak var addGameTableView: UITableView!
     @IBOutlet private weak var saveButton: UIButton!
     
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let  childContext: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     
-    private lazy var postId = UUID()
+    private var postId: UUID
     
     private lazy var addProductHeaderView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
     private var imagePickerController: UIImagePickerController!
     
     private var localImageManager = try! LocalImageManager()
+   
+    private let persistenceController: PersistenceController
+    
+    private var posts = [Post]()
+    
+    init(postId: UUID, persistenceController: PersistenceController) {
+        self.postId = postId
+        self.persistenceController = persistenceController
+       
+        super.init(nibName: "AddPostViewController", bundle: Bundle.main)
+         childContext.parent = persistenceController.mainContext
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,13 +91,14 @@ final class AddPostViewController: UIViewController {
     }
     
     private func createPost() {
-        let newPost = Post(context: context)
+        let newPost = Post(context: childContext)
         newPost.id = postId
         newPost.date = Date()
         newPost.image = nil
-        newPost.title = ""
-        newPost.postDescription = ""
+        newPost.title = nil
+        newPost.postDescription = nil
         newPost.photoIdentfier = nil
+        posts.append(newPost)
     }
     
     private func addKeyboardNotificationObservers() {
@@ -95,17 +112,48 @@ final class AddPostViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
-        let post = Post(context: context)
-        post.title = title
-        post.postDescription = postDescription
-        post.photoIdentfier = photoIdentifier
-        post.image = imageData
+    private func updatePost(identifier: UUID, title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
+        
+        guard let initialPost = posts.first, let id = initialPost.id else {
+            return
+        }
+        
+        let fetchRequest: NSFetchRequest<Post> = NSFetchRequest<Post>()
+        fetchRequest.entity = Post.entity()
+        
+        do {
+            if let post = try childContext.fetch(fetchRequest).first(where: { (post) -> Bool in
+                post.id == id
+            }) {
+                if let title = title {
+                    post.title = title
+                }
+                if let postDescription = postDescription {
+                    post.postDescription = postDescription
+                }
+                if let photoIdentifier = photoIdentifier {
+                    post.photoIdentfier = photoIdentifier
+                }
+                if let imageData = imageData {
+                    post.image = imageData
+                }
+            } else {
+                print("here")
+            }
+            
+        } catch {
+            print("Error here \(error)")
+        }
+        saveToChildContext()
     }
     
     private func savePost() {
+        persistenceController.saveContext()
+    }
+    
+    private func saveToChildContext() {
         do {
-            try context.save()
+            try childContext.save()
         } catch {
             print("error: \(error)")
         }
@@ -137,8 +185,8 @@ final class AddPostViewController: UIViewController {
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
     }
+    
 }
-
 extension AddPostViewController: UITableViewDataSource {
     
     // MARK: - UITableViewDataSource
@@ -154,7 +202,10 @@ extension AddPostViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.textFieldDidEndEditing = { [weak self] (textfield) in
-                self?.updatePost(title: textfield.text)
+                guard let self = self else {
+                    return
+                }
+                self.updatePost(identifier: self.postId, title: textfield.text)
             }
             return cell
         case 1:
@@ -190,8 +241,7 @@ extension AddPostViewController: DescriptionTableViewCellDelegate {
     }
     
     func textViewDidEndEditing(_ cell: DescriptionTableViewCell, _ text: String) {
-        updatePost(postDescription: text)
-        savePost()
+        updatePost(identifier: postId, postDescription: text)
     }
 }
 
@@ -219,7 +269,7 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
         let photoIdentifier = UUID()
         do {
             let data = try image.heicData()
-            updatePost(photoIdentifier: photoIdentifier, imageData: data)
+            updatePost(identifier: postId, photoIdentifier: photoIdentifier, imageData: data)
         } catch {
             print(error)
         }

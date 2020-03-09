@@ -28,6 +28,7 @@
 		2E31881B24153736003FC8B0 /* UIImage+HEIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881A24153736003FC8B0 /* UIImage+HEIC.swift */; };
 		2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881D241537B5003FC8B0 /* ImageManager.swift */; };
 		2E318820241537E7003FC8B0 /* LocalImageLaoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881F241537E7003FC8B0 /* LocalImageLaoder.swift */; };
+		2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4170222415AF7F008620C5 /* PersistenceController.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
@@ -109,6 +110,7 @@
 		2E31881A24153736003FC8B0 /* UIImage+HEIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+HEIC.swift"; sourceTree = "<group>"; };
 		2E31881D241537B5003FC8B0 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		2E31881F241537E7003FC8B0 /* LocalImageLaoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageLaoder.swift; sourceTree = "<group>"; };
+		2E4170222415AF7F008620C5 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4A3E992208D2CB00988116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -224,6 +226,14 @@
 			path = ImageManagement;
 			sourceTree = "<group>";
 		};
+		2E4170212415AF59008620C5 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				2E4170222415AF7F008620C5 /* PersistenceController.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		2E4A3E862208D2C800988116 = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +255,7 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2E4170212415AF59008620C5 /* Persistence */,
 				2E31881C241537A2003FC8B0 /* ImageManagement */,
 				2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */,
 				2EB00BDC24132EFF00AEF017 /* Extensions */,
@@ -605,6 +616,7 @@
 				2E997FA8221B751300730ED7 /* OtherOptionsCell.swift in Sources */,
 				2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */,
 				2E063E67220B5E9C00D85406 /* ProfileView.swift in Sources */,
+				2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */,
 				2EB2A1802225B27B00525BD4 /* SetProfileViewController.swift in Sources */,
 				2EA365B3220A59A900FFDC5E /* ProfileViewController.swift in Sources */,
 				2E7946A1220C816D00219B6A /* RatingCollectionViewCell.swift in Sources */,

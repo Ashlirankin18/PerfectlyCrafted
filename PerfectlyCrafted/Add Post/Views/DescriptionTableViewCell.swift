@@ -56,9 +56,4 @@ extension DescriptionTableViewCell: UITextViewDelegate {
             descriptionTextView.text = ""
         }
     }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        delegate?.textViewDidEndEditing(self, textView.text)
-    }
-
 }
