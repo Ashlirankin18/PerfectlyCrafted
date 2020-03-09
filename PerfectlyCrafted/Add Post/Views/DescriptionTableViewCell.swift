@@ -12,8 +12,10 @@ protocol DescriptionTableViewCellDelegate: AnyObject {
     
     func textViewDidEndEditing(_ cell: DescriptionTableViewCell, _ text: String)
 }
-class DescriptionTableViewCell: UITableViewCell {
+
+final class DescriptionTableViewCell: UITableViewCell {
     
+    /// Contains the information needed to configure the `DescriptionTableViewCell`.
     struct ViewModel {
         
         let placeholder: String
@@ -21,6 +23,7 @@ class DescriptionTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var descriptionTextView: UITextView!
     
+    /// <#Description#>
     weak var delegate : DescriptionTableViewCellDelegate?
     
     override func layoutSubviews() {
@@ -28,6 +31,7 @@ class DescriptionTableViewCell: UITableViewCell {
         descriptionTextView.delegate = self
     }
     
+    /// Single point of configuration of `DescriptionTableViewCell`.
     var viewModel: ViewModel? {
         didSet {
             descriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
@@ -44,6 +48,9 @@ class DescriptionTableViewCell: UITableViewCell {
 
 
 extension DescriptionTableViewCell: UITextViewDelegate {
+    
+    //MARK: - UITextViewDelegate
+    
     func textViewDidChangeSelection(_ textView: UITextView) {
         if let deletate = delegate {
             deletate.updateHeightOfRow(self, textView.bounds.size)

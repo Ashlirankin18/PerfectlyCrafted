@@ -10,6 +10,7 @@ import UIKit
 
 /// Manages loading and saving of images from the disk or cache.
 final class LocalImageManager {
+    
     private let localImageLoader = LocalImageLoader()
     private let directory: URL
     private let fileManager = FileManager.default

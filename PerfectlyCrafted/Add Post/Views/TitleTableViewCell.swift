@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TitleTableViewCell: UITableViewCell {
+/// `UITableViewCell` subclass which displays a textfield 
+final class TitleTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleTextField: UITextField!
     
@@ -17,6 +18,7 @@ class TitleTableViewCell: UITableViewCell {
         titleTextField.delegate = self
     }
     
+    /// Called when the editing has ended
     var textFieldDidEndEditing: ((UITextField) -> Void)?
 }
 extension TitleTableViewCell: UITextFieldDelegate {

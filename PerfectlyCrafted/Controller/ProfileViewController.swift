@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
-import Toucan
+
 class ProfileViewController: UIViewController {
 
 // private var profileView = ProfileView()

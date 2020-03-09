@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+/// `UIViewController` subclss which allows the user to add a post.
 final class AddPostViewController: UIViewController {
     
     @IBOutlet private weak var addPostTableView: UITableView!
@@ -33,12 +34,17 @@ final class AddPostViewController: UIViewController {
         addPostTableView.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
         return addPostTableViewDataSource
     }()
+    
     private lazy var cancelButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "multiply"), style: .plain, target: self, action: #selector(cancelButtonTapped(sender:)))
     
     private lazy var saveButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "checkmark"), style: .plain, target: self, action: #selector(saveButtonTapped(sender:)))
     
     private lazy var addProductHeaderView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
+    /// Creates a new instance of `PostsCollectionViewDataSource`
+    /// - Parameters:
+    ///   - postId: The id of the post.
+    ///   - persistenceController: The persistence controller.
     init(postId: UUID, persistenceController: PersistenceController) {
         self.postId = postId
         self.persistenceController = persistenceController
@@ -75,6 +81,7 @@ final class AddPostViewController: UIViewController {
         saveToChildContext()
         dismiss(animated: true)
     }
+    
     private func configureCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
@@ -84,7 +91,6 @@ final class AddPostViewController: UIViewController {
             cell.textFieldDidEndEditing = { [weak self] textfield in
                 self?.updatePost(title: textfield.text)
             }
-            
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionTableViewCell else {
@@ -99,7 +105,6 @@ final class AddPostViewController: UIViewController {
     }
     
     private func configureTableView() {
-        
         addPostTableView.estimatedRowHeight = UITableView.automaticDimension
         addPostTableView.dataSource = addPostTableViewDataSource
         addPostTableView.delegate = self
@@ -224,6 +229,9 @@ extension AddPostViewController: UITableViewDelegate {
 }
 
 extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+   
+    // MARK: - UIImagePickerControllerDelegate
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
     }

@@ -8,12 +8,15 @@
 
 import UIKit
 
-class AddPostTableViewDataSource: NSObject, UITableViewDataSource {
+/// Datasource of the `AddPostViewCaontroller`.
+final class AddPostTableViewDataSource: NSObject, UITableViewDataSource {
     
     typealias CellConfiguration = (UITableView, IndexPath) -> UITableViewCell
     
-    let cellConfiguration: CellConfiguration
+    private let cellConfiguration: CellConfiguration
     
+    /// Creates a new instance of `AddPostTableViewDataSource`
+    /// - Parameter cellConfiguration: the cell configuration.
     init(cellConfiguration: @escaping CellConfiguration) {
         self.cellConfiguration = cellConfiguration
     }

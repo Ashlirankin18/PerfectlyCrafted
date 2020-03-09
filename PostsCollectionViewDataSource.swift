@@ -8,14 +8,16 @@
 
 import UIKit
 
+/// The data source of the `PostCollectionView`.
 final class PostsCollectionViewDataSource: NSObject {
+   
     enum Section {
        case main
     }
     
     typealias CellConfiguration = (UICollectionView, IndexPath, Post) -> UICollectionViewCell
     
-    let cellConfiguration: CellConfiguration
+    private let cellConfiguration: CellConfiguration
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Post>? = {
         
@@ -30,11 +32,17 @@ final class PostsCollectionViewDataSource: NSObject {
     
     private weak var collectionView: UICollectionView?
     
+    /// Creates a new instance of `PostsCollectionViewDataSource`
+    /// - Parameters:
+    ///   - collectionView: The collection view
+    ///   - cellConfiguration: the cell configuration
     init(collectionView: UICollectionView, cellConfiguration: @escaping CellConfiguration) {
         self.collectionView = collectionView
         self.cellConfiguration = cellConfiguration
     }
     
+    /// Updates the data source's snapshot.
+    /// - Parameter snapshot: The snapshot.
     func updateSnapshot(_ snapshot: NSDiffableDataSourceSnapshot<Section, Post>) {
         dataSource?.apply(snapshot)
     }

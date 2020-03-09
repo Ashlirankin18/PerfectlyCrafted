@@ -33,15 +33,13 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
         })
         let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
         
-        let searchViewController = SearchProductViewController()
-        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
         let myProductViewController = UIStoryboard.init(name: "ProfileOptions", bundle: nil).instantiateViewController(withIdentifier: "HairProductsTableViewController")
         feedsViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-hashtag-activity-feed-25")
         feedsViewController.title = "News Feed"
         myProductViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-spray-filled-25.png")
         myProductViewController.title = "My Products"
         
-        self.viewControllers = [newsFeedNavigationController,searchNavigationController,myProductViewController]
+        self.viewControllers = [newsFeedNavigationController, myProductViewController]
         
     }
     
