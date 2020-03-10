@@ -223,6 +223,13 @@
 			path = "Card Presentation";
 			sourceTree = "<group>";
 		};
+		2E01616924174179006A8723 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		2E3187FD2413E6C1003FC8B0 /* Add Post */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +299,7 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2E01616924174179006A8723 /* New Group */,
 				2E4170212415AF59008620C5 /* Persistence */,
 				2E31881C241537A2003FC8B0 /* ImageManagement */,
 				2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */,

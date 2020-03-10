@@ -62,7 +62,7 @@ final class AddPostViewController: UIViewController {
         configureBarButtonItems()
         configureTableView()
         updateHeaderView()
-        createPost()
+        createPostIfNeeded()
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
     }
@@ -142,15 +142,28 @@ final class AddPostViewController: UIViewController {
         present(imagePickerController, animated: true)
     }
     
-    private func createPost() {
-        let newPost = Post(context: childContext)
-        newPost.id = postId
-        newPost.date = Date()
-        newPost.image = nil
-        newPost.title = nil
-        newPost.postDescription = nil
-        newPost.photoIdentfier = nil
-        posts.append(newPost)
+    private func createPostIfNeeded() {
+        let fetchRequest: NSFetchRequest<Post> = NSFetchRequest<Post>()
+        fetchRequest.entity = Post.entity()
+        
+        do {
+            if let post = try persistenceController.mainContext.fetch(fetchRequest).first(where: { (post) -> Bool in
+                post.id == postId
+            }) {
+                posts.append(post)
+            } else {
+               let newPost = Post(context: childContext)
+                newPost.id = postId
+                newPost.date = Date()
+                newPost.image = nil
+                newPost.title = nil
+                newPost.postDescription = nil
+                newPost.photoIdentfier = nil
+                posts.append(newPost)
+            }
+        } catch {
+            print("There was an error here: \(error)")
+        }
     }
     
     private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
