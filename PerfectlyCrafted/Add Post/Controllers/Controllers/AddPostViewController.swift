@@ -85,19 +85,23 @@ final class AddPostViewController: UIViewController {
     private func configureCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleTableViewCell, let post = posts.first else {
                 return UITableViewCell()
             }
+            let title = post.title ?? ""
+            cell.viewModel = TitleTableViewCell.ViewModel(title: title)
             cell.textFieldDidEndEditing = { [weak self] textfield in
                 self?.updatePost(title: textfield.text)
             }
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionTableViewCell, let post = posts.first else {
                 return UITableViewCell()
             }
+            let existingDescription = post.postDescription ?? "Give your entry a description"
+            let placeholderColor: UIColor = !(post.postDescription?.isEmpty ?? true) ? .black : .gray
             cell.delegate = self
-            cell.viewModel = DescriptionTableViewCell.ViewModel(placeholder: "Give your entry a description")
+            cell.viewModel = DescriptionTableViewCell.ViewModel(placeholderColor: placeholderColor, placeholder: existingDescription)
             return cell
         default:
             return UITableViewCell()
@@ -237,6 +241,16 @@ extension AddPostViewController: UITableViewDelegate {
     // MARK: -UITableViewDelegate
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let photoIdentifier = posts.first?.photoIdentfier {
+            localImageManager.loadImage(forKey: photoIdentifier) { (result) in
+                switch result {
+                case let .success(image):
+                    self.addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: image)
+                case let .failure(error):
+                    print(error)
+                }
+            }
+        }
         return addProductHeaderView
     }
 }

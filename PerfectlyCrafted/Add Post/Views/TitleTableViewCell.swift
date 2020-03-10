@@ -10,16 +10,25 @@ import UIKit
 
 /// `UITableViewCell` subclass which displays a textfield 
 final class TitleTableViewCell: UITableViewCell {
-
+    struct ViewModel {
+        let title: String
+    }
+    
     @IBOutlet private weak var titleTextField: UITextField!
+    
+    var viewModel: ViewModel? {
+        didSet {
+            titleTextField.text = viewModel?.title
+        }
+    }
+    
+    /// Called when the editing has ended
+    var textFieldDidEndEditing: ((UITextField) -> Void)?
     
     override func layoutSubviews() {
         super.layoutSubviews()
         titleTextField.delegate = self
     }
-    
-    /// Called when the editing has ended
-    var textFieldDidEndEditing: ((UITextField) -> Void)?
 }
 extension TitleTableViewCell: UITextFieldDelegate {
    

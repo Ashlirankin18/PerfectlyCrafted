@@ -60,7 +60,7 @@ final class PostViewController: UIViewController {
         configureCellViewModel(cell: cell, post: post)
         
         cell.editButtonTapped = {
-            self.presentAlertController()
+            self.presentAlertController(indexPath: indexPath)
         }
         return cell
     }
@@ -108,11 +108,21 @@ final class PostViewController: UIViewController {
         postCollectionViewDataSource.updateSnapshot(snapshot)
     }
     
-    private func presentAlertController() {
+    private func presentAlertController(indexPath: IndexPath) {
         
         let alertController = UIAlertController(title: "Options", message: "What would you like to do?", preferredStyle: .actionSheet)
-        let editAction = UIAlertAction(title: "Edit Post", style: .default) { _ in
-            print("Edit")
+        let editAction = UIAlertAction(title: "Edit Post", style: .default) { [weak self] _ in
+            guard let posts = self?.fetchResultsController?.fetchedObjects, let self = self else {
+                return
+            }
+            let post = posts[indexPath.row]
+            
+            let addPostViewController = AddPostViewController(postId: post.id!, persistenceController: self.persistenceController)
+            let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
+            addPostNavigationController.modalPresentationStyle = .custom
+            addPostNavigationController.transitioningDelegate = self.cardViewControllerTransitioningDelegate
+            self.show(addPostNavigationController, sender: self)
+    
         }
         
         let deleteAction = UIAlertAction(title: "Delete Post", style: .destructive) { _ in

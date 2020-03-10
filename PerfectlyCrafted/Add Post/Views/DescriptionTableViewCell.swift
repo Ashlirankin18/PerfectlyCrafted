@@ -17,7 +17,7 @@ final class DescriptionTableViewCell: UITableViewCell {
     
     /// Contains the information needed to configure the `DescriptionTableViewCell`.
     struct ViewModel {
-        
+        let placeholderColor: UIColor
         let placeholder: String
     }
     
@@ -36,7 +36,7 @@ final class DescriptionTableViewCell: UITableViewCell {
         didSet {
             descriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
             descriptionTextView.text = viewModel?.placeholder
-            descriptionTextView.textColor = .lightGray
+            descriptionTextView.textColor = viewModel?.placeholderColor
         }
     }
     
