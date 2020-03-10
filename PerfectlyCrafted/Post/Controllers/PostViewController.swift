@@ -11,13 +11,15 @@ import CoreData
 
 /// `UIViewController` subclass which displays posts.
 final class PostViewController: UIViewController {
-
+    
     @IBOutlet private weak var postsCollectionView: UICollectionView!
     
     private let persistenceController: PersistenceController
     private let localImageManager = try! LocalImageManager()
     private var fetchResultsController: NSFetchedResultsController<Post>?
-
+    
+    private lazy var cardViewControllerTransitioningDelegate = CardPresentationManager()
+    
     private lazy var postCollectionViewDataSource: PostsCollectionViewDataSource = {
         let postDataSource = PostsCollectionViewDataSource(collectionView: postsCollectionView) { (collectionView, indexPath, post) -> UICollectionViewCell in
             self.configureCell(collectionView: collectionView, indexPath: indexPath, post: post)
@@ -44,17 +46,21 @@ final class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBarButtonItem()
-       configureFetchResultsController()
+        configureFetchResultsController()
+    }
+    
+    private func configureBarButtonItem() {
+        navigationItem.rightBarButtonItem = addPostBarButtonItem
     }
     
     private func configureCell (collectionView: UICollectionView, indexPath: IndexPath, post: Post ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as? PostCollectionViewCell else {
             return UICollectionViewCell()
         }
-       configureCellViewModel(cell: cell, post: post)
+        configureCellViewModel(cell: cell, post: post)
         
         cell.editButtonTapped = {
-            print("edit button tapped.")
+            self.presentAlertController()
         }
         return cell
     }
@@ -66,7 +72,7 @@ final class PostViewController: UIViewController {
                 case let .success(image):
                     cell.viewModel = PostCollectionViewCell.ViewModel(postImage: image, title: post.title ?? "", description: post.postDescription ?? "", date: post.date!)
                 case let .failure(error):
-                   print("There was an error \(error)")
+                    print("There was an error \(error)")
                 }
             }
         } else {
@@ -76,40 +82,64 @@ final class PostViewController: UIViewController {
     
     private func configureFetchResultsController() {
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
-         let request: NSFetchRequest<Post> = Post.fetchRequest()
+        let request: NSFetchRequest<Post> = Post.fetchRequest()
         request.sortDescriptors = [sortDescriptor]
         
         fetchResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: persistenceController.mainContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultsController?.delegate = self
         
         do {
-        try fetchResultsController?.performFetch()
+            try fetchResultsController?.performFetch()
             if let posts = fetchResultsController?.fetchedObjects {
                 updateDataSource(items: posts)
                 
                 //TODO: - HANDLE THE EMPTY STATE OF NOT HAVING ENTRIES.
             }
         } catch {
-          print(error)
+            print(error)
         }
     }
     
-    private func configureBarButtonItem() {
-        navigationItem.rightBarButtonItem = addPostBarButtonItem
-    }
     
-    @objc private func addButtonTapped(sender: UIBarButtonItem) {
-        let addPostViewController = AddPostViewController(postId: UUID(), persistenceController: persistenceController)
-        let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
-        present(addPostNavigationController, animated: false)
-    }
-    
-    func updateDataSource(items: [Post]) {
+    private func updateDataSource(items: [Post]) {
         var snapshot = NSDiffableDataSourceSnapshot<PostsCollectionViewDataSource.Section, Post>()
         snapshot.appendSections([.main])
         snapshot.appendItems(items, toSection: .main)
         postCollectionViewDataSource.updateSnapshot(snapshot)
     }
+    
+    private func presentAlertController() {
+        
+        let alertController = UIAlertController(title: "Options", message: "What would you like to do?", preferredStyle: .actionSheet)
+        let editAction = UIAlertAction(title: "Edit Post", style: .default) { _ in
+            print("Edit")
+        }
+        
+        let deleteAction = UIAlertAction(title: "Delete Post", style: .destructive) { _ in
+            print("Delete")
+        }
+        
+        let shareAction = UIAlertAction(title: "Share Post", style: .default) { _ in
+            print("Share")
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(shareAction)
+        alertController.addAction(editAction)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
+        
+    }
+    
+    @objc private func addButtonTapped(sender: UIBarButtonItem) {
+        let addPostViewController = AddPostViewController(postId: UUID(), persistenceController: persistenceController)
+        let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
+        show(addPostNavigationController, sender: self)
+    }
+    
 }
 
 extension PostViewController: NSFetchedResultsControllerDelegate {
