@@ -27,8 +27,8 @@ final class AddPostViewController: UIViewController {
     private var posts = [Post]()
     
     private lazy var addPostTableViewDataSource: AddPostTableViewDataSource = {
-        let addPostTableViewDataSource = AddPostTableViewDataSource { (tableView, index) -> UITableViewCell in
-            self.configureCell(tableView: tableView,indexPath: index)
+        let addPostTableViewDataSource = AddPostTableViewDataSource { (cell, indexPath) -> UITableViewCell in
+            return self.configureCell(cell: cell,indexPath: indexPath)
         }
         addPostTableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
         addPostTableView.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
@@ -62,7 +62,7 @@ final class AddPostViewController: UIViewController {
         configureBarButtonItems()
         configureTableView()
         updateHeaderView()
-        createPost()
+        createPostIfNeeded()
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
     }
@@ -82,22 +82,29 @@ final class AddPostViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    private func configureCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    private func configureCell(cell: UITableViewCell,indexPath: IndexPath) -> UITableViewCell {
+        guard let post = posts.first else {
+            return UITableViewCell()
+        }
         switch indexPath.row {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleTableViewCell else {
+            guard let cell = cell as? TitleTableViewCell else {
                 return UITableViewCell()
             }
+            let title = post.title ?? ""
+            cell.viewModel = TitleTableViewCell.ViewModel(title: title)
             cell.textFieldDidEndEditing = { [weak self] textfield in
                 self?.updatePost(title: textfield.text)
             }
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionTableViewCell else {
+            guard let cell = cell as? DescriptionTableViewCell else {
                 return UITableViewCell()
             }
+            let existingDescription = post.postDescription ?? "Give your entry a description"
+            let placeholderColor: UIColor = !(post.postDescription?.isEmpty ?? true) ? .black : .gray
             cell.delegate = self
-            cell.viewModel = DescriptionTableViewCell.ViewModel(placeholder: "Give your entry a description")
+            cell.viewModel = DescriptionTableViewCell.ViewModel(placeholderColor: placeholderColor, placeholder: existingDescription)
             return cell
         default:
             return UITableViewCell()
@@ -142,15 +149,28 @@ final class AddPostViewController: UIViewController {
         present(imagePickerController, animated: true)
     }
     
-    private func createPost() {
-        let newPost = Post(context: childContext)
-        newPost.id = postId
-        newPost.date = Date()
-        newPost.image = nil
-        newPost.title = nil
-        newPost.postDescription = nil
-        newPost.photoIdentfier = nil
-        posts.append(newPost)
+    private func createPostIfNeeded() {
+        let fetchRequest: NSFetchRequest<Post> = NSFetchRequest<Post>()
+        fetchRequest.entity = Post.entity()
+        
+        do {
+            if let post = try persistenceController.mainContext.fetch(fetchRequest).first(where: { (post) -> Bool in
+                post.id == postId
+            }) {
+                posts.append(post)
+            } else {
+               let newPost = Post(context: childContext)
+                newPost.id = postId
+                newPost.date = Date()
+                newPost.image = nil
+                newPost.title = nil
+                newPost.postDescription = nil
+                newPost.photoIdentfier = nil
+                posts.append(newPost)
+            }
+        } catch {
+            print("There was an error here: \(error)")
+        }
     }
     
     private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
@@ -224,6 +244,16 @@ extension AddPostViewController: UITableViewDelegate {
     // MARK: -UITableViewDelegate
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let photoIdentifier = posts.first?.photoIdentfier {
+            localImageManager.loadImage(forKey: photoIdentifier) { (result) in
+                switch result {
+                case let .success(image):
+                    self.addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: image)
+                case let .failure(error):
+                    print(error)
+                }
+            }
+        }
         return addProductHeaderView
     }
 }

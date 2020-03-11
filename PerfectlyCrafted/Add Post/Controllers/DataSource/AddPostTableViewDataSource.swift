@@ -11,9 +11,9 @@ import UIKit
 /// Datasource of the `AddPostViewCaontroller`.
 final class AddPostTableViewDataSource: NSObject, UITableViewDataSource {
     
-    typealias CellConfiguration = (UITableView, IndexPath) -> UITableViewCell
+    typealias CellConfiguration = (UITableViewCell, IndexPath) -> UITableViewCell
     
-    private let cellConfiguration: CellConfiguration
+    private let cellConfiguration: (CellConfiguration)
     
     /// Creates a new instance of `AddPostTableViewDataSource`
     /// - Parameter cellConfiguration: the cell configuration.
@@ -28,9 +28,15 @@ final class AddPostTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            return cellConfiguration(tableView,indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleTableViewCell  else {
+                return UITableViewCell()
+            }
+            return cellConfiguration(cell, indexPath)
         case 1:
-            return cellConfiguration(tableView,indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionTableViewCell  else {
+                return UITableViewCell()
+            }
+            return cellConfiguration(cell, indexPath)
         default:
             return UITableViewCell()
         }

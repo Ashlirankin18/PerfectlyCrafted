@@ -7,17 +7,33 @@
 //
 
 import UIKit
+
+/// <#Description#>
 protocol DescriptionTableViewCellDelegate: AnyObject {
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - cell: The `DescriptionTableViewCell`.
+    ///   - textViewSize: The size of the textView.
     func updateHeightOfRow(_ cell: DescriptionTableViewCell, _ textViewSize: CGSize)
     
+    /// <#Description#>
+    /// - Parameters:
+    ///   - cell: <#cell description#>
+    ///   - text: The users inputed text.
     func textViewDidEndEditing(_ cell: DescriptionTableViewCell, _ text: String)
 }
 
+/// <#Description#>
 final class DescriptionTableViewCell: UITableViewCell {
     
     /// Contains the information needed to configure the `DescriptionTableViewCell`.
     struct ViewModel {
         
+        /// <#Description#>
+        let placeholderColor: UIColor
+        
+        /// <#Description#>
         let placeholder: String
     }
     
@@ -36,7 +52,7 @@ final class DescriptionTableViewCell: UITableViewCell {
         didSet {
             descriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
             descriptionTextView.text = viewModel?.placeholder
-            descriptionTextView.textColor = .lightGray
+            descriptionTextView.textColor = viewModel?.placeholderColor
         }
     }
     
@@ -52,8 +68,8 @@ extension DescriptionTableViewCell: UITextViewDelegate {
     //MARK: - UITextViewDelegate
     
     func textViewDidChangeSelection(_ textView: UITextView) {
-        if let deletate = delegate {
-            deletate.updateHeightOfRow(self, textView.bounds.size)
+        if let delegate = delegate {
+            delegate.updateHeightOfRow(self, textView.bounds.size)
         }
     }
     

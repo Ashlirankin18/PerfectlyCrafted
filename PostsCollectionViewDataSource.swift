@@ -10,9 +10,9 @@ import UIKit
 
 /// The data source of the `PostCollectionView`.
 final class PostsCollectionViewDataSource: NSObject {
-   
+    
     enum Section {
-       case main
+        case main
     }
     
     typealias CellConfiguration = (UICollectionView, IndexPath, Post) -> UICollectionViewCell
@@ -47,5 +47,27 @@ final class PostsCollectionViewDataSource: NSObject {
         dataSource?.apply(snapshot)
     }
     
+    /// Provides an `Item` for the given `IndexPath`.
+    /// - Parameter indexPath: The `IndexPath` of the desired item.
+    func item(for indexPath: IndexPath) -> Post? {
+        return dataSource?.itemIdentifier(for: indexPath)
+    }
+    
+    /// Reloads the provided item.
+    /// - Parameter item: The `Item` to reload.
+    func reload(item: Post) {
+        reload(items: [item])
+    }
+    
+    /// Reloads the provided items.
+    /// - Parameter items: The array of `Item`s to reload.
+    func reload(items: [Post]) {
+        guard var currentSnapshot = dataSource?.snapshot() else {
+            return
+        }
+        
+        currentSnapshot.reloadItems(items)
+        dataSource?.apply(currentSnapshot)
+    }
     
 }
