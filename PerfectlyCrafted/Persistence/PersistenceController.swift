@@ -9,16 +9,16 @@
 import UIKit
 import CoreData
 
-class PersistenceController {
+/// Handle the applications persistence logic
+final class PersistenceController {
     
     private let modelName: String
-    
     
     lazy var mainContext: NSManagedObjectContext = {
         return self.storeContainer.viewContext
     }()
     
-    lazy var storeContainer: NSPersistentContainer = {
+    private lazy var storeContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.modelName)
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
@@ -28,12 +28,16 @@ class PersistenceController {
         return container
     }()
     
+    /// Creates a new instance of the `PersistenceController`
+    /// - Parameter modelName: The name of the xcDataModel file.
     init(modelName: String) {
         self.modelName = modelName
     }
 }
 
 extension PersistenceController {
+    
+    /// Saves any chages to the main/ parent context.
     func saveContext () {
       guard mainContext.hasChanges else { return }
 

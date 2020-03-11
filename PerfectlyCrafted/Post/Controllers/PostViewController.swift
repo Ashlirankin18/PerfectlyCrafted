@@ -18,6 +18,9 @@ final class PostViewController: UIViewController {
     private let localImageManager = try! LocalImageManager()
     private var fetchResultsController: NSFetchedResultsController<Post>?
     
+    // We are using the currently selected index path to check if the post is being edited or inserted for the first time.
+    private var currentlySelectedIndexPath: IndexPath?
+    
     private lazy var cardViewControllerTransitioningDelegate = CardPresentationManager()
     
     private lazy var postCollectionViewDataSource: PostsCollectionViewDataSource = {
@@ -54,18 +57,21 @@ final class PostViewController: UIViewController {
     }
     
     private func configureCell (collectionView: UICollectionView, indexPath: IndexPath, post: Post ) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as? PostCollectionViewCell else {
             return UICollectionViewCell()
         }
         configureCellViewModel(cell: cell, post: post)
         
-        cell.editButtonTapped = {
-            self.presentAlertController(indexPath: indexPath)
+        cell.editButtonTapped = { [weak self] in
+            self?.currentlySelectedIndexPath = indexPath
+            self?.presentAlertController(indexPath: indexPath)
         }
         return cell
     }
     
     private func configureCellViewModel(cell: PostCollectionViewCell, post: Post) {
+        
         if let photoIdentifier = post.photoIdentfier {
             localImageManager.loadImage(forKey: photoIdentifier) { (result) in
                 switch result {
@@ -81,6 +87,7 @@ final class PostViewController: UIViewController {
     }
     
     private func configureFetchResultsController() {
+        
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         request.sortDescriptors = [sortDescriptor]
@@ -150,14 +157,21 @@ final class PostViewController: UIViewController {
 
 extension PostViewController: NSFetchedResultsControllerDelegate {
     
+    // MARK: - NSFetchedResultsControllerDelegate
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        if let posts = controller.fetchedObjects as? [Post] {
-            updateDataSource(items: posts)
+        if let indexPath = currentlySelectedIndexPath, let post = controller.object(at: indexPath) as? Post {
+            postCollectionViewDataSource.reload(item: post)
         } else {
-            print("No object found")
+            if let posts = controller.fetchedObjects as? [Post] {
+                updateDataSource(items: posts)
+            } else {
+                print("No object found")
+            }
         }
+        
         if persistenceController.mainContext.hasChanges {
             persistenceController.saveContext()
-        }
+        } 
     }
 }

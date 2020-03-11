@@ -56,18 +56,23 @@ final class EditPostViewController: UIViewController {
     }
     
     private func configureBarButtonItems() {
-           navigationItem.leftBarButtonItem = cancelButton
-           navigationItem.rightBarButtonItem = saveButton
-       }
-       
-       @objc private func cancelButtonTapped(sender: UIBarButtonItem) {
-           dismiss(animated: true)
-       }
-       
-       @objc private func saveButtonTapped(sender: UIBarButtonItem) {
+        navigationItem.leftBarButtonItem = cancelButton
+        navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc private func cancelButtonTapped(sender: UIBarButtonItem) {
         dismiss(animated: true)
-       }
-       
+    }
+    
+    @objc private func saveButtonTapped(sender: UIBarButtonItem) {
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Error!")
+        }
+        dismiss(animated: true)
+    }
+    
     @IBAction private func deleteButtonTapped(_ sender: UIButton) {
         
     }

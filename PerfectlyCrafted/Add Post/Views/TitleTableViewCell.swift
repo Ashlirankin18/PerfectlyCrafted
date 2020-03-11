@@ -10,12 +10,16 @@ import UIKit
 
 /// `UITableViewCell` subclass which displays a textfield 
 final class TitleTableViewCell: UITableViewCell {
+   
     struct ViewModel {
+        
+        /// The title of the post.
         let title: String
     }
     
     @IBOutlet private weak var titleTextField: UITextField!
     
+    /// Single point of configuration of the `TitleTableViewCell`.
     var viewModel: ViewModel? {
         didSet {
             titleTextField.text = viewModel?.title
@@ -32,6 +36,8 @@ final class TitleTableViewCell: UITableViewCell {
 }
 extension TitleTableViewCell: UITextFieldDelegate {
    
+    //MARK: - UITextFieldDelegate
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         titleTextField.resignFirstResponder()
         textFieldDidEndEditing?(textField)
