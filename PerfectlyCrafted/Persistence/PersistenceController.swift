@@ -18,8 +18,8 @@ class PersistenceController {
         return self.storeContainer.viewContext
     }()
     
-    lazy var storeContainer: NSPersistentCloudKitContainer = {
-        let container = NSPersistentCloudKitContainer(name: self.modelName)
+    lazy var storeContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: self.modelName)
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

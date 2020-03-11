@@ -13,6 +13,8 @@
 		2E016163241737EE006A8723 /* CardPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E016162241737EE006A8723 /* CardPresentationManager.swift */; };
 		2E016166241739B4006A8723 /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E016165241739B4006A8723 /* CardPresentationController.swift */; };
 		2E01616824173A01006A8723 /* PresentationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01616724173A01006A8723 /* PresentationDirection.swift */; };
+		2E0161702417D4FC006A8723 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01616E2417D4FC006A8723 /* EditPostViewController.swift */; };
+		2E0161712417D4FC006A8723 /* EditPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E01616F2417D4FC006A8723 /* EditPostViewController.xib */; };
 		2E04A4B4221A76460066568E /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E04A4B3221A76460066568E /* PopUpViewController.swift */; };
 		2E04A4B6221A76620066568E /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E04A4B5221A76620066568E /* PopUpView.swift */; };
 		2E063E67220B5E9C00D85406 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063E66220B5E9C00D85406 /* ProfileView.swift */; };
@@ -99,6 +101,8 @@
 		2E016162241737EE006A8723 /* CardPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationManager.swift; sourceTree = "<group>"; };
 		2E016165241739B4006A8723 /* CardPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
 		2E01616724173A01006A8723 /* PresentationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDirection.swift; sourceTree = "<group>"; };
+		2E01616E2417D4FC006A8723 /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
+		2E01616F2417D4FC006A8723 /* EditPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPostViewController.xib; sourceTree = "<group>"; };
 		2E04A4B3221A76460066568E /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		2E04A4B5221A76620066568E /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		2E063E66220B5E9C00D85406 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -223,11 +227,13 @@
 			path = "Card Presentation";
 			sourceTree = "<group>";
 		};
-		2E01616924174179006A8723 /* New Group */ = {
+		2E01616924174179006A8723 /* Edit Post */ = {
 			isa = PBXGroup;
 			children = (
+				2E01616E2417D4FC006A8723 /* EditPostViewController.swift */,
+				2E01616F2417D4FC006A8723 /* EditPostViewController.xib */,
 			);
-			path = "New Group";
+			path = "Edit Post";
 			sourceTree = "<group>";
 		};
 		2E3187FD2413E6C1003FC8B0 /* Add Post */ = {
@@ -299,12 +305,12 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
-				2E01616924174179006A8723 /* New Group */,
 				2E4170212415AF59008620C5 /* Persistence */,
 				2E31881C241537A2003FC8B0 /* ImageManagement */,
 				2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */,
 				2EB00BDC24132EFF00AEF017 /* Extensions */,
 				2E3187FD2413E6C1003FC8B0 /* Add Post */,
+				2E01616924174179006A8723 /* Edit Post */,
 				5B5ED219235380BF000227D1 /* Post */,
 				2E016164241737F6006A8723 /* Card Presentation */,
 				2EA365AB220A301400FFDC5E /* Model */,
@@ -552,6 +558,7 @@
 			files = (
 				2E31881724140C54003FC8B0 /* AddProductHeaderView.xib in Resources */,
 				2E31880B2413F411003FC8B0 /* AddPostViewController.xib in Resources */,
+				2E0161712417D4FC006A8723 /* EditPostViewController.xib in Resources */,
 				2E3188132413F55D003FC8B0 /* DescriptionTableViewCell.xib in Resources */,
 				5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */,
 				2EED896722284C9E00ADDEBD /* ProfileOptions.storyboard in Resources */,
@@ -662,6 +669,7 @@
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,
 				2EA365B9220A678200FFDC5E /* LoginView.swift in Sources */,
 				2E4A3EAE2208E77200988116 /* SignUpFormViewController.swift in Sources */,
+				2E0161702417D4FC006A8723 /* EditPostViewController.swift in Sources */,
 				2EA365BB220A760800FFDC5E /* UserSession.swift in Sources */,
 				2E63590E2224A2CD0053BBD9 /* ProductDataManager.swift in Sources */,
 				2EC7B5472231911700D165B1 /* EditProfileView.swift in Sources */,

@@ -22,8 +22,11 @@ final class AddProductHeaderView: UIView {
     /// Single point of configuration of the `AddProductHeaderView`
     var viewModel: ViewModel? {
         didSet {
-            postImageView.image = viewModel?.image
-            addImageButton.imageView?.image = UIImage()
+            
+            guard let viewModel = viewModel else {
+                return
+            }
+            postImageView.image = viewModel.image
         }
     }
     

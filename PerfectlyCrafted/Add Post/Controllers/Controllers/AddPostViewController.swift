@@ -27,8 +27,8 @@ final class AddPostViewController: UIViewController {
     private var posts = [Post]()
     
     private lazy var addPostTableViewDataSource: AddPostTableViewDataSource = {
-        let addPostTableViewDataSource = AddPostTableViewDataSource { (tableView, index) -> UITableViewCell in
-            self.configureCell(tableView: tableView,indexPath: index)
+        let addPostTableViewDataSource = AddPostTableViewDataSource { (cell, indexPath) -> UITableViewCell in
+            return self.configureCell(cell: cell,indexPath: indexPath)
         }
         addPostTableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
         addPostTableView.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
@@ -82,10 +82,13 @@ final class AddPostViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    private func configureCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    private func configureCell(cell: UITableViewCell,indexPath: IndexPath) -> UITableViewCell {
+        guard let post = posts.first else {
+            return UITableViewCell()
+        }
         switch indexPath.row {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleTableViewCell, let post = posts.first else {
+            guard let cell = cell as? TitleTableViewCell else {
                 return UITableViewCell()
             }
             let title = post.title ?? ""
@@ -95,7 +98,7 @@ final class AddPostViewController: UIViewController {
             }
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionTableViewCell, let post = posts.first else {
+            guard let cell = cell as? DescriptionTableViewCell else {
                 return UITableViewCell()
             }
             let existingDescription = post.postDescription ?? "Give your entry a description"

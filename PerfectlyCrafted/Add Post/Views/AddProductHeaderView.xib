@@ -26,7 +26,6 @@
                         <constraint firstAttribute="width" constant="390" id="tm0-KZ-1w4"/>
                     </constraints>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" image="camera.fill" catalog="system"/>
                     <connections>
                         <action selector="addImageButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="KvA-oo-cYl"/>
                     </connections>
@@ -52,7 +51,4 @@
             <point key="canvasLocation" x="139.13043478260872" y="148.32589285714286"/>
         </view>
     </objects>
-    <resources>
-        <image name="camera.fill" catalog="system" width="64" height="48"/>
-    </resources>
 </document>

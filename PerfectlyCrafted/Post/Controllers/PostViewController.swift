@@ -115,18 +115,15 @@ final class PostViewController: UIViewController {
             guard let posts = self?.fetchResultsController?.fetchedObjects, let self = self else {
                 return
             }
-            let post = posts[indexPath.row]
-            
-            let addPostViewController = AddPostViewController(postId: post.id!, persistenceController: self.persistenceController)
-            let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
-            addPostNavigationController.modalPresentationStyle = .custom
-            addPostNavigationController.transitioningDelegate = self.cardViewControllerTransitioningDelegate
-            self.show(addPostNavigationController, sender: self)
-    
-        }
+            guard let postId = posts[indexPath.row].id else {
+                return
+            }
         
-        let deleteAction = UIAlertAction(title: "Delete Post", style: .destructive) { _ in
-            print("Delete")
+            let editPostViewController = EditPostViewController(postId: postId, persistenceController: self.persistenceController, localImageManager: self.localImageManager)
+            let editControllerNavigationController = UINavigationController(rootViewController: editPostViewController)
+             editControllerNavigationController.modalPresentationStyle = .custom
+            editControllerNavigationController.transitioningDelegate = self.cardViewControllerTransitioningDelegate
+            self.show(editControllerNavigationController, sender: self)
         }
         
         let shareAction = UIAlertAction(title: "Share Post", style: .default) { _ in
@@ -137,7 +134,6 @@ final class PostViewController: UIViewController {
         
         alertController.addAction(shareAction)
         alertController.addAction(editAction)
-        alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true)
