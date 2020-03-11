@@ -20,7 +20,7 @@ final class AddPostViewController: UIViewController {
     
     private var imagePickerController: UIImagePickerController!
     
-    private var localImageManager = try! LocalImageManager()
+    private var localImageManager = try? LocalImageManager()
     
     private let persistenceController: PersistenceController
     
@@ -28,7 +28,7 @@ final class AddPostViewController: UIViewController {
     
     private lazy var addPostTableViewDataSource: AddPostTableViewDataSource = {
         let addPostTableViewDataSource = AddPostTableViewDataSource { (cell, indexPath) -> UITableViewCell in
-            return self.configureCell(cell: cell,indexPath: indexPath)
+            return self.configureCell(cell: cell, indexPath: indexPath)
         }
         addPostTableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
         addPostTableView.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
@@ -82,7 +82,7 @@ final class AddPostViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    private func configureCell(cell: UITableViewCell,indexPath: IndexPath) -> UITableViewCell {
+    private func configureCell(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell {
         guard let post = posts.first else {
             return UITableViewCell()
         }
@@ -245,7 +245,7 @@ extension AddPostViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let photoIdentifier = posts.first?.photoIdentfier {
-            localImageManager.loadImage(forKey: photoIdentifier) { (result) in
+            localImageManager?.loadImage(forKey: photoIdentifier) { (result) in
                 switch result {
                 case let .success(image):
                     self.addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: image)
@@ -266,9 +266,9 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
         dismiss(animated: true)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-            else{
+            else {
                 print("no original image could be found")
                 return
         }
@@ -279,11 +279,9 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
         } catch {
             print(error)
         }
-        localImageManager.saveImage(image, key: photoIdentifier)
+        localImageManager?.saveImage(image, key: photoIdentifier)
         
         addProductHeaderView.viewModel = AddProductHeaderView.ViewModel(image: image)
         dismiss(animated: true, completion: nil)
     }
 }
-
-

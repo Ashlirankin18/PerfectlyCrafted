@@ -15,7 +15,7 @@ final class EditPostViewController: UIViewController {
     @IBOutlet private weak var deleteButton: UIButton!
     
     private lazy var dataSource: AddPostTableViewDataSource = {
-        let ds =  AddPostTableViewDataSource { (cell, indexPath) -> UITableViewCell in
+        let ds = AddPostTableViewDataSource { (cell, indexPath) -> UITableViewCell in
             return self.configureCell(cell: cell, indexPath: indexPath)
         }
         editPostTableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
@@ -27,6 +27,7 @@ final class EditPostViewController: UIViewController {
     private let persistenceController: PersistenceController
     private let managedObjectContext: NSManagedObjectContext
     private let localImageManager: LocalImageManager
+   
     private lazy var headerView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
     private lazy var cancelButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "multiply"), style: .plain, target: self, action: #selector(cancelButtonTapped(sender:)))
@@ -42,7 +43,6 @@ final class EditPostViewController: UIViewController {
         
         managedObjectContext.parent = persistenceController.mainContext
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -74,7 +74,6 @@ final class EditPostViewController: UIViewController {
     }
     
     @IBAction private func deleteButtonTapped(_ sender: UIButton) {
-        
     }
     
     private func configureCell(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell {
@@ -114,7 +113,7 @@ final class EditPostViewController: UIViewController {
         fetchRequest.predicate = NSPredicate(format: "id == %@", postId.description)
         
         do {
-            let fetchedPost =  try persistenceController.mainContext.fetch(fetchRequest)
+            let fetchedPost = try persistenceController.mainContext.fetch(fetchRequest)
             posts = fetchedPost
         } catch {
             print("ERROR! !!!!!")
@@ -154,8 +153,6 @@ final class EditPostViewController: UIViewController {
             print("Error here \(error)")
         }
     }
-    
-    
 }
 extension EditPostViewController: DescriptionTableViewCellDelegate {
     
@@ -195,6 +192,5 @@ extension EditPostViewController: UITableViewDelegate {
         } else {
             return nil
         }
-        
     }
 }

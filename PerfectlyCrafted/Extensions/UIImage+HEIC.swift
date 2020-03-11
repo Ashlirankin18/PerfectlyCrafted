@@ -45,5 +45,3 @@ extension UIImage {
         return data as Data
     }
 }
-
-

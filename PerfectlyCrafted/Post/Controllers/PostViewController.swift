@@ -15,7 +15,8 @@ final class PostViewController: UIViewController {
     @IBOutlet private weak var postsCollectionView: UICollectionView!
     
     private let persistenceController: PersistenceController
-    private let localImageManager = try! LocalImageManager()
+
+    private let localImageManager = try? LocalImageManager()
     private var fetchResultsController: NSFetchedResultsController<Post>?
     
     // We are using the currently selected index path to check if the post is being edited or inserted for the first time.
@@ -73,7 +74,7 @@ final class PostViewController: UIViewController {
     private func configureCellViewModel(cell: PostCollectionViewCell, post: Post) {
         
         if let photoIdentifier = post.photoIdentfier {
-            localImageManager.loadImage(forKey: photoIdentifier) { (result) in
+            localImageManager?.loadImage(forKey: photoIdentifier) { (result) in
                 switch result {
                 case let .success(image):
                     cell.viewModel = PostCollectionViewCell.ViewModel(postImage: image, title: post.title ?? "", description: post.postDescription ?? "", date: post.date!)
@@ -107,7 +108,6 @@ final class PostViewController: UIViewController {
         }
     }
     
-    
     private func updateDataSource(items: [Post]) {
         var snapshot = NSDiffableDataSourceSnapshot<PostsCollectionViewDataSource.Section, Post>()
         snapshot.appendSections([.main])
@@ -126,7 +126,7 @@ final class PostViewController: UIViewController {
                 return
             }
         
-            let editPostViewController = EditPostViewController(postId: postId, persistenceController: self.persistenceController, localImageManager: self.localImageManager)
+            let editPostViewController = EditPostViewController(postId: postId, persistenceController: self.persistenceController, localImageManager: self.localImageManager!)
             let editControllerNavigationController = UINavigationController(rootViewController: editPostViewController)
              editControllerNavigationController.modalPresentationStyle = .custom
             editControllerNavigationController.transitioningDelegate = self.cardViewControllerTransitioningDelegate
@@ -144,7 +144,6 @@ final class PostViewController: UIViewController {
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true)
-        
     }
     
     @objc private func addButtonTapped(sender: UIBarButtonItem) {
@@ -152,7 +151,6 @@ final class PostViewController: UIViewController {
         let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
         show(addPostNavigationController, sender: self)
     }
-    
 }
 
 extension PostViewController: NSFetchedResultsControllerDelegate {

@@ -40,7 +40,7 @@ final class DescriptionTableViewCell: UITableViewCell {
     @IBOutlet private weak var descriptionTextView: UITextView!
     
     /// <#Description#>
-    weak var delegate : DescriptionTableViewCellDelegate?
+    weak var delegate: DescriptionTableViewCellDelegate?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -62,10 +62,9 @@ final class DescriptionTableViewCell: UITableViewCell {
     }
 }
 
-
 extension DescriptionTableViewCell: UITextViewDelegate {
     
-    //MARK: - UITextViewDelegate
+    // MARK: - UITextViewDelegate
     
     func textViewDidChangeSelection(_ textView: UITextView) {
         if let delegate = delegate {

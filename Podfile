@@ -4,7 +4,9 @@
 target 'PerfectlyCrafted' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-
+	pod 'Crashlytics'
+	pod 'SwiftLint'
+	pod 'Firebase/Analytics'
   # Pods for PerfectlyCrafted
 
 end

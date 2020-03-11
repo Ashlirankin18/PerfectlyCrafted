@@ -114,5 +114,3 @@ fileprivate extension FileManager {
         return applicationSupportDirectory.appendingPathComponent("Images")
     }
 }
-
-

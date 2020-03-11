@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		2E0161702417D4FC006A8723 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01616E2417D4FC006A8723 /* EditPostViewController.swift */; };
 		2E0161712417D4FC006A8723 /* EditPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E01616F2417D4FC006A8723 /* EditPostViewController.xib */; };
 		2E01617324196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01617224196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift */; };
+		2E01617724197AB0006A8723 /* AssertionLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01617624197AB0006A8723 /* AssertionLogging.swift */; };
 		2E3187CD241344FE003FC8B0 /* UIView+InstantiateFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187CC241344FE003FC8B0 /* UIView+InstantiateFromNib.swift */; };
 		2E3187F52413DE25003FC8B0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3187F42413DE25003FC8B0 /* CloudKit.framework */; };
 		2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */; };
@@ -55,6 +56,7 @@
 		2E01616E2417D4FC006A8723 /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		2E01616F2417D4FC006A8723 /* EditPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPostViewController.xib; sourceTree = "<group>"; };
 		2E01617224196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfectlyCraftedTabBarViewController.swift; sourceTree = "<group>"; };
+		2E01617624197AB0006A8723 /* AssertionLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionLogging.swift; sourceTree = "<group>"; };
 		2E3187CC241344FE003FC8B0 /* UIView+InstantiateFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+InstantiateFromNib.swift"; sourceTree = "<group>"; };
 		2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PerfectlyCrafted.entitlements; sourceTree = "<group>"; };
 		2E3187F42413DE25003FC8B0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -247,6 +249,7 @@
 				2E4A3E992208D2CB00988116 /* Assets.xcassets */,
 				2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */,
 				2EF32CDC22175881006E2B1F /* hairProducts.json */,
+				2E01617624197AB0006A8723 /* AssertionLogging.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -320,6 +323,9 @@
 				2E4A3E8B2208D2C800988116 /* Sources */,
 				2E4A3E8C2208D2C800988116 /* Frameworks */,
 				2E4A3E8D2208D2C800988116 /* Resources */,
+				9FD6A9B583BB03391908C282 /* [CP] Embed Pods Frameworks */,
+				2E01617424197A32006A8723 /* Swift Lint Run Script */,
+				2E01617524197A4B006A8723 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -408,6 +414,59 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2E01617424197A32006A8723 /* Swift Lint Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		2E01617524197A4B006A8723 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		9FD6A9B583BB03391908C282 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -415,6 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E01617724197AB0006A8723 /* AssertionLogging.swift in Sources */,
 				2E01615F2416A98F006A8723 /* AddPostTableViewDataSource.swift in Sources */,
 				2E31881924142961003FC8B0 /* UITextView+AddToolBarItem.swift in Sources */,
 				2E3188122413F55D003FC8B0 /* DescriptionTableViewCell.swift in Sources */,

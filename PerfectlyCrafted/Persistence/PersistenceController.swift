@@ -20,7 +20,7 @@ final class PersistenceController {
     
     private lazy var storeContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.modelName)
-        container.loadPersistentStores { (storeDescription, error) in
+        container.loadPersistentStores { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
@@ -39,12 +39,13 @@ extension PersistenceController {
     
     /// Saves any chages to the main/ parent context.
     func saveContext () {
-      guard mainContext.hasChanges else { return }
-
-      do {
-        try mainContext.save()
-      } catch let nserror as NSError {
-        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-      }
+        guard mainContext.hasChanges else {
+            return
+        }
+        do {
+            try mainContext.save()
+        } catch let nserror as NSError {
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
     }
 }

@@ -27,7 +27,7 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpTabbarItems(){
+    private func setUpTabbarItems() {
         let feedsViewController = UIStoryboard(name: "Feeds", bundle: Bundle.main).instantiateViewController(identifier: "PostViewController", creator: { coder in
             return PostViewController(coder: coder, persistenceController: self.persistenceController)
         })
@@ -37,7 +37,5 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
         feedsViewController.title = "News Feed"
        
         self.viewControllers = [newsFeedNavigationController]
-        
     }
-    
 }

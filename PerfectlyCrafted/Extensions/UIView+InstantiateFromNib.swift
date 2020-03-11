@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 /// Provides `UIView` with additionality functionality around instantiating views from nibs.
 extension UIView {
     
