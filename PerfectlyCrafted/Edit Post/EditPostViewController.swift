@@ -26,7 +26,7 @@ final class EditPostViewController: UIViewController {
     private let postId: UUID
     private let persistenceController: PersistenceController
     private let managedObjectContext: NSManagedObjectContext
-    private let localImageManager: LocalImageManager
+    private let localImageManager = try? LocalImageManager()
    
     private lazy var headerView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
@@ -34,11 +34,10 @@ final class EditPostViewController: UIViewController {
     
     private lazy var saveButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "checkmark"), style: .plain, target: self, action: #selector(saveButtonTapped(sender:)))
     
-    init(postId: UUID, persistenceController: PersistenceController, localImageManager: LocalImageManager) {
+    init(postId: UUID, persistenceController: PersistenceController) {
         self.postId = postId
         self.persistenceController = persistenceController
         self.managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        self.localImageManager = localImageManager
         super.init(nibName: "EditPostViewController", bundle: nil)
         
         managedObjectContext.parent = persistenceController.mainContext
@@ -180,7 +179,7 @@ extension EditPostViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if let post = retrievePost(with: postId), let photoIdentifier = post.photoIdentfier {
-            localImageManager.loadImage(forKey: photoIdentifier) { (result) in
+            localImageManager?.loadImage(forKey: photoIdentifier) { (result) in
                 switch result {
                 case let .success(image):
                     self.headerView.viewModel = AddProductHeaderView.ViewModel(image: image)

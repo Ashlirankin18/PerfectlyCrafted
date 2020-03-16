@@ -50,6 +50,7 @@ final class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBarButtonItem()
+        postsCollectionView.delegate = self
         configureFetchResultsController()
     }
     
@@ -126,7 +127,7 @@ final class PostViewController: UIViewController {
                 return
             }
         
-            let editPostViewController = EditPostViewController(postId: postId, persistenceController: self.persistenceController, localImageManager: self.localImageManager!)
+            let editPostViewController = EditPostViewController(postId: postId, persistenceController: self.persistenceController)
             let editControllerNavigationController = UINavigationController(rootViewController: editPostViewController)
              editControllerNavigationController.modalPresentationStyle = .custom
             editControllerNavigationController.transitioningDelegate = self.cardViewControllerTransitioningDelegate
@@ -171,5 +172,11 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
         if persistenceController.mainContext.hasChanges {
             persistenceController.saveContext()
         } 
+    }
+}
+
+extension PostViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height / 2)
     }
 }

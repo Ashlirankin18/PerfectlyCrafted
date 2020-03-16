@@ -241,7 +241,7 @@ extension AddPostViewController: DescriptionTableViewCellDelegate {
 
 extension AddPostViewController: UITableViewDelegate {
     
-    // MARK: -UITableViewDelegate
+    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let photoIdentifier = posts.first?.photoIdentfier {
