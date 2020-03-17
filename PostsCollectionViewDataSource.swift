@@ -69,5 +69,4 @@ final class PostsCollectionViewDataSource: NSObject {
         currentSnapshot.reloadItems(items)
         dataSource?.apply(currentSnapshot)
     }
-    
 }

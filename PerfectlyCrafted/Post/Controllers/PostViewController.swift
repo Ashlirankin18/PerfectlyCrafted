@@ -19,9 +19,6 @@ final class PostViewController: UIViewController {
     private let localImageManager = try? LocalImageManager()
     private var fetchResultsController: NSFetchedResultsController<Post>?
     
-    // We are using the currently selected index path to check if the post is being edited or inserted for the first time.
-    private var currentlySelectedIndexPath: IndexPath?
-    
     private lazy var cardViewControllerTransitioningDelegate = CardPresentationManager()
     
     private lazy var postCollectionViewDataSource: PostsCollectionViewDataSource = {
@@ -66,8 +63,7 @@ final class PostViewController: UIViewController {
         configureCellViewModel(cell: cell, post: post)
         
         cell.editButtonTapped = { [weak self] in
-            self?.currentlySelectedIndexPath = indexPath
-            self?.presentAlertController(indexPath: indexPath)
+            self?.presentAlertController(post: post)
         }
         return cell
     }
@@ -116,20 +112,20 @@ final class PostViewController: UIViewController {
         postCollectionViewDataSource.updateSnapshot(snapshot)
     }
     
-    private func presentAlertController(indexPath: IndexPath) {
+    private func presentAlertController(post: Post) {
         
         let alertController = UIAlertController(title: "Options", message: "What would you like to do?", preferredStyle: .actionSheet)
         let editAction = UIAlertAction(title: "Edit Post", style: .default) { [weak self] _ in
             guard let posts = self?.fetchResultsController?.fetchedObjects, let self = self else {
                 return
             }
-            guard let postId = posts[indexPath.row].id else {
+            guard let postId = post.id else {
                 return
             }
-        
+            
             let editPostViewController = EditPostViewController(postId: postId, persistenceController: self.persistenceController)
             let editControllerNavigationController = UINavigationController(rootViewController: editPostViewController)
-             editControllerNavigationController.modalPresentationStyle = .custom
+            editControllerNavigationController.modalPresentationStyle = .custom
             editControllerNavigationController.transitioningDelegate = self.cardViewControllerTransitioningDelegate
             self.show(editControllerNavigationController, sender: self)
         }
@@ -159,14 +155,10 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
     // MARK: - NSFetchedResultsControllerDelegate
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        if let indexPath = currentlySelectedIndexPath, let post = controller.object(at: indexPath) as? Post {
-            postCollectionViewDataSource.reload(item: post)
+        if let posts = controller.fetchedObjects as? [Post] {
+            updateDataSource(items: posts)
         } else {
-            if let posts = controller.fetchedObjects as? [Post] {
-                updateDataSource(items: posts)
-            } else {
-                print("No object found")
-            }
+            print("No object found")
         }
         
         if persistenceController.mainContext.hasChanges {
