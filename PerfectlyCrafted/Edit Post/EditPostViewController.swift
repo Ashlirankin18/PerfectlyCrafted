@@ -73,6 +73,10 @@ final class EditPostViewController: UIViewController {
     }
     
     @IBAction private func deleteButtonTapped(_ sender: UIButton) {
+        if let post = retrievePost(with: postId) {
+            persistenceController.mainContext.delete(post)
+        }
+        dismiss(animated: true, completion: nil)
     }
     
     private func configureCell(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell {
