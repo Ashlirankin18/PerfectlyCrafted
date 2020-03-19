@@ -151,11 +151,22 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
     
     // MARK: - NSFetchedResultsControllerDelegate
     
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        if let posts = controller.fetchedObjects as? [Post] {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .update:
+            guard let post = anObject as? Post else {
+                return
+            }
+            postCollectionViewDataSource.reload(item: post)
+        case .insert, .move, .delete:
+            guard let posts = controller.fetchedObjects as? [Post] else {
+                return
+            }
             updateDataSource(items: posts)
-        } else {
-            print("No object found")
+            
+        default:
+            logAssertionFailure(message: "An unknown case was not handled.")
         }
     }
 }

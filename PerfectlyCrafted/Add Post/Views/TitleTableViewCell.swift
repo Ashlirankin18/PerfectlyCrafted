@@ -36,7 +36,7 @@ final class TitleTableViewCell: UITableViewCell {
 }
 extension TitleTableViewCell: UITextFieldDelegate {
    
-    //MARK: - UITextFieldDelegate
+    // MARK: - UITextFieldDelegate
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         titleTextField.resignFirstResponder()

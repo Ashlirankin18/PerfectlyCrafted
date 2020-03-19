@@ -23,24 +23,22 @@ final class EditPostViewController: UIViewController {
         return ds
     }()
     
-    private let postId: UUID
+    private let post: Post
     private let persistenceController: PersistenceController
     private let managedObjectContext: NSManagedObjectContext
     private let localImageManager = try? LocalImageManager()
-   
+    
     private lazy var headerView: AddProductHeaderView! = AddProductHeaderView.instantiateViewFromNib()
     
     private lazy var cancelButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "multiply"), style: .plain, target: self, action: #selector(cancelButtonTapped(sender:)))
     
     private lazy var saveButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "checkmark"), style: .plain, target: self, action: #selector(saveButtonTapped(sender:)))
     
-    init(postId: UUID, persistenceController: PersistenceController) {
-        self.postId = postId
+    init(post: Post, persistenceController: PersistenceController) {
+        self.post = post
         self.persistenceController = persistenceController
-        self.managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        self.managedObjectContext = persistenceController.newMainContext
         super.init(nibName: "EditPostViewController", bundle: nil)
-        
-        managedObjectContext.parent = persistenceController.mainContext
     }
     
     required init?(coder: NSCoder) {
@@ -64,25 +62,19 @@ final class EditPostViewController: UIViewController {
     }
     
     @objc private func saveButtonTapped(sender: UIBarButtonItem) {
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print("Error!")
-        }
+        persistenceController.saveContext(context: managedObjectContext)
         dismiss(animated: true)
     }
     
     @IBAction private func deleteButtonTapped(_ sender: UIButton) {
-        if let post = retrievePost(with: postId) {
-            persistenceController.mainContext.delete(post)
+        if let id = post.id {
+            persistenceController.deleteObject(with: id, on: persistenceController.viewContext)
         }
         dismiss(animated: true, completion: nil)
     }
     
     private func configureCell(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell {
-        guard let post = retrievePost(with: postId) else {
-            return UITableViewCell()
-        }
+        let post = self.post
         
         switch indexPath.row {
         case 0:
@@ -108,61 +100,30 @@ final class EditPostViewController: UIViewController {
         }
     }
     
-    private func retrievePost(with identifier: UUID) -> Post? {
-        var posts = [Post]()
-        
-        let fetchRequest = NSFetchRequest<Post>()
-        fetchRequest.entity = Post.entity()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", postId.description)
-        
-        do {
-            let fetchedPost = try persistenceController.mainContext.fetch(fetchRequest)
-            posts = fetchedPost
-        } catch {
-            print("ERROR! !!!!!")
-        }
-        return posts.first
-    }
-    
     private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
-        
-        guard let initialPost = retrievePost(with: postId), let id = initialPost.id else {
+        guard let id = post.id, let initialPost = persistenceController.retrieveObject(with: id, on: managedObjectContext) else {
             return
         }
-        
-        let fetchRequest: NSFetchRequest<Post> = NSFetchRequest<Post>()
-        fetchRequest.entity = Post.entity()
-        
-        do {
-            if let post = try managedObjectContext.fetch(fetchRequest).first(where: { (post) -> Bool in
-                post.id == id
-            }) {
-                if let title = title {
-                    post.title = title
-                }
-                if let postDescription = postDescription {
-                    post.postDescription = postDescription
-                }
-                if let photoIdentifier = photoIdentifier {
-                    post.photoIdentfier = photoIdentifier
-                }
-                if let imageData = imageData {
-                    post.image = imageData
-                }
-            } else {
-                print("here")
-            }
-        } catch {
-            print("Error here \(error)")
+        if let title = title {
+            initialPost.title = title
+        }
+        if let postDescription = postDescription {
+            initialPost.postDescription = postDescription
+        }
+        if let photoIdentifier = photoIdentifier {
+            initialPost.photoIdentfier = photoIdentifier
+        }
+        if let imageData = imageData {
+            initialPost.image = imageData
         }
     }
 }
+
 extension EditPostViewController: DescriptionTableViewCellDelegate {
     
     func updateHeightOfRow(_ cell: DescriptionTableViewCell, _ textViewSize: CGSize) {
         let size = textViewSize
-        let newSize = editPostTableView.sizeThatFits(CGSize(width: size.width,
-                                                            height: CGFloat.greatestFiniteMagnitude))
+        let newSize = editPostTableView.sizeThatFits(CGSize(width: size.width, height: CGFloat.greatestFiniteMagnitude))
         if size.height != newSize.height {
             UIView.setAnimationsEnabled(false)
             editPostTableView?.beginUpdates()
@@ -182,7 +143,7 @@ extension EditPostViewController: DescriptionTableViewCellDelegate {
 extension EditPostViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if let post = retrievePost(with: postId), let photoIdentifier = post.photoIdentfier {
+        if let photoIdentifier = post.photoIdentfier {
             localImageManager?.loadImage(forKey: photoIdentifier) { (result) in
                 switch result {
                 case let .success(image):

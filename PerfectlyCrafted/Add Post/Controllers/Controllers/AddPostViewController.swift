@@ -13,8 +13,8 @@ import CoreData
 final class AddPostViewController: UIViewController {
     
     @IBOutlet private weak var addPostTableView: UITableView!
-
-    private let  childContext: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    
+    private let  managedObjectContext: NSManagedObjectContext
     
     private var postId: UUID
     
@@ -48,9 +48,8 @@ final class AddPostViewController: UIViewController {
     init(postId: UUID, persistenceController: PersistenceController) {
         self.postId = postId
         self.persistenceController = persistenceController
-        
+        self.managedObjectContext = persistenceController.newMainContext
         super.init(nibName: "AddPostViewController", bundle: Bundle.main)
-        childContext.parent = persistenceController.mainContext
     }
     
     required init?(coder: NSCoder) {
@@ -62,7 +61,7 @@ final class AddPostViewController: UIViewController {
         configureBarButtonItems()
         configureTableView()
         updateHeaderView()
-        createPostIfNeeded()
+        createPost()
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
     }
@@ -73,26 +72,22 @@ final class AddPostViewController: UIViewController {
     }
     
     @objc private func cancelButtonTapped(sender: UIBarButtonItem) {
-        childContext.reset()
         dismiss(animated: true)
     }
     
     @objc private func saveButtonTapped(sender: UIBarButtonItem) {
-        saveToChildContext()
+        persistenceController.saveContext(context: managedObjectContext)
         dismiss(animated: true)
     }
     
     private func configureCell(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell {
-        guard let post = posts.first else {
-            return UITableViewCell()
-        }
+        
         switch indexPath.row {
         case 0:
             guard let cell = cell as? TitleTableViewCell else {
                 return UITableViewCell()
             }
-            let title = post.title ?? ""
-            cell.viewModel = TitleTableViewCell.ViewModel(title: title)
+            cell.viewModel = TitleTableViewCell.ViewModel(title: "")
             cell.textFieldDidEndEditing = { [weak self] textfield in
                 self?.updatePost(title: textfield.text)
             }
@@ -101,8 +96,8 @@ final class AddPostViewController: UIViewController {
             guard let cell = cell as? DescriptionTableViewCell else {
                 return UITableViewCell()
             }
-            let existingDescription = post.postDescription ?? "Give your entry a description"
-            let placeholderColor: UIColor = !(post.postDescription?.isEmpty ?? true) ? .black : .gray
+            let existingDescription = "Give your entry a description"
+            let placeholderColor: UIColor = .gray
             cell.delegate = self
             cell.viewModel = DescriptionTableViewCell.ViewModel(placeholderColor: placeholderColor, placeholder: existingDescription)
             return cell
@@ -149,42 +144,24 @@ final class AddPostViewController: UIViewController {
         present(imagePickerController, animated: true)
     }
     
-    private func createPostIfNeeded() {
-        let fetchRequest: NSFetchRequest<Post> = NSFetchRequest<Post>()
-        fetchRequest.entity = Post.entity()
-        
-        do {
-            if let post = try persistenceController.mainContext.fetch(fetchRequest).first(where: { (post) -> Bool in
-                post.id == postId
-            }) {
-                posts.append(post)
-            } else {
-               let newPost = Post(context: childContext)
-                newPost.id = postId
-                newPost.date = Date()
-                newPost.image = nil
-                newPost.title = nil
-                newPost.postDescription = nil
-                newPost.photoIdentfier = nil
-                posts.append(newPost)
-            }
-        } catch {
-            print("There was an error here: \(error)")
-        }
+    private func createPost() {
+        let newPost = Post(context: managedObjectContext)
+        newPost.id = postId
+        newPost.date = Date()
+        newPost.image = nil
+        newPost.title = nil
+        newPost.postDescription = nil
+        newPost.photoIdentfier = nil
+        posts.append(newPost)
     }
     
     private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
-        
-        guard let initialPost = posts.first, let id = initialPost.id else {
-            return
-        }
-        
         let fetchRequest: NSFetchRequest<Post> = NSFetchRequest<Post>()
         fetchRequest.entity = Post.entity()
         
         do {
-            if let post = try childContext.fetch(fetchRequest).first(where: { (post) -> Bool in
-                post.id == id
+            if let post = try managedObjectContext.fetch(fetchRequest).first(where: { (post) -> Bool in
+                post.id == postId
             }) {
                 if let title = title {
                     post.title = title
@@ -199,18 +176,10 @@ final class AddPostViewController: UIViewController {
                     post.image = imageData
                 }
             } else {
-                print("here")
+                logAssertionFailure(message: "Could not retrieve post.")
             }
         } catch {
-            print("Error here \(error)")
-        }
-    }
-    
-    private func saveToChildContext() {
-        do {
-            try childContext.save()
-        } catch {
-            print("error: \(error)")
+            logAssertionFailure(message: "Error here \(error)")
         }
     }
 }
@@ -221,8 +190,8 @@ extension AddPostViewController: DescriptionTableViewCellDelegate {
     
     func updateHeightOfRow(_ cell: DescriptionTableViewCell, _ textViewSize: CGSize) {
         let size = textViewSize
-        let newSize = addPostTableView.sizeThatFits(CGSize(width: size.width,
-                                                           height: CGFloat.greatestFiniteMagnitude))
+        let newSize = addPostTableView.sizeThatFits(CGSize(width: size.width, height: CGFloat.greatestFiniteMagnitude))
+        
         if size.height != newSize.height {
             UIView.setAnimationsEnabled(false)
             addPostTableView?.beginUpdates()
@@ -259,7 +228,7 @@ extension AddPostViewController: UITableViewDelegate {
 }
 
 extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-   
+    
     // MARK: - UIImagePickerControllerDelegate
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -269,7 +238,7 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
             else {
-                print("no original image could be found")
+                logAssertionFailure(message: "Could not load image.")
                 return
         }
         let photoIdentifier = UUID()

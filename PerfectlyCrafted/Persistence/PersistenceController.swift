@@ -80,10 +80,8 @@ extension PersistenceController {
             logAssertionFailure(message: "Could not retrieve post.")
             return
         }
-        context.perform {
-          context.delete(post)
-            self.saveContext(context: context)
-        }
+        context.delete(post)
+        saveContext(context: context)
     }
 }
 
