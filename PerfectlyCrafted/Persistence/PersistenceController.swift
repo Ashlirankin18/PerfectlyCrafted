@@ -22,16 +22,14 @@ final class PersistenceController {
     var newBackgroundContext: NSManagedObjectContext {
         let backgroundContext = storeContainer.newBackgroundContext()
         backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
-        
         return backgroundContext
     }
     
     /// Creates a new context bound to the main queue.
     var newMainContext: NSManagedObjectContext {
         let mainContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        mainContext.persistentStoreCoordinator = viewContext .persistentStoreCoordinator
+        mainContext.persistentStoreCoordinator = viewContext.persistentStoreCoordinator
         mainContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
-
         return mainContext
     }
     
@@ -49,18 +47,55 @@ final class PersistenceController {
     /// - Parameter modelName: The name of the xcDataModel file.
     init(modelName: String) {
         self.modelName = modelName
+        viewContext.automaticallyMergesChangesFromParent = true
+        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
+    }
+}
+
+extension PersistenceController {
+    
+    func retrieveObject(with identifier: UUID, on context: NSManagedObjectContext) -> Post? {
+        let post = retrieveObjects(with: identifier, context: context).first { (post) -> Bool in
+            post.id == identifier
+        }
+        return post
+    }
+    
+    func retrieveObjects(with identifier: UUID, context: NSManagedObjectContext) -> [Post] {
+        let fetchRequest = NSFetchRequest<Post>()
+        fetchRequest.entity = Post.entity()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", identifier.description)
+       
+        do {
+            let objects = try context.fetch(fetchRequest)
+            return objects
+        } catch {
+            logAssertionFailure(message: "Unable to retrieve objects with specified identifier")
+            return []
+        }
+   }
+    
+    func deleteObject(with identifier: UUID, on context: NSManagedObjectContext) {
+        guard let post = retrieveObject(with: identifier, on: context) else {
+            logAssertionFailure(message: "Could not retrieve post.")
+            return
+        }
+        context.perform {
+          context.delete(post)
+            self.saveContext(context: context)
+        }
     }
 }
 
 extension PersistenceController {
     
     /// Saves any chages to the main/ parent context.
-    func saveContext () {
-        guard viewContext.hasChanges else {
+    func saveContext(context: NSManagedObjectContext) {
+        guard context.hasChanges else {
             return
         }
         do {
-            try viewContext.save()
+            try context.save()
         } catch let nserror as NSError {
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
