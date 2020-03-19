@@ -14,9 +14,26 @@ final class PersistenceController {
     
     private let modelName: String
     
-    lazy var mainContext: NSManagedObjectContext = {
+    lazy var viewContext: NSManagedObjectContext = {
         return self.storeContainer.viewContext
     }()
+    
+    /// Creates a new context bound to a background queue.
+    var newBackgroundContext: NSManagedObjectContext {
+        let backgroundContext = storeContainer.newBackgroundContext()
+        backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
+        
+        return backgroundContext
+    }
+    
+    /// Creates a new context bound to the main queue.
+    var newMainContext: NSManagedObjectContext {
+        let mainContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        mainContext.persistentStoreCoordinator = viewContext .persistentStoreCoordinator
+        mainContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
+
+        return mainContext
+    }
     
     private lazy var storeContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.modelName)
@@ -39,11 +56,11 @@ extension PersistenceController {
     
     /// Saves any chages to the main/ parent context.
     func saveContext () {
-        guard mainContext.hasChanges else {
+        guard viewContext.hasChanges else {
             return
         }
         do {
-            try mainContext.save()
+            try viewContext.save()
         } catch let nserror as NSError {
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
