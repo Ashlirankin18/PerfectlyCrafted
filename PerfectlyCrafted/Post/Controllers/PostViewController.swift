@@ -90,7 +90,7 @@ final class PostViewController: UIViewController {
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         request.sortDescriptors = [sortDescriptor]
         
-        fetchResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: persistenceController.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: persistenceController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultsController?.delegate = self
         
         do {
@@ -116,14 +116,11 @@ final class PostViewController: UIViewController {
         
         let alertController = UIAlertController(title: "Options", message: "What would you like to do?", preferredStyle: .actionSheet)
         let editAction = UIAlertAction(title: "Edit Post", style: .default) { [weak self] _ in
-            guard let posts = self?.fetchResultsController?.fetchedObjects, let self = self else {
-                return
-            }
-            guard let postId = post.id else {
+            guard let self = self else {
                 return
             }
             
-            let editPostViewController = EditPostViewController(postId: postId, persistenceController: self.persistenceController)
+            let editPostViewController = EditPostViewController(post: post, persistenceController: self.persistenceController)
             let editControllerNavigationController = UINavigationController(rootViewController: editPostViewController)
             editControllerNavigationController.modalPresentationStyle = .custom
             editControllerNavigationController.transitioningDelegate = self.cardViewControllerTransitioningDelegate
@@ -160,10 +157,6 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
         } else {
             print("No object found")
         }
-        
-        if persistenceController.mainContext.hasChanges {
-            persistenceController.saveContext()
-        } 
     }
 }
 
