@@ -36,6 +36,8 @@
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
+		2E6C7EFE24241372008B7F69 /* PostShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7EFC24241372008B7F69 /* PostShareViewController.swift */; };
+		2E6C7EFF24241372008B7F69 /* PostShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E6C7EFD24241372008B7F69 /* PostShareViewController.xib */; };
 		2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */; };
 		2E81CE3824132A34002F506D /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E81CE3624132A34002F506D /* PostCollectionViewCell.xib */; };
 		2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B4220A59B900FFDC5E /* PostViewController.swift */; };
@@ -79,6 +81,8 @@
 		2E4A3E992208D2CB00988116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E4A3E9C2208D2CB00988116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E4A3E9E2208D2CB00988116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E6C7EFC24241372008B7F69 /* PostShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostShareViewController.swift; sourceTree = "<group>"; };
+		2E6C7EFD24241372008B7F69 /* PostShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostShareViewController.xib; sourceTree = "<group>"; };
 		2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E81CE3624132A34002F506D /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		2EA365B4220A59B900FFDC5E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +230,15 @@
 			path = PerfectlyCrafted;
 			sourceTree = "<group>";
 		};
+		2E6C7EFB24241317008B7F69 /* Post Share */ = {
+			isa = PBXGroup;
+			children = (
+				2E6C7EFC24241372008B7F69 /* PostShareViewController.swift */,
+				2E6C7EFD24241372008B7F69 /* PostShareViewController.xib */,
+			);
+			path = "Post Share";
+			sourceTree = "<group>";
+		};
 		2E81CE34241323BE002F506D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +291,7 @@
 		5B5ED219235380BF000227D1 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				2E6C7EFB24241317008B7F69 /* Post Share */,
 				2E81CE34241323BE002F506D /* Controllers */,
 				5B5ED21F235382AB000227D1 /* DataSource */,
 				5B5ED21C2353810B000227D1 /* Views */,
@@ -375,6 +389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6C7EFF24241372008B7F69 /* PostShareViewController.xib in Resources */,
 				2E31881724140C54003FC8B0 /* AddProductHeaderView.xib in Resources */,
 				2E31880B2413F411003FC8B0 /* AddPostViewController.xib in Resources */,
 				2E0161712417D4FC006A8723 /* EditPostViewController.xib in Resources */,
@@ -497,6 +512,7 @@
 				2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */,
 				2E01615B24169DE5006A8723 /* PostsCollectionViewDataSource.swift in Sources */,
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,
+				2E6C7EFE24241372008B7F69 /* PostShareViewController.swift in Sources */,
 				2E0161702417D4FC006A8723 /* EditPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
