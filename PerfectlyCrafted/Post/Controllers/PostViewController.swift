@@ -51,7 +51,6 @@ final class PostViewController: UIViewController {
         postsCollectionView.delegate = self
         configureFetchResultsController()
         title = "My Entries"
-        view.backgroundColor = AssetsColor.current.color
     }
     
     private func configureBarButtonItem() {

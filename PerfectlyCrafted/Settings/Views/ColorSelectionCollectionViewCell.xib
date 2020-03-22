@@ -9,40 +9,38 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ColorSelectionCollectionViewCell" customModule="PerfectlyCrafted" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="ColorSelectionCollectionViewCell" customModule="PerfectlyCrafted" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebt-jp-mEc">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <connections>
-                            <action selector="colorSelectionButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="7Dq-h9-u8O"/>
-                        </connections>
-                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QuU-CF-Djh">
+                        <rect key="frame" x="35" y="35" width="30" height="30"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="5TE-bs-aaz"/>
+                            <constraint firstAttribute="height" constant="30" id="UM7-px-FCs"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="ebt-jp-mEc" secondAttribute="bottom" id="BG8-eD-ojz"/>
-                <constraint firstItem="ebt-jp-mEc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TMJ-7a-Urd"/>
-                <constraint firstAttribute="trailing" secondItem="ebt-jp-mEc" secondAttribute="trailing" id="qww-Pv-gG0"/>
-                <constraint firstItem="ebt-jp-mEc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zba-Ks-bp0"/>
+                <constraint firstItem="QuU-CF-Djh" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="3zb-4B-v17"/>
+                <constraint firstItem="QuU-CF-Djh" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="LID-XT-jg0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="171" height="125"/>
             <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                    <real key="value" value="25"/>
+                    <real key="value" value="30"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="colorSelectionButton" destination="ebt-jp-mEc" id="z8R-jN-kiu"/>
+                <outlet property="checkmarkImageView" destination="QuU-CF-Djh" id="ZkB-PV-JBM"/>
             </connections>
-            <point key="canvasLocation" x="219.56521739130437" y="177.79017857142856"/>
+            <point key="canvasLocation" x="218.84057971014494" y="177.45535714285714"/>
         </collectionViewCell>
     </objects>
 </document>
