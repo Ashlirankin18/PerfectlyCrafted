@@ -31,10 +31,7 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
             return PostViewController(coder: coder, persistenceController: self.persistenceController)
         })
         let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
-        
-        feedsViewController.tabBarItem.image = #imageLiteral(resourceName: "icons8-hashtag-activity-feed-25")
-        feedsViewController.title = "News Feed"
-       
+        feedsViewController.tabBarItem.image = UIImage(systemName: "doc.fill") ?? UIImage()
         self.viewControllers = [newsFeedNavigationController]
     }
 }

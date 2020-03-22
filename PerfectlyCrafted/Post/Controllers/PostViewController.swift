@@ -17,7 +17,7 @@ final class PostViewController: UIViewController {
     private let persistenceController: PersistenceController
     private let localImageManager = try? LocalImageManager()
     private var fetchResultsController: NSFetchedResultsController<Post>?
-    
+
     private lazy var cardViewControllerTransitioningDelegate = CardPresentationManager()
     
     private lazy var postCollectionViewDataSource: PostsCollectionViewDataSource = {
@@ -29,6 +29,8 @@ final class PostViewController: UIViewController {
     }()
     
     private lazy var addPostBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonTapped(sender:)))
+    
+    private lazy var settingsBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
     
     /// Creates a new instance of `PostViewController`.
     /// - Parameters:
@@ -48,10 +50,13 @@ final class PostViewController: UIViewController {
         configureBarButtonItem()
         postsCollectionView.delegate = self
         configureFetchResultsController()
+        title = "My Entries"
+        view.backgroundColor = AssetsColor.current.color
     }
     
     private func configureBarButtonItem() {
         navigationItem.rightBarButtonItem = addPostBarButtonItem
+        navigationItem.leftBarButtonItem = settingsBarButtonItem
     }
     
     private func configureCell (collectionView: UICollectionView, indexPath: IndexPath, post: Post ) -> UICollectionViewCell {
@@ -145,6 +150,12 @@ final class PostViewController: UIViewController {
         let addPostViewController = AddPostViewController(postId: UUID(), persistenceController: persistenceController)
         let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
         show(addPostNavigationController, sender: self)
+    }
+    
+    @objc private func settingsButtonTapped(sender: UIBarButtonItem) {
+        let settingsViewController = UIStoryboard(name: "Settings", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsViewController")
+        let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
+        show(settingsNavigationController, sender: self)
     }
 }
 
