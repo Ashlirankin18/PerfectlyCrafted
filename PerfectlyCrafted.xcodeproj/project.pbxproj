@@ -38,6 +38,9 @@
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
 		2E6C7EFE24241372008B7F69 /* PostShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7EFC24241372008B7F69 /* PostShareViewController.swift */; };
 		2E6C7EFF24241372008B7F69 /* PostShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E6C7EFD24241372008B7F69 /* PostShareViewController.xib */; };
+		2E6C7F0324241583008B7F69 /* PostShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F0224241583008B7F69 /* PostShareView.swift */; };
+		2E6C7F05242415A2008B7F69 /* PostShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E6C7F04242415A2008B7F69 /* PostShareView.xib */; };
+		2E6C7F0824241950008B7F69 /* SnapshotRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F0724241950008B7F69 /* SnapshotRenderer.swift */; };
 		2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */; };
 		2E81CE3824132A34002F506D /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E81CE3624132A34002F506D /* PostCollectionViewCell.xib */; };
 		2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B4220A59B900FFDC5E /* PostViewController.swift */; };
@@ -83,6 +86,9 @@
 		2E4A3E9E2208D2CB00988116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E6C7EFC24241372008B7F69 /* PostShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostShareViewController.swift; sourceTree = "<group>"; };
 		2E6C7EFD24241372008B7F69 /* PostShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostShareViewController.xib; sourceTree = "<group>"; };
+		2E6C7F0224241583008B7F69 /* PostShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostShareView.swift; sourceTree = "<group>"; };
+		2E6C7F04242415A2008B7F69 /* PostShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostShareView.xib; sourceTree = "<group>"; };
+		2E6C7F0724241950008B7F69 /* SnapshotRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotRenderer.swift; sourceTree = "<group>"; };
 		2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E81CE3624132A34002F506D /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		2EA365B4220A59B900FFDC5E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +219,7 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2E6C7F0624241936008B7F69 /* Snapshot Rendering */,
 				2E01617224196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift */,
 				2E4170212415AF59008620C5 /* Persistence */,
 				2E31881C241537A2003FC8B0 /* ImageManagement */,
@@ -233,10 +240,36 @@
 		2E6C7EFB24241317008B7F69 /* Post Share */ = {
 			isa = PBXGroup;
 			children = (
+				2E6C7F012424156D008B7F69 /* Views */,
+				2E6C7F0024241562008B7F69 /* Controllers */,
+			);
+			path = "Post Share";
+			sourceTree = "<group>";
+		};
+		2E6C7F0024241562008B7F69 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				2E6C7EFC24241372008B7F69 /* PostShareViewController.swift */,
 				2E6C7EFD24241372008B7F69 /* PostShareViewController.xib */,
 			);
-			path = "Post Share";
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2E6C7F012424156D008B7F69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E6C7F0224241583008B7F69 /* PostShareView.swift */,
+				2E6C7F04242415A2008B7F69 /* PostShareView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2E6C7F0624241936008B7F69 /* Snapshot Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				2E6C7F0724241950008B7F69 /* SnapshotRenderer.swift */,
+			);
+			path = "Snapshot Rendering";
 			sourceTree = "<group>";
 		};
 		2E81CE34241323BE002F506D /* Controllers */ = {
@@ -394,6 +427,7 @@
 				2E31880B2413F411003FC8B0 /* AddPostViewController.xib in Resources */,
 				2E0161712417D4FC006A8723 /* EditPostViewController.xib in Resources */,
 				2E3188132413F55D003FC8B0 /* DescriptionTableViewCell.xib in Resources */,
+				2E6C7F05242415A2008B7F69 /* PostShareView.xib in Resources */,
 				5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */,
 				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
 				2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */,
@@ -495,6 +529,8 @@
 				2E3188122413F55D003FC8B0 /* DescriptionTableViewCell.swift in Sources */,
 				2E31881B24153736003FC8B0 /* UIImage+HEIC.swift in Sources */,
 				2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */,
+				2E6C7F0324241583008B7F69 /* PostShareView.swift in Sources */,
+				2E6C7F0824241950008B7F69 /* SnapshotRenderer.swift in Sources */,
 				2E0161612416BD66006A8723 /* Dateformatter.swift in Sources */,
 				2E318820241537E7003FC8B0 /* LocalImageLaoder.swift in Sources */,
 				2E016163241737EE006A8723 /* CardPresentationManager.swift in Sources */,
@@ -565,7 +601,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -626,7 +662,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
