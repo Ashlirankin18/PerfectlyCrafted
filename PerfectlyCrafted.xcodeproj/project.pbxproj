@@ -41,6 +41,11 @@
 		2E6C7F0324241583008B7F69 /* PostShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F0224241583008B7F69 /* PostShareView.swift */; };
 		2E6C7F05242415A2008B7F69 /* PostShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E6C7F04242415A2008B7F69 /* PostShareView.xib */; };
 		2E6C7F0824241950008B7F69 /* SnapshotRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F0724241950008B7F69 /* SnapshotRenderer.swift */; };
+		2E6C7F0C2427B1D8008B7F69 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E6C7F0B2427B1D8008B7F69 /* Settings.storyboard */; };
+		2E6C7F102427B25F008B7F69 /* ColorSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F0E2427B25F008B7F69 /* ColorSelectionCollectionViewCell.swift */; };
+		2E6C7F112427B25F008B7F69 /* ColorSelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E6C7F0F2427B25F008B7F69 /* ColorSelectionCollectionViewCell.xib */; };
+		2E6C7F142427B359008B7F69 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F132427B359008B7F69 /* SettingsViewController.swift */; };
+		2E6C7F162427B9BB008B7F69 /* AssetColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F152427B9BB008B7F69 /* AssetColors.swift */; };
 		2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */; };
 		2E81CE3824132A34002F506D /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E81CE3624132A34002F506D /* PostCollectionViewCell.xib */; };
 		2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B4220A59B900FFDC5E /* PostViewController.swift */; };
@@ -89,6 +94,11 @@
 		2E6C7F0224241583008B7F69 /* PostShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostShareView.swift; sourceTree = "<group>"; };
 		2E6C7F04242415A2008B7F69 /* PostShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostShareView.xib; sourceTree = "<group>"; };
 		2E6C7F0724241950008B7F69 /* SnapshotRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotRenderer.swift; sourceTree = "<group>"; };
+		2E6C7F0B2427B1D8008B7F69 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		2E6C7F0E2427B25F008B7F69 /* ColorSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		2E6C7F0F2427B25F008B7F69 /* ColorSelectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorSelectionCollectionViewCell.xib; sourceTree = "<group>"; };
+		2E6C7F132427B359008B7F69 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2E6C7F152427B9BB008B7F69 /* AssetColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetColors.swift; sourceTree = "<group>"; };
 		2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E81CE3624132A34002F506D /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		2EA365B4220A59B900FFDC5E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -219,8 +229,9 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2E6C7F0A2427AFF0008B7F69 /* Settings */,
 				2E6C7F0624241936008B7F69 /* Snapshot Rendering */,
-				2E01617224196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift */,
+				2E6C7F092427AFD8008B7F69 /* TabBarController */,
 				2E4170212415AF59008620C5 /* Persistence */,
 				2E31881C241537A2003FC8B0 /* ImageManagement */,
 				2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */,
@@ -270,6 +281,42 @@
 				2E6C7F0724241950008B7F69 /* SnapshotRenderer.swift */,
 			);
 			path = "Snapshot Rendering";
+			sourceTree = "<group>";
+		};
+		2E6C7F092427AFD8008B7F69 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				2E01617224196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		2E6C7F0A2427AFF0008B7F69 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2E6C7F122427B337008B7F69 /* Controllers */,
+				2E6C7F0D2427B1DD008B7F69 /* Views */,
+				2E6C7F152427B9BB008B7F69 /* AssetColors.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2E6C7F0D2427B1DD008B7F69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E6C7F0B2427B1D8008B7F69 /* Settings.storyboard */,
+				2E6C7F0E2427B25F008B7F69 /* ColorSelectionCollectionViewCell.swift */,
+				2E6C7F0F2427B25F008B7F69 /* ColorSelectionCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2E6C7F122427B337008B7F69 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E6C7F132427B359008B7F69 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		2E81CE34241323BE002F506D /* Controllers */ = {
@@ -434,7 +481,9 @@
 				2E81CE3824132A34002F506D /* PostCollectionViewCell.xib in Resources */,
 				2E31880F2413F45E003FC8B0 /* TitleTableViewCell.xib in Resources */,
 				2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */,
+				2E6C7F112427B25F008B7F69 /* ColorSelectionCollectionViewCell.xib in Resources */,
 				2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */,
+				2E6C7F0C2427B1D8008B7F69 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +586,7 @@
 				2E31881524140C48003FC8B0 /* AddProductHeaderView.swift in Sources */,
 				2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */,
 				2E3187CD241344FE003FC8B0 /* UIView+InstantiateFromNib.swift in Sources */,
+				2E6C7F162427B9BB008B7F69 /* AssetColors.swift in Sources */,
 				2E016166241739B4006A8723 /* CardPresentationController.swift in Sources */,
 				2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */,
 				2E31880E2413F45E003FC8B0 /* TitleTableViewCell.swift in Sources */,
@@ -544,7 +594,9 @@
 				2E01617324196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */,
 				2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */,
+				2E6C7F102427B25F008B7F69 /* ColorSelectionCollectionViewCell.swift in Sources */,
 				2E01616824173A01006A8723 /* PresentationDirection.swift in Sources */,
+				2E6C7F142427B359008B7F69 /* SettingsViewController.swift in Sources */,
 				2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */,
 				2E01615B24169DE5006A8723 /* PostsCollectionViewDataSource.swift in Sources */,
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,

@@ -73,10 +73,10 @@ final class LocalImageManager {
     func saveImage(_ image: UIImage, key: UUID) {
         
         do {
-            let heicData = try image.heicData()
+            if let pngData = image.pngData() {
             let imageURL = fileURL(forKey: key)
-            
-            try heicData.write(to: imageURL)
+            try pngData.write(to: imageURL)
+            }
             cache.setObject(image, forKey: key as NSUUID)
         } catch {
             assertionFailure("Failed to save image due to error: \(error).")

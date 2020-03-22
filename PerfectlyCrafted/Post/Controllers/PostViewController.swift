@@ -17,7 +17,7 @@ final class PostViewController: UIViewController {
     private let persistenceController: PersistenceController
     private let localImageManager = try? LocalImageManager()
     private var fetchResultsController: NSFetchedResultsController<Post>?
-    
+
     private lazy var cardViewControllerTransitioningDelegate = CardPresentationManager()
     
     private lazy var postCollectionViewDataSource: PostsCollectionViewDataSource = {
@@ -29,6 +29,8 @@ final class PostViewController: UIViewController {
     }()
     
     private lazy var addPostBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonTapped(sender:)))
+    
+    private lazy var settingsBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
     
     /// Creates a new instance of `PostViewController`.
     /// - Parameters:
@@ -48,10 +50,12 @@ final class PostViewController: UIViewController {
         configureBarButtonItem()
         postsCollectionView.delegate = self
         configureFetchResultsController()
+        title = "My Entries"
     }
     
     private func configureBarButtonItem() {
         navigationItem.rightBarButtonItem = addPostBarButtonItem
+        navigationItem.leftBarButtonItem = settingsBarButtonItem
     }
     
     private func configureCell (collectionView: UICollectionView, indexPath: IndexPath, post: Post ) -> UICollectionViewCell {
@@ -73,13 +77,13 @@ final class PostViewController: UIViewController {
             localImageManager?.loadImage(forKey: photoIdentifier) { (result) in
                 switch result {
                 case let .success(image):
-                    cell.viewModel = PostCollectionViewCell.ViewModel(postImage: image, title: post.title ?? "", description: post.postDescription ?? "", date: post.date!)
+                    cell.viewModel = PostCollectionViewCell.ViewModel(postImage: image, title: post.title ?? "", date: post.date!)
                 case let .failure(error):
                     print("There was an error \(error)")
                 }
             }
         } else {
-            cell.viewModel = PostCollectionViewCell.ViewModel(postImage: nil, title: post.title ?? "", description: post.postDescription ?? "", date: post.date!)
+            cell.viewModel = PostCollectionViewCell.ViewModel(postImage: nil, title: post.title ?? "", date: post.date!)
         }
     }
     
@@ -146,6 +150,12 @@ final class PostViewController: UIViewController {
         let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
         show(addPostNavigationController, sender: self)
     }
+    
+    @objc private func settingsButtonTapped(sender: UIBarButtonItem) {
+        let settingsViewController = UIStoryboard(name: "Settings", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsViewController")
+        let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
+        show(settingsNavigationController, sender: self)
+    }
 }
 
 extension PostViewController: NSFetchedResultsControllerDelegate {
@@ -176,6 +186,6 @@ extension PostViewController: UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height / 2)
+        return CGSize(width: view.frame.width, height: 650)
     }
 }
