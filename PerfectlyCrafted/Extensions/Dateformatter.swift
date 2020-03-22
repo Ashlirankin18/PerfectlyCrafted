@@ -16,7 +16,7 @@ extension DateFormatter {
     /// Formats a given date.
     /// - Parameter date: The date the post was created.
     static func format(date: Date) -> String? {
-        postDateFormatter.dateStyle = .full
+        postDateFormatter.dateStyle = .long
         return postDateFormatter.string(from: date)
     }
 }

@@ -33,7 +33,7 @@ final class LocalImageLoader {
     
     private let loadImageOperationQueue: OperationQueue = {
         let queue = OperationQueue()
-        queue.name = "net.lickability.LocalImageLoaderQueue"
+        queue.name = "net.ashli.LocalImageLoaderQueue"
         return queue
     }()
     

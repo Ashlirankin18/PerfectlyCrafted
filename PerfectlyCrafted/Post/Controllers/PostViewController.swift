@@ -77,13 +77,13 @@ final class PostViewController: UIViewController {
             localImageManager?.loadImage(forKey: photoIdentifier) { (result) in
                 switch result {
                 case let .success(image):
-                    cell.viewModel = PostCollectionViewCell.ViewModel(postImage: image, title: post.title ?? "", description: post.postDescription ?? "", date: post.date!)
+                    cell.viewModel = PostCollectionViewCell.ViewModel(postImage: image, title: post.title ?? "", date: post.date!)
                 case let .failure(error):
                     print("There was an error \(error)")
                 }
             }
         } else {
-            cell.viewModel = PostCollectionViewCell.ViewModel(postImage: nil, title: post.title ?? "", description: post.postDescription ?? "", date: post.date!)
+            cell.viewModel = PostCollectionViewCell.ViewModel(postImage: nil, title: post.title ?? "", date: post.date!)
         }
     }
     
@@ -186,6 +186,6 @@ extension PostViewController: UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height / 2)
+        return CGSize(width: view.frame.width, height: 650)
     }
 }

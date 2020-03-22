@@ -20,16 +20,13 @@ final class PostCollectionViewCell: UICollectionViewCell {
         /// The title of the post.
         let title: String
         
-        /// The description of the post.
-        let description: String
-        
+        /// The date the post was created.
         let date: Date
     }
     
     @IBOutlet private weak var moreOptionsButton: UIButton!
     @IBOutlet private weak var postImageView: UIImageView!
     @IBOutlet private weak var captionLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     
     /// The single point of configuration of the `PostCollectionViewCell`
@@ -41,7 +38,6 @@ final class PostCollectionViewCell: UICollectionViewCell {
             postImageView.isHidden = viewModel.postImage == nil ? true : false
             postImageView.image = viewModel.postImage
             captionLabel.text = viewModel.title
-            descriptionLabel.text = viewModel.description
             dateLabel.text = DateFormatter.format(date: viewModel.date)
         }
     }
