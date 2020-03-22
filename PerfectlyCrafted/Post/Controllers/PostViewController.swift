@@ -15,7 +15,6 @@ final class PostViewController: UIViewController {
     @IBOutlet private weak var postsCollectionView: UICollectionView!
     
     private let persistenceController: PersistenceController
-
     private let localImageManager = try? LocalImageManager()
     private var fetchResultsController: NSFetchedResultsController<Post>?
     
@@ -127,8 +126,10 @@ final class PostViewController: UIViewController {
             self.show(editControllerNavigationController, sender: self)
         }
         
-        let shareAction = UIAlertAction(title: "Share Post", style: .default) { _ in
-            print("Share")
+        let shareAction = UIAlertAction(title: "Share Post", style: .default) { [weak self] _ in
+            let shareViewController = PostShareViewController(post: post)
+            let shareNavigationController = UINavigationController(rootViewController: shareViewController)
+            self?.show(shareNavigationController, sender: self)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -164,7 +165,6 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
                 return
             }
             updateDataSource(items: posts)
-            
         default:
             logAssertionFailure(message: "An unknown case was not handled.")
         }
@@ -172,6 +172,9 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
 }
 
 extension PostViewController: UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height / 2)
     }
