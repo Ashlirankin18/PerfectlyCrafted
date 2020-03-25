@@ -8,6 +8,6 @@
 
 import UIKit
 
-final class DatePickerTableViewCell: UITableViewCell {
+final class DateNameTableViewCell: UITableViewCell {
     
 }
