@@ -25,7 +25,10 @@ final class DetailedViewController: UIViewController {
         return isCardVisible ? .collapsed : .expanded
     }
     
-    private lazy var detailDescriptionViewController: DetailedDescriptionViewController = DetailedDescriptionViewController()
+    private lazy var detailDescriptionViewController: DetailedDescriptionViewController = {
+        let controller = DetailedDescriptionViewController(description: post.postDescription)
+        return controller
+    }()
     
     private var runningAnimations = [UIViewPropertyAnimator]()
    
@@ -61,6 +64,7 @@ final class DetailedViewController: UIViewController {
         configureLabels()
         configureImageView()
         detailDescriptionViewController.delegate = self
+        
         detailDescriptionViewController.view.frame = CGRect(x: 0, y: view.frame.height, width: view.bounds.width, height: cardHeight)
         detailDescriptionViewController.view.clipsToBounds = true
         addChild(detailDescriptionViewController)
