@@ -18,9 +18,33 @@ final class PostViewController: UICollectionViewController {
     
     private lazy var transitionDelegate: CardPresentationManager = CardPresentationManager()
     
-    private lazy var addPostBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: CircularButton.addButton)
-    private lazy var settingsBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: CircularButton.settingsButton)
-
+    private lazy var addPostBarButtonItem: UIBarButtonItem = {
+        let button = CircularButton.addButton
+        button.buttonTapped = { [weak self] button in
+            
+            guard let self = self else {
+                return
+            }
+            let addPostViewController = AddPostViewController(postId: UUID(), persistenceController: self.persistenceController, contentState: .creating)
+            let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
+            self.show(addPostNavigationController, sender: self)
+        }
+        return UIBarButtonItem(customView: button)
+    }()
+    
+    private lazy var settingsBarButtonItem: UIBarButtonItem = {
+        let button = CircularButton.settingsButton
+        button.buttonTapped = { [weak self] button in
+            guard let self = self else {
+                return
+            }
+            let settingsViewController = UIStoryboard(name: "Settings", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsViewController")
+            let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
+            self.show(settingsNavigationController, sender: self)
+        }
+        return UIBarButtonItem(customView: button)
+    }()
+    
     private var posts = [Post]() {
         didSet {
             collectionView.reloadData()
@@ -47,7 +71,6 @@ final class PostViewController: UICollectionViewController {
         collectionView.dataSource = self
         configureFetchResultsController()
         title = "My Entries"
-        
     }
     
     private func configureNavigationBar() {
@@ -103,80 +126,6 @@ final class PostViewController: UICollectionViewController {
         }
     }
     
-    private func presentAlertController(post: Post) {
-        
-        let alertController = UIAlertController(title: "Options", message: "What would you like to do?", preferredStyle: .actionSheet)
-        let editAction = UIAlertAction(title: "Edit Post", style: .default) { [weak self] _ in
-            guard let self = self, let id = post.id else {
-                return
-            }
-            
-            let addPostViewController = AddPostViewController(postId: id, persistenceController: self.persistenceController, contentState: .editing)
-            let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
-            self.show(addPostNavigationController, sender: self)
-        }
-        
-        let shareAction = UIAlertAction(title: "Share Post", style: .default) { [weak self] _ in
-            let shareViewController = PostShareViewController(post: post)
-            let shareNavigationController = UINavigationController(rootViewController: shareViewController)
-            self?.show(shareNavigationController, sender: self)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alertController.addAction(shareAction)
-        alertController.addAction(editAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true)
-    }
-    
-    @objc private func addButtonTapped(sender: UIBarButtonItem) {
-        let addPostViewController = AddPostViewController(postId: UUID(), persistenceController: persistenceController, contentState: .creating)
-        let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
-        show(addPostNavigationController, sender: self)
-    }
-    
-    @objc private func settingsButtonTapped(sender: UIBarButtonItem) {
-        let settingsViewController = UIStoryboard(name: "Settings", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsViewController")
-        let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
-        show(settingsNavigationController, sender: self)
-    }
-    
-    @objc private func handleLogPress(_ sender: UILongPressGestureRecognizer) {
-        if sender.state != UIGestureRecognizer.State.ended {
-            return
-        }
-        let p = sender.location(in: self.collectionView)
-        let indexPath = self.collectionView.indexPathForItem(at: p)
-        if let index = indexPath {
-            let post = posts[index.row]
-            presentAlertController(post: post)
-        } else {
-            print("Could not find index path")
-        }
-    }
-}
-
-extension PostViewController: NSFetchedResultsControllerDelegate {
-    
-    // MARK: - NSFetchedResultsControllerDelegate
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
-        switch type {
-        case .update:
-            collectionView.reloadItems(at: [newIndexPath!])
-        case .insert, .move, .delete:
-            guard let posts = controller.fetchedObjects as? [Post] else {
-                return
-            }
-            self.posts = posts
-        default:
-            logAssertionFailure(message: "An unknown case was not handled.")
-        }
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
@@ -201,11 +150,33 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
         }
         let post = posts[indexPath.row]
         let detailledController = UIStoryboard(name: "Detailed", bundle: Bundle.main).instantiateViewController(identifier: "DetailedViewController", creator: { coder in
-            return DetailedViewController(coder: coder, post: post)
-            })
+            return DetailedViewController(coder: coder, post: post, persistenceController: self.persistenceController)
+        })
         let detailledNavigationController = UINavigationController(rootViewController: detailledController)
         detailledNavigationController.modalPresentationStyle = .fullScreen
         present(detailledNavigationController, animated: true)
+    }
+}
+
+extension PostViewController: NSFetchedResultsControllerDelegate {
+    
+    // MARK: - NSFetchedResultsControllerDelegate
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        guard let indexPath = newIndexPath else {
+            return
+        }
+        switch type {
+        case .update:
+            collectionView.reloadItems(at: [indexPath])
+        case .insert, .move, .delete:
+            guard let posts = controller.fetchedObjects as? [Post] else {
+                return
+            }
+            self.posts = posts
+        default:
+            logAssertionFailure(message: "An unknown case was not handled.")
+        }
     }
 }
 
