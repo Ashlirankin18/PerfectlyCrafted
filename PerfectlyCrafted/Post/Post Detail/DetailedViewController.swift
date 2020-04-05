@@ -75,7 +75,7 @@ final class DetailedViewController: UIViewController {
         navigationController?.view.backgroundColor = .clear
     }
     
-    func configureNavigationItems() {
+    private func configureNavigationItems() {
         let button = CircularButton.backButton
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         
@@ -83,6 +83,7 @@ final class DetailedViewController: UIViewController {
             self?.dismiss(animated: true)
         }
     }
+    
     private func configureLabels() {
         guard let createdDate = post.createdDate else {
             return
