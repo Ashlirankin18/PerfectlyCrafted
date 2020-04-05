@@ -10,27 +10,31 @@ import UIKit
 import CoreData
 
 /// `UIViewController` subclass which displays posts.
-final class PostViewController: UIViewController {
-    
-    @IBOutlet private weak var postsCollectionView: UICollectionView!
+final class PostViewController: UICollectionViewController {
     
     private let persistenceController: PersistenceController
     private let localImageManager = try? LocalImageManager()
     private var fetchResultsController: NSFetchedResultsController<Post>?
-
-    private lazy var cardViewControllerTransitioningDelegate = CardPresentationManager()
     
-    private lazy var postCollectionViewDataSource: PostsCollectionViewDataSource = {
-        let postDataSource = PostsCollectionViewDataSource(collectionView: postsCollectionView) { (collectionView, indexPath, post) -> UICollectionViewCell in
-            self.configureCell(collectionView: collectionView, indexPath: indexPath, post: post)
-        }
-        postsCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostCell")
-        return postDataSource
-    }()
+    private lazy var transitionDelegate: CardPresentationManager = CardPresentationManager()
     
     private lazy var addPostBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonTapped(sender:)))
     
     private lazy var settingsBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
+    
+    private lazy var longPressPressGestureRecognizer: UILongPressGestureRecognizer = {
+        let longPressPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLogPress(_:)))
+        longPressPressGestureRecognizer.minimumPressDuration = 0.5
+        longPressPressGestureRecognizer.delaysTouchesBegan = true
+        longPressPressGestureRecognizer.delegate = self
+        return longPressPressGestureRecognizer
+    }()
+    
+    private var posts = [Post]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     /// Creates a new instance of `PostViewController`.
     /// - Parameters:
@@ -48,9 +52,11 @@ final class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBarButtonItem()
-        postsCollectionView.delegate = self
+        collectionView.dataSource = self
         configureFetchResultsController()
         title = "My Entries"
+        
+        collectionView.addGestureRecognizer(longPressPressGestureRecognizer)
     }
     
     private func configureBarButtonItem() {
@@ -58,38 +64,28 @@ final class PostViewController: UIViewController {
         navigationItem.leftBarButtonItem = settingsBarButtonItem
     }
     
-    private func configureCell (collectionView: UICollectionView, indexPath: IndexPath, post: Post ) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as? PostCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        configureCellViewModel(cell: cell, post: post)
-        
-        cell.editButtonTapped = { [weak self] in
-            self?.presentAlertController(post: post)
-        }
-        return cell
-    }
-    
     private func configureCellViewModel(cell: PostCollectionViewCell, post: Post) {
         
-        if let photoIdentifier = post.photoIdentfier {
+        if let photoIdentifier = post.photoIdentfier, let createdDate = post.createdDate {
             localImageManager?.loadImage(forKey: photoIdentifier) { (result) in
                 switch result {
                 case let .success(image):
-                    cell.viewModel = PostCollectionViewCell.ViewModel(postImage: image, title: post.title ?? "", date: post.date!)
+                    cell.viewModel = PostCollectionViewCell.ViewModel(postImage: image, title: post.title?.capitalized ?? "", date: post.eventDate ?? createdDate)
                 case let .failure(error):
                     print("There was an error \(error)")
                 }
             }
         } else {
-            cell.viewModel = PostCollectionViewCell.ViewModel(postImage: nil, title: post.title ?? "", date: post.date!)
+            guard let createdDate = post.createdDate else {
+                return
+            }
+            cell.viewModel = PostCollectionViewCell.ViewModel(postImage: nil, title: post.title?.capitalized ?? "", date: post.eventDate ?? createdDate)
         }
     }
     
     private func configureFetchResultsController() {
         
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "createdDate", ascending: false)
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         request.sortDescriptors = [sortDescriptor]
         
@@ -99,7 +95,7 @@ final class PostViewController: UIViewController {
         do {
             try fetchResultsController?.performFetch()
             if let posts = fetchResultsController?.fetchedObjects {
-                updateDataSource(items: posts)
+                self.posts = posts
                 
                 //TODO: - HANDLE THE EMPTY STATE OF NOT HAVING ENTRIES.
             }
@@ -108,26 +104,17 @@ final class PostViewController: UIViewController {
         }
     }
     
-    private func updateDataSource(items: [Post]) {
-        var snapshot = NSDiffableDataSourceSnapshot<PostsCollectionViewDataSource.Section, Post>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(items, toSection: .main)
-        postCollectionViewDataSource.updateSnapshot(snapshot)
-    }
-    
     private func presentAlertController(post: Post) {
         
         let alertController = UIAlertController(title: "Options", message: "What would you like to do?", preferredStyle: .actionSheet)
         let editAction = UIAlertAction(title: "Edit Post", style: .default) { [weak self] _ in
-            guard let self = self else {
+            guard let self = self, let id = post.id else {
                 return
             }
             
-            let editPostViewController = EditPostViewController(post: post, persistenceController: self.persistenceController)
-            let editControllerNavigationController = UINavigationController(rootViewController: editPostViewController)
-            editControllerNavigationController.modalPresentationStyle = .custom
-            editControllerNavigationController.transitioningDelegate = self.cardViewControllerTransitioningDelegate
-            self.show(editControllerNavigationController, sender: self)
+            let addPostViewController = AddPostViewController(postId: id, persistenceController: self.persistenceController, contentState: .editing)
+            let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
+            self.show(addPostNavigationController, sender: self)
         }
         
         let shareAction = UIAlertAction(title: "Share Post", style: .default) { [weak self] _ in
@@ -146,7 +133,7 @@ final class PostViewController: UIViewController {
     }
     
     @objc private func addButtonTapped(sender: UIBarButtonItem) {
-        let addPostViewController = AddPostViewController(postId: UUID(), persistenceController: persistenceController)
+        let addPostViewController = AddPostViewController(postId: UUID(), persistenceController: persistenceController, contentState: .creating)
         let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
         show(addPostNavigationController, sender: self)
     }
@@ -155,6 +142,20 @@ final class PostViewController: UIViewController {
         let settingsViewController = UIStoryboard(name: "Settings", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsViewController")
         let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
         show(settingsNavigationController, sender: self)
+    }
+    
+    @objc private func handleLogPress(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizer.State.ended {
+            return
+        }
+        let p = sender.location(in: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: p)
+        if let index = indexPath {
+            let post = posts[index.row]
+            presentAlertController(post: post)
+        } else {
+            print("Could not find index path")
+        }
     }
 }
 
@@ -166,26 +167,44 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
         
         switch type {
         case .update:
-            guard let post = anObject as? Post else {
-                return
-            }
-            postCollectionViewDataSource.reload(item: post)
+            collectionView.reloadItems(at: [newIndexPath!])
         case .insert, .move, .delete:
             guard let posts = controller.fetchedObjects as? [Post] else {
                 return
             }
-            updateDataSource(items: posts)
+            self.posts = posts
         default:
             logAssertionFailure(message: "An unknown case was not handled.")
         }
     }
-}
-
-extension PostViewController: UICollectionViewDelegateFlowLayout {
     
-    // MARK: - UICollectionViewDelegateFlowLayout
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts.count
+    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 650)
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let post = posts[indexPath.row]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.reuseIdentifier, for: indexPath) as? PostCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        configureCellViewModel(cell: cell, post: post)
+        
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let layout = collectionViewLayout as? FeaturedLayout else {
+            return
+        }
+        let offset = layout.dragOffset * CGFloat(indexPath.item)
+        if collectionView.contentOffset.y != offset {
+            collectionView.setContentOffset(CGPoint(x: 0, y: offset), animated: true)
+        }
+        
+        let detailledController = UIStoryboard(name: "Detailed", bundle: Bundle.main).instantiateViewController(identifier: "DetailedViewController")
+        detailledController.modalPresentationStyle = .fullScreen
+        present(detailledController, animated: true)
     }
 }
+
+extension PostViewController: UIGestureRecognizerDelegate {}

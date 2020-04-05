@@ -47,6 +47,12 @@ final class PostsCollectionViewDataSource: NSObject {
         dataSource?.apply(snapshot)
     }
     
+    var items: Int {
+        guard let dataSource = dataSource else {
+            return 0
+        }
+        return dataSource.snapshot().numberOfItems
+    }
     /// Provides an `Item` for the given `IndexPath`.
     /// - Parameter indexPath: The `IndexPath` of the desired item.
     func item(for indexPath: IndexPath) -> Post? {
