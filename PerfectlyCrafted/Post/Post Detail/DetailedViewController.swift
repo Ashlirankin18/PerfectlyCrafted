@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class DetailedViewController: UIViewController {
     
@@ -32,14 +33,20 @@ final class DetailedViewController: UIViewController {
     
     private let localImageManager = try? LocalImageManager()
     
+    private let persistenceController: PersistenceController
+    
+    private let managedObjectContext: NSManagedObjectContext
+    
     @IBOutlet private weak var entryImageView: UIImageView!
     
     @IBOutlet private weak var dateLabel: UILabel!
     
     @IBOutlet private weak var titleLabel: UILabel!
     
-    init?(coder: NSCoder, post: Post) {
+    init?(coder: NSCoder, post: Post, persistenceController: PersistenceController) {
         self.post = post
+        self.persistenceController = persistenceController
+        self.managedObjectContext = persistenceController.newMainContext
         super.init(coder: coder)
     }
     
@@ -69,7 +76,12 @@ final class DetailedViewController: UIViewController {
     }
     
     func configureNavigationItems() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: CircularButton.backButton)
+        let button = CircularButton.backButton
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        
+        button.buttonTapped = { [weak self] _ in
+            self?.dismiss(animated: true)
+        }
     }
     private func configureLabels() {
         guard let createdDate = post.createdDate else {
@@ -149,12 +161,26 @@ final class DetailedViewController: UIViewController {
     }
     
     @IBAction private func editButtonTapped(_ sender: CircularButton) {
+        guard let id = post.id else {
+            return
+        }
+        let editPostViewController = AddPostViewController(postId: id, persistenceController: self.persistenceController, contentState: .editing)
+        let editPostNavigationController = UINavigationController(rootViewController: editPostViewController)
+        self.show(editPostNavigationController, sender: self)
     }
     
     @IBAction private func deleteButtonTapped(_ sender: CircularButton) {
+        guard let id = post.id else {
+                   return
+        }
+        persistenceController.deleteObject(with: id, on: persistenceController.viewContext)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction private func shareButtonTapped(_ sender: CircularButton) {
+        let shareViewController = PostShareViewController(post: post)
+        let shareNavigationController = UINavigationController(rootViewController: shareViewController)
+        show(shareNavigationController, sender: self)
     }
 }
 

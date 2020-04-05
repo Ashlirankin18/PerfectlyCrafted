@@ -56,11 +56,12 @@ final class CircularButton: UIButton {
 }
 
 extension CircularButton {
-    static var settingsButton: CircularButton = .init(image: UIImage(systemName: "gear", withConfiguration: DesignConstants.imageConfiguration ) ?? UIImage())
     
-    static var addButton: CircularButton = .init(image: UIImage(systemName: "plus", withConfiguration: DesignConstants.imageConfiguration) ?? UIImage())
+    static var settingsButton: CircularButton = .init(image: .settings)
     
-    static var editButton: CircularButton = .init(image: UIImage(systemName: "pencil", withConfiguration: DesignConstants.imageConfiguration) ?? UIImage())
+    static var addButton: CircularButton = .init(image: .add)
     
-    static var backButton: CircularButton = .init(image: UIImage(systemName: "arrow.left", withConfiguration: DesignConstants.imageConfiguration) ?? UIImage())
+    static var editButton: CircularButton = .init(image: .edit)
+    
+    static var backButton: CircularButton = .init(image: .back)
 }

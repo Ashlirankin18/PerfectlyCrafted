@@ -11,6 +11,26 @@ import UIKit
 extension UIImage {
     
     static var settings: UIImage {
-        return UIImage(systemName: "gear") ?? UIImage()
+        return UIImage(systemName: "gear", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
+    }
+    
+    static var add: UIImage {
+        return UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
+    }
+    
+    static var cancel: UIImage {
+        return UIImage(systemName: "minus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
+    }
+    
+    static var edit: UIImage {
+        return UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
+    }
+    
+    static var delete: UIImage {
+        return UIImage(systemName: "trash.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
+    }
+    
+    static var back: UIImage {
+        return UIImage(systemName: "arrow.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
     }
 }
