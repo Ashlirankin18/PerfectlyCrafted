@@ -200,8 +200,10 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
         if collectionView.contentOffset.y != offset {
             collectionView.setContentOffset(CGPoint(x: 0, y: offset), animated: true)
         }
-        
-        let detailledController = UIStoryboard(name: "Detailed", bundle: Bundle.main).instantiateViewController(identifier: "DetailedViewController")
+        let post = posts[indexPath.row]
+        let detailledController = UIStoryboard(name: "Detailed", bundle: Bundle.main).instantiateViewController(identifier: "DetailedViewController", creator: { coder in
+            return DetailedViewController(coder: coder, post: post)
+            })
         detailledController.modalPresentationStyle = .fullScreen
         present(detailledController, animated: true)
     }

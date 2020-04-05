@@ -16,7 +16,7 @@ final class DetailedViewController: UIViewController {
     }
     
     private let cardHeight: CGFloat = 620
-    private let cardHandleArea: CGFloat = 70
+    private let cardHandleArea: CGFloat = 60
     private var isCardVisible: Bool = false
     private var animationProgressWhenInterrupted: CGFloat = 0.0
     
@@ -27,21 +27,58 @@ final class DetailedViewController: UIViewController {
     private lazy var detailDescriptionViewController: DetailedDescriptionViewController = DetailedDescriptionViewController()
     
     private var runningAnimations = [UIViewPropertyAnimator]()
-       
+   
+    private let post: Post
+    
+    private let localImageManager = try? LocalImageManager()
+    
     @IBOutlet private weak var entryImageView: UIImageView!
     
     @IBOutlet private weak var dateLabel: UILabel!
     
     @IBOutlet private weak var titleLabel: UILabel!
     
+    init?(coder: NSCoder, post: Post) {
+        self.post = post
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLabels()
+        configureImageView()
         detailDescriptionViewController.delegate = self
         detailDescriptionViewController.view.frame = CGRect(x: 0, y: view.frame.height, width: view.bounds.width, height: cardHeight)
         detailDescriptionViewController.view.clipsToBounds = true
         addChild(detailDescriptionViewController)
         view.addSubview(detailDescriptionViewController.view)
         animateTransitionIfNeeded(state: nextState, duration: 1.0)
+    }
+    private func configureLabels() {
+        guard let createdDate = post.createdDate else {
+            return
+        }
+        dateLabel.text = DateFormatter.format(date: post.eventDate ?? createdDate)
+        titleLabel.text = post.title?.capitalized
+    }
+    
+    private func configureImageView() {
+        guard let photoIdendifier = post.photoIdentfier else {
+            return
+        }
+        localImageManager?.loadImage(forKey: photoIdendifier) { [weak self] (result) in
+            switch result {
+            case let .failure(error):
+                print(error)
+                self?.entryImageView.backgroundColor = .white
+            case let .success(image):
+                self?.entryImageView.image = image
+            }
+        }
     }
     
     private func animateTransitionIfNeeded(state: CardState, duration: TimeInterval) {
