@@ -10,7 +10,7 @@ import UIKit
 
 /// `UICollectionViewCell` subclass which displays a post
 final class PostCollectionViewCell: UICollectionViewCell {
-    
+    static let reuseIdentifier = String(describing: PostCollectionViewCell.self)
     /// Contains the information needed to configure the `PostCollectionViewCell`
     struct ViewModel {
         
@@ -24,7 +24,7 @@ final class PostCollectionViewCell: UICollectionViewCell {
         let date: Date
     }
     
-    @IBOutlet private weak var moreOptionsButton: UIButton!
+    @IBOutlet private weak var imageCoverView: UIView!
     @IBOutlet private weak var postImageView: UIImageView!
     @IBOutlet private weak var captionLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
@@ -42,10 +42,25 @@ final class PostCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    /// Is called when the edit button is tapped.
-    var editButtonTapped: (() -> Void)?
-    
-    @IBAction private func moreOptionButtonTapped(_ sender: Any) {
-        editButtonTapped?()
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        
+        // 1
+        let standardHeight = FeaturedLayoutConstants.Cell.standardHeight
+        let featuredHeight = FeaturedLayoutConstants.Cell.featuredHeight
+        
+        // 2
+        let delta = 1 - (
+            (featuredHeight - frame.height) / (featuredHeight - standardHeight)
+        )
+        
+        // 3
+        let minAlpha: CGFloat = 0.3
+        let maxAlpha: CGFloat = 0.75
+        imageCoverView.alpha = maxAlpha - (delta * (maxAlpha - minAlpha))
+        
+        let scale = max(delta, 0.5)
+        captionLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
+        dateLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
     }
 }

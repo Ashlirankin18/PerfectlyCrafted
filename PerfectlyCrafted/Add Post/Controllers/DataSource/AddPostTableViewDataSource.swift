@@ -22,7 +22,7 @@ final class AddPostTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,6 +34,11 @@ final class AddPostTableViewDataSource: NSObject, UITableViewDataSource {
             return cellConfiguration(cell, indexPath)
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionTableViewCell  else {
+                return UITableViewCell()
+            }
+            return cellConfiguration(cell, indexPath)
+        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickerCell", for: indexPath) as? DatePickerTableViewCell  else {
                 return UITableViewCell()
             }
             return cellConfiguration(cell, indexPath)

@@ -12,7 +12,16 @@ import CoreData
 /// `UIViewController` subclss which allows the user to add a post.
 final class AddPostViewController: UIViewController {
     
+    enum ContentState {
+        case creating
+        case editing
+    }
+    
     @IBOutlet private weak var addPostTableView: UITableView!
+    
+    @IBOutlet private weak var deleteButton: UIButton!
+    
+    private let contentState: ContentState
     
     private let  managedObjectContext: NSManagedObjectContext
     
@@ -32,6 +41,7 @@ final class AddPostViewController: UIViewController {
         }
         addPostTableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
         addPostTableView.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
+        addPostTableView.register(UINib(nibName: "DatePickerTableViewCell", bundle: nil), forCellReuseIdentifier: "PickerCell")
         return addPostTableViewDataSource
     }()
     
@@ -45,10 +55,11 @@ final class AddPostViewController: UIViewController {
     /// - Parameters:
     ///   - postId: The id of the post.
     ///   - persistenceController: The persistence controller.
-    init(postId: UUID, persistenceController: PersistenceController) {
+    init(postId: UUID, persistenceController: PersistenceController, contentState: ContentState) {
         self.postId = postId
         self.persistenceController = persistenceController
         self.managedObjectContext = persistenceController.newMainContext
+        self.contentState = contentState
         super.init(nibName: "AddPostViewController", bundle: Bundle.main)
     }
     
@@ -61,7 +72,7 @@ final class AddPostViewController: UIViewController {
         configureBarButtonItems()
         configureTableView()
         updateHeaderView()
-        createPost()
+        createPostIfNeeded()
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
     }
@@ -69,6 +80,12 @@ final class AddPostViewController: UIViewController {
     private func configureBarButtonItems() {
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @IBAction private func deleteButtonTapped(_ sender: UIButton) {
+       
+        persistenceController.deleteObject(with: postId, on: persistenceController.viewContext)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc private func cancelButtonTapped(sender: UIBarButtonItem) {
@@ -81,13 +98,16 @@ final class AddPostViewController: UIViewController {
     }
     
     private func configureCell(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell {
-        
+        guard let post = posts.first, let createdDate = post.createdDate else {
+            logAssertionFailure(message: "Could not find post")
+            return UITableViewCell()
+        }
         switch indexPath.row {
         case 0:
             guard let cell = cell as? TitleTableViewCell else {
                 return UITableViewCell()
             }
-            cell.viewModel = TitleTableViewCell.ViewModel(title: "")
+            cell.viewModel = TitleTableViewCell.ViewModel(title: post.title ?? ""  )
             cell.textFieldDidEndEditing = { [weak self] textfield in
                 self?.updatePost(title: textfield.text)
             }
@@ -96,10 +116,17 @@ final class AddPostViewController: UIViewController {
             guard let cell = cell as? DescriptionTableViewCell else {
                 return UITableViewCell()
             }
-            let existingDescription = "Give your entry a description"
-            let placeholderColor: UIColor = .gray
+            let existingDescription = post.postDescription ?? "Give your entry a description"
+            let placeholderColor: UIColor = post.postDescription == nil ? .gray : .black
             cell.delegate = self
             cell.viewModel = DescriptionTableViewCell.ViewModel(placeholderColor: placeholderColor, placeholder: existingDescription)
+            return cell
+        case 2:
+            guard let cell = cell as? DatePickerTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.viewModel = DatePickerTableViewCell.ViewModel(shouldHidePiker: true, date: post.eventDate ?? createdDate)
+            
             return cell
         default:
             return UITableViewCell()
@@ -144,18 +171,29 @@ final class AddPostViewController: UIViewController {
         present(imagePickerController, animated: true)
     }
     
-    private func createPost() {
-        let newPost = Post(context: managedObjectContext)
-        newPost.id = postId
-        newPost.date = Date()
-        newPost.image = nil
-        newPost.title = nil
-        newPost.postDescription = nil
-        newPost.photoIdentfier = nil
-        posts.append(newPost)
+    private func createPostIfNeeded() {
+        switch contentState {
+        case .creating:
+            deleteButton.isHidden = true
+            let newPost = Post(context: managedObjectContext)
+            newPost.id = postId
+            newPost.createdDate = Date()
+            newPost.eventDate = nil
+            newPost.image = nil
+            newPost.title = nil
+            newPost.postDescription = nil
+            newPost.photoIdentfier = nil
+            posts.append(newPost)
+        case .editing:
+            deleteButton.isHidden = false
+            guard let post = persistenceController.retrieveObjects(with: postId, context: managedObjectContext).first else {
+                return
+            }
+            posts.append(post)
+        }
     }
     
-    private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil ) {
+    private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil, eventDate: Date? = nil) {
         let fetchRequest: NSFetchRequest<Post> = NSFetchRequest<Post>()
         fetchRequest.entity = Post.entity()
         
@@ -175,6 +213,10 @@ final class AddPostViewController: UIViewController {
                 if let imageData = imageData {
                     post.image = imageData
                 }
+                if let eventDate = eventDate {
+                    post.eventDate = eventDate
+                }
+                
             } else {
                 logAssertionFailure(message: "Could not retrieve post.")
             }
@@ -225,6 +267,14 @@ extension AddPostViewController: UITableViewDelegate {
         }
         return addProductHeaderView
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            if let cell = tableView.cellForRow(at: indexPath) as? DatePickerTableViewCell {
+                cell.viewModel?.shouldHidePiker = false
+            }
+        }
+    }
 }
 
 extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -241,7 +291,19 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
                 logAssertionFailure(message: "Could not load image.")
                 return
         }
-        let photoIdentifier = UUID()
+        
+        var photoIdentifier: UUID
+        
+        switch contentState {
+        case .creating:
+            photoIdentifier = UUID()
+        case .editing:
+            guard let post = posts.first, let postPhotoIdentifier = post.photoIdentfier else {
+                return
+            }
+            photoIdentifier = postPhotoIdentifier
+        }
+        
         do {
             let data = try image.heicData()
             updatePost(photoIdentifier: photoIdentifier, imageData: data)

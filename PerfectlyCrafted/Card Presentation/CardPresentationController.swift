@@ -18,6 +18,7 @@ class CardPresentationController: UIPresentationController {
         self.presentationDirection = presentationDirection
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         setupDimmingView()
+    
     }
     
     override func presentationTransitionWillBegin() {
