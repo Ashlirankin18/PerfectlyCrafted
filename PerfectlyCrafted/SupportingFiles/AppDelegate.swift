@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         FirebaseApp.configure()
-        AssetsColor.current.apply()
         return true
     }
 }

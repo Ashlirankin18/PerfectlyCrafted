@@ -35,6 +35,8 @@
 		2E3FD058243A1B5E00DED9CA /* DetailedDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD056243A1B5E00DED9CA /* DetailedDescriptionViewController.swift */; };
 		2E3FD059243A1B5E00DED9CA /* DetailedDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FD057243A1B5E00DED9CA /* DetailedDescriptionViewController.xib */; };
 		2E3FD05B243A258700DED9CA /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD05A243A258700DED9CA /* DetailedViewController.swift */; };
+		2E3FD061243A6A3900DED9CA /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD060243A6A3900DED9CA /* CircularButton.swift */; };
+		2E3FD064243A708200DED9CA /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD063243A708200DED9CA /* SFSymbols.swift */; };
 		2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4170222415AF7F008620C5 /* PersistenceController.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
@@ -95,6 +97,8 @@
 		2E3FD056243A1B5E00DED9CA /* DetailedDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedDescriptionViewController.swift; sourceTree = "<group>"; };
 		2E3FD057243A1B5E00DED9CA /* DetailedDescriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailedDescriptionViewController.xib; sourceTree = "<group>"; };
 		2E3FD05A243A258700DED9CA /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		2E3FD060243A6A3900DED9CA /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		2E3FD063243A708200DED9CA /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		2E4170222415AF7F008620C5 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +236,22 @@
 			path = "Post Detail";
 			sourceTree = "<group>";
 		};
+		2E3FD05F243A6A0D00DED9CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E3FD060243A6A3900DED9CA /* CircularButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2E3FD062243A705400DED9CA /* SFSymbols */ = {
+			isa = PBXGroup;
+			children = (
+				2E3FD063243A708200DED9CA /* SFSymbols.swift */,
+			);
+			path = SFSymbols;
+			sourceTree = "<group>";
+		};
 		2E4170212415AF59008620C5 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +281,8 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2E3FD062243A705400DED9CA /* SFSymbols */,
+				2E3FD05F243A6A0D00DED9CA /* Views */,
 				2E3FD05024396CB600DED9CA /* Visual Layout */,
 				2E6C7F1B24291FB9008B7F69 /* Keyboard Observer */,
 				2E6C7F0A2427AFF0008B7F69 /* Settings */,
@@ -652,6 +674,7 @@
 				2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */,
 				2E6C7F2A242C0378008B7F69 /* DatePickerTableViewCell.swift in Sources */,
 				2E3187CD241344FE003FC8B0 /* UIView+InstantiateFromNib.swift in Sources */,
+				2E3FD064243A708200DED9CA /* SFSymbols.swift in Sources */,
 				2E6C7F162427B9BB008B7F69 /* AssetColors.swift in Sources */,
 				2E016166241739B4006A8723 /* CardPresentationController.swift in Sources */,
 				2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */,
@@ -661,6 +684,7 @@
 				2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */,
 				2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */,
 				2E6C7F22242C0100008B7F69 /* DateNameTableViewCell.swift in Sources */,
+				2E3FD061243A6A3900DED9CA /* CircularButton.swift in Sources */,
 				2E3FD05224396CE300DED9CA /* FeaturedLayout.swift in Sources */,
 				2ECBA8C72430858D003543CD /* PostDetailViewController.swift in Sources */,
 				2E6C7F102427B25F008B7F69 /* ColorSelectionCollectionViewCell.swift in Sources */,

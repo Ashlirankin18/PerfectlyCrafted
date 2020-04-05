@@ -18,18 +18,9 @@ final class PostViewController: UICollectionViewController {
     
     private lazy var transitionDelegate: CardPresentationManager = CardPresentationManager()
     
-    private lazy var addPostBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonTapped(sender:)))
-    
-    private lazy var settingsBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
-    
-    private lazy var longPressPressGestureRecognizer: UILongPressGestureRecognizer = {
-        let longPressPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLogPress(_:)))
-        longPressPressGestureRecognizer.minimumPressDuration = 0.5
-        longPressPressGestureRecognizer.delaysTouchesBegan = true
-        longPressPressGestureRecognizer.delegate = self
-        return longPressPressGestureRecognizer
-    }()
-    
+    private lazy var addPostBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: CircularButton.addButton)
+    private lazy var settingsBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: CircularButton.settingsButton)
+
     private var posts = [Post]() {
         didSet {
             collectionView.reloadData()
@@ -51,15 +42,23 @@ final class PostViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
         configureBarButtonItem()
         collectionView.dataSource = self
         configureFetchResultsController()
         title = "My Entries"
         
-        collectionView.addGestureRecognizer(longPressPressGestureRecognizer)
+    }
+    
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
     }
     
     private func configureBarButtonItem() {
+        
         navigationItem.rightBarButtonItem = addPostBarButtonItem
         navigationItem.leftBarButtonItem = settingsBarButtonItem
     }
@@ -204,8 +203,9 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
         let detailledController = UIStoryboard(name: "Detailed", bundle: Bundle.main).instantiateViewController(identifier: "DetailedViewController", creator: { coder in
             return DetailedViewController(coder: coder, post: post)
             })
-        detailledController.modalPresentationStyle = .fullScreen
-        present(detailledController, animated: true)
+        let detailledNavigationController = UINavigationController(rootViewController: detailledController)
+        detailledNavigationController.modalPresentationStyle = .fullScreen
+        present(detailledNavigationController, animated: true)
     }
 }
 

@@ -15,7 +15,7 @@ final class DetailedViewController: UIViewController {
         case collapsed
     }
     
-    private let cardHeight: CGFloat = 620
+    private let cardHeight: CGFloat = 560
     private let cardHandleArea: CGFloat = 60
     private var isCardVisible: Bool = false
     private var animationProgressWhenInterrupted: CGFloat = 0.0
@@ -49,6 +49,8 @@ final class DetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
+        configureNavigationItems()
         configureLabels()
         configureImageView()
         detailDescriptionViewController.delegate = self
@@ -57,6 +59,17 @@ final class DetailedViewController: UIViewController {
         addChild(detailDescriptionViewController)
         view.addSubview(detailDescriptionViewController.view)
         animateTransitionIfNeeded(state: nextState, duration: 1.0)
+    }
+    
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
+    }
+    
+    func configureNavigationItems() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: CircularButton.backButton)
     }
     private func configureLabels() {
         guard let createdDate = post.createdDate else {
@@ -101,7 +114,7 @@ final class DetailedViewController: UIViewController {
             let cornerRadiusAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
                 switch state {
                 case .expanded:
-                    self.detailDescriptionViewController.view.layer.cornerRadius = 10.0
+                    self.detailDescriptionViewController.view.layer.cornerRadius = 20.0
                 case .collapsed:
                     self.detailDescriptionViewController.view.layer.cornerRadius = 0
                 }
@@ -133,6 +146,15 @@ final class DetailedViewController: UIViewController {
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0.0)
         }
+    }
+    
+    @IBAction private func editButtonTapped(_ sender: CircularButton) {
+    }
+    
+    @IBAction private func deleteButtonTapped(_ sender: CircularButton) {
+    }
+    
+    @IBAction private func shareButtonTapped(_ sender: CircularButton) {
     }
 }
 

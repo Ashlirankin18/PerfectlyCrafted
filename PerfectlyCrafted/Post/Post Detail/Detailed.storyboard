@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Ev-41-xd6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -19,18 +19,47 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qe6-8c-hk2">
-                                <rect key="frame" x="344" y="88" width="70" height="128"/>
+                                <rect key="frame" x="344" y="44" width="70" height="128"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4Nn-qX-ctF">
-                                        <rect key="frame" x="0.0" y="8" width="70" height="120"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4Nn-qX-ctF">
+                                        <rect key="frame" x="20" y="8" width="36" height="132"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PX8-le-HIx">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="60"/>
-                                                <state key="normal" image="pencil" catalog="system"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PX8-le-HIx" customClass="CircularButton" customModule="PerfectlyCrafted" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="Exj-6a-cDl"/>
+                                                    <constraint firstAttribute="width" constant="36" id="MOD-wk-Z5a"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="pencil" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="medium"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="editButtonTapped:" destination="4Ev-41-xd6" eventType="touchUpInside" id="N3D-2P-2UG"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25d-vI-Zdb">
-                                                <rect key="frame" x="0.0" y="60" width="70" height="60"/>
-                                                <state key="normal" image="trash" catalog="system"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25d-vI-Zdb" customClass="CircularButton" customModule="PerfectlyCrafted" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="48" width="36" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="trash" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="medium"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deleteButtonTapped:" destination="4Ev-41-xd6" eventType="touchUpInside" id="9n7-4c-Efa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBP-QC-eQb" customClass="CircularButton" customModule="PerfectlyCrafted" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="96" width="36" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="square.and.arrow.up" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="medium"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="shareButtonTapped:" destination="4Ev-41-xd6" eventType="touchUpInside" id="0Mx-PJ-YKS"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -38,16 +67,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="4Nn-qX-ctF" firstAttribute="top" secondItem="qe6-8c-hk2" secondAttribute="top" constant="8" id="RqL-9g-Nf9"/>
+                                    <constraint firstItem="4Nn-qX-ctF" firstAttribute="leading" secondItem="qe6-8c-hk2" secondAttribute="leading" constant="20" id="1yg-RV-BTK"/>
+                                    <constraint firstItem="4Nn-qX-ctF" firstAttribute="top" secondItem="qe6-8c-hk2" secondAttribute="topMargin" id="2vZ-YD-RZh"/>
                                     <constraint firstAttribute="width" constant="70" id="Uhx-Lf-Sy2"/>
-                                    <constraint firstAttribute="bottom" secondItem="4Nn-qX-ctF" secondAttribute="bottom" id="YdA-gW-brS"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Nn-qX-ctF" secondAttribute="trailing" id="YxE-bb-2dQ"/>
-                                    <constraint firstItem="4Nn-qX-ctF" firstAttribute="leading" secondItem="qe6-8c-hk2" secondAttribute="leading" id="is1-e7-kiy"/>
                                     <constraint firstAttribute="height" constant="128" id="mIJ-ck-oqG"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Jcp-6L-yVN">
-                                <rect key="frame" x="20" y="236" width="100" height="71.5"/>
+                                <rect key="frame" x="20" y="204" width="100" height="71.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jv1-82-rlj">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="23.5"/>
@@ -88,27 +115,10 @@
             </objects>
             <point key="canvasLocation" x="1028.985507246377" y="122.54464285714285"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="lkb-Og-2GU">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kgs-83-MI6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bLD-jO-HCK">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="4Ev-41-xd6" kind="relationship" relationship="rootViewController" id="8rH-Gv-2aR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="86T-id-Min" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="118.84057971014494" y="122.54464285714285"/>
-        </scene>
     </scenes>
     <resources>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
     </resources>
 </document>
