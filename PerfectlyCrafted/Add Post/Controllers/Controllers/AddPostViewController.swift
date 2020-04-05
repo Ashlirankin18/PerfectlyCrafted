@@ -19,8 +19,6 @@ final class AddPostViewController: UIViewController {
     
     @IBOutlet private weak var addPostTableView: UITableView!
     
-    @IBOutlet private weak var deleteButton: UIButton!
-    
     private let contentState: ContentState
     
     private let  managedObjectContext: NSManagedObjectContext
@@ -80,12 +78,6 @@ final class AddPostViewController: UIViewController {
     private func configureBarButtonItems() {
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = saveButton
-    }
-    
-    @IBAction private func deleteButtonTapped(_ sender: UIButton) {
-       
-        persistenceController.deleteObject(with: postId, on: persistenceController.viewContext)
-        dismiss(animated: true, completion: nil)
     }
     
     @objc private func cancelButtonTapped(sender: UIBarButtonItem) {
@@ -174,7 +166,6 @@ final class AddPostViewController: UIViewController {
     private func createPostIfNeeded() {
         switch contentState {
         case .creating:
-            deleteButton.isHidden = true
             let newPost = Post(context: managedObjectContext)
             newPost.id = postId
             newPost.createdDate = Date()
@@ -185,7 +176,6 @@ final class AddPostViewController: UIViewController {
             newPost.photoIdentfier = nil
             posts.append(newPost)
         case .editing:
-            deleteButton.isHidden = false
             guard let post = persistenceController.retrieveObjects(with: postId, context: managedObjectContext).first else {
                 return
             }
@@ -216,7 +206,6 @@ final class AddPostViewController: UIViewController {
                 if let eventDate = eventDate {
                     post.eventDate = eventDate
                 }
-                
             } else {
                 logAssertionFailure(message: "Could not retrieve post.")
             }
