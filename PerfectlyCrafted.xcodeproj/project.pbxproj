@@ -19,7 +19,6 @@
 		2E3187F52413DE25003FC8B0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3187F42413DE25003FC8B0 /* CloudKit.framework */; };
 		2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */; };
 		2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188082413F411003FC8B0 /* AddPostViewController.swift */; };
-		2E31880B2413F411003FC8B0 /* AddPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3188092413F411003FC8B0 /* AddPostViewController.xib */; };
 		2E31880E2413F45E003FC8B0 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31880C2413F45E003FC8B0 /* TitleTableViewCell.swift */; };
 		2E31880F2413F45E003FC8B0 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */; };
 		2E3188122413F55D003FC8B0 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */; };
@@ -37,6 +36,7 @@
 		2E3FD05B243A258700DED9CA /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD05A243A258700DED9CA /* DetailedViewController.swift */; };
 		2E3FD061243A6A3900DED9CA /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD060243A6A3900DED9CA /* CircularButton.swift */; };
 		2E3FD064243A708200DED9CA /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD063243A708200DED9CA /* SFSymbols.swift */; };
+		2E3FD06D243B779300DED9CA /* AddPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FD06C243B779300DED9CA /* AddPost.storyboard */; };
 		2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4170222415AF7F008620C5 /* PersistenceController.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
@@ -81,7 +81,6 @@
 		2E3187F42413DE25003FC8B0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2E3187FB2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PerfectlyCrafted.xcdatamodel; sourceTree = "<group>"; };
 		2E3188082413F411003FC8B0 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
-		2E3188092413F411003FC8B0 /* AddPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPostViewController.xib; sourceTree = "<group>"; };
 		2E31880C2413F45E003FC8B0 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		2E3FD05A243A258700DED9CA /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		2E3FD060243A6A3900DED9CA /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		2E3FD063243A708200DED9CA /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
+		2E3FD06C243B779300DED9CA /* AddPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPost.storyboard; sourceTree = "<group>"; };
 		2E4170222415AF7F008620C5 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				2E3188082413F411003FC8B0 /* AddPostViewController.swift */,
-				2E3188092413F411003FC8B0 /* AddPostViewController.xib */,
+				2E3FD06C243B779300DED9CA /* AddPost.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -560,7 +560,6 @@
 			files = (
 				2E6C7EFF24241372008B7F69 /* PostShareViewController.xib in Resources */,
 				2E31881724140C54003FC8B0 /* AddProductHeaderView.xib in Resources */,
-				2E31880B2413F411003FC8B0 /* AddPostViewController.xib in Resources */,
 				2E3188132413F55D003FC8B0 /* DescriptionTableViewCell.xib in Resources */,
 				2E6C7F05242415A2008B7F69 /* PostShareView.xib in Resources */,
 				2E3FD059243A1B5E00DED9CA /* DetailedDescriptionViewController.xib in Resources */,
@@ -569,6 +568,7 @@
 				2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */,
 				2ECBA8C82430858D003543CD /* PostDetailViewController.xib in Resources */,
 				2E31880F2413F45E003FC8B0 /* TitleTableViewCell.xib in Resources */,
+				2E3FD06D243B779300DED9CA /* AddPost.storyboard in Resources */,
 				2E6C7F23242C0100008B7F69 /* DateNameTableViewCell.xib in Resources */,
 				2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */,
 				2E6C7F112427B25F008B7F69 /* ColorSelectionCollectionViewCell.xib in Resources */,

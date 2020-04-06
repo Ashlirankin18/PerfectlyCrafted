@@ -25,8 +25,13 @@ final class PostViewController: UICollectionViewController {
             guard let self = self else {
                 return
             }
-            let addPostViewController = AddPostViewController(postId: UUID(), persistenceController: self.persistenceController, contentState: .creating)
+            
+            let addPostViewController = UIStoryboard(name: "AddPost", bundle: Bundle.main).instantiateViewController(identifier: "AddPostViewController", creator: { coder in
+                return AddPostViewController(coder: coder, postId: UUID(), persistenceController: self.persistenceController, contentState: .creating)
+            })
+            
             let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
+            addPostNavigationController.modalPresentationStyle = .fullScreen
             self.show(addPostNavigationController, sender: self)
         }
         return UIBarButtonItem(customView: button)

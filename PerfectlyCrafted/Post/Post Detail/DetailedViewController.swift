@@ -31,7 +31,7 @@ final class DetailedViewController: UIViewController {
     }()
     
     private var runningAnimations = [UIViewPropertyAnimator]()
-   
+    
     private let post: Post
     
     private let localImageManager = try? LocalImageManager()
@@ -169,14 +169,18 @@ final class DetailedViewController: UIViewController {
         guard let id = post.id else {
             return
         }
-        let editPostViewController = AddPostViewController(postId: id, persistenceController: self.persistenceController, contentState: .editing)
+        let editPostViewController = UIStoryboard(name: "AddPost", bundle: Bundle.main).instantiateViewController(identifier: "AddPostViewController", creator: { coder in
+            return AddPostViewController(coder: coder, postId: id, persistenceController: self.persistenceController, contentState: .editing)
+        })
+        
         let editPostNavigationController = UINavigationController(rootViewController: editPostViewController)
-        self.show(editPostNavigationController, sender: self)
+        editPostViewController.modalPresentationStyle = .fullScreen
+        show(editPostNavigationController, sender: self)
     }
     
     @IBAction private func deleteButtonTapped(_ sender: CircularButton) {
         guard let id = post.id else {
-                   return
+            return
         }
         persistenceController.deleteObject(with: id, on: persistenceController.viewContext)
         dismiss(animated: true, completion: nil)
@@ -191,20 +195,20 @@ final class DetailedViewController: UIViewController {
 
 extension DetailedViewController: DetailedDescriptionViewControllerDelegate {
     
-      // MARK: - DetailedDescriptionViewControllerDelegate
+    // MARK: - DetailedDescriptionViewControllerDelegate
     
     func panGestureDidBegin(_ cardViewController: DetailedDescriptionViewController) {
         startIntractiveTransition(state: nextState, duration: 1.0)
     }
     
     func panGestureDidChange(_ cardViewController: DetailedDescriptionViewController, with translation: CGPoint) {
-    var fractionComplete = translation.y / cardHeight
+        var fractionComplete = translation.y / cardHeight
         
         fractionComplete = isCardVisible ? fractionComplete : -fractionComplete
         updateInteractiveTransition(fractionCompleted: fractionComplete)
     }
     
     func panGestureDidEnd(_ cardViewController: DetailedDescriptionViewController) {
-         continueInteractionTransition()
+        continueInteractionTransition()
     }
 }
