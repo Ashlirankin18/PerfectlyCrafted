@@ -31,7 +31,7 @@ final class PostShareViewController: UIViewController {
             imageLoader?.loadImage(forKey: id, completion: { [weak self] (result) in
                 switch result {
                 case let .success(image):
-                    self?.postShareView.viewModel = PostShareView.ViewModel(image: image, postTitle: self?.post.title?.capitalized ?? "Title here", date: Date())
+                    self?.postShareView.viewModel = PostShareView.ViewModel(image: image, postTitle: self?.post.title?.capitalized ?? "Title here", date: Date(), description: self?.post.postDescription?.capitalized ?? "Life is what you make it.")
                 case .failure:
                     self?.postShareView.viewModel = nil
                 }

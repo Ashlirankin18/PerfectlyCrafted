@@ -84,7 +84,6 @@ final class PostViewController: UICollectionViewController {
     }
     
     private func configureBarButtonItem() {
-        
         navigationItem.rightBarButtonItem = addPostBarButtonItem
         navigationItem.leftBarButtonItem = settingsBarButtonItem
     }
@@ -181,5 +180,3 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-
-extension PostViewController: UIGestureRecognizerDelegate {}

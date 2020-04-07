@@ -14,11 +14,13 @@ final class PostShareView: UIView {
         let image: UIImage
         let postTitle: String
         let date: Date
+        let description: String
     }
     
     @IBOutlet private weak var postImageView: UIImageView!
     @IBOutlet private weak var postTitleLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var postDescriptionLabel: UILabel!
     
     var viewModel: ViewModel? {
         didSet {
@@ -28,6 +30,7 @@ final class PostShareView: UIView {
             postImageView.image = viewModel.image
             postTitleLabel.text = viewModel.postTitle
             dateLabel.text = DateFormatter.format(date: viewModel.date)
+            postDescriptionLabel.text = viewModel.description
         }
     }
     

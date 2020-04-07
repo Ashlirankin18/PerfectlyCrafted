@@ -20,7 +20,6 @@ final class AddPostViewController: UIViewController {
     @IBOutlet private weak var titleTextField: UITextField!
     @IBOutlet private weak var descriptionTextView: UITextView!
     @IBOutlet private weak var containerView: UIView!
-    
     @IBOutlet private weak var displayView: UIView!
     @IBOutlet private weak var entryImageView: UIImageView!
     @IBOutlet private weak var entryDateLabel: UILabel!
