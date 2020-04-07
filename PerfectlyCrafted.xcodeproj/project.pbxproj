@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2E01615B24169DE5006A8723 /* PostsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01615A24169DE5006A8723 /* PostsCollectionViewDataSource.swift */; };
-		2E01615F2416A98F006A8723 /* AddPostTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01615E2416A98F006A8723 /* AddPostTableViewDataSource.swift */; };
 		2E0161612416BD66006A8723 /* Dateformatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0161602416BD66006A8723 /* Dateformatter.swift */; };
 		2E016163241737EE006A8723 /* CardPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E016162241737EE006A8723 /* CardPresentationManager.swift */; };
 		2E016166241739B4006A8723 /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E016165241739B4006A8723 /* CardPresentationController.swift */; };
@@ -19,12 +18,6 @@
 		2E3187F52413DE25003FC8B0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3187F42413DE25003FC8B0 /* CloudKit.framework */; };
 		2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */; };
 		2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188082413F411003FC8B0 /* AddPostViewController.swift */; };
-		2E31880E2413F45E003FC8B0 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31880C2413F45E003FC8B0 /* TitleTableViewCell.swift */; };
-		2E31880F2413F45E003FC8B0 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */; };
-		2E3188122413F55D003FC8B0 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */; };
-		2E3188132413F55D003FC8B0 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3188112413F55D003FC8B0 /* DescriptionTableViewCell.xib */; };
-		2E31881524140C48003FC8B0 /* AddProductHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */; };
-		2E31881724140C54003FC8B0 /* AddProductHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */; };
 		2E31881924142961003FC8B0 /* UITextView+AddToolBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881824142961003FC8B0 /* UITextView+AddToolBarItem.swift */; };
 		2E31881B24153736003FC8B0 /* UIImage+HEIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881A24153736003FC8B0 /* UIImage+HEIC.swift */; };
 		2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31881D241537B5003FC8B0 /* ImageManager.swift */; };
@@ -37,6 +30,8 @@
 		2E3FD061243A6A3900DED9CA /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD060243A6A3900DED9CA /* CircularButton.swift */; };
 		2E3FD064243A708200DED9CA /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD063243A708200DED9CA /* SFSymbols.swift */; };
 		2E3FD06D243B779300DED9CA /* AddPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FD06C243B779300DED9CA /* AddPost.storyboard */; };
+		2E3FD071243BCC4800DED9CA /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD06F243BCC4800DED9CA /* DatePickerViewController.swift */; };
+		2E3FD072243BCC4800DED9CA /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FD070243BCC4800DED9CA /* DatePickerViewController.xib */; };
 		2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4170222415AF7F008620C5 /* PersistenceController.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
@@ -52,10 +47,6 @@
 		2E6C7F142427B359008B7F69 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F132427B359008B7F69 /* SettingsViewController.swift */; };
 		2E6C7F162427B9BB008B7F69 /* AssetColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F152427B9BB008B7F69 /* AssetColors.swift */; };
 		2E6C7F1D2429220F008B7F69 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F1C2429220F008B7F69 /* KeyboardObserver.swift */; };
-		2E6C7F22242C0100008B7F69 /* DateNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F20242C0100008B7F69 /* DateNameTableViewCell.swift */; };
-		2E6C7F23242C0100008B7F69 /* DateNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E6C7F21242C0100008B7F69 /* DateNameTableViewCell.xib */; };
-		2E6C7F2A242C0378008B7F69 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C7F28242C0378008B7F69 /* DatePickerTableViewCell.swift */; };
-		2E6C7F2B242C0378008B7F69 /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E6C7F29242C0378008B7F69 /* DatePickerTableViewCell.xib */; };
 		2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */; };
 		2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B4220A59B900FFDC5E /* PostViewController.swift */; };
 		2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */; };
@@ -69,7 +60,6 @@
 
 /* Begin PBXFileReference section */
 		2E01615A24169DE5006A8723 /* PostsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsCollectionViewDataSource.swift; sourceTree = SOURCE_ROOT; };
-		2E01615E2416A98F006A8723 /* AddPostTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewDataSource.swift; sourceTree = "<group>"; };
 		2E0161602416BD66006A8723 /* Dateformatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dateformatter.swift; sourceTree = "<group>"; };
 		2E016162241737EE006A8723 /* CardPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationManager.swift; sourceTree = "<group>"; };
 		2E016165241739B4006A8723 /* CardPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
@@ -81,12 +71,6 @@
 		2E3187F42413DE25003FC8B0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2E3187FB2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PerfectlyCrafted.xcdatamodel; sourceTree = "<group>"; };
 		2E3188082413F411003FC8B0 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
-		2E31880C2413F45E003FC8B0 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
-		2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
-		2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
-		2E3188112413F55D003FC8B0 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
-		2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductHeaderView.swift; sourceTree = "<group>"; };
-		2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductHeaderView.xib; sourceTree = "<group>"; };
 		2E31881824142961003FC8B0 /* UITextView+AddToolBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+AddToolBarItem.swift"; sourceTree = "<group>"; };
 		2E31881A24153736003FC8B0 /* UIImage+HEIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+HEIC.swift"; sourceTree = "<group>"; };
 		2E31881D241537B5003FC8B0 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -99,6 +83,8 @@
 		2E3FD060243A6A3900DED9CA /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		2E3FD063243A708200DED9CA /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		2E3FD06C243B779300DED9CA /* AddPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPost.storyboard; sourceTree = "<group>"; };
+		2E3FD06F243BCC4800DED9CA /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		2E3FD070243BCC4800DED9CA /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		2E4170222415AF7F008620C5 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,10 +102,6 @@
 		2E6C7F132427B359008B7F69 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2E6C7F152427B9BB008B7F69 /* AssetColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetColors.swift; sourceTree = "<group>"; };
 		2E6C7F1C2429220F008B7F69 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
-		2E6C7F20242C0100008B7F69 /* DateNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNameTableViewCell.swift; sourceTree = "<group>"; };
-		2E6C7F21242C0100008B7F69 /* DateNameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateNameTableViewCell.xib; sourceTree = "<group>"; };
-		2E6C7F28242C0378008B7F69 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
-		2E6C7F29242C0378008B7F69 /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
 		2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		2EA365B4220A59B900FFDC5E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectible.swift"; sourceTree = "<group>"; };
@@ -146,17 +128,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E01615C2416A958006A8723 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				2E01615E2416A98F006A8723 /* AddPostTableViewDataSource.swift */,
-			);
-			path = DataSource;
-			sourceTree = "<group>";
-		};
 		2E01615D2416A968006A8723 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E3FD06E243BCC2300DED9CA /* Date Controller */,
 				2E3188082413F411003FC8B0 /* AddPostViewController.swift */,
 				2E3FD06C243B779300DED9CA /* AddPost.storyboard */,
 			);
@@ -176,7 +151,6 @@
 		2E3187FD2413E6C1003FC8B0 /* Add Post */ = {
 			isa = PBXGroup;
 			children = (
-				2E3188052413E7D2003FC8B0 /* Views */,
 				2E3188022413E703003FC8B0 /* Controllers */,
 			);
 			path = "Add Post";
@@ -185,27 +159,9 @@
 		2E3188022413E703003FC8B0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2E01615C2416A958006A8723 /* DataSource */,
 				2E01615D2416A968006A8723 /* Controllers */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		2E3188052413E7D2003FC8B0 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				2E31880C2413F45E003FC8B0 /* TitleTableViewCell.swift */,
-				2E31880D2413F45E003FC8B0 /* TitleTableViewCell.xib */,
-				2E3188102413F55D003FC8B0 /* DescriptionTableViewCell.swift */,
-				2E3188112413F55D003FC8B0 /* DescriptionTableViewCell.xib */,
-				2E31881424140C48003FC8B0 /* AddProductHeaderView.swift */,
-				2E31881624140C54003FC8B0 /* AddProductHeaderView.xib */,
-				2E6C7F20242C0100008B7F69 /* DateNameTableViewCell.swift */,
-				2E6C7F21242C0100008B7F69 /* DateNameTableViewCell.xib */,
-				2E6C7F28242C0378008B7F69 /* DatePickerTableViewCell.swift */,
-				2E6C7F29242C0378008B7F69 /* DatePickerTableViewCell.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		2E31881C241537A2003FC8B0 /* ImageManagement */ = {
@@ -257,6 +213,15 @@
 			children = (
 			);
 			path = "Empty State";
+			sourceTree = "<group>";
+		};
+		2E3FD06E243BCC2300DED9CA /* Date Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2E3FD06F243BCC4800DED9CA /* DatePickerViewController.swift */,
+				2E3FD070243BCC4800DED9CA /* DatePickerViewController.xib */,
+			);
+			path = "Date Controller";
 			sourceTree = "<group>";
 		};
 		2E4170212415AF59008620C5 /* Persistence */ = {
@@ -559,20 +524,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E6C7EFF24241372008B7F69 /* PostShareViewController.xib in Resources */,
-				2E31881724140C54003FC8B0 /* AddProductHeaderView.xib in Resources */,
-				2E3188132413F55D003FC8B0 /* DescriptionTableViewCell.xib in Resources */,
 				2E6C7F05242415A2008B7F69 /* PostShareView.xib in Resources */,
 				2E3FD059243A1B5E00DED9CA /* DetailedDescriptionViewController.xib in Resources */,
 				5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */,
 				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
 				2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */,
+				2E3FD072243BCC4800DED9CA /* DatePickerViewController.xib in Resources */,
 				2ECBA8C82430858D003543CD /* PostDetailViewController.xib in Resources */,
-				2E31880F2413F45E003FC8B0 /* TitleTableViewCell.xib in Resources */,
 				2E3FD06D243B779300DED9CA /* AddPost.storyboard in Resources */,
-				2E6C7F23242C0100008B7F69 /* DateNameTableViewCell.xib in Resources */,
 				2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */,
 				2E6C7F112427B25F008B7F69 /* ColorSelectionCollectionViewCell.xib in Resources */,
-				2E6C7F2B242C0378008B7F69 /* DatePickerTableViewCell.xib in Resources */,
 				2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */,
 				2E6C7F0C2427B1D8008B7F69 /* Settings.storyboard in Resources */,
 				2E3FD055243A15B700DED9CA /* Detailed.storyboard in Resources */,
@@ -665,10 +626,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E01617724197AB0006A8723 /* AssertionLogging.swift in Sources */,
-				2E01615F2416A98F006A8723 /* AddPostTableViewDataSource.swift in Sources */,
 				2E3FD058243A1B5E00DED9CA /* DetailedDescriptionViewController.swift in Sources */,
 				2E31881924142961003FC8B0 /* UITextView+AddToolBarItem.swift in Sources */,
-				2E3188122413F55D003FC8B0 /* DescriptionTableViewCell.swift in Sources */,
 				2E31881B24153736003FC8B0 /* UIImage+HEIC.swift in Sources */,
 				2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */,
 				2E6C7F1D2429220F008B7F69 /* KeyboardObserver.swift in Sources */,
@@ -677,21 +636,18 @@
 				2E0161612416BD66006A8723 /* Dateformatter.swift in Sources */,
 				2E318820241537E7003FC8B0 /* LocalImageLaoder.swift in Sources */,
 				2E016163241737EE006A8723 /* CardPresentationManager.swift in Sources */,
-				2E31881524140C48003FC8B0 /* AddProductHeaderView.swift in Sources */,
 				2E3FD05B243A258700DED9CA /* DetailedViewController.swift in Sources */,
+				2E3FD071243BCC4800DED9CA /* DatePickerViewController.swift in Sources */,
 				2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */,
-				2E6C7F2A242C0378008B7F69 /* DatePickerTableViewCell.swift in Sources */,
 				2E3187CD241344FE003FC8B0 /* UIView+InstantiateFromNib.swift in Sources */,
 				2E3FD064243A708200DED9CA /* SFSymbols.swift in Sources */,
 				2E6C7F162427B9BB008B7F69 /* AssetColors.swift in Sources */,
 				2E016166241739B4006A8723 /* CardPresentationController.swift in Sources */,
 				2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */,
-				2E31880E2413F45E003FC8B0 /* TitleTableViewCell.swift in Sources */,
 				2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */,
 				2E01617324196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */,
 				2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */,
-				2E6C7F22242C0100008B7F69 /* DateNameTableViewCell.swift in Sources */,
 				2E3FD061243A6A3900DED9CA /* CircularButton.swift in Sources */,
 				2E3FD05224396CE300DED9CA /* FeaturedLayout.swift in Sources */,
 				2ECBA8C72430858D003543CD /* PostDetailViewController.swift in Sources */,

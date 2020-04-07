@@ -15,9 +15,7 @@ final class PostViewController: UICollectionViewController {
     private let persistenceController: PersistenceController
     private let localImageManager = try? LocalImageManager()
     private var fetchResultsController: NSFetchedResultsController<Post>?
-    
-    private lazy var transitionDelegate: CardPresentationManager = CardPresentationManager()
-    
+
     private lazy var addPostBarButtonItem: UIBarButtonItem = {
         let button = CircularButton.addButton
         button.buttonTapped = { [weak self] button in
@@ -111,7 +109,6 @@ final class PostViewController: UICollectionViewController {
     }
     
     private func configureFetchResultsController() {
-        
         let sortDescriptor = NSSortDescriptor(key: "createdDate", ascending: false)
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         request.sortDescriptors = [sortDescriptor]
@@ -123,7 +120,6 @@ final class PostViewController: UICollectionViewController {
             try fetchResultsController?.performFetch()
             if let posts = fetchResultsController?.fetchedObjects {
                 self.posts = posts
-                
                 //TODO: - HANDLE THE EMPTY STATE OF NOT HAVING ENTRIES.
             }
         } catch {
@@ -168,11 +164,12 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
     // MARK: - NSFetchedResultsControllerDelegate
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        guard let indexPath = newIndexPath else {
-            return
-        }
+        
         switch type {
         case .update:
+            guard let indexPath = newIndexPath else {
+                return
+            }
             collectionView.reloadItems(at: [indexPath])
         case .insert, .move, .delete:
             guard let posts = controller.fetchedObjects as? [Post] else {

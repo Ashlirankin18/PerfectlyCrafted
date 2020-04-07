@@ -19,7 +19,7 @@ extension UIImage {
     }
     
     static var cancel: UIImage {
-        return UIImage(systemName: "minus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
+        return UIImage(systemName: "multiply", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
     }
     
     static var edit: UIImage {
@@ -32,5 +32,9 @@ extension UIImage {
     
     static var back: UIImage {
         return UIImage(systemName: "arrow.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
+    }
+    
+    static var confirm: UIImage {
+        return UIImage(systemName: "checkmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
     }
 }

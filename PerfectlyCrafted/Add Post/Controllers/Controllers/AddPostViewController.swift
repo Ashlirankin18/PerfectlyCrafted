@@ -19,12 +19,19 @@ final class AddPostViewController: UIViewController {
     
     @IBOutlet private weak var titleTextField: UITextField!
     @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var containerView: UIView!
+    
+    @IBOutlet private weak var displayView: UIView!
+    @IBOutlet private weak var entryImageView: UIImageView!
+    @IBOutlet private weak var entryDateLabel: UILabel!
     
     private let contentState: ContentState
     
     private let  managedObjectContext: NSManagedObjectContext
     
     private var postId: UUID
+    
+    private lazy var transitionDelegate: CardPresentationManager = CardPresentationManager()
     
     private var imagePickerController: UIImagePickerController!
     
@@ -52,13 +59,29 @@ final class AddPostViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        unregisterKeyboardNofications()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBarButtonItems()
-        
+        descriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         createPostIfNeeded()
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
+        descriptionTextView.delegate = self
+        descriptionTextView.text = "Write Something here ..."
+        descriptionTextView.textColor = .gray
+        
+        titleTextField.delegate = self
+        
+        displayView.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        registerKeyboardNotifications()
     }
     
     private func configureBarButtonItems() {
@@ -66,8 +89,14 @@ final class AddPostViewController: UIViewController {
         navigationItem.leftBarButtonItem = cancelButton
     }
     
-    @objc private func cancelButtonTapped(sender: UIBarButtonItem) {
-        dismiss(animated: true)
+    private func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func unregisterKeyboardNofications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func presentImagePickerController() {
@@ -136,15 +165,73 @@ final class AddPostViewController: UIViewController {
     }
     
     @IBAction private func dateButtonTapped(_ sender: UIButton) {
+       let datePickerController = DatePickerViewController()
+       let datePickerNavigationController = UINavigationController(rootViewController: datePickerController)
+        datePickerNavigationController.modalPresentationStyle = .custom
+        datePickerNavigationController.transitioningDelegate = transitionDelegate
+        present(datePickerNavigationController, animated: true)
         
+        datePickerController.didSelectEventDate = { [weak self]  date in
+            self?.updatePost(eventDate: date)
+            self?.entryDateLabel.isHidden = false
+            self?.entryDateLabel.text = DateFormatter.format(date: date)
+        }
     }
     
     @IBAction private func submitButtonTapped(_ sender: UIButton) {
         persistenceController.saveContext(context: managedObjectContext)
         dismiss(animated: true)
     }
+    
+    @objc private func cancelButtonTapped(sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
+    @objc private func tapDone(sender: Any) {
+        descriptionTextView.resignFirstResponder()
+    }
+    
+    @objc private func willShowKeyboard(notification: Notification) {
+        guard let info = notification.userInfo,
+            let keyboardFrame = info["UIKeyboardFrameEndUserInfoKey"] as? CGRect else {
+                print("userinfo is nil")
+                return
+        }
+        containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
+    }
+    
+    @objc private func willHideKeyboard(notification: Notification) {
+        containerView.transform = CGAffineTransform.identity
+    }
 }
 
+extension AddPostViewController: UITextViewDelegate {
+    
+    // MARK: - UITextViewDelegate
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if !descriptionTextView.text.isEmpty {
+            descriptionTextView.textColor = .black
+            descriptionTextView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        updatePost(postDescription: textView.text)
+    }
+}
+
+extension AddPostViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updatePost(title: textField.text)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
 extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     // MARK: - UIImagePickerControllerDelegate
@@ -179,7 +266,9 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
             print(error)
         }
         localImageManager?.saveImage(image, key: photoIdentifier)
-        
+        displayView.isHidden = false
+        entryImageView.image = image
+        entryDateLabel.isHidden = true
         dismiss(animated: true, completion: nil)
     }
 }
