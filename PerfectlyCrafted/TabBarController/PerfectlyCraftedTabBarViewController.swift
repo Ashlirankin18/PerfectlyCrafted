@@ -15,6 +15,7 @@ final class PerfectlyCraftedTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabbarItems()
+        transparentTabbarController()
     }
     
     init(persistenceController: PersistenceController) {
@@ -32,7 +33,7 @@ final class PerfectlyCraftedTabBarViewController: UITabBarController {
         })
         let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
         tabBar.tintColor = .black
-        feedsViewController.tabBarItem.image = UIImage(systemName: "doc.fill") ?? UIImage()
+        feedsViewController.tabBarItem.image = .entries
         self.viewControllers = [newsFeedNavigationController]
     }
 }

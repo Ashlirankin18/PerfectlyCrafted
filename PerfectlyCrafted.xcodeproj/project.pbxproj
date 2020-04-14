@@ -54,6 +54,8 @@
 		2ED29AC724451A5000BB34AD /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29AC524451A5000BB34AD /* EmptyStateViewController.swift */; };
 		2ED29AC824451A5000BB34AD /* EmptyStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED29AC624451A5000BB34AD /* EmptyStateViewController.xib */; };
 		2ED29ACA2445345700BB34AD /* UIViewController+ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29AC92445345700BB34AD /* UIViewController+ChildViewController.swift */; };
+		2ED29ACC24453E4100BB34AD /* UINavigationController+TransparentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29ACB24453E4100BB34AD /* UINavigationController+TransparentBar.swift */; };
+		2ED29AD024453FF300BB34AD /* UITabbarController+TransparentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29ACF24453FF300BB34AD /* UITabbarController+TransparentBar.swift */; };
 		2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = 2EF32CDC22175881006E2B1F /* hairProducts.json */; };
 		2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */; };
 		5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5ED21A23538100000227D1 /* Feeds.storyboard */; };
@@ -111,6 +113,8 @@
 		2ED29AC524451A5000BB34AD /* EmptyStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
 		2ED29AC624451A5000BB34AD /* EmptyStateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateViewController.xib; sourceTree = "<group>"; };
 		2ED29AC92445345700BB34AD /* UIViewController+ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ChildViewController.swift"; sourceTree = "<group>"; };
+		2ED29ACB24453E4100BB34AD /* UINavigationController+TransparentBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+TransparentBar.swift"; sourceTree = "<group>"; };
+		2ED29ACF24453FF300BB34AD /* UITabbarController+TransparentBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbarController+TransparentBar.swift"; sourceTree = "<group>"; };
 		2EF32CDC22175881006E2B1F /* hairProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hairProducts.json; sourceTree = "<group>"; };
 		2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B5ED21A23538100000227D1 /* Feeds.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feeds.storyboard; sourceTree = "<group>"; };
@@ -381,6 +385,8 @@
 				2E31881824142961003FC8B0 /* UITextView+AddToolBarItem.swift */,
 				2E31881A24153736003FC8B0 /* UIImage+HEIC.swift */,
 				2E0161602416BD66006A8723 /* Dateformatter.swift */,
+				2ED29ACB24453E4100BB34AD /* UINavigationController+TransparentBar.swift */,
+				2ED29ACF24453FF300BB34AD /* UITabbarController+TransparentBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -633,6 +639,7 @@
 				2ED29ACA2445345700BB34AD /* UIViewController+ChildViewController.swift in Sources */,
 				2E6C7F0324241583008B7F69 /* PostShareView.swift in Sources */,
 				2E6C7F0824241950008B7F69 /* SnapshotRenderer.swift in Sources */,
+				2ED29ACC24453E4100BB34AD /* UINavigationController+TransparentBar.swift in Sources */,
 				2E0161612416BD66006A8723 /* Dateformatter.swift in Sources */,
 				2E318820241537E7003FC8B0 /* LocalImageLaoder.swift in Sources */,
 				2E016163241737EE006A8723 /* CardPresentationManager.swift in Sources */,
@@ -646,6 +653,7 @@
 				2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */,
 				2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */,
 				2E01617324196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift in Sources */,
+				2ED29AD024453FF300BB34AD /* UITabbarController+TransparentBar.swift in Sources */,
 				2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */,
 				2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */,
 				2E3FD061243A6A3900DED9CA /* CircularButton.swift in Sources */,

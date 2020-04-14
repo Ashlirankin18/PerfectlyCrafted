@@ -37,4 +37,8 @@ extension UIImage {
     static var confirm: UIImage {
         return UIImage(systemName: "checkmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .medium)) ?? UIImage()
     }
+    
+    static var entries: UIImage {
+        return UIImage(systemName: "doc.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0, weight: .bold)) ?? UIImage()
+    }
 }

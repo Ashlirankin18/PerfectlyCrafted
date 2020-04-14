@@ -69,19 +69,11 @@ final class PostViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar()
         configureBarButtonItem()
         collectionView.dataSource = self
+        navigationController?.transparentNavigationController()
         configureFetchResultsController()
         configureEmptyStateController()
-        title = "My Entries"
-    }
-    
-    private func configureNavigationBar() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.view.backgroundColor = .clear
     }
     
     private func configureBarButtonItem() {

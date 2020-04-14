@@ -40,7 +40,16 @@ final class AddPostViewController: UIViewController {
     
     private var posts = [Post]()
     
-    private lazy var cancelButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "multiply"), style: .plain, target: self, action: #selector(cancelButtonTapped(sender:)))
+    private lazy var cancelButton: UIBarButtonItem = {
+        let button = CircularButton(image: .cancel)
+        let barbutton = UIBarButtonItem(customView: button)
+       
+        button.buttonTapped = { button in
+            self.dismiss(animated: true)
+        }
+        
+        return barbutton
+    }()
     
     /// Creates a new instance of `PostsCollectionViewDataSource`
     /// - Parameters:
@@ -64,6 +73,7 @@ final class AddPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.transparentNavigationController()
         configureBarButtonItems()
         descriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         createPostIfNeeded()
@@ -179,10 +189,6 @@ final class AddPostViewController: UIViewController {
     
     @IBAction private func submitButtonTapped(_ sender: UIButton) {
         persistenceController.saveContext(context: managedObjectContext)
-        dismiss(animated: true)
-    }
-    
-    @objc private func cancelButtonTapped(sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
     
