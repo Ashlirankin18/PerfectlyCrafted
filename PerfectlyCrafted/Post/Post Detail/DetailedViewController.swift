@@ -165,6 +165,18 @@ final class DetailedViewController: UIViewController {
         }
     }
     
+    private func presentAlertController(completeion: @escaping () -> Void) {
+        let alertController = UIAlertController(title: "", message: "Are you sure you want to delete this entry", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { _  in
+            completeion()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        alertController.view.tintColor = .black
+        present(alertController, animated: true)
+    }
+    
     @IBAction private func editButtonTapped(_ sender: CircularButton) {
         guard let id = post.id else {
             return
@@ -179,11 +191,13 @@ final class DetailedViewController: UIViewController {
     }
     
     @IBAction private func deleteButtonTapped(_ sender: CircularButton) {
-        guard let id = post.id else {
+        presentAlertController { [weak self] in
+            guard let self = self, let id = self.post.id else {
             return
         }
-        persistenceController.deleteObject(with: id, on: persistenceController.viewContext)
-        dismiss(animated: true, completion: nil)
+            self.persistenceController.deleteObject(with: id, on: self.persistenceController.viewContext)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction private func shareButtonTapped(_ sender: CircularButton) {
