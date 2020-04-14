@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PerfectlyCraftedTabBarViewController: UITabBarController {
+final class PerfectlyCraftedTabBarViewController: UITabBarController {
     
     private let persistenceController: PersistenceController
     
@@ -31,6 +31,7 @@ class PerfectlyCraftedTabBarViewController: UITabBarController {
             return PostViewController(coder: coder, persistenceController: self.persistenceController)
         })
         let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
+        tabBar.tintColor = .black
         feedsViewController.tabBarItem.image = UIImage(systemName: "doc.fill") ?? UIImage()
         self.viewControllers = [newsFeedNavigationController]
     }

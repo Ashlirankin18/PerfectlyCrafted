@@ -15,7 +15,7 @@ final class PostViewController: UICollectionViewController {
     private let persistenceController: PersistenceController
     private let localImageManager = try? LocalImageManager()
     private var fetchResultsController: NSFetchedResultsController<Post>?
-
+    
     private lazy var addPostBarButtonItem: UIBarButtonItem = {
         let button = CircularButton.addButton
         button.buttonTapped = { [weak self] button in
@@ -48,9 +48,15 @@ final class PostViewController: UICollectionViewController {
         return UIBarButtonItem(customView: button)
     }()
     
+    private lazy var emptyStateViewController = EmptyStateViewController(primaryText: "You have no entries", secondaryText: "Tap the button below to create an entry.")
+    
     private var posts = [Post]() {
         didSet {
-            collectionView.reloadData()
+            if posts.isEmpty {
+                add(asChildViewController: emptyStateViewController, to: view)
+            } else {
+                collectionView.reloadData()
+            }
         }
     }
     
@@ -118,8 +124,9 @@ final class PostViewController: UICollectionViewController {
         do {
             try fetchResultsController?.performFetch()
             if let posts = fetchResultsController?.fetchedObjects {
+                
                 self.posts = posts
-                //TODO: - HANDLE THE EMPTY STATE OF NOT HAVING ENTRIES.
+                
             }
         } catch {
             print(error)
@@ -175,6 +182,7 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
                 return
             }
             self.posts = posts
+            remove(asChildViewController: emptyStateViewController)
         default:
             logAssertionFailure(message: "An unknown case was not handled.")
         }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyStateViewController" customModule="PerfectlyCrafted" customModuleProvider="target">
+            <connections>
+                <outlet property="primaryTextLabel" destination="OZy-VH-z5V" id="gJP-pg-inj"/>
+                <outlet property="secondaryTextLabel" destination="Xx9-2J-atw" id="5N8-41-kuJ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="fHG-KA-jKl">
+                    <rect key="frame" x="20" y="244" width="374" height="139.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary Text " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZy-VH-z5V">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="40"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secondary Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx9-2J-atw">
+                            <rect key="frame" x="0.0" y="105" width="374" height="34.5"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoR-Sp-XHe">
+                    <rect key="frame" x="100" y="483.5" width="214" height="41"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
+                    <state key="normal" title="Add Entry"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="21"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="newItemButtonTapped:" destination="-1" eventType="touchUpInside" id="uQj-gJ-JMR"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="eoR-Sp-XHe" firstAttribute="top" secondItem="fHG-KA-jKl" secondAttribute="bottom" constant="100" id="Djb-rm-JdW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fHG-KA-jKl" secondAttribute="trailing" constant="20" id="IQ3-Ep-9w7"/>
+                <constraint firstItem="fHG-KA-jKl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="QUR-gq-bf2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eoR-Sp-XHe" secondAttribute="trailing" constant="100" id="SPs-Dh-7oo"/>
+                <constraint firstItem="eoR-Sp-XHe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wgx-El-334"/>
+                <constraint firstItem="fHG-KA-jKl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="joA-in-4Aj"/>
+                <constraint firstItem="eoR-Sp-XHe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="qzT-Ef-8cr"/>
+                <constraint firstItem="fHG-KA-jKl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sxw-im-9J7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="141.96428571428569"/>
+        </view>
+    </objects>
+</document>
