@@ -23,14 +23,7 @@ final class PostViewController: UICollectionViewController {
             guard let self = self else {
                 return
             }
-            
-            let addPostViewController = UIStoryboard(name: "AddPost", bundle: Bundle.main).instantiateViewController(identifier: "AddPostViewController", creator: { coder in
-                return AddPostViewController(coder: coder, postId: UUID(), persistenceController: self.persistenceController, contentState: .creating)
-            })
-            
-            let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
-            addPostNavigationController.modalPresentationStyle = .fullScreen
-            self.show(addPostNavigationController, sender: self)
+            self.presentAddViewController()
         }
         return UIBarButtonItem(customView: button)
     }()
@@ -55,6 +48,7 @@ final class PostViewController: UICollectionViewController {
             if posts.isEmpty {
                 add(asChildViewController: emptyStateViewController, to: view)
             } else {
+                remove(asChildViewController: emptyStateViewController)
                 collectionView.reloadData()
             }
         }
@@ -79,6 +73,7 @@ final class PostViewController: UICollectionViewController {
         configureBarButtonItem()
         collectionView.dataSource = self
         configureFetchResultsController()
+        configureEmptyStateController()
         title = "My Entries"
     }
     
@@ -92,6 +87,15 @@ final class PostViewController: UICollectionViewController {
     private func configureBarButtonItem() {
         navigationItem.rightBarButtonItem = addPostBarButtonItem
         navigationItem.leftBarButtonItem = settingsBarButtonItem
+    }
+    
+    private func configureEmptyStateController() {
+        emptyStateViewController.addEntryButtonTapped = { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.presentAddViewController()
+        }
     }
     
     private func configureCellViewModel(cell: PostCollectionViewCell, post: Post) {
@@ -113,6 +117,15 @@ final class PostViewController: UICollectionViewController {
         }
     }
     
+    private func presentAddViewController () {
+        let addPostViewController = UIStoryboard(name: "AddPost", bundle: Bundle.main).instantiateViewController(identifier: "AddPostViewController", creator: { coder in
+            return AddPostViewController(coder: coder, postId: UUID(), persistenceController: self.persistenceController, contentState: .creating)
+        })
+        let addPostNavigationController = UINavigationController(rootViewController: addPostViewController)
+        addPostNavigationController.modalPresentationStyle = .fullScreen
+        self.show(addPostNavigationController, sender: self)
+    }
+    
     private func configureFetchResultsController() {
         let sortDescriptor = NSSortDescriptor(key: "createdDate", ascending: false)
         let request: NSFetchRequest<Post> = Post.fetchRequest()
@@ -126,7 +139,6 @@ final class PostViewController: UICollectionViewController {
             if let posts = fetchResultsController?.fetchedObjects {
                 
                 self.posts = posts
-                
             }
         } catch {
             print(error)
@@ -182,7 +194,6 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
                 return
             }
             self.posts = posts
-            remove(asChildViewController: emptyStateViewController)
         default:
             logAssertionFailure(message: "An unknown case was not handled.")
         }

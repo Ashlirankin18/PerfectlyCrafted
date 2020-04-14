@@ -17,6 +17,8 @@ final class EmptyStateViewController: UIViewController {
     private let primaryText: String
     private let secondaryText: String
     
+    var addEntryButtonTapped: (() -> Void)?
+    
     init(primaryText: String, secondaryText: String) {
         self.primaryText = primaryText
         self.secondaryText = secondaryText
@@ -34,5 +36,6 @@ final class EmptyStateViewController: UIViewController {
     }
     
     @IBAction private func newItemButtonTapped(_ sender: UIButton) {
+        addEntryButtonTapped?()
     }
 }
