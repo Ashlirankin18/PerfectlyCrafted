@@ -37,13 +37,16 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoR-Sp-XHe">
-                    <rect key="frame" x="100" y="483.5" width="214" height="41"/>
+                    <rect key="frame" x="60" y="483.5" width="294" height="60"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="yOg-kA-HFW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
                     <state key="normal" title="Add Entry"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="21"/>
+                            <real key="value" value="30"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -56,10 +59,10 @@
                 <constraint firstItem="eoR-Sp-XHe" firstAttribute="top" secondItem="fHG-KA-jKl" secondAttribute="bottom" constant="100" id="Djb-rm-JdW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fHG-KA-jKl" secondAttribute="trailing" constant="20" id="IQ3-Ep-9w7"/>
                 <constraint firstItem="fHG-KA-jKl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="QUR-gq-bf2"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eoR-Sp-XHe" secondAttribute="trailing" constant="100" id="SPs-Dh-7oo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eoR-Sp-XHe" secondAttribute="trailing" constant="60" id="SPs-Dh-7oo"/>
                 <constraint firstItem="eoR-Sp-XHe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wgx-El-334"/>
                 <constraint firstItem="fHG-KA-jKl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="joA-in-4Aj"/>
-                <constraint firstItem="eoR-Sp-XHe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="qzT-Ef-8cr"/>
+                <constraint firstItem="eoR-Sp-XHe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="qzT-Ef-8cr"/>
                 <constraint firstItem="fHG-KA-jKl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sxw-im-9J7"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

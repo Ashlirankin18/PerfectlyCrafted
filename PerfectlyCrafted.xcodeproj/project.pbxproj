@@ -808,6 +808,7 @@
 				CODE_SIGN_ENTITLEMENTS = PerfectlyCrafted/PerfectlyCrafted.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = ASLRJLYD2S;
 				INFOPLIST_FILE = PerfectlyCrafted/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -831,6 +832,7 @@
 				CODE_SIGN_ENTITLEMENTS = PerfectlyCrafted/PerfectlyCrafted.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = ASLRJLYD2S;
 				INFOPLIST_FILE = PerfectlyCrafted/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
