@@ -203,10 +203,12 @@ final class AddPostViewController: UIViewController {
                 return
         }
         containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
+        displayView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
     }
     
     @objc private func willHideKeyboard(notification: Notification) {
         containerView.transform = CGAffineTransform.identity
+        displayView.transform = CGAffineTransform.identity
     }
 }
 
