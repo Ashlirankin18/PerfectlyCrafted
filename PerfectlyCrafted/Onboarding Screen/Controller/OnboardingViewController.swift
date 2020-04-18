@@ -13,7 +13,8 @@ final class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    @IBAction func createButtonTapped(_ sender: UIButton) {
+    
+    @IBAction private func createButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
 }

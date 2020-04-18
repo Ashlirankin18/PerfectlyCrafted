@@ -15,7 +15,8 @@ extension UIView {
     ///
     /// - SeeAlso:
     /// [CALayer.cornerRadius](https://developer.apple.com/documentation/quartzcore/calayer/1410818-cornerradius)
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable public var cornerRadius: CGFloat {
+        
         get {
             return layer.cornerRadius
         }
@@ -28,7 +29,7 @@ extension UIView {
     ///
     /// - SeeAlso:
     /// [CALayer.borderWidth](https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth)
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable public var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -38,7 +39,7 @@ extension UIView {
     }
     
     /// Sets the `UIView` to be a circle.
-    @IBInspectable var isCircle: Bool {
+    @IBInspectable public var isCircle: Bool {
         get {
             return layer.cornerRadius * 2 == frame.width
         } set { //swiftlint:disable:this unused_setter_value
@@ -50,7 +51,7 @@ extension UIView {
     ///
     /// - SeeAlso:
     /// [CALayer.borderColor](https://developer.apple.com/documentation/quartzcore/calayer/1410903-bordercolor)
-    @IBInspectable var borderColor: UIColor? {
+    @IBInspectable public var borderColor: UIColor? {
         get {
             guard let color = layer.borderColor else {
                 return nil
@@ -67,7 +68,7 @@ extension UIView {
     ///
     /// - SeeAlso:
     /// [CALayer.masksToBounds](https://developer.apple.com/documentation/quartzcore/calayer/1410896-maskstobounds)
-    @IBInspectable var masksToBounds: Bool {
+    @IBInspectable public var masksToBounds: Bool {
         get {
             return layer.masksToBounds
         }
@@ -80,7 +81,7 @@ extension UIView {
     ///
     /// - SeeAlso:
     /// [CALayer.shadowColor](https://developer.apple.com/documentation/quartzcore/calayer/1410829-shadowcolor)
-    @IBInspectable var shadowColor: UIColor? {
+    @IBInspectable public var shadowColor: UIColor? {
         get {
             guard let color = layer.shadowColor else {
                 return nil
@@ -96,7 +97,7 @@ extension UIView {
     ///
     /// - SeeAlso:
     /// [CALayer.shadowOpacity](https://developer.apple.com/documentation/quartzcore/calayer/1410751-shadowopacity)
-    @IBInspectable var shadowOpacity: Float {
+    @IBInspectable public var shadowOpacity: Float {
         get {
             return layer.shadowOpacity
         }
@@ -109,7 +110,7 @@ extension UIView {
     ///
     /// - SeeAlso:
     /// [CALayer.shadowOffset](https://developer.apple.com/documentation/quartzcore/calayer/1410970-shadowoffset)
-    @IBInspectable var shadowOffset: CGSize {
+    @IBInspectable public var shadowOffset: CGSize {
         get {
             return layer.shadowOffset
         }
@@ -122,7 +123,7 @@ extension UIView {
     ///
     /// - SeeAlso:
     /// [CALayer.shadowOffset](https://developer.apple.com/documentation/quartzcore/calayer/1410970-shadowoffset)
-    @IBInspectable var shadowRadius: CGFloat {
+    @IBInspectable public var shadowRadius: CGFloat {
         get {
             return layer.shadowRadius
         }
