@@ -166,12 +166,12 @@
 			path = "Card Presentation";
 			sourceTree = "<group>";
 		};
-		2E1BB841244B99FD00EFB21C /* Onboarding */ = {
+		2E1BB841244B99FD00EFB21C /* Onboarding Screen */ = {
 			isa = PBXGroup;
 			children = (
 				2E1BB842244B9A2100EFB21C /* Controller */,
 			);
-			path = Onboarding;
+			path = "Onboarding Screen";
 			sourceTree = "<group>";
 		};
 		2E1BB842244B9A2100EFB21C /* Controller */ = {
@@ -281,7 +281,7 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
-				2E1BB841244B99FD00EFB21C /* Onboarding */,
+				2E1BB841244B99FD00EFB21C /* Onboarding Screen */,
 				2E3FD069243AA4CB00DED9CA /* Empty State */,
 				2E3FD062243A705400DED9CA /* SFSymbols */,
 				2E3FD05F243A6A0D00DED9CA /* Views */,
