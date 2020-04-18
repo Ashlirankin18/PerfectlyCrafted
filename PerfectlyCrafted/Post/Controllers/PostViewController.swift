@@ -69,11 +69,16 @@ final class PostViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureBarButtonItem()
-        collectionView.dataSource = self
-        navigationController?.transparentNavigationController()
-        configureFetchResultsController()
-        configureEmptyStateController()
+        
+        if isFirstLaunch {
+            present(OnboardingViewController(), animated: true, completion: nil)
+        } else {
+            configureBarButtonItem()
+            collectionView.dataSource = self
+            navigationController?.transparentNavigationController()
+            configureFetchResultsController()
+            configureEmptyStateController()
+        }
     }
     
     private func configureBarButtonItem() {
