@@ -14,9 +14,13 @@
 		2E01616824173A01006A8723 /* PresentationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01616724173A01006A8723 /* PresentationDirection.swift */; };
 		2E01617324196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01617224196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift */; };
 		2E01617724197AB0006A8723 /* AssertionLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01617624197AB0006A8723 /* AssertionLogging.swift */; };
-		2E1BB845244B9ABF00EFB21C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BB843244B9ABF00EFB21C /* OnboardingViewController.swift */; };
-		2E1BB846244B9ABF00EFB21C /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1BB844244B9ABF00EFB21C /* OnboardingViewController.xib */; };
-		2E1BB848244BA5DC00EFB21C /* UIViewController+IsFirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BB847244BA5DC00EFB21C /* UIViewController+IsFirstLaunch.swift */; };
+		2E1BB845244B9ABF00EFB21C /* (null) in Sources */ = {isa = PBXBuildFile; };
+		2E1BB846244B9ABF00EFB21C /* (null) in Resources */ = {isa = PBXBuildFile; };
+		2E1BB848244BA5DC00EFB21C /* (null) in Sources */ = {isa = PBXBuildFile; };
+		2E1BB84B244BA73D00EFB21C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BB849244BA73D00EFB21C /* OnboardingViewController.swift */; };
+		2E1BB84C244BA73D00EFB21C /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1BB84A244BA73D00EFB21C /* OnboardingViewController.xib */; };
+		2E1BB84E244BA74A00EFB21C /* UIViewController+IsFirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BB84D244BA74A00EFB21C /* UIViewController+IsFirstLaunch.swift */; };
+		2E1BB850244BA75500EFB21C /* UIView+InstantiateFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BB84F244BA75500EFB21C /* UIView+InstantiateFromNib.swift */; };
 		2E3187F52413DE25003FC8B0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3187F42413DE25003FC8B0 /* CloudKit.framework */; };
 		2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */; };
 		2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188082413F411003FC8B0 /* AddPostViewController.swift */; };
@@ -72,7 +76,10 @@
 		2E01616724173A01006A8723 /* PresentationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDirection.swift; sourceTree = "<group>"; };
 		2E01617224196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfectlyCraftedTabBarViewController.swift; sourceTree = "<group>"; };
 		2E01617624197AB0006A8723 /* AssertionLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionLogging.swift; sourceTree = "<group>"; };
-		2E3187CC241344FE003FC8B0 /* UIView+InstantiateFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+InstantiateFromNib.swift"; sourceTree = "<group>"; };
+		2E1BB849244BA73D00EFB21C /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		2E1BB84A244BA73D00EFB21C /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		2E1BB84D244BA74A00EFB21C /* UIViewController+IsFirstLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+IsFirstLaunch.swift"; sourceTree = "<group>"; };
+		2E1BB84F244BA75500EFB21C /* UIView+InstantiateFromNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+InstantiateFromNib.swift"; sourceTree = "<group>"; };
 		2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PerfectlyCrafted.entitlements; sourceTree = "<group>"; };
 		2E3187F42413DE25003FC8B0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2E3187FB2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PerfectlyCrafted.xcdatamodel; sourceTree = "<group>"; };
@@ -170,8 +177,8 @@
 		2E1BB842244B9A2100EFB21C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2E1BB843244B9ABF00EFB21C /* OnboardingViewController.swift */,
-				2E1BB844244B9ABF00EFB21C /* OnboardingViewController.xib */,
+				2E1BB849244BA73D00EFB21C /* OnboardingViewController.swift */,
+				2E1BB84A244BA73D00EFB21C /* OnboardingViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -399,6 +406,8 @@
 		2EB00BDC24132EFF00AEF017 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2E1BB84F244BA75500EFB21C /* UIView+InstantiateFromNib.swift */,
+				2E1BB84D244BA74A00EFB21C /* UIViewController+IsFirstLaunch.swift */,
 				2ED29AC92445345700BB34AD /* UIViewController+ChildViewController.swift */,
 				2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */,
 				2E31881824142961003FC8B0 /* UITextView+AddToolBarItem.swift */,
@@ -406,7 +415,6 @@
 				2E0161602416BD66006A8723 /* Dateformatter.swift */,
 				2ED29ACB24453E4100BB34AD /* UINavigationController+TransparentBar.swift */,
 				2ED29ACF24453FF300BB34AD /* UITabbarController+TransparentBar.swift */,
-				2E1BB847244BA5DC00EFB21C /* UIViewController+IsFirstLaunch.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -549,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ED29AC824451A5000BB34AD /* EmptyStateViewController.xib in Resources */,
+				2E1BB84C244BA73D00EFB21C /* OnboardingViewController.xib in Resources */,
 				2E6C7EFF24241372008B7F69 /* PostShareViewController.xib in Resources */,
 				2E6C7F05242415A2008B7F69 /* PostShareView.xib in Resources */,
 				2E3FD059243A1B5E00DED9CA /* DetailedDescriptionViewController.xib in Resources */,
@@ -563,7 +572,7 @@
 				2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */,
 				2E6C7F0C2427B1D8008B7F69 /* Settings.storyboard in Resources */,
 				2E3FD055243A15B700DED9CA /* Detailed.storyboard in Resources */,
-				2E1BB846244B9ABF00EFB21C /* OnboardingViewController.xib in Resources */,
+				2E1BB846244B9ABF00EFB21C /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +671,8 @@
 				2E6C7F0824241950008B7F69 /* SnapshotRenderer.swift in Sources */,
 				2ED29ACC24453E4100BB34AD /* UINavigationController+TransparentBar.swift in Sources */,
 				2E0161612416BD66006A8723 /* Dateformatter.swift in Sources */,
-				2E1BB848244BA5DC00EFB21C /* UIViewController+IsFirstLaunch.swift in Sources */,
+				2E1BB84E244BA74A00EFB21C /* UIViewController+IsFirstLaunch.swift in Sources */,
+				2E1BB848244BA5DC00EFB21C /* (null) in Sources */,
 				2E318820241537E7003FC8B0 /* LocalImageLaoder.swift in Sources */,
 				2E016163241737EE006A8723 /* CardPresentationManager.swift in Sources */,
 				2E3FD05B243A258700DED9CA /* DetailedViewController.swift in Sources */,
@@ -675,6 +685,7 @@
 				2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */,
 				2E01617324196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2ED29AD024453FF300BB34AD /* UITabbarController+TransparentBar.swift in Sources */,
+				2E1BB84B244BA73D00EFB21C /* OnboardingViewController.swift in Sources */,
 				2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */,
 				2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */,
 				2E3FD061243A6A3900DED9CA /* CircularButton.swift in Sources */,
@@ -683,12 +694,13 @@
 				2ED29AC724451A5000BB34AD /* EmptyStateViewController.swift in Sources */,
 				2E6C7F102427B25F008B7F69 /* ColorSelectionCollectionViewCell.swift in Sources */,
 				2E01616824173A01006A8723 /* PresentationDirection.swift in Sources */,
-				2E1BB845244B9ABF00EFB21C /* OnboardingViewController.swift in Sources */,
+				2E1BB845244B9ABF00EFB21C /* (null) in Sources */,
 				2E6C7F142427B359008B7F69 /* SettingsViewController.swift in Sources */,
 				2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */,
 				2E01615B24169DE5006A8723 /* PostsCollectionViewDataSource.swift in Sources */,
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,
 				2E6C7EFE24241372008B7F69 /* PostShareViewController.swift in Sources */,
+				2E1BB850244BA75500EFB21C /* UIView+InstantiateFromNib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

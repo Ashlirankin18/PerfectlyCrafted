@@ -39,9 +39,9 @@
                                     </constraints>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write down your thoughts and track your hair progress" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMe-G6-A3x">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write down your thoughts and track your hair progress." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMe-G6-A3x">
                                     <rect key="frame" x="50" y="1.5" width="324" height="69"/>
-                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="23"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -63,9 +63,9 @@
                                     </constraints>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep Track of the products you use" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwU-6c-ZXt">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep Track of the products you use." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwU-6c-ZXt">
                                     <rect key="frame" x="50" y="0.0" width="324" height="69"/>
-                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="23"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -87,9 +87,9 @@
                                     </constraints>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your experiences with friends" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKx-gc-Gb0">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your experiences with friends." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKx-gc-Gb0">
                                     <rect key="frame" x="50" y="0.0" width="324" height="69"/>
-                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="23"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -102,18 +102,20 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTG-9k-fxI">
-                    <rect key="frame" x="126" y="655.5" width="175" height="50"/>
+                    <rect key="frame" x="87" y="655.5" width="240" height="60"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="Pdt-YZ-QBJ"/>
+                        <constraint firstAttribute="height" constant="60" id="Pdt-YZ-QBJ"/>
+                        <constraint firstAttribute="width" constant="240" id="xng-EU-14j"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
-                    <state key="normal" title="Start Creating !">
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="23"/>
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                    <state key="normal" title="Start Creating">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="25"/>
+                            <real key="value" value="30"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -125,12 +127,12 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="CHu-wH-ROW" secondAttribute="trailing" constant="20" id="7LP-qM-SMn"/>
                 <constraint firstItem="oTG-9k-fxI" firstAttribute="top" secondItem="jFa-td-Q6j" secondAttribute="bottom" constant="60" id="OVA-z5-hpU"/>
-                <constraint firstItem="oTG-9k-fxI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="126" id="Ovs-HE-jKt"/>
                 <constraint firstItem="CHu-wH-ROW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="WQh-TZ-RWs"/>
                 <constraint firstItem="jFa-td-Q6j" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bfE-Ou-R7n"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jFa-td-Q6j" secondAttribute="trailing" constant="20" id="ekB-YW-iMe"/>
                 <constraint firstItem="jFa-td-Q6j" firstAttribute="top" secondItem="CHu-wH-ROW" secondAttribute="bottom" constant="60" id="q0g-Bw-huR"/>
                 <constraint firstItem="CHu-wH-ROW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="ut0-Mh-Nzt"/>
+                <constraint firstItem="oTG-9k-fxI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zFj-1K-mbY"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>

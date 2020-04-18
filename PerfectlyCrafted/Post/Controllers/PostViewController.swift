@@ -41,7 +41,7 @@ final class PostViewController: UICollectionViewController {
         return UIBarButtonItem(customView: button)
     }()
     
-    private lazy var emptyStateViewController = EmptyStateViewController(primaryText: "You have no entries", secondaryText: "Tap the button below to create an entry.")
+    private lazy var emptyStateViewController = EmptyStateViewController(primaryText: "Add Entries", secondaryText: "Tap the button below to create an entry.")
     
     private var posts = [Post]() {
         didSet {
@@ -72,13 +72,12 @@ final class PostViewController: UICollectionViewController {
         
         if isFirstLaunch {
             present(OnboardingViewController(), animated: true, completion: nil)
-        } else {
-            configureBarButtonItem()
-            collectionView.dataSource = self
-            navigationController?.transparentNavigationController()
-            configureFetchResultsController()
-            configureEmptyStateController()
         }
+        configureBarButtonItem()
+        collectionView.dataSource = self
+        navigationController?.transparentNavigationController()
+        configureFetchResultsController()
+        configureEmptyStateController()
     }
     
     private func configureBarButtonItem() {
@@ -134,7 +133,6 @@ final class PostViewController: UICollectionViewController {
         do {
             try fetchResultsController?.performFetch()
             if let posts = fetchResultsController?.fetchedObjects {
-                
                 self.posts = posts
             }
         } catch {
@@ -152,7 +150,6 @@ final class PostViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
         configureCellViewModel(cell: cell, post: post)
-        
         return cell
     }
     

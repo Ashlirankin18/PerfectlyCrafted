@@ -12,13 +12,11 @@ extension UIViewController {
     
     var isFirstLaunch: Bool {
         let defaults = UserDefaults.standard
-        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
-            print("App already launched")
-            return true
-        }else{
-            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
-            print("App launched first time")
+        if let _ = defaults.string(forKey: "isFirstLaunch") {
             return false
+        } else {
+            defaults.set(true, forKey: "isFirstLaunch")
+            return true
         }
     }
 }
