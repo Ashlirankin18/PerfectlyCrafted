@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = PerfectlyCraftedTabBarViewController(persistenceController: persistenceController)
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-        FirebaseApp.configure()
         return true
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		2E016166241739B4006A8723 /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E016165241739B4006A8723 /* CardPresentationController.swift */; };
 		2E01616824173A01006A8723 /* PresentationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01616724173A01006A8723 /* PresentationDirection.swift */; };
 		2E01617324196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01617224196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift */; };
-		2E01617724197AB0006A8723 /* AssertionLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01617624197AB0006A8723 /* AssertionLogging.swift */; };
 		2E1BB845244B9ABF00EFB21C /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2E1BB846244B9ABF00EFB21C /* (null) in Resources */ = {isa = PBXBuildFile; };
 		2E1BB848244BA5DC00EFB21C /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -75,7 +74,6 @@
 		2E016165241739B4006A8723 /* CardPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
 		2E01616724173A01006A8723 /* PresentationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDirection.swift; sourceTree = "<group>"; };
 		2E01617224196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfectlyCraftedTabBarViewController.swift; sourceTree = "<group>"; };
-		2E01617624197AB0006A8723 /* AssertionLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionLogging.swift; sourceTree = "<group>"; };
 		2E1BB849244BA73D00EFB21C /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2E1BB84A244BA73D00EFB21C /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		2E1BB84D244BA74A00EFB21C /* UIViewController+IsFirstLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+IsFirstLaunch.swift"; sourceTree = "<group>"; };
@@ -398,7 +396,6 @@
 				2E4A3E992208D2CB00988116 /* Assets.xcassets */,
 				2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */,
 				2EF32CDC22175881006E2B1F /* hairProducts.json */,
-				2E01617624197AB0006A8723 /* AssertionLogging.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -504,9 +501,7 @@
 				2E4A3E8B2208D2C800988116 /* Sources */,
 				2E4A3E8C2208D2C800988116 /* Frameworks */,
 				2E4A3E8D2208D2C800988116 /* Resources */,
-				9FD6A9B583BB03391908C282 /* [CP] Embed Pods Frameworks */,
 				2E01617424197A32006A8723 /* Swift Lint Run Script */,
-				2E01617524197A4B006A8723 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -619,41 +614,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		2E01617524197A4B006A8723 /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Crashlytics;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
-		};
-		9FD6A9B583BB03391908C282 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -661,7 +621,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E01617724197AB0006A8723 /* AssertionLogging.swift in Sources */,
 				2E3FD058243A1B5E00DED9CA /* DetailedDescriptionViewController.swift in Sources */,
 				2E31881924142961003FC8B0 /* UITextView+AddToolBarItem.swift in Sources */,
 				2E31881B24153736003FC8B0 /* UIImage+HEIC.swift in Sources */,

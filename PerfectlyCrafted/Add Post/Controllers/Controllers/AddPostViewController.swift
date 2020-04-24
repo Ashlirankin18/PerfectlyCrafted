@@ -43,7 +43,7 @@ final class AddPostViewController: UIViewController {
     private lazy var cancelButton: UIBarButtonItem = {
         let button = CircularButton(image: .cancel)
         let barbutton = UIBarButtonItem(customView: button)
-       
+        
         button.buttonTapped = { button in
             self.dismiss(animated: true)
         }
@@ -125,7 +125,7 @@ final class AddPostViewController: UIViewController {
             newPost.photoIdentfier = nil
             posts.append(newPost)
         case .editing:
-            guard let post = persistenceController.retrieveObjects(with: postId, context: managedObjectContext).first else {
+            guard let post = persistenceController.retrievePost(with: postId, context: managedObjectContext).first else {
                 return
             }
             posts.append(post)
@@ -155,11 +155,9 @@ final class AddPostViewController: UIViewController {
                 if let eventDate = eventDate {
                     post.eventDate = eventDate
                 }
-            } else {
-                logAssertionFailure(message: "Could not retrieve post.")
             }
         } catch {
-            logAssertionFailure(message: "Error here \(error)")
+            print("Error here \(error)")
         }
     }
     
@@ -174,8 +172,8 @@ final class AddPostViewController: UIViewController {
     }
     
     @IBAction private func dateButtonTapped(_ sender: UIButton) {
-       let datePickerController = DatePickerViewController()
-       let datePickerNavigationController = UINavigationController(rootViewController: datePickerController)
+        let datePickerController = DatePickerViewController()
+        let datePickerNavigationController = UINavigationController(rootViewController: datePickerController)
         datePickerNavigationController.modalPresentationStyle = .custom
         datePickerNavigationController.transitioningDelegate = transitionDelegate
         present(datePickerNavigationController, animated: true)
@@ -250,7 +248,6 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
             else {
-                logAssertionFailure(message: "Could not load image.")
                 return
         }
         

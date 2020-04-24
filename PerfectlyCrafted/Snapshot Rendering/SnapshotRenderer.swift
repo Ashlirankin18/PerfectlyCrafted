@@ -19,7 +19,6 @@ final class SnapshotRenderer {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, scale)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
-            logAssertionFailure(message: "Could not create image on context.")
             return UIImage()
         }
         UIGraphicsEndImageContext()

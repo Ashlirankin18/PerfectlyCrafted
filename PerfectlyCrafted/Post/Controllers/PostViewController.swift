@@ -189,7 +189,7 @@ extension PostViewController: NSFetchedResultsControllerDelegate {
             }
             self.posts = posts
         default:
-            logAssertionFailure(message: "An unknown case was not handled.")
+           print("An unknown case was not handled.")
         }
     }
 }

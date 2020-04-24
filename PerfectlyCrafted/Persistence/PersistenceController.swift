@@ -55,13 +55,13 @@ final class PersistenceController {
 extension PersistenceController {
     
     func retrieveObject(with identifier: UUID, on context: NSManagedObjectContext) -> Post? {
-        let post = retrieveObjects(with: identifier, context: context).first { (post) -> Bool in
+        let post = retrievePost(with: identifier, context: context).first { (post) -> Bool in
             post.id == identifier
         }
         return post
     }
     
-    func retrieveObjects(with identifier: UUID, context: NSManagedObjectContext) -> [Post] {
+    func retrievePost(with identifier: UUID, context: NSManagedObjectContext) -> [Post] {
         let fetchRequest = NSFetchRequest<Post>()
         fetchRequest.entity = Post.entity()
         fetchRequest.predicate = NSPredicate(format: "id == %@", identifier.description)
@@ -70,14 +70,12 @@ extension PersistenceController {
             let objects = try context.fetch(fetchRequest)
             return objects
         } catch {
-            logAssertionFailure(message: "Unable to retrieve objects with specified identifier")
             return []
         }
    }
     
     func deleteObject(with identifier: UUID, on context: NSManagedObjectContext) {
         guard let post = retrieveObject(with: identifier, on: context) else {
-            logAssertionFailure(message: "Could not retrieve post.")
             return
         }
         context.delete(post)
