@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,10 @@
 		2E1BB84C244BA73D00EFB21C /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1BB84A244BA73D00EFB21C /* OnboardingViewController.xib */; };
 		2E1BB84E244BA74A00EFB21C /* UIViewController+IsFirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BB84D244BA74A00EFB21C /* UIViewController+IsFirstLaunch.swift */; };
 		2E1BB850244BA75500EFB21C /* UIView+InstantiateFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BB84F244BA75500EFB21C /* UIView+InstantiateFromNib.swift */; };
+		2E1CE6A42454A1F40027A404 /* LoginFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1CE6A22454A1F40027A404 /* LoginFlowViewController.swift */; };
+		2E1CE6A52454A1F40027A404 /* LoginFlowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1CE6A32454A1F40027A404 /* LoginFlowViewController.xib */; };
+		2E1CE6A72454B25E0027A404 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1CE6A62454B25E0027A404 /* VerificationCodeViewController.swift */; };
+		2E1CE6A92454B66F0027A404 /* Verification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1CE6A82454B66F0027A404 /* Verification.storyboard */; };
 		2E3187F52413DE25003FC8B0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3187F42413DE25003FC8B0 /* CloudKit.framework */; };
 		2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */; };
 		2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188082413F411003FC8B0 /* AddPostViewController.swift */; };
@@ -62,6 +66,12 @@
 		2EB534732453BB3B007F1895 /* Pages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB534722453BB3B007F1895 /* Pages.storyboard */; };
 		2EB534772453BBFF007F1895 /* ImagesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB534762453BBFF007F1895 /* ImagesPageViewController.swift */; };
 		2EB534792453C801007F1895 /* DotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB534782453C800007F1895 /* DotViewController.swift */; };
+		2EB5347D2453D646007F1895 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5347B2453D646007F1895 /* ProductDetailsViewController.swift */; };
+		2EB5347E2453D646007F1895 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB5347C2453D646007F1895 /* ProductDetailsViewController.xib */; };
+		2EB5348124548F7B007F1895 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5348024548F7B007F1895 /* Product.swift */; };
+		2EB534842454950E007F1895 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB534832454950E007F1895 /* DatabaseManager.swift */; };
+		2EB5348624549BA3007F1895 /* DatabaseCollectionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5348524549BA3007F1895 /* DatabaseCollectionKeys.swift */; };
+		2EB5348824549C39007F1895 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5348724549C39007F1895 /* UserSession.swift */; };
 		2ECBA8C72430858D003543CD /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA8C52430858D003543CD /* PostDetailViewController.swift */; };
 		2ECBA8C82430858D003543CD /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECBA8C62430858D003543CD /* PostDetailViewController.xib */; };
 		2ED29AC724451A5000BB34AD /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29AC524451A5000BB34AD /* EmptyStateViewController.swift */; };
@@ -86,6 +96,10 @@
 		2E1BB84A244BA73D00EFB21C /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		2E1BB84D244BA74A00EFB21C /* UIViewController+IsFirstLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+IsFirstLaunch.swift"; sourceTree = "<group>"; };
 		2E1BB84F244BA75500EFB21C /* UIView+InstantiateFromNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+InstantiateFromNib.swift"; sourceTree = "<group>"; };
+		2E1CE6A22454A1F40027A404 /* LoginFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowViewController.swift; sourceTree = "<group>"; };
+		2E1CE6A32454A1F40027A404 /* LoginFlowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginFlowViewController.xib; sourceTree = "<group>"; };
+		2E1CE6A62454B25E0027A404 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
+		2E1CE6A82454B66F0027A404 /* Verification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Verification.storyboard; sourceTree = "<group>"; };
 		2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PerfectlyCrafted.entitlements; sourceTree = "<group>"; };
 		2E3187F42413DE25003FC8B0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2E3187FB2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PerfectlyCrafted.xcdatamodel; sourceTree = "<group>"; };
@@ -131,6 +145,12 @@
 		2EB534722453BB3B007F1895 /* Pages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pages.storyboard; sourceTree = "<group>"; };
 		2EB534762453BBFF007F1895 /* ImagesPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesPageViewController.swift; sourceTree = "<group>"; };
 		2EB534782453C800007F1895 /* DotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotViewController.swift; sourceTree = "<group>"; };
+		2EB5347B2453D646007F1895 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		2EB5347C2453D646007F1895 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
+		2EB5348024548F7B007F1895 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		2EB534832454950E007F1895 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		2EB5348524549BA3007F1895 /* DatabaseCollectionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCollectionKeys.swift; sourceTree = "<group>"; };
+		2EB5348724549C39007F1895 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		2ECBA8C52430858D003543CD /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		2ECBA8C62430858D003543CD /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		2ED29AC524451A5000BB34AD /* EmptyStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +215,17 @@
 				2E1BB84A244BA73D00EFB21C /* OnboardingViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		2E1CE6A12454A1A30027A404 /* Login Flow */ = {
+			isa = PBXGroup;
+			children = (
+				2E1CE6A22454A1F40027A404 /* LoginFlowViewController.swift */,
+				2E1CE6A32454A1F40027A404 /* LoginFlowViewController.xib */,
+				2E1CE6A62454B25E0027A404 /* VerificationCodeViewController.swift */,
+				2E1CE6A82454B66F0027A404 /* Verification.storyboard */,
+			);
+			path = "Login Flow";
 			sourceTree = "<group>";
 		};
 		2E3187FD2413E6C1003FC8B0 /* Add Post */ = {
@@ -295,6 +326,8 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2E1CE6A12454A1A30027A404 /* Login Flow */,
+				2EB53482245494E9007F1895 /* Database Services */,
 				2E1BB841244B99FD00EFB21C /* Onboarding Screen */,
 				2E3FD069243AA4CB00DED9CA /* Empty State */,
 				2E3FD062243A705400DED9CA /* SFSymbols */,
@@ -402,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */,
+				2EB5348024548F7B007F1895 /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -479,6 +513,7 @@
 		2EB534662453B2DD007F1895 /* Product Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2EB5347A2453D5BC007F1895 /* Product Details */,
 				2EB5346D2453B5F9007F1895 /* Page Controller */,
 				2EB5346A2453B3A8007F1895 /* Controllers */,
 				2EB534692453B390007F1895 /* Views */,
@@ -526,6 +561,33 @@
 				2EB534782453C800007F1895 /* DotViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		2EB5347A2453D5BC007F1895 /* Product Details */ = {
+			isa = PBXGroup;
+			children = (
+				2EB5347F2453D64A007F1895 /* Controllers */,
+			);
+			path = "Product Details";
+			sourceTree = "<group>";
+		};
+		2EB5347F2453D64A007F1895 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2EB5347B2453D646007F1895 /* ProductDetailsViewController.swift */,
+				2EB5347C2453D646007F1895 /* ProductDetailsViewController.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2EB53482245494E9007F1895 /* Database Services */ = {
+			isa = PBXGroup;
+			children = (
+				2EB534832454950E007F1895 /* DatabaseManager.swift */,
+				2EB5348524549BA3007F1895 /* DatabaseCollectionKeys.swift */,
+				2EB5348724549C39007F1895 /* UserSession.swift */,
+			);
+			path = "Database Services";
 			sourceTree = "<group>";
 		};
 		2ECBA8C924308591003543CD /* PostDetail */ = {
@@ -614,6 +676,7 @@
 				2E4A3E8C2208D2C800988116 /* Frameworks */,
 				2E4A3E8D2208D2C800988116 /* Resources */,
 				2E01617424197A32006A8723 /* Swift Lint Run Script */,
+				A005B1BCA25049A5025A1120 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -670,8 +733,10 @@
 				2E6C7F05242415A2008B7F69 /* PostShareView.xib in Resources */,
 				2E3FD059243A1B5E00DED9CA /* DetailedDescriptionViewController.xib in Resources */,
 				5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */,
+				2EB5347E2453D646007F1895 /* ProductDetailsViewController.xib in Resources */,
 				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
 				2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */,
+				2E1CE6A52454A1F40027A404 /* LoginFlowViewController.xib in Resources */,
 				2E3FD072243BCC4800DED9CA /* DatePickerViewController.xib in Resources */,
 				2ECBA8C82430858D003543CD /* PostDetailViewController.xib in Resources */,
 				2E3FD06D243B779300DED9CA /* AddPost.storyboard in Resources */,
@@ -680,6 +745,7 @@
 				2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */,
 				2E6C7F0C2427B1D8008B7F69 /* Settings.storyboard in Resources */,
 				2E3FD055243A15B700DED9CA /* Detailed.storyboard in Resources */,
+				2E1CE6A92454B66F0027A404 /* Verification.storyboard in Resources */,
 				2EB534682453B37B007F1895 /* ProductDetail.storyboard in Resources */,
 				2E1BB846244B9ABF00EFB21C /* (null) in Resources */,
 				2EB534732453BB3B007F1895 /* Pages.storyboard in Resources */,
@@ -729,6 +795,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		A005B1BCA25049A5025A1120 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PerfectlyCrafted/Pods-PerfectlyCrafted-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -736,6 +819,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1CE6A72454B25E0027A404 /* VerificationCodeViewController.swift in Sources */,
 				2EB534792453C801007F1895 /* DotViewController.swift in Sources */,
 				2E3FD058243A1B5E00DED9CA /* DetailedDescriptionViewController.swift in Sources */,
 				2E31881924142961003FC8B0 /* UITextView+AddToolBarItem.swift in Sources */,
@@ -756,6 +840,7 @@
 				2E3FD064243A708200DED9CA /* SFSymbols.swift in Sources */,
 				2E6C7F162427B9BB008B7F69 /* AssetColors.swift in Sources */,
 				2EB534772453BBFF007F1895 /* ImagesPageViewController.swift in Sources */,
+				2EB5348624549BA3007F1895 /* DatabaseCollectionKeys.swift in Sources */,
 				2E016166241739B4006A8723 /* CardPresentationController.swift in Sources */,
 				2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */,
 				2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */,
@@ -765,11 +850,15 @@
 				2ED29AD024453FF300BB34AD /* UITabbarController+TransparentBar.swift in Sources */,
 				2E1BB84B244BA73D00EFB21C /* OnboardingViewController.swift in Sources */,
 				2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */,
+				2E1CE6A42454A1F40027A404 /* LoginFlowViewController.swift in Sources */,
 				2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */,
 				2E3FD061243A6A3900DED9CA /* CircularButton.swift in Sources */,
+				2EB534842454950E007F1895 /* DatabaseManager.swift in Sources */,
 				2E3FD05224396CE300DED9CA /* FeaturedLayout.swift in Sources */,
 				2ECBA8C72430858D003543CD /* PostDetailViewController.swift in Sources */,
+				2EB5347D2453D646007F1895 /* ProductDetailsViewController.swift in Sources */,
 				2ED29AC724451A5000BB34AD /* EmptyStateViewController.swift in Sources */,
+				2EB5348124548F7B007F1895 /* Product.swift in Sources */,
 				2E6C7F102427B25F008B7F69 /* ColorSelectionCollectionViewCell.swift in Sources */,
 				2E01616824173A01006A8723 /* PresentationDirection.swift in Sources */,
 				2E1BB845244B9ABF00EFB21C /* (null) in Sources */,
@@ -777,6 +866,7 @@
 				2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */,
 				2E01615B24169DE5006A8723 /* PostsCollectionViewDataSource.swift in Sources */,
 				2EB5345D2453B0C5007F1895 /* ProductCollectionViewController.swift in Sources */,
+				2EB5348824549C39007F1895 /* UserSession.swift in Sources */,
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,
 				2E6C7EFE24241372008B7F69 /* PostShareViewController.swift in Sources */,
 				2E1BB850244BA75500EFB21C /* UIView+InstantiateFromNib.swift in Sources */,

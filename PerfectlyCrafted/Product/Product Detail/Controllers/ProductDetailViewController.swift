@@ -15,9 +15,12 @@ final class ProductDetailViewController: UIViewController {
     
     private lazy var imagePageController = UIStoryboard(name: "Pages", bundle: Bundle.main).instantiateViewController(identifier: "DotsViewController")
    
+    private lazy var productDetailViewController = ProductDetailsViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        add(asChildViewController: imagePageController, to: productImageView)
+        displayChildViewController(imagePageController, in: productImageView)
+        displayChildViewController(productDetailViewController, in: productDescriptionView)
     }
 
     @IBAction private func editButtonPressed(_ sender: CircularButton) {

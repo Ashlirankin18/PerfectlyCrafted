@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Eh4-UF-Yq0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Verification Code View Controller-->
+        <scene sceneID="AMR-pK-8cX">
+            <objects>
+                <viewController storyboardIdentifier="VerificationViewController" id="Eh4-UF-Yq0" customClass="VerificationCodeViewController" customModule="PerfectlyCrafted" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CSy-6C-l33">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter verification code" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxV-O8-TU7">
+                                <rect key="frame" x="54.5" y="112" width="305" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9TV-Hy-YJF">
+                                <rect key="frame" x="127" y="313" width="160" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad" textContentType="one-time-code"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vr5-mB-JeA">
+                                <rect key="frame" x="178" y="404" width="58" height="34"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonTapped:" destination="Eh4-UF-Yq0" eventType="touchUpInside" id="NFo-hV-vyQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9TV-Hy-YJF" firstAttribute="top" secondItem="LxV-O8-TU7" secondAttribute="bottom" constant="162.5" id="82q-FX-YpS"/>
+                            <constraint firstItem="LxV-O8-TU7" firstAttribute="top" secondItem="eTc-GJ-iaM" secondAttribute="top" constant="68" id="9tj-gM-RfB"/>
+                            <constraint firstItem="LxV-O8-TU7" firstAttribute="centerX" secondItem="CSy-6C-l33" secondAttribute="centerX" id="Ieu-3l-5bU"/>
+                            <constraint firstItem="vr5-mB-JeA" firstAttribute="centerX" secondItem="CSy-6C-l33" secondAttribute="centerX" id="Ipd-tQ-uiS"/>
+                            <constraint firstItem="9TV-Hy-YJF" firstAttribute="centerX" secondItem="CSy-6C-l33" secondAttribute="centerX" id="P1P-bc-zCO"/>
+                            <constraint firstItem="vr5-mB-JeA" firstAttribute="top" secondItem="9TV-Hy-YJF" secondAttribute="bottom" constant="57" id="pP8-sz-PcJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eTc-GJ-iaM"/>
+                    </view>
+                    <connections>
+                        <outlet property="verificationCodeTextField" destination="9TV-Hy-YJF" id="TH8-Mx-Nj1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RTN-Qy-yeD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="138"/>
+        </scene>
+    </scenes>
+</document>

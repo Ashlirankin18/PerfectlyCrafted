@@ -46,7 +46,7 @@ final class PostViewController: UICollectionViewController {
     private var posts = [Post]() {
         didSet {
             if posts.isEmpty {
-                add(asChildViewController: emptyStateViewController, to: view)
+                displayChildViewController(emptyStateViewController, in: view)
             } else {
                 remove(asChildViewController: emptyStateViewController)
                 collectionView.reloadData()

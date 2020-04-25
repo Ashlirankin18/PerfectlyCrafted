@@ -12,7 +12,7 @@ extension UIViewController {
     
     /// Adds a child viewController to the current controller.
     /// - Parameter viewController: The child view controller that will be displayed.
-    func add(asChildViewController viewController: UIViewController, to view: UIView) {
+    func displayChildViewController(_ viewController: UIViewController, in view: UIView) {
         
         addChild(viewController)
         
