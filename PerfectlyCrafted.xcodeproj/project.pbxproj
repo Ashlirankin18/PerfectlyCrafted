@@ -479,6 +479,7 @@
 		2EB534662453B2DD007F1895 /* Product Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2EB5346D2453B5F9007F1895 /* Page Controller */,
 				2EB5346A2453B3A8007F1895 /* Controllers */,
 				2EB534692453B390007F1895 /* Views */,
 			);
@@ -496,7 +497,6 @@
 		2EB5346A2453B3A8007F1895 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2EB5346D2453B5F9007F1895 /* Page Controller */,
 				2EB5346B2453B3C7007F1895 /* ProductDetailViewController.swift */,
 			);
 			path = Controllers;
