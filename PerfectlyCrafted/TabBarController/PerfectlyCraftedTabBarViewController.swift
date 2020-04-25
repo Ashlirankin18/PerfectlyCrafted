@@ -32,8 +32,12 @@ final class PerfectlyCraftedTabBarViewController: UITabBarController {
             return PostViewController(coder: coder, persistenceController: self.persistenceController)
         })
         let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
+       
+        let pd = UIStoryboard(name: "ProductDetail", bundle: Bundle.main).instantiateViewController(identifier: "ProductDetailViewController")
+        
         tabBar.tintColor = .black
         feedsViewController.tabBarItem.image = .entries
-        self.viewControllers = [newsFeedNavigationController]
+        pd.tabBarItem.image = .pages
+        self.viewControllers = [newsFeedNavigationController, pd]
     }
 }

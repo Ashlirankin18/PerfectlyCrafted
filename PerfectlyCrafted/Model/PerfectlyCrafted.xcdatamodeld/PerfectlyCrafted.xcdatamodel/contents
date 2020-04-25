@@ -13,14 +13,13 @@
         <attribute name="category" attributeType="String" defaultValueString="Un-Categorized"/>
         <attribute name="experience" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="imageData" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isFinished" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
-        <attribute name="productDescription" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="productDescription" attributeType="String" defaultValueString=""/>
         <attribute name="purchaseLocation" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Post" positionX="-12.29296875" positionY="-82.24609375" width="128" height="148"/>
-        <element name="Product" positionX="422.984375" positionY="85.90234375" width="128" height="163"/>
+        <element name="Product" positionX="422.984375" positionY="85.90234375" width="128" height="148"/>
     </elements>
 </model>

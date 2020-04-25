@@ -41,4 +41,8 @@ extension UIImage {
     static var entries: UIImage {
         return UIImage(systemName: "doc.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0, weight: .bold)) ?? UIImage()
     }
+    
+    static var pages: UIImage {
+           return UIImage(systemName: "paperclip.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0, weight: .bold)) ?? UIImage()
+    }
 }

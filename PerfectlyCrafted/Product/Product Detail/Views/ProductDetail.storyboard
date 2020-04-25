@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Product Detail View Controller-->
+        <scene sceneID="3Hd-pm-6tn">
+            <objects>
+                <viewController storyboardIdentifier="ProductDetailViewController" id="i6Q-Fo-lBo" customClass="ProductDetailViewController" customModule="PerfectlyCrafted" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vFJ-WI-BcI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUU-rQ-tGv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="358.5"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xH5-h6-eps">
+                                <rect key="frame" x="344" y="44" width="70" height="128"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="COh-gK-iAp">
+                                        <rect key="frame" x="20" y="8" width="36" height="132"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XW-zT-BAv" customClass="CircularButton" customModule="PerfectlyCrafted" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="gXc-Ad-4HZ"/>
+                                                    <constraint firstAttribute="width" constant="36" id="hiZ-ly-MN1"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="pencil" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="medium"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="editButtonPressed:" destination="i6Q-Fo-lBo" eventType="touchUpInside" id="HWL-jA-bfJ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIe-xy-vA2" customClass="CircularButton" customModule="PerfectlyCrafted" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="48" width="36" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="trash" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="medium"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deleteButtonPressed:" destination="i6Q-Fo-lBo" eventType="touchUpInside" id="k1Y-PN-h0b"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esn-fT-tFY" customClass="CircularButton" customModule="PerfectlyCrafted" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="96" width="36" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="square.and.arrow.up" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="medium"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="shareButtonTapped:" destination="i6Q-Fo-lBo" eventType="touchUpInside" id="dVo-ss-2hJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="I1I-5B-wBD"/>
+                                    <constraint firstAttribute="height" constant="128" id="gBo-RD-XOF"/>
+                                    <constraint firstItem="COh-gK-iAp" firstAttribute="leading" secondItem="xH5-h6-eps" secondAttribute="leading" constant="20" id="kbR-Zx-60l"/>
+                                    <constraint firstItem="COh-gK-iAp" firstAttribute="top" secondItem="xH5-h6-eps" secondAttribute="topMargin" id="sdB-Tn-Idy"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8n-vm-vWv">
+                                <rect key="frame" x="0.0" y="358.5" width="414" height="503.5"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fUU-rQ-tGv" firstAttribute="trailing" secondItem="1BY-LO-G0v" secondAttribute="trailing" id="0Dy-fg-Osg"/>
+                            <constraint firstItem="1BY-LO-G0v" firstAttribute="bottom" secondItem="n8n-vm-vWv" secondAttribute="bottom" id="0br-fZ-rnp"/>
+                            <constraint firstItem="fUU-rQ-tGv" firstAttribute="top" secondItem="vFJ-WI-BcI" secondAttribute="top" id="90R-aX-Lxa"/>
+                            <constraint firstItem="n8n-vm-vWv" firstAttribute="top" secondItem="fUU-rQ-tGv" secondAttribute="bottom" id="FZB-gH-L5f"/>
+                            <constraint firstItem="xH5-h6-eps" firstAttribute="top" secondItem="1BY-LO-G0v" secondAttribute="top" id="H4o-jK-AUm"/>
+                            <constraint firstItem="1BY-LO-G0v" firstAttribute="trailing" secondItem="n8n-vm-vWv" secondAttribute="trailing" id="LY5-9i-Dl8"/>
+                            <constraint firstItem="xH5-h6-eps" firstAttribute="leading" secondItem="1BY-LO-G0v" secondAttribute="leading" constant="344" id="QQT-HV-7ax"/>
+                            <constraint firstItem="n8n-vm-vWv" firstAttribute="leading" secondItem="1BY-LO-G0v" secondAttribute="leading" id="Z8o-tz-YON"/>
+                            <constraint firstItem="fUU-rQ-tGv" firstAttribute="height" secondItem="vFJ-WI-BcI" secondAttribute="height" multiplier="0.4" id="jQD-2Z-Wx1"/>
+                            <constraint firstItem="fUU-rQ-tGv" firstAttribute="leading" secondItem="1BY-LO-G0v" secondAttribute="leading" id="uyx-g5-jvJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1BY-LO-G0v"/>
+                    </view>
+                    <connections>
+                        <outlet property="productDescriptionView" destination="n8n-vm-vWv" id="SQb-7o-qlR"/>
+                        <outlet property="productImageView" destination="fUU-rQ-tGv" id="eyd-2N-JLS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vrl-P8-7Wy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428.98550724637687" y="114.50892857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+    </resources>
+</document>
