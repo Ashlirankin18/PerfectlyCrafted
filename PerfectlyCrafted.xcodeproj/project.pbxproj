@@ -24,6 +24,9 @@
 		2E1CE6A52454A1F40027A404 /* LoginFlowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1CE6A32454A1F40027A404 /* LoginFlowViewController.xib */; };
 		2E1CE6A72454B25E0027A404 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1CE6A62454B25E0027A404 /* VerificationCodeViewController.swift */; };
 		2E1CE6A92454B66F0027A404 /* Verification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1CE6A82454B66F0027A404 /* Verification.storyboard */; };
+		2E1CE6AB2454C0290027A404 /* AddProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1CE6AA2454C0290027A404 /* AddProduct.storyboard */; };
+		2E1CE6AD2454C0410027A404 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1CE6AC2454C0410027A404 /* AddProductViewController.swift */; };
+		2E1CE6AF2454DE5F0027A404 /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1CE6AE2454DE5F0027A404 /* Products.storyboard */; };
 		2E3187F52413DE25003FC8B0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3187F42413DE25003FC8B0 /* CloudKit.framework */; };
 		2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */; };
 		2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188082413F411003FC8B0 /* AddPostViewController.swift */; };
@@ -60,7 +63,6 @@
 		2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */; };
 		2EB5345D2453B0C5007F1895 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5345C2453B0C5007F1895 /* ProductCollectionViewController.swift */; };
 		2EB534622453B119007F1895 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB534602453B119007F1895 /* ProductCollectionViewCell.swift */; };
-		2EB534632453B119007F1895 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB534612453B119007F1895 /* ProductCollectionViewCell.xib */; };
 		2EB534682453B37B007F1895 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB534672453B37B007F1895 /* ProductDetail.storyboard */; };
 		2EB5346C2453B3C7007F1895 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5346B2453B3C7007F1895 /* ProductDetailViewController.swift */; };
 		2EB534732453BB3B007F1895 /* Pages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB534722453BB3B007F1895 /* Pages.storyboard */; };
@@ -100,6 +102,9 @@
 		2E1CE6A32454A1F40027A404 /* LoginFlowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginFlowViewController.xib; sourceTree = "<group>"; };
 		2E1CE6A62454B25E0027A404 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
 		2E1CE6A82454B66F0027A404 /* Verification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Verification.storyboard; sourceTree = "<group>"; };
+		2E1CE6AA2454C0290027A404 /* AddProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddProduct.storyboard; sourceTree = "<group>"; };
+		2E1CE6AC2454C0410027A404 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		2E1CE6AE2454DE5F0027A404 /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
 		2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PerfectlyCrafted.entitlements; sourceTree = "<group>"; };
 		2E3187F42413DE25003FC8B0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2E3187FB2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PerfectlyCrafted.xcdatamodel; sourceTree = "<group>"; };
@@ -139,7 +144,6 @@
 		2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectible.swift"; sourceTree = "<group>"; };
 		2EB5345C2453B0C5007F1895 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
 		2EB534602453B119007F1895 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
-		2EB534612453B119007F1895 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		2EB534672453B37B007F1895 /* ProductDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
 		2EB5346B2453B3C7007F1895 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		2EB534722453BB3B007F1895 /* Pages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pages.storyboard; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 		2E1CE6A12454A1A30027A404 /* Login Flow */ = {
 			isa = PBXGroup;
 			children = (
+				2E1BB841244B99FD00EFB21C /* Onboarding Screen */,
 				2E1CE6A22454A1F40027A404 /* LoginFlowViewController.swift */,
 				2E1CE6A32454A1F40027A404 /* LoginFlowViewController.xib */,
 				2E1CE6A62454B25E0027A404 /* VerificationCodeViewController.swift */,
@@ -328,7 +333,6 @@
 			children = (
 				2E1CE6A12454A1A30027A404 /* Login Flow */,
 				2EB53482245494E9007F1895 /* Database Services */,
-				2E1BB841244B99FD00EFB21C /* Onboarding Screen */,
 				2E3FD069243AA4CB00DED9CA /* Empty State */,
 				2E3FD062243A705400DED9CA /* SFSymbols */,
 				2E3FD05F243A6A0D00DED9CA /* Views */,
@@ -341,7 +345,6 @@
 				2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */,
 				2EB00BDC24132EFF00AEF017 /* Extensions */,
 				2EB534572453AFD4007F1895 /* Product */,
-				2E3187FD2413E6C1003FC8B0 /* Add Post */,
 				5B5ED219235380BF000227D1 /* Post */,
 				2E016164241737F6006A8723 /* Card Presentation */,
 				2EA365AB220A301400FFDC5E /* Model */,
@@ -481,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				2EB5345C2453B0C5007F1895 /* ProductCollectionViewController.swift */,
+				2E1CE6AE2454DE5F0027A404 /* Products.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -489,7 +493,6 @@
 			isa = PBXGroup;
 			children = (
 				2EB534602453B119007F1895 /* ProductCollectionViewCell.swift */,
-				2EB534612453B119007F1895 /* ProductCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -506,6 +509,8 @@
 		2EB534652453B14E007F1895 /* Add Product */ = {
 			isa = PBXGroup;
 			children = (
+				2E1CE6AA2454C0290027A404 /* AddProduct.storyboard */,
+				2E1CE6AC2454C0410027A404 /* AddProductViewController.swift */,
 			);
 			path = "Add Product";
 			sourceTree = "<group>";
@@ -628,10 +633,11 @@
 		5B5ED219235380BF000227D1 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				2E3187FD2413E6C1003FC8B0 /* Add Post */,
 				2E3FD053243A152500DED9CA /* Post Detail */,
 				2E6C7EFB24241317008B7F69 /* Post Share */,
-				2E81CE34241323BE002F506D /* Controllers */,
 				5B5ED21F235382AB000227D1 /* DataSource */,
+				2E81CE34241323BE002F506D /* Controllers */,
 				5B5ED21C2353810B000227D1 /* Views */,
 			);
 			path = Post;
@@ -728,10 +734,11 @@
 			files = (
 				2ED29AC824451A5000BB34AD /* EmptyStateViewController.xib in Resources */,
 				2E1BB84C244BA73D00EFB21C /* OnboardingViewController.xib in Resources */,
-				2EB534632453B119007F1895 /* ProductCollectionViewCell.xib in Resources */,
+				2E1CE6AF2454DE5F0027A404 /* Products.storyboard in Resources */,
 				2E6C7EFF24241372008B7F69 /* PostShareViewController.xib in Resources */,
 				2E6C7F05242415A2008B7F69 /* PostShareView.xib in Resources */,
 				2E3FD059243A1B5E00DED9CA /* DetailedDescriptionViewController.xib in Resources */,
+				2E1CE6AB2454C0290027A404 /* AddProduct.storyboard in Resources */,
 				5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */,
 				2EB5347E2453D646007F1895 /* ProductDetailsViewController.xib in Resources */,
 				2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */,
@@ -841,6 +848,7 @@
 				2E6C7F162427B9BB008B7F69 /* AssetColors.swift in Sources */,
 				2EB534772453BBFF007F1895 /* ImagesPageViewController.swift in Sources */,
 				2EB5348624549BA3007F1895 /* DatabaseCollectionKeys.swift in Sources */,
+				2E1CE6AD2454C0410027A404 /* AddProductViewController.swift in Sources */,
 				2E016166241739B4006A8723 /* CardPresentationController.swift in Sources */,
 				2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */,
 				2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */,

@@ -8,10 +8,24 @@
 
 import UIKit
 
-class ProductCollectionViewCell: UICollectionViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
+final class ProductCollectionViewCell: UICollectionViewCell {
+    
+    struct ViewModel {
+          let name: String
+          let isCompleted: Bool
+          let productImage: UIImage
+      }
+      
+      @IBOutlet private weak var productNameLabel: UILabel!
+      @IBOutlet private weak var completedLabel: UILabel!
+      @IBOutlet private weak var productImageView: UIImageView!
+      
+      var viewModel: ViewModel? {
+          didSet {
+              productNameLabel.text = viewModel?.name
+              let completed = !(viewModel?.isCompleted ?? false) ? "Still in use": "Completed"
+              completedLabel.text = completed
+              productImageView.image = viewModel?.productImage
+          }
+      }
 }

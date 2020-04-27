@@ -15,16 +15,14 @@ struct Product: Codable {
     let documentId: String
     let isFinished: Bool
     let name: String
-    let purchaseLocation: String
     let imageURLS: [String]
     
-    init(category: String, experience: String, documentId: String, isFinished: Bool, name: String, purchaseLocation: String, imageURLS: [String]) {
+    init(category: String, experience: String, documentId: String, isFinished: Bool, name: String, imageURLS: [String]) {
         self.category = category
         self.experience = experience
         self.documentId = documentId
         self.isFinished = isFinished
         self.name = name
-        self.purchaseLocation = purchaseLocation
         self.imageURLS = imageURLS
     }
     
@@ -34,7 +32,6 @@ struct Product: Codable {
         self.documentId = dict["documentId"] as? String ?? ""
         self.isFinished = dict["isFinished"] as? Bool ?? false
         self.name = dict["name"] as? String ?? ""
-        self.purchaseLocation = dict["purchaseLocation"] as? String ?? ""
         self.imageURLS = dict["imageURLS"] as? [String] ?? []
     }
 }

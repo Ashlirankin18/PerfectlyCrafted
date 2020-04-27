@@ -42,7 +42,7 @@ extension UIImage {
         return UIImage(systemName: "doc.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0, weight: .bold)) ?? UIImage()
     }
     
-    static var pages: UIImage {
-           return UIImage(systemName: "paperclip.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0, weight: .bold)) ?? UIImage()
+    static var products: UIImage {
+           return UIImage(systemName: "book.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0, weight: .bold)) ?? UIImage()
     }
 }

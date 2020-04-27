@@ -33,11 +33,15 @@ final class PerfectlyCraftedTabBarViewController: UITabBarController {
         })
         let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
        
-        let pd = UIStoryboard(name: "ProductDetail", bundle: Bundle.main).instantiateViewController(identifier: "ProductDetailViewController")
+        let productsController = UIStoryboard(name: "Products", bundle: Bundle.main).instantiateViewController(identifier: "ProductCollectionViewController", creator: { coder in
+            return ProductCollectionViewController(coder: coder)
+        })
+            
+        let productNavigationController = UINavigationController(rootViewController: productsController)
         
         tabBar.tintColor = .black
         feedsViewController.tabBarItem.image = .entries
-        pd.tabBarItem.image = .pages
-        self.viewControllers = [newsFeedNavigationController, pd]
+        productsController.tabBarItem.image = .products
+        self.viewControllers = [newsFeedNavigationController, productNavigationController]
     }
 }
