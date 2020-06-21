@@ -78,12 +78,12 @@ final class AddPostViewController: UIViewController {
         configureBarButtonItems()
         descriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         createPostIfNeeded()
+        
         imagePickerController = UIImagePickerController()
+        
         imagePickerController.delegate = self
         descriptionTextView.delegate = self
-        descriptionTextView.text = "Write Something here ..."
-        descriptionTextView.textColor = .gray
-        UIImagePickerController.isSourceTypeAvailable(.camera)
+        
         titleTextField.delegate = self
         
         displayView.isHidden = true
@@ -130,14 +130,29 @@ final class AddPostViewController: UIViewController {
             newPost.postDescription = nil
             newPost.photoIdentfier = nil
             posts.append(newPost)
+            configureUIOnCreatingPost()
         case .editing:
             guard let post = persistenceController.retrievePost(with: postId, context: managedObjectContext).first else {
                 return
             }
             posts.append(post)
+            configureUIOnEditing(post: post)
         }
     }
     
+    private func configureUIOnEditing(post: Post) {
+        titleTextField.text = post.title
+        if !post.description.isEmpty {
+            descriptionTextView.text = post.postDescription
+        } else {
+            descriptionTextView.text = "Write Something here..."
+        }
+    }
+    
+    private func configureUIOnCreatingPost() {
+        descriptionTextView.text = "Write Something here..."
+        descriptionTextView.textColor = .gray
+    }
     private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil, eventDate: Date? = nil) {
         let fetchRequest: NSFetchRequest<Post> = NSFetchRequest<Post>()
         fetchRequest.entity = Post.entity()
@@ -263,22 +278,20 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
         case .creating:
             photoIdentifier = UUID()
         case .editing:
-            guard let post = posts.first, let postPhotoIdentifier = post.photoIdentfier else {
-                return
-            }
-            photoIdentifier = postPhotoIdentifier
+            photoIdentifier = posts.first?.photoIdentfier ?? UUID()
         }
-        
         do {
             let data = try image.heicData()
+            
             updatePost(photoIdentifier: photoIdentifier, imageData: data)
         } catch {
             print(error)
         }
-        localImageManager?.saveImage(image, key: photoIdentifier)
+        
         displayView.isHidden = false
         entryImageView.image = image
         entryDateLabel.isHidden = true
+        localImageManager?.saveImage(image, key: photoIdentifier)
         dismiss(animated: true, completion: nil)
     }
 }
