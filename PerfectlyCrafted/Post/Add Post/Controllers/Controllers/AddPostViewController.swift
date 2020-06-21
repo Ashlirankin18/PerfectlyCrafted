@@ -23,6 +23,7 @@ final class AddPostViewController: UIViewController {
     @IBOutlet private weak var displayView: UIView!
     @IBOutlet private weak var entryImageView: UIImageView!
     @IBOutlet private weak var entryDateLabel: UILabel!
+    @IBOutlet private weak var cameraButton: UIButton!
     
     private let contentState: ContentState
     
@@ -82,10 +83,11 @@ final class AddPostViewController: UIViewController {
         descriptionTextView.delegate = self
         descriptionTextView.text = "Write Something here ..."
         descriptionTextView.textColor = .gray
-        
+        UIImagePickerController.isSourceTypeAvailable(.camera)
         titleTextField.delegate = self
         
         displayView.isHidden = true
+        configureImagePickerController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +108,10 @@ final class AddPostViewController: UIViewController {
     private func unregisterKeyboardNofications() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func configureImagePickerController() {
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera) ? true : false 
     }
     
     private func presentImagePickerController() {

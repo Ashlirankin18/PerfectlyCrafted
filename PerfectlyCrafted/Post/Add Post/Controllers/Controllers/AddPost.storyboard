@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qQV-HS-Gt4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qQV-HS-Gt4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -176,6 +176,7 @@
                         <viewLayoutGuide key="safeArea" id="EpI-Kz-1j3"/>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="n7e-oU-ed3" id="ZYV-kv-i60"/>
                         <outlet property="containerView" destination="lnj-uy-11x" id="FQR-0s-rxC"/>
                         <outlet property="descriptionTextView" destination="T5Y-Uc-ts4" id="KWV-8K-m5e"/>
                         <outlet property="displayView" destination="Y6L-Ra-RM3" id="hj2-bK-wP3"/>
