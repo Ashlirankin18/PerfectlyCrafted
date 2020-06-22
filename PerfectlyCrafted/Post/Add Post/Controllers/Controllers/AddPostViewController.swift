@@ -24,6 +24,7 @@ final class AddPostViewController: UIViewController {
     @IBOutlet private weak var entryImageView: UIImageView!
     @IBOutlet private weak var entryDateLabel: UILabel!
     @IBOutlet private weak var cameraButton: UIButton!
+    @IBOutlet private weak var submitButton: UIButton!
     
     private let contentState: ContentState
     
@@ -223,11 +224,15 @@ final class AddPostViewController: UIViewController {
         }
         containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
         displayView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
+        submitButton.isEnabled = false
+        submitButton.backgroundColor = .gray
     }
     
     @objc private func willHideKeyboard(notification: Notification) {
         containerView.transform = CGAffineTransform.identity
         displayView.transform = CGAffineTransform.identity
+        submitButton.isEnabled = true
+        submitButton.backgroundColor = .black
     }
 }
 

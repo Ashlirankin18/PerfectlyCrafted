@@ -182,6 +182,7 @@
                         <outlet property="displayView" destination="Y6L-Ra-RM3" id="hj2-bK-wP3"/>
                         <outlet property="entryDateLabel" destination="Zu4-RG-d5E" id="pJ0-zO-sJf"/>
                         <outlet property="entryImageView" destination="omF-08-Gf5" id="Sf1-ek-tnW"/>
+                        <outlet property="submitButton" destination="QNJ-tc-vTK" id="Rvw-aj-TVS"/>
                         <outlet property="titleTextField" destination="Bvl-3l-N62" id="giR-T0-fHK"/>
                     </connections>
                 </viewController>
