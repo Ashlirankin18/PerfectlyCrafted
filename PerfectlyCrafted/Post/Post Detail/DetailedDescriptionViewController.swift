@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 /// Subscribe to this object if you would like to receive notifications about the status of the pan gesture recognizer.
 protocol DetailedDescriptionViewControllerDelegate: AnyObject {
@@ -25,7 +26,7 @@ protocol DetailedDescriptionViewControllerDelegate: AnyObject {
     /// - Parameter cardViewController: `CardPresentationController` displays detils about an attraction.
     func panGestureDidEnd(_ cardViewController: DetailedDescriptionViewController)
 }
- 
+
 final class DetailedDescriptionViewController: UIViewController {
 
     @IBOutlet private weak var handleAreaView: UIView!
@@ -36,11 +37,15 @@ final class DetailedDescriptionViewController: UIViewController {
     
     /// Notifies subscriber to pan gesture recognizer changes.
     weak var delegate: DetailedDescriptionViewControllerDelegate?
-   
-    private let entryDescription: String?
+
+    var postDescription: String? {
+        didSet {
+            postDescriptionTextView.text = postDescription
+        }
+    }
     
-    init(description: String?) {
-        self.entryDescription = description
+    init(postDescription: String?) {
+        self.postDescription = postDescription
         super.init(nibName: "DetailedDescriptionViewController", bundle: nil)
     }
     
@@ -52,7 +57,7 @@ final class DetailedDescriptionViewController: UIViewController {
         super.viewDidLoad()
         handleAreaView.isUserInteractionEnabled = true
         handleAreaView.addGestureRecognizer(panGestureRecognizer)
-        postDescriptionTextView.text = entryDescription
+        postDescriptionTextView.text = postDescription
     }
     
     @objc private func handleCardPan(panGestureRecognizer: UIPanGestureRecognizer) {

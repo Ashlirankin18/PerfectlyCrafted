@@ -26,7 +26,7 @@ final class DetailedViewController: UIViewController {
     }
     
     private lazy var detailDescriptionViewController: DetailedDescriptionViewController = {
-        let controller = DetailedDescriptionViewController(description: post.postDescription)
+        let controller = DetailedDescriptionViewController(postDescription: post.postDescription)
         return controller
     }()
     
@@ -51,6 +51,8 @@ final class DetailedViewController: UIViewController {
         self.persistenceController = persistenceController
         self.managedObjectContext = persistenceController.newMainContext
         super.init(coder: coder)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(postDidChange(notification:)), name: .NSManagedObjectContextObjectsDidChange, object: persistenceController.viewContext)
     }
     
     required init?(coder: NSCoder) {
@@ -193,8 +195,8 @@ final class DetailedViewController: UIViewController {
     @IBAction private func deleteButtonTapped(_ sender: CircularButton) {
         presentAlertController { [weak self] in
             guard let self = self, let id = self.post.id else {
-            return
-        }
+                return
+            }
             self.persistenceController.deleteObject(with: id, on: self.persistenceController.viewContext)
             self.dismiss(animated: true, completion: nil)
         }
@@ -204,6 +206,21 @@ final class DetailedViewController: UIViewController {
         let shareViewController = PostShareViewController(post: post)
         let shareNavigationController = UINavigationController(rootViewController: shareViewController)
         show(shareNavigationController, sender: self)
+    }
+    
+    @objc private func postDidChange(notification: Notification) {
+        /*
+         With this I was able to see the notification type and based on that grab a post. Note figure out a more robust way to do this.
+         */
+        guard  let refreshedSet = notification.userInfo?[NSRefreshedObjectsKey] as? Set<Post> else {
+            return
+        }
+        guard let post = refreshedSet.first(where: { $0.id == self.post.id }) else {
+            return
+        }
+        detailDescriptionViewController.postDescription = post.postDescription
+        configureImageView()
+        configureLabels()
     }
 }
 
