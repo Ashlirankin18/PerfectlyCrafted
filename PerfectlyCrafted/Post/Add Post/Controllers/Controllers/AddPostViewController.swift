@@ -308,7 +308,6 @@ extension AddPostViewController: UINavigationControllerDelegate, UIImagePickerCo
         }
         do {
             let data = try image.heicData()
-            
             updatePost(photoIdentifier: photoIdentifier, imageData: data)
         } catch {
             print(error)
