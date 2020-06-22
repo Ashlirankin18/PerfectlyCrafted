@@ -92,6 +92,4 @@ extension ImagesPageViewController: UIPageViewControllerDelegate {
             imagesPageViewControllerDelegate?.imagesPageViewController(imagesPageViewController: self, didUpdatePageIndex: index)
         }
     }
-    
-    
 }

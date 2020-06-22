@@ -46,8 +46,17 @@ final class AddPostViewController: UIViewController {
         let button = CircularButton(image: .cancel)
         let barbutton = UIBarButtonItem(customView: button)
         
-        button.buttonTapped = { button in
-            self.dismiss(animated: true)
+        button.buttonTapped = {[weak self] button in
+            guard let self = self else {
+                return
+            }
+            if self.managedObjectContext.hasChanges {
+                self.presentAlertController(message: NSLocalizedString("Are you sure you want to discard this entry", comment: "Inquires from the user wether the would like to discard their changes"), actionTitle: "Discard") {
+                    self.dismiss(animated: true)
+                }
+            } else {
+                self.dismiss(animated: true)
+            }
         }
         
         return barbutton
@@ -77,18 +86,19 @@ final class AddPostViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.transparentNavigationController()
         configureBarButtonItems()
+        
         descriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         createPostIfNeeded()
-        
+           
         imagePickerController = UIImagePickerController()
+        configureImagePickerController()
         
         imagePickerController.delegate = self
         descriptionTextView.delegate = self
-        
         titleTextField.delegate = self
         
         displayView.isHidden = true
-        configureImagePickerController()
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,6 +129,32 @@ final class AddPostViewController: UIViewController {
         present(imagePickerController, animated: true)
     }
     
+    private func configureUIOnEditing(post: Post) {
+        titleTextField.text = post.title
+        if !post.description.isEmpty {
+            descriptionTextView.text = post.postDescription
+        } else {
+            descriptionTextView.text = "Write Something here..."
+        }
+    }
+    
+    private func configureUIOnCreatingPost() {
+        descriptionTextView.text = "Write Something here..."
+        descriptionTextView.textColor = .gray
+    }
+    
+    private func presentAlertController(message: String, actionTitle: String, completeion: @escaping () -> Void) {
+        let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: actionTitle, style: .destructive, handler: { _  in
+            completeion()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        alertController.view.tintColor = .black
+        present(alertController, animated: true)
+    }
+    
     private func createPostIfNeeded() {
         switch contentState {
         case .creating:
@@ -141,19 +177,6 @@ final class AddPostViewController: UIViewController {
         }
     }
     
-    private func configureUIOnEditing(post: Post) {
-        titleTextField.text = post.title
-        if !post.description.isEmpty {
-            descriptionTextView.text = post.postDescription
-        } else {
-            descriptionTextView.text = "Write Something here..."
-        }
-    }
-    
-    private func configureUIOnCreatingPost() {
-        descriptionTextView.text = "Write Something here..."
-        descriptionTextView.textColor = .gray
-    }
     private func updatePost(title: String? = nil, postDescription: String? = nil, photoIdentifier: UUID? = nil, imageData: Data? = nil, eventDate: Date? = nil) {
         let fetchRequest: NSFetchRequest<Post> = NSFetchRequest<Post>()
         fetchRequest.entity = Post.entity()
