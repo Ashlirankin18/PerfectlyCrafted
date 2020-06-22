@@ -77,6 +77,10 @@ final class AddProductViewController: UIViewController {
     @IBAction private func submitButtonPressed(_ sender: UIButton) {
     }
     
+    @IBAction func photoLibraryButtonTapped(_ sender: UIButton) {
+        
+    }
+    
     private func hideTextViewIfNeeded(textView: UITextView, isOn: Bool) {
         textView.isHidden = isOn ? false : true
     }
