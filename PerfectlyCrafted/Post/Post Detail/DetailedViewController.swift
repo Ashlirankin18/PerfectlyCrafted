@@ -222,6 +222,10 @@ final class DetailedViewController: UIViewController {
         configureImageView()
         configureLabels()
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 extension DetailedViewController: DetailedDescriptionViewControllerDelegate {
