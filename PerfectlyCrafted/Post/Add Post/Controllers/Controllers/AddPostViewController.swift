@@ -224,15 +224,13 @@ final class AddPostViewController: UIViewController {
         }
         containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
         displayView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
-        submitButton.isEnabled = false
-        submitButton.backgroundColor = .gray
+        containerView.isHidden = true
     }
     
     @objc private func willHideKeyboard(notification: Notification) {
         containerView.transform = CGAffineTransform.identity
         displayView.transform = CGAffineTransform.identity
-        submitButton.isEnabled = true
-        submitButton.backgroundColor = .black
+        containerView.isHidden = false
     }
 }
 
