@@ -74,6 +74,7 @@
 		2EB534842454950E007F1895 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB534832454950E007F1895 /* DatabaseManager.swift */; };
 		2EB5348624549BA3007F1895 /* DatabaseCollectionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5348524549BA3007F1895 /* DatabaseCollectionKeys.swift */; };
 		2EB5348824549C39007F1895 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5348724549C39007F1895 /* UserSession.swift */; };
+		2EB7C1B224A0E983001A33DA /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB7C1B124A0E983001A33DA /* ImagePickerManager.swift */; };
 		2ECBA8C72430858D003543CD /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA8C52430858D003543CD /* PostDetailViewController.swift */; };
 		2ECBA8C82430858D003543CD /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECBA8C62430858D003543CD /* PostDetailViewController.xib */; };
 		2ED29AC724451A5000BB34AD /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29AC524451A5000BB34AD /* EmptyStateViewController.swift */; };
@@ -155,6 +156,7 @@
 		2EB534832454950E007F1895 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		2EB5348524549BA3007F1895 /* DatabaseCollectionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCollectionKeys.swift; sourceTree = "<group>"; };
 		2EB5348724549C39007F1895 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		2EB7C1B124A0E983001A33DA /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		2ECBA8C52430858D003543CD /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		2ECBA8C62430858D003543CD /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		2ED29AC524451A5000BB34AD /* EmptyStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2EB7C1B024A0E96A001A33DA /* ImagePicking */,
 				2E1CE6A12454A1A30027A404 /* Login Flow */,
 				2EB53482245494E9007F1895 /* Database Services */,
 				2E3FD069243AA4CB00DED9CA /* Empty State */,
@@ -595,6 +598,14 @@
 			path = "Database Services";
 			sourceTree = "<group>";
 		};
+		2EB7C1B024A0E96A001A33DA /* ImagePicking */ = {
+			isa = PBXGroup;
+			children = (
+				2EB7C1B124A0E983001A33DA /* ImagePickerManager.swift */,
+			);
+			path = ImagePicking;
+			sourceTree = "<group>";
+		};
 		2ECBA8C924308591003543CD /* PostDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,6 +855,7 @@
 				2E3FD05B243A258700DED9CA /* DetailedViewController.swift in Sources */,
 				2E3FD071243BCC4800DED9CA /* DatePickerViewController.swift in Sources */,
 				2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */,
+				2EB7C1B224A0E983001A33DA /* ImagePickerManager.swift in Sources */,
 				2E3FD064243A708200DED9CA /* SFSymbols.swift in Sources */,
 				2E6C7F162427B9BB008B7F69 /* AssetColors.swift in Sources */,
 				2EB534772453BBFF007F1895 /* ImagesPageViewController.swift in Sources */,

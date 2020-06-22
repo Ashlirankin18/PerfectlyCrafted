@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YPImagePicker
 
 final class AddProductViewController: UIViewController {
     
@@ -31,6 +32,13 @@ final class AddProductViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
         return barbutton
+    }()
+    
+    private lazy var imagePicker: YPImagePicker = {
+        var configuration = YPImagePickerConfiguration()
+        configuration.library.maxNumberOfItems = 4
+        let picker = YPImagePicker(configuration: configuration)
+        return picker
     }()
     
     init? (coder: NSCoder, databaseManager: DatabaseManager) {
@@ -77,7 +85,20 @@ final class AddProductViewController: UIViewController {
     @IBAction private func submitButtonPressed(_ sender: UIButton) {
     }
     
-    @IBAction func photoLibraryButtonTapped(_ sender: UIButton) {
+    @IBAction private func photoLibraryButtonTapped(_ sender: UIButton) {
+        present(imagePicker, animated: true, completion: nil)
+        
+        imagePicker.didFinishPicking { (items, sucess) in
+            for item in items {
+                switch item {
+                case let .photo(p: photo):
+                    break
+                case let .video(v: video):
+                    break
+                }
+            }
+        }
+        
         
     }
     
