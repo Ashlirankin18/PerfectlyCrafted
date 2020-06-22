@@ -23,6 +23,8 @@ final class AddProductViewController: UIViewController {
     
     private let databaseManager: DatabaseManager
     
+    private lazy var imagePickerManager = ImagePickerManager(presentingViewController: self)
+    
     private lazy var cancelButton: UIBarButtonItem = {
         let button = CircularButton(image: .cancel)
         let barbutton = UIBarButtonItem(customView: button)
@@ -32,13 +34,6 @@ final class AddProductViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
         return barbutton
-    }()
-    
-    private lazy var imagePicker: YPImagePicker = {
-        var configuration = YPImagePickerConfiguration()
-        configuration.library.maxNumberOfItems = 4
-        let picker = YPImagePicker(configuration: configuration)
-        return picker
     }()
     
     init? (coder: NSCoder, databaseManager: DatabaseManager) {
@@ -65,6 +60,7 @@ final class AddProductViewController: UIViewController {
         navigationController?.transparentNavigationController()
         navigationItem.leftBarButtonItem = cancelButton
         productNameTextField.delegate = self
+        imagePickerManager.delegate = self
     }
     
     deinit {
@@ -86,20 +82,7 @@ final class AddProductViewController: UIViewController {
     }
     
     @IBAction private func photoLibraryButtonTapped(_ sender: UIButton) {
-        present(imagePicker, animated: true, completion: nil)
-        
-        imagePicker.didFinishPicking { (items, sucess) in
-            for item in items {
-                switch item {
-                case let .photo(p: photo):
-                    break
-                case let .video(v: video):
-                    break
-                }
-            }
-        }
-        
-        
+        imagePickerManager.presentImagePickerController()
     }
     
     private func hideTextViewIfNeeded(textView: UITextView, isOn: Bool) {
@@ -133,7 +116,7 @@ final class AddProductViewController: UIViewController {
 }
 
 extension AddProductViewController: UITextFieldDelegate {
-    
+    // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
@@ -149,5 +132,12 @@ extension AddProductViewController: UITextFieldDelegate {
             documentId = databaseManager.postProductToDatabase(product: prodcut)
         }
         textField.resignFirstResponder()
+    }
+}
+
+extension AddProductViewController: ImagePickerManagerDelegate {
+    // MARK: - ImagePickerManagerDelegate
+    func imagePickerDidFinishPicking(imagePickerManager: ImagePickerManager, photos: [UIImage]) {
+        print(photos)
     }
 }
