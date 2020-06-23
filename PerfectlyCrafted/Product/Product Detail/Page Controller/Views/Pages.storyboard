@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NV9-iO-YIT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NV9-iO-YIT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -33,7 +33,6 @@
         <!--Dot View Controller-->
         <scene sceneID="B6S-ps-6UQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1u1-HL-Ks9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DotsViewController" id="NV9-iO-YIT" customClass="DotViewController" customModule="PerfectlyCrafted" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WGK-bc-px1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -68,53 +67,9 @@
                         <outlet property="imagePageControl" destination="LXs-dU-6Nz" id="7Ko-wg-YrM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1u1-HL-Ks9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="546" y="-205"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hF1-Ce-HlR">
-            <objects>
-                <viewController storyboardIdentifier="ImageTwo" id="AUj-dr-meG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8Jc-ca-Jr9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="zLb-8t-JYE"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hwf-nt-MS2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="507" y="469"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="x7r-23-KrA">
-            <objects>
-                <viewController storyboardIdentifier="ImageThree" id="EzD-cD-Jh9" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QQD-VO-dF1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="4IL-ec-s0J"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ox0-el-s9w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-965" y="749"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Tmu-a4-5eh">
-            <objects>
-                <viewController storyboardIdentifier="ImageFour" id="th0-HW-c9F" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bzx-dy-pR4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="rIe-Vi-Mre"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8cl-Uh-4Ht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-236" y="749"/>
         </scene>
     </scenes>
 </document>

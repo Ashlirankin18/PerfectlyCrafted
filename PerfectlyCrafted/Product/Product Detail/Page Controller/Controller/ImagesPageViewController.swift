@@ -21,9 +21,9 @@ final class ImagesPageViewController: UIPageViewController {
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [newViewController(viewControllerIdentifier: "ImageOne"),
-                newViewController(viewControllerIdentifier: "ImageTwo"),
-                newViewController(viewControllerIdentifier: "ImageThree"),
-                newViewController(viewControllerIdentifier: "ImageFour")
+               newViewController(viewControllerIdentifier: "ImageOne"),
+                newViewController(viewControllerIdentifier: "ImageOne"),
+                newViewController(viewControllerIdentifier: "ImageOne")
         ]
     }()
     
