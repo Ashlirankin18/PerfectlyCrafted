@@ -36,6 +36,8 @@ final class AddPostViewController: UIViewController {
     
     private var imagePickerController: UIImagePickerController!
     
+    private lazy var keyboardObserver: KeyboardObserver = KeyboardObserver(raisedViews: [containerView,displayView])
+    
     private var localImageManager = try? LocalImageManager()
     
     private let persistenceController: PersistenceController
@@ -79,7 +81,7 @@ final class AddPostViewController: UIViewController {
     }
     
     deinit {
-        unregisterKeyboardNofications()
+        keyboardObserver.unregisterKeyboardNofications()
     }
     
     override func viewDidLoad() {
@@ -102,22 +104,12 @@ final class AddPostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        registerKeyboardNotifications()
+        keyboardObserver.registerKeyboardNotifications()
     }
     
     private func configureBarButtonItems() {
         title = contentState == .creating ? "Write" : "Edit Entry"
         navigationItem.leftBarButtonItem = cancelButton
-    }
-    
-    private func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    private func unregisterKeyboardNofications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func configureImagePickerController() {
@@ -236,23 +228,6 @@ final class AddPostViewController: UIViewController {
     
     @objc private func tapDone(sender: Any) {
         descriptionTextView.resignFirstResponder()
-    }
-    
-    @objc private func willShowKeyboard(notification: Notification) {
-        guard let info = notification.userInfo,
-            let keyboardFrame = info["UIKeyboardFrameEndUserInfoKey"] as? CGRect else {
-                print("userinfo is nil")
-                return
-        }
-        containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
-        displayView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
-        containerView.isHidden = true
-    }
-    
-    @objc private func willHideKeyboard(notification: Notification) {
-        containerView.transform = CGAffineTransform.identity
-        displayView.transform = CGAffineTransform.identity
-        containerView.isHidden = false
     }
 }
 
