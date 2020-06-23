@@ -11,21 +11,28 @@ import UIKit
 final class ProductCollectionViewCell: UICollectionViewCell {
     
     struct ViewModel {
-          let name: String
-          let isCompleted: Bool
-          let productImage: UIImage
-      }
-      
-      @IBOutlet private weak var productNameLabel: UILabel!
-      @IBOutlet private weak var completedLabel: UILabel!
-      @IBOutlet private weak var productImageView: UIImageView!
-      
-      var viewModel: ViewModel? {
-          didSet {
-              productNameLabel.text = viewModel?.name
-              let completed = !(viewModel?.isCompleted ?? false) ? "Still in use": "Completed"
-              completedLabel.text = completed
-              productImageView.image = viewModel?.productImage
-          }
-      }
+        let name: String
+        let isCompleted: Bool
+        let productImage: UIImage?
+    }
+    
+    @IBOutlet private weak var productNameLabel: UILabel!
+    @IBOutlet private weak var completedLabel: UILabel!
+    @IBOutlet private weak var productImageView: UIImageView!
+    
+    var viewModel: ViewModel? {
+        didSet {
+            guard let viewModel = viewModel else {
+                return
+            }
+            productNameLabel.text = viewModel.name
+            let completed = !viewModel.isCompleted ? "Still in use": "Completed"
+            completedLabel.text = completed
+            if viewModel.productImage == nil {
+                productImageView.backgroundColor = .lightGray
+            } else {
+                productImageView.image = viewModel.productImage
+            }
+        }
+    }
 }

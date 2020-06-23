@@ -19,10 +19,18 @@ final class ProductDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
         displayChildViewController(imagePageController, in: productImageView)
         displayChildViewController(productDetailViewController, in: productDescriptionView)
     }
-
+    
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
+    }
+    
     @IBAction private func editButtonPressed(_ sender: CircularButton) {
     }
     

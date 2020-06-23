@@ -67,6 +67,7 @@ final class AddProductViewController: UIViewController {
         navigationController?.transparentNavigationController()
         navigationItem.leftBarButtonItem = cancelButton
         productNameTextField.delegate = self
+        productCategoryTextField.delegate = self
         imagePickerManager.delegate = self
         productDescriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         productExperienceTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
@@ -80,6 +81,7 @@ final class AddProductViewController: UIViewController {
         product.category = nil
         product.isfinished = false
         product.productDescription = nil
+        product.entryDate = Date()
         products.append(product)
     }
     
@@ -149,8 +151,9 @@ final class AddProductViewController: UIViewController {
         textView.isHidden = isOn ? false : true
     }
     
-    @objc private func tapDone(sender: UITextView) {
-        sender.resignFirstResponder()
+    @objc private func tapDone(sender: Any) {
+        productDescriptionTextView.resignFirstResponder()
+        productExperienceTextView.resignFirstResponder()
     }
 }
 
@@ -167,7 +170,7 @@ extension AddProductViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView == productExperienceTextView && productExperienceSwitch.isOn {
             updateProduct(experience: textView.text)
-        } else {
+        } else if textView == productDescriptionTextView && productDescriptionSwitch.isOn {
             updateProduct(productDescription: textView.text)
         }
     }
@@ -177,18 +180,27 @@ extension AddProductViewController: UITextFieldDelegate {
     
     // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == productNameTextField {
+            productNameTextField.resignFirstResponder()
+        } else if textField == productCategoryTextField {
+            productCategoryTextField.resignFirstResponder()
+        }
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text else {
-            return
-        }
-        
         if textField == productNameTextField {
+            guard let text = textField.text else {
+                return
+            }
             updateProduct(name: text)
-        } else {
+        } else if textField == productCategoryTextField {
+            guard let text = textField.text else {
+                return
+            }
             updateProduct(category: text)
+        } else {
+            print("here")
         }
     }
 }
