@@ -15,13 +15,24 @@ final class ProductDetailViewController: UIViewController {
     
     private lazy var imagePageController = UIStoryboard(name: "Pages", bundle: Bundle.main).instantiateViewController(identifier: "DotsViewController")
    
-    private lazy var productDetailViewController = ProductDetailsViewController()
+    private lazy var productDetailViewController = ProductDetailsViewController(product: product!)
+    
+    private var product: Product?
+    
+    init? (coder: NSCoder, product: Product) {
+        self.product = product
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         displayChildViewController(imagePageController, in: productImageView)
-        displayChildViewController(productDetailViewController, in: productDescriptionView)
+        displayChildViewController(productDetailViewController!, in: productDescriptionView)
     }
     
     private func configureNavigationBar() {

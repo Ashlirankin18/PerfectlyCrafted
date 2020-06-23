@@ -97,7 +97,7 @@ final class ProductCollectionViewController: UICollectionViewController {
         }
     }
     
-    private func presentAddViewController () {
+    private func presentAddViewController() {
         let addPostViewController = UIStoryboard(name: "AddProduct", bundle: Bundle.main).instantiateViewController(identifier: "AddProductViewController") { coder in
             return AddProductViewController(coder: coder, persistenceController: self.persistenceController, productId: UUID())
         }
@@ -122,8 +122,9 @@ final class ProductCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let product = products[indexPath.row]
         let detailledController = UIStoryboard(name: "ProductDetail", bundle: Bundle.main).instantiateViewController(identifier: "ProductDetailViewController", creator: { coder in
-            return ProductDetailViewController(coder: coder)
+            return ProductDetailViewController(coder: coder, product: product)
         })
         let detailledNavigationController = UINavigationController(rootViewController: detailledController)
         detailledNavigationController.modalPresentationStyle = .fullScreen
