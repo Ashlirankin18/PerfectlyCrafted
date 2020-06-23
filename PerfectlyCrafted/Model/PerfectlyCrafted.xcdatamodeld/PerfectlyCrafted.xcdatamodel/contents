@@ -20,11 +20,12 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isfinished" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="productDescription" optional="YES" attributeType="String"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="product" inverseEntity="Image"/>
     </entity>
     <elements>
         <element name="Post" positionX="-12.29296875" positionY="-82.24609375" width="128" height="148"/>
-        <element name="Product" positionX="93.76171875" positionY="81.9453125" width="128" height="133"/>
+        <element name="Product" positionX="93.76171875" positionY="81.9453125" width="128" height="148"/>
         <element name="Image" positionX="286.39453125" positionY="-46.08203125" width="128" height="88"/>
     </elements>
 </model>

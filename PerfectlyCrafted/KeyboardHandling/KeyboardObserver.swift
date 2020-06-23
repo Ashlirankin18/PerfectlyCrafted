@@ -34,12 +34,14 @@ final class KeyboardObserver {
         }
         raisedViews.forEach({
             $0.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
+            $0.isHidden = true
         })
     }
     
     @objc private func willHideKeyboard(notification: Notification) {
         raisedViews.forEach({
             $0.transform = CGAffineTransform.identity
+            $0.isHidden = false
         })
     }
 }

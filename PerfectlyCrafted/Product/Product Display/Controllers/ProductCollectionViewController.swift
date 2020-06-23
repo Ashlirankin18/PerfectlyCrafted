@@ -62,7 +62,7 @@ final class ProductCollectionViewController: UICollectionViewController {
     
     private func presentAddViewController () {
         let addPostViewController = UIStoryboard(name: "AddProduct", bundle: Bundle.main).instantiateViewController(identifier: "AddProductViewController") { coder in
-            return AddProductViewController(coder: coder, persistenceController: self.persistenceController )
+            return AddProductViewController(coder: coder, persistenceController: self.persistenceController, productId: UUID())
         }
         let addProductNavigationController = UINavigationController(rootViewController: addPostViewController)
         addProductNavigationController.modalPresentationStyle = .fullScreen

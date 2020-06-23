@@ -15,6 +15,7 @@ final class AddProductViewController: UIViewController {
     @IBOutlet private weak var productDescriptionSwitch: UISwitch!
     @IBOutlet private weak var productExperienceSwitch: UISwitch!
     @IBOutlet private weak var productNameTextField: UITextField!
+    @IBOutlet private weak var productCategoryTextField: UITextField!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var displayView: UIView!
     @IBOutlet private weak var productDescriptionTextView: UITextView!
@@ -36,11 +37,13 @@ final class AddProductViewController: UIViewController {
     
     private let persistenceController: PersistenceController
     private let managedObjectContext: NSManagedObjectContext
-  
-    private var product = [Product]()
     
-    init? (coder: NSCoder, persistenceController: PersistenceController) {
+    private var products = [Product]()
+    private let productId: UUID
+    
+    init? (coder: NSCoder, persistenceController: PersistenceController, productId: UUID) {
         self.persistenceController = persistenceController
+        self.productId = productId
         self.managedObjectContext = persistenceController.newMainContext
         super.init(coder: coder)
     }
@@ -65,6 +68,54 @@ final class AddProductViewController: UIViewController {
         navigationItem.leftBarButtonItem = cancelButton
         productNameTextField.delegate = self
         imagePickerManager.delegate = self
+        productDescriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        productExperienceTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        createProductIfNeeded()
+    }
+    
+    private func createProductIfNeeded() {
+        let product = Product(context: managedObjectContext)
+        product.name = nil
+        product.experience = nil
+        product.category = nil
+        product.isfinished = false
+        product.productDescription = nil
+        products.append(product)
+    }
+    
+    private func updateProduct(name: String? = nil, experience: String? = nil, images: Set<Image>? = nil, isFinished: Bool = false, category: String? = nil, productDescription: String? = nil) {
+        let fetchRequest: NSFetchRequest<Product> = NSFetchRequest<Product>()
+        fetchRequest.entity = Product.entity()
+        
+        do {
+            if let product = try managedObjectContext.fetch(fetchRequest).first(where: { (product) -> Bool in
+                product.id == productId
+            }) {
+                if let name = name {
+                    product.name = name
+                }
+                
+                if let experience = experience {
+                    product.experience = experience
+                }
+                
+                if let images = images {
+                    product.images = images as NSSet
+                }
+                
+                if let category = category {
+                    product.category = category
+                }
+                
+                if let productDescription = productDescription {
+                    product.productDescription = productDescription
+                }
+                
+                product.isfinished = isFinished
+            }
+        } catch {
+            print("Error here \(error)")
+        }
     }
     
     deinit {
@@ -80,9 +131,14 @@ final class AddProductViewController: UIViewController {
     }
     
     @IBAction private func isProductCompletedTapped(_ sender: UISwitch) {
+        if sender.isOn {
+            updateProduct(isFinished: true)
+        }
     }
     
     @IBAction private func submitButtonPressed(_ sender: UIButton) {
+        persistenceController.saveContext(context: managedObjectContext)
+        dismiss(animated: true)
     }
     
     @IBAction private func photoLibraryButtonTapped(_ sender: UIButton) {
@@ -92,9 +148,33 @@ final class AddProductViewController: UIViewController {
     private func hideTextViewIfNeeded(textView: UITextView, isOn: Bool) {
         textView.isHidden = isOn ? false : true
     }
+    
+    @objc private func tapDone(sender: UITextView) {
+        sender.resignFirstResponder()
+    }
+}
+
+extension AddProductViewController: UITextViewDelegate {
+    
+    // MARK: - UITextFieldDelegate
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if !textView.text.isEmpty {
+            textView.textColor = .black
+            textView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView == productExperienceTextView && productExperienceSwitch.isOn {
+            updateProduct(experience: textView.text)
+        } else {
+            updateProduct(productDescription: textView.text)
+        }
+    }
 }
 
 extension AddProductViewController: UITextFieldDelegate {
+    
     // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
@@ -104,16 +184,30 @@ extension AddProductViewController: UITextFieldDelegate {
         guard let text = textField.text else {
             return
         }
-        textField.resignFirstResponder()
+        
+        if textField == productNameTextField {
+            updateProduct(name: text)
+        } else {
+            updateProduct(category: text)
+        }
     }
 }
 
 extension AddProductViewController: ImagePickerManagerDelegate {
     // MARK: - ImagePickerManagerDelegate
     func imagePickerDidFinishPicking(imagePickerManager: ImagePickerManager, photos: [UIImage]) {
-        guard !photos.isEmpty else {
+        guard let product = products.first, !photos.isEmpty else {
             return
         }
-        print(photos)
+        
+        var photoSet = Set<Image>()
+        for photo in photos {
+            let image = Image(context: managedObjectContext)
+            image.id = UUID()
+            image.imageData = photo.pngData()
+            image.product = product
+            photoSet.insert(image)
+        }
+        updateProduct(images: photoSet)
     }
 }
