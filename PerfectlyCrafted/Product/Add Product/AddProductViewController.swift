@@ -8,6 +8,7 @@
 
 import UIKit
 import YPImagePicker
+import CoreData
 
 final class AddProductViewController: UIViewController {
     
@@ -19,10 +20,6 @@ final class AddProductViewController: UIViewController {
     @IBOutlet private weak var productDescriptionTextView: UITextView!
     @IBOutlet private weak var productExperienceTextView: UITextView!
     
-    private var documentId: String?
-    
-    private let databaseManager: DatabaseManager
-    
     private lazy var imagePickerManager = ImagePickerManager(presentingViewController: self)
     
     private lazy var cancelButton: UIBarButtonItem = {
@@ -30,14 +27,21 @@ final class AddProductViewController: UIViewController {
         let barbutton = UIBarButtonItem(customView: button)
         
         button.buttonTapped = { button in
-            self.databaseManager.removeProductFromDatabase(documentId: self.documentId ?? "")
             self.dismiss(animated: true, completion: nil)
         }
         return barbutton
     }()
     
-    init? (coder: NSCoder, databaseManager: DatabaseManager) {
-        self.databaseManager = databaseManager
+    private lazy var keyboardObserver: KeyboardObserver = KeyboardObserver(raisedViews: [containerView, displayView])
+    
+    private let persistenceController: PersistenceController
+    private let managedObjectContext: NSManagedObjectContext
+  
+    private var product = [Product]()
+    
+    init? (coder: NSCoder, persistenceController: PersistenceController) {
+        self.persistenceController = persistenceController
+        self.managedObjectContext = persistenceController.newMainContext
         super.init(coder: coder)
     }
     
@@ -46,8 +50,8 @@ final class AddProductViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        registerKeyboardNotifications()
+        super.viewWillAppear(animated)
+        keyboardObserver.registerKeyboardNotifications()
     }
     
     override func viewDidLoad() {
@@ -64,7 +68,7 @@ final class AddProductViewController: UIViewController {
     }
     
     deinit {
-        unregisterKeyboardNofications()
+        keyboardObserver.unregisterKeyboardNofications()
     }
     
     @IBAction private func productDescriptionSwicthTapped(_ sender: UISwitch) {
@@ -88,31 +92,6 @@ final class AddProductViewController: UIViewController {
     private func hideTextViewIfNeeded(textView: UITextView, isOn: Bool) {
         textView.isHidden = isOn ? false : true
     }
-    
-    private func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    private func unregisterKeyboardNofications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc private func willShowKeyboard(notification: Notification) {
-        guard let info = notification.userInfo,
-            let keyboardFrame = info["UIKeyboardFrameEndUserInfoKey"] as? CGRect else {
-                print("userinfo is nil")
-                return
-        }
-        containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
-        displayView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height)
-    }
-    
-    @objc private func willHideKeyboard(notification: Notification) {
-        containerView.transform = CGAffineTransform.identity
-        displayView.transform = CGAffineTransform.identity
-    }
 }
 
 extension AddProductViewController: UITextFieldDelegate {
@@ -125,12 +104,6 @@ extension AddProductViewController: UITextFieldDelegate {
         guard let text = textField.text else {
             return
         }
-        if let documentId = documentId {
-            databaseManager.updateProductOnDatabase(documentId: documentId, name: text)
-        } else {
-            let prodcut = Product(category: "", experience: "", documentId: "", isFinished: false, name: text, imageURLS: [])
-            documentId = databaseManager.postProductToDatabase(product: prodcut)
-        }
         textField.resignFirstResponder()
     }
 }
@@ -138,6 +111,9 @@ extension AddProductViewController: UITextFieldDelegate {
 extension AddProductViewController: ImagePickerManagerDelegate {
     // MARK: - ImagePickerManagerDelegate
     func imagePickerDidFinishPicking(imagePickerManager: ImagePickerManager, photos: [UIImage]) {
+        guard !photos.isEmpty else {
+            return
+        }
         print(photos)
     }
 }

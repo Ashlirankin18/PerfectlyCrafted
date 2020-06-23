@@ -98,7 +98,6 @@ final class AddPostViewController: UIViewController {
         titleTextField.delegate = self
         
         displayView.isHidden = true
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
