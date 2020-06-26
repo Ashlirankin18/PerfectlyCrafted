@@ -124,7 +124,7 @@ final class ProductCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = products[indexPath.row]
         let detailledController = UIStoryboard(name: "ProductDetail", bundle: Bundle.main).instantiateViewController(identifier: "ProductDetailViewController", creator: { coder in
-            return ProductDetailViewController(coder: coder, product: product)
+            return ProductDetailViewController(coder: coder, product: product, persistenceController: self.persistenceController)
         })
         let detailledNavigationController = UINavigationController(rootViewController: detailledController)
         detailledNavigationController.modalPresentationStyle = .fullScreen

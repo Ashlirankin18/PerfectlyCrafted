@@ -16,7 +16,7 @@ final class ProductDetailsViewController: UIViewController {
     
     private let product: Product
     
-    init?(product: Product) {
+    init(product: Product) {
         self.product = product
         super.init(nibName: "ProductDetailsViewController", bundle: .main)
     }
