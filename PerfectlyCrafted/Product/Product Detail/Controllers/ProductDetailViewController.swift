@@ -13,26 +13,37 @@ final class ProductDetailViewController: UIViewController {
     @IBOutlet private weak var productImageView: UIView!
     @IBOutlet private weak var productDescriptionView: UIView!
     
-    private lazy var imagePageController = UIStoryboard(name: "Pages", bundle: Bundle.main).instantiateViewController(identifier: "DotsViewController")
-   
-    private lazy var productDetailViewController = ProductDetailsViewController(product: product!)
+    private lazy var dotsViewController: DotViewController = UIStoryboard(name: "Pages", bundle: .main).instantiateViewController(identifier: "DotsViewController")
     
-    private var product: Product?
+    private lazy var productDetailViewController = ProductDetailsViewController(product: product)
     
-    init? (coder: NSCoder, product: Product) {
+    private var product: Product
+    
+    private let persistenceController: PersistenceController
+    
+    init? (coder: NSCoder, product: Product, persistenceController: PersistenceController) {
         self.product = product
+        self.persistenceController = persistenceController
         super.init(coder: coder)
+        
+        guard let images = product.images as? Set<Image>, !images.isEmpty else {
+            return
+        }
+        let data = images.compactMap({ $0.imageData })
+        let unwrappedImages = ImageUnWrapperHandler(imageDatas: data).unwrapImages()
+        dotsViewController.images = unwrappedImages
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-        displayChildViewController(imagePageController, in: productImageView)
-        displayChildViewController(productDetailViewController!, in: productDescriptionView)
+        displayChildViewController(dotsViewController, in: productImageView)
+        displayChildViewController(productDetailViewController, in: productDescriptionView)
     }
     
     private func configureNavigationBar() {
