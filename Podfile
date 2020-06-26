@@ -8,6 +8,7 @@ target 'PerfectlyCrafted' do
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Firestore'
+	pod 'YPImagePicker'
   # Pods for PerfectlyCrafted
 
 end

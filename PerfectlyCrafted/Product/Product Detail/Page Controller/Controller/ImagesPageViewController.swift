@@ -17,15 +17,10 @@ protocol ImagesPageViewControllerDelegate: AnyObject {
                                   didUpdatePageIndex index: Int)
 }
 
+/// 
 final class ImagesPageViewController: UIPageViewController {
     
-    private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [newViewController(viewControllerIdentifier: "ImageOne"),
-                newViewController(viewControllerIdentifier: "ImageTwo"),
-                newViewController(viewControllerIdentifier: "ImageThree"),
-                newViewController(viewControllerIdentifier: "ImageFour")
-        ]
-    }()
+    var orderedViewControllers: [UIViewController] = []
     
     weak var imagesPageViewControllerDelegate: ImagesPageViewControllerDelegate?
     
@@ -39,13 +34,12 @@ final class ImagesPageViewController: UIPageViewController {
         }
         imagesPageViewControllerDelegate?.imagesPageViewController(imagesPageViewController: self, didUpdatePageCount: orderedViewControllers.count)
     }
-    
-    private func newViewController(viewControllerIdentifier: String) -> UIViewController {
-        return UIStoryboard(name: "Pages", bundle: nil).instantiateViewController(identifier: viewControllerIdentifier)
-    }
 }
 
 extension ImagesPageViewController: UIPageViewControllerDataSource {
+    
+    //MARK: - UIPageViewControllerDelegate
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
@@ -60,7 +54,6 @@ extension ImagesPageViewController: UIPageViewControllerDataSource {
         guard orderedViewControllers.count > previousIndex else {
             return nil
         }
-        
         return orderedViewControllers[previousIndex]
     }
     
@@ -79,16 +72,17 @@ extension ImagesPageViewController: UIPageViewControllerDataSource {
         guard orderedViewControllersCount > nextIndex else {
             return nil
         }
-        
         return orderedViewControllers[nextIndex]
     }
 }
 
 extension ImagesPageViewController: UIPageViewControllerDelegate {
     
+    // MARK: - UIPageViewControllerDelegate
+    
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let firstViewController = viewControllers?.first,
-            let index = orderedViewControllers.firstIndex(of: firstViewController) {
+           let index = orderedViewControllers.firstIndex(of: firstViewController) {
             imagesPageViewControllerDelegate?.imagesPageViewController(imagesPageViewController: self, didUpdatePageIndex: index)
         }
     }

@@ -34,7 +34,7 @@ final class PerfectlyCraftedTabBarViewController: UITabBarController {
         let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
        
         let productsController = UIStoryboard(name: "Products", bundle: Bundle.main).instantiateViewController(identifier: "ProductCollectionViewController", creator: { coder in
-            return ProductCollectionViewController(coder: coder)
+            return ProductCollectionViewController(coder: coder, persistenceController: self.persistenceController)
         })
             
         let productNavigationController = UINavigationController(rootViewController: productsController)

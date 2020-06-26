@@ -139,7 +139,7 @@ final class PostViewController: UICollectionViewController {
             print(error)
         }
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }

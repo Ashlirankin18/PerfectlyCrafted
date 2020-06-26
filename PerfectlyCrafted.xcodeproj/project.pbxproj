@@ -70,10 +70,12 @@
 		2EB534792453C801007F1895 /* DotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB534782453C800007F1895 /* DotViewController.swift */; };
 		2EB5347D2453D646007F1895 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5347B2453D646007F1895 /* ProductDetailsViewController.swift */; };
 		2EB5347E2453D646007F1895 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB5347C2453D646007F1895 /* ProductDetailsViewController.xib */; };
-		2EB5348124548F7B007F1895 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5348024548F7B007F1895 /* Product.swift */; };
 		2EB534842454950E007F1895 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB534832454950E007F1895 /* DatabaseManager.swift */; };
 		2EB5348624549BA3007F1895 /* DatabaseCollectionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5348524549BA3007F1895 /* DatabaseCollectionKeys.swift */; };
 		2EB5348824549C39007F1895 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5348724549C39007F1895 /* UserSession.swift */; };
+		2EB7C1B224A0E983001A33DA /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB7C1B124A0E983001A33DA /* ImagePickerManager.swift */; };
+		2EB7C1B524A22DA2001A33DA /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB7C1B424A22DA2001A33DA /* KeyboardObserver.swift */; };
+		2EB7C1B724A26003001A33DA /* ProductImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB7C1B624A26003001A33DA /* ProductImageViewController.swift */; };
 		2ECBA8C72430858D003543CD /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA8C52430858D003543CD /* PostDetailViewController.swift */; };
 		2ECBA8C82430858D003543CD /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECBA8C62430858D003543CD /* PostDetailViewController.xib */; };
 		2ED29AC724451A5000BB34AD /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29AC524451A5000BB34AD /* EmptyStateViewController.swift */; };
@@ -81,6 +83,7 @@
 		2ED29ACA2445345700BB34AD /* UIViewController+ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29AC92445345700BB34AD /* UIViewController+ChildViewController.swift */; };
 		2ED29ACC24453E4100BB34AD /* UINavigationController+TransparentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29ACB24453E4100BB34AD /* UINavigationController+TransparentBar.swift */; };
 		2ED29AD024453FF300BB34AD /* UITabbarController+TransparentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29ACF24453FF300BB34AD /* UITabbarController+TransparentBar.swift */; };
+		2EDA26B324A61DCC0012331A /* ImageUnwrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA26B224A61DCC0012331A /* ImageUnwrapper.swift */; };
 		2EF32CDD22175881006E2B1F /* hairProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = 2EF32CDC22175881006E2B1F /* hairProducts.json */; };
 		2EF5EC842236EC8700A18748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */; };
 		5B5ED21B23538100000227D1 /* Feeds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5ED21A23538100000227D1 /* Feeds.storyboard */; };
@@ -151,10 +154,12 @@
 		2EB534782453C800007F1895 /* DotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotViewController.swift; sourceTree = "<group>"; };
 		2EB5347B2453D646007F1895 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		2EB5347C2453D646007F1895 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
-		2EB5348024548F7B007F1895 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2EB534832454950E007F1895 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		2EB5348524549BA3007F1895 /* DatabaseCollectionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCollectionKeys.swift; sourceTree = "<group>"; };
 		2EB5348724549C39007F1895 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		2EB7C1B124A0E983001A33DA /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		2EB7C1B424A22DA2001A33DA /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
+		2EB7C1B624A26003001A33DA /* ProductImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageViewController.swift; sourceTree = "<group>"; };
 		2ECBA8C52430858D003543CD /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		2ECBA8C62430858D003543CD /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		2ED29AC524451A5000BB34AD /* EmptyStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +167,7 @@
 		2ED29AC92445345700BB34AD /* UIViewController+ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ChildViewController.swift"; sourceTree = "<group>"; };
 		2ED29ACB24453E4100BB34AD /* UINavigationController+TransparentBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+TransparentBar.swift"; sourceTree = "<group>"; };
 		2ED29ACF24453FF300BB34AD /* UITabbarController+TransparentBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbarController+TransparentBar.swift"; sourceTree = "<group>"; };
+		2EDA26B224A61DCC0012331A /* ImageUnwrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUnwrapper.swift; sourceTree = "<group>"; };
 		2EF32CDC22175881006E2B1F /* hairProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hairProducts.json; sourceTree = "<group>"; };
 		2EF5EC832236EC8700A18748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B5ED21A23538100000227D1 /* Feeds.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feeds.storyboard; sourceTree = "<group>"; };
@@ -331,6 +337,8 @@
 		2E4A3E912208D2C800988116 /* PerfectlyCrafted */ = {
 			isa = PBXGroup;
 			children = (
+				2EB7C1B324A22D86001A33DA /* KeyboardHandling */,
+				2EB7C1B024A0E96A001A33DA /* ImagePicking */,
 				2E1CE6A12454A1A30027A404 /* Login Flow */,
 				2EB53482245494E9007F1895 /* Database Services */,
 				2E3FD069243AA4CB00DED9CA /* Empty State */,
@@ -438,7 +446,6 @@
 			isa = PBXGroup;
 			children = (
 				2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */,
-				2EB5348024548F7B007F1895 /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -564,6 +571,7 @@
 			children = (
 				2EB534762453BBFF007F1895 /* ImagesPageViewController.swift */,
 				2EB534782453C800007F1895 /* DotViewController.swift */,
+				2EB7C1B624A26003001A33DA /* ProductImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -593,6 +601,23 @@
 				2EB5348724549C39007F1895 /* UserSession.swift */,
 			);
 			path = "Database Services";
+			sourceTree = "<group>";
+		};
+		2EB7C1B024A0E96A001A33DA /* ImagePicking */ = {
+			isa = PBXGroup;
+			children = (
+				2EB7C1B124A0E983001A33DA /* ImagePickerManager.swift */,
+				2EDA26B224A61DCC0012331A /* ImageUnwrapper.swift */,
+			);
+			path = ImagePicking;
+			sourceTree = "<group>";
+		};
+		2EB7C1B324A22D86001A33DA /* KeyboardHandling */ = {
+			isa = PBXGroup;
+			children = (
+				2EB7C1B424A22DA2001A33DA /* KeyboardObserver.swift */,
+			);
+			path = KeyboardHandling;
 			sourceTree = "<group>";
 		};
 		2ECBA8C924308591003543CD /* PostDetail */ = {
@@ -829,6 +854,7 @@
 				2E1CE6A72454B25E0027A404 /* VerificationCodeViewController.swift in Sources */,
 				2EB534792453C801007F1895 /* DotViewController.swift in Sources */,
 				2E3FD058243A1B5E00DED9CA /* DetailedDescriptionViewController.swift in Sources */,
+				2EB7C1B524A22DA2001A33DA /* KeyboardObserver.swift in Sources */,
 				2E31881924142961003FC8B0 /* UITextView+AddToolBarItem.swift in Sources */,
 				2E31881B24153736003FC8B0 /* UIImage+HEIC.swift in Sources */,
 				2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */,
@@ -840,10 +866,12 @@
 				2E1BB84E244BA74A00EFB21C /* UIViewController+IsFirstLaunch.swift in Sources */,
 				2E1BB848244BA5DC00EFB21C /* (null) in Sources */,
 				2E318820241537E7003FC8B0 /* LocalImageLaoder.swift in Sources */,
+				2EDA26B324A61DCC0012331A /* ImageUnwrapper.swift in Sources */,
 				2E016163241737EE006A8723 /* CardPresentationManager.swift in Sources */,
 				2E3FD05B243A258700DED9CA /* DetailedViewController.swift in Sources */,
 				2E3FD071243BCC4800DED9CA /* DatePickerViewController.swift in Sources */,
 				2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */,
+				2EB7C1B224A0E983001A33DA /* ImagePickerManager.swift in Sources */,
 				2E3FD064243A708200DED9CA /* SFSymbols.swift in Sources */,
 				2E6C7F162427B9BB008B7F69 /* AssetColors.swift in Sources */,
 				2EB534772453BBFF007F1895 /* ImagesPageViewController.swift in Sources */,
@@ -852,6 +880,7 @@
 				2E016166241739B4006A8723 /* CardPresentationController.swift in Sources */,
 				2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */,
 				2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */,
+				2EB7C1B724A26003001A33DA /* ProductImageViewController.swift in Sources */,
 				2EB534622453B119007F1895 /* ProductCollectionViewCell.swift in Sources */,
 				2E01617324196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2EB5346C2453B3C7007F1895 /* ProductDetailViewController.swift in Sources */,
@@ -866,7 +895,6 @@
 				2ECBA8C72430858D003543CD /* PostDetailViewController.swift in Sources */,
 				2EB5347D2453D646007F1895 /* ProductDetailsViewController.swift in Sources */,
 				2ED29AC724451A5000BB34AD /* EmptyStateViewController.swift in Sources */,
-				2EB5348124548F7B007F1895 /* Product.swift in Sources */,
 				2E6C7F102427B25F008B7F69 /* ColorSelectionCollectionViewCell.swift in Sources */,
 				2E01616824173A01006A8723 /* PresentationDirection.swift in Sources */,
 				2E1BB845244B9ABF00EFB21C /* (null) in Sources */,
