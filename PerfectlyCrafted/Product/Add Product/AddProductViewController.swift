@@ -62,6 +62,8 @@ final class AddProductViewController: UIViewController {
         title = "Add Product"
         productDescriptionSwitch.isOn = false
         productExperienceSwitch.isOn = false
+        productExperienceTextView.delegate = self
+        productDescriptionTextView.delegate = self
         hideTextViewIfNeeded(textView: productDescriptionTextView, isOn: false)
         hideTextViewIfNeeded(textView: productExperienceTextView, isOn: false)
         navigationController?.transparentNavigationController()
@@ -76,6 +78,7 @@ final class AddProductViewController: UIViewController {
     
     private func createProductIfNeeded() {
         let product = Product(context: managedObjectContext)
+        product.id = productId
         product.name = nil
         product.experience = nil
         product.category = nil
@@ -85,7 +88,7 @@ final class AddProductViewController: UIViewController {
         products.append(product)
     }
     
-    private func updateProduct(name: String? = nil, experience: String? = nil, images: Set<Image>? = nil, isFinished: Bool = false, category: String? = nil, productDescription: String? = nil) {
+    private func updateProduct(name: String? = nil, experience: String? = nil, images: Set<Image>? = nil, isFinished: Bool? = false, category: String? = nil, productDescription: String? = nil) {
         let fetchRequest: NSFetchRequest<Product> = NSFetchRequest<Product>()
         fetchRequest.entity = Product.entity()
         
@@ -112,8 +115,9 @@ final class AddProductViewController: UIViewController {
                 if let productDescription = productDescription {
                     product.productDescription = productDescription
                 }
-                
-                product.isfinished = isFinished
+                if let isFinished = isFinished {
+                    product.isfinished = isFinished
+                }                
             }
         } catch {
             print("Error here \(error)")
@@ -133,9 +137,7 @@ final class AddProductViewController: UIViewController {
     }
     
     @IBAction private func isProductCompletedTapped(_ sender: UISwitch) {
-        if sender.isOn {
-            updateProduct(isFinished: true)
-        }
+        updateProduct(isFinished: sender.isOn)
     }
     
     @IBAction private func submitButtonPressed(_ sender: UIButton) {
@@ -169,9 +171,9 @@ extension AddProductViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView == productExperienceTextView && productExperienceSwitch.isOn {
-            updateProduct(experience: textView.text)
+            updateProduct(experience: productExperienceTextView.text)
         } else if textView == productDescriptionTextView && productDescriptionSwitch.isOn {
-            updateProduct(productDescription: textView.text)
+            updateProduct(productDescription: productDescriptionTextView.text)
         }
     }
 }

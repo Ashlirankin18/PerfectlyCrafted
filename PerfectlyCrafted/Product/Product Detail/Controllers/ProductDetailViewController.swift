@@ -42,8 +42,18 @@ final class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
+        configureNavigationItems()
         displayChildViewController(dotsViewController, in: productImageView)
         displayChildViewController(productDetailViewController, in: productDescriptionView)
+    }
+    
+    private func configureNavigationItems() {
+        let button = CircularButton.backButton
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        
+        button.buttonTapped = { [weak self] _ in
+            self?.dismiss(animated: true)
+        }
     }
     
     private func configureNavigationBar() {

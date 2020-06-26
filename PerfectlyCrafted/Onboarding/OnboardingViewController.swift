@@ -10,10 +10,6 @@ import UIKit
 
 final class OnboardingViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @IBAction private func createButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
