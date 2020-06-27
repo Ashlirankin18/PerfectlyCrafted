@@ -88,6 +88,10 @@ final class AddProductViewController: UIViewController {
         products.append(product)
     }
     
+    private func setupDelegates() {
+        
+    }
+    
     private func updateProduct(name: String? = nil, experience: String? = nil, images: Set<Image>? = nil, isFinished: Bool? = false, category: String? = nil, productDescription: String? = nil) {
         let fetchRequest: NSFetchRequest<Product> = NSFetchRequest<Product>()
         fetchRequest.entity = Product.entity()
