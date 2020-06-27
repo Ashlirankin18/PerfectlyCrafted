@@ -37,7 +37,6 @@ final class AddProductViewController: UIViewController {
     
     private let persistenceController: PersistenceController
     private let managedObjectContext: NSManagedObjectContext
-    
     private var products = [Product]()
     private let productId: UUID
     
@@ -48,6 +47,7 @@ final class AddProductViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -60,20 +60,20 @@ final class AddProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add Product"
-        productDescriptionSwitch.isOn = false
-        productExperienceSwitch.isOn = false
-        productExperienceTextView.delegate = self
-        productDescriptionTextView.delegate = self
-        hideTextViewIfNeeded(textView: productDescriptionTextView, isOn: false)
-        hideTextViewIfNeeded(textView: productExperienceTextView, isOn: false)
+        configureSwitches()
+        setupDelegates()
         navigationController?.transparentNavigationController()
         navigationItem.leftBarButtonItem = cancelButton
-        productNameTextField.delegate = self
-        productCategoryTextField.delegate = self
-        imagePickerManager.delegate = self
+        hideTextViewIfNeeded(textView: productDescriptionTextView, isOn: false)
+        hideTextViewIfNeeded(textView: productExperienceTextView, isOn: false)
         productDescriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         productExperienceTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         createProductIfNeeded()
+    }
+    
+    private func configureSwitches() {
+        productDescriptionSwitch.isOn = false
+        productExperienceSwitch.isOn = false
     }
     
     private func createProductIfNeeded() {
@@ -89,7 +89,11 @@ final class AddProductViewController: UIViewController {
     }
     
     private func setupDelegates() {
-        
+        productExperienceTextView.delegate = self
+        productDescriptionTextView.delegate = self
+        productNameTextField.delegate = self
+        productCategoryTextField.delegate = self
+        imagePickerManager.delegate = self
     }
     
     private func updateProduct(name: String? = nil, experience: String? = nil, images: Set<Image>? = nil, isFinished: Bool? = false, category: String? = nil, productDescription: String? = nil) {
@@ -128,6 +132,10 @@ final class AddProductViewController: UIViewController {
         }
     }
     
+    private func hideTextViewIfNeeded(textView: UITextView, isOn: Bool) {
+        textView.isHidden = isOn ? false : true
+    }
+    
     deinit {
         keyboardObserver.unregisterKeyboardNofications()
     }
@@ -153,10 +161,6 @@ final class AddProductViewController: UIViewController {
         imagePickerManager.presentImagePickerController()
     }
     
-    private func hideTextViewIfNeeded(textView: UITextView, isOn: Bool) {
-        textView.isHidden = isOn ? false : true
-    }
-    
     @objc private func tapDone(sender: Any) {
         productDescriptionTextView.resignFirstResponder()
         productExperienceTextView.resignFirstResponder()
@@ -166,6 +170,7 @@ final class AddProductViewController: UIViewController {
 extension AddProductViewController: UITextViewDelegate {
     
     // MARK: - UITextFieldDelegate
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if !textView.text.isEmpty {
             textView.textColor = .black
@@ -185,6 +190,7 @@ extension AddProductViewController: UITextViewDelegate {
 extension AddProductViewController: UITextFieldDelegate {
     
     // MARK: - UITextFieldDelegate
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == productNameTextField {
             productNameTextField.resignFirstResponder()
@@ -212,7 +218,9 @@ extension AddProductViewController: UITextFieldDelegate {
 }
 
 extension AddProductViewController: ImagePickerManagerDelegate {
+    
     // MARK: - ImagePickerManagerDelegate
+    
     func imagePickerDidFinishPicking(imagePickerManager: ImagePickerManager, photos: [UIImage]) {
         guard let product = products.first, !photos.isEmpty else {
             return
