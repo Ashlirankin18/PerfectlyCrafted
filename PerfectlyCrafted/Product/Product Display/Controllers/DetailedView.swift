@@ -9,38 +9,57 @@
 import SwiftUI
 
 struct DetailedView: View {
+    @Environment(\.presentationMode) var presentationMode
     
     var product: Product
     
     var body: some View {
-        ScrollView {
-            ZStack {
-                Page(image: unwrapImages())
-                    .edgesIgnoringSafeArea(.top)
-                ButtonView()
-            }
-            
-            Text("ProductName")
-                .font(.custom("Avenir Next Bold", size: 30.0))
-            VStack(alignment: .leading, spacing: 30) {
-                HStack {
-                    Text("Product Description")
-                        .font(.custom("Avenir Next Medium", size: 19.0))
-                    Spacer()
+        
+        NavigationView {
+            ScrollView {
+                ZStack {
+                    Page(image: unwrapImages())
+                        .edgesIgnoringSafeArea(.top)
+                    ButtonView()
                 }
-                Text("I thought...")
-                    .font(.custom("Avenir Next Bold", size: 17.0))
-                Text("ProductCategory")
-                    .font(.custom("Avenir Next DemiBold", size: 16.0))
-                Text("ProductExperience")
-                    .font(.custom("Avenir Next DemiBold", size: 14.0))
-                Text("IsConplete")
-                    .font(.custom("Avenir Next DemiBold", size: 12.0))
+                
+                Text("ProductName")
+                    .font(.custom("Avenir Next Bold", size: 30.0))
+                VStack(alignment: .leading, spacing: 30) {
+                    HStack {
+                        Text("Product Description")
+                            .font(.custom("Avenir Next Medium", size: 19.0))
+                        Spacer()
+                    }
+                    Text("I thought...")
+                        .font(.custom("Avenir Next Bold", size: 17.0))
+                    Text("ProductCategory")
+                        .font(.custom("Avenir Next DemiBold", size: 16.0))
+                    Text("ProductExperience")
+                        .font(.custom("Avenir Next DemiBold", size: 14.0))
+                    Text("IsConplete")
+                        .font(.custom("Avenir Next DemiBold", size: 12.0))
+                }
+                .padding(20.0)
             }
-            .padding(20.0)
+            .edgesIgnoringSafeArea(.top)
+            .navigationBarHidden(true)
         }
-        .edgesIgnoringSafeArea(.top)
-        .navigationBarHidden(true)
+        .navigationBarItems(leading:
+            HStack {
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    SwiftUI.Image(systemName: "chevron.left")
+                        .padding()
+                        .frame(width: 36.0)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .font(.system(size: 20.0, weight: .medium))
+                        .foregroundColor(.black)
+                })
+            })
+        .navigationBarBackButtonHidden(true)
     }
     
     private func unwrapImages() -> UIImage {
@@ -61,31 +80,37 @@ struct ButtonView: View {
         VStack(spacing: 20) {
             HStack {
                 Spacer()
-                VStack(alignment: .trailing, spacing: 36.0) {
+                VStack(alignment: .trailing, spacing: 25.0) {
                     Button(action: {
                     }, label: {
-                        SwiftUI.Image(systemName: "checkmark")
-                            .imageScale(.large)
-                            .font(.system(size: 20.0))
+                        SwiftUI.Image(systemName: "pencil")
+                            .padding()
+                            .frame(width: 36.0)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .font(.system(size: 20.0, weight: .medium))
+                            .foregroundColor(.black)
                     })
-                    .foregroundColor(.black)
-                    .background(Color.white)
                     Button(action: {
                     }, label: {
-                        SwiftUI.Image(systemName: "multiply")
-                            .imageScale(.large)
-                            .font(.system(size: 20.0))
+                        SwiftUI.Image(systemName: "trash.fill")
+                            .padding()
+                            .frame(width: 36.0)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .font(.system(size: 20.0, weight: .medium))
+                            .foregroundColor(.black)
                     })
-                    .foregroundColor(.black)
-                    .background(Color.white)
                     Button(action: {
                     }, label: {
-                        SwiftUI.Image(systemName: "minus")
-                            .imageScale(.large)
-                            .font(.system(size: 20.0))
+                        SwiftUI.Image(systemName: "square.and.arrow.up")
+                            .padding()
+                            .frame(width: 36.0)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .font(.system(size: 20.0, weight: .medium))
+                            .foregroundColor(.black)
                     })
-                    .foregroundColor(.black)
-                    .background(Color.white)
                 }
             }.padding(20.0)
             Spacer()
