@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class PerfectlyCraftedTabBarViewController: UITabBarController {
     
@@ -32,16 +33,13 @@ final class PerfectlyCraftedTabBarViewController: UITabBarController {
             return PostViewController(coder: coder, persistenceController: self.persistenceController)
         })
         let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
-       
-        let productsController = UIStoryboard(name: "Products", bundle: Bundle.main).instantiateViewController(identifier: "ProductCollectionViewController", creator: { coder in
-            return ProductCollectionViewController(coder: coder, persistenceController: self.persistenceController)
-        })
+        let context = persistenceController.viewContext
+        let contentView = ProductsDisplayView().environment(\.managedObjectContext, context)
+        let productsController = UIHostingController(rootView: contentView)
             
-        let productNavigationController = UINavigationController(rootViewController: productsController)
-        
         tabBar.tintColor = .black
         feedsViewController.tabBarItem.image = .entries
         productsController.tabBarItem.image = .products
-        self.viewControllers = [newsFeedNavigationController, productNavigationController]
+        self.viewControllers = [newsFeedNavigationController, productsController]
     }
 }

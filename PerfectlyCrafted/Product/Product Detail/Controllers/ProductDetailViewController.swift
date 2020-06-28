@@ -41,7 +41,6 @@ final class ProductDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar()
         configureNavigationItems()
         displayChildViewController(dotsViewController, in: productImageView)
         displayChildViewController(productDetailViewController, in: productDescriptionView)
@@ -54,13 +53,6 @@ final class ProductDetailViewController: UIViewController {
         button.buttonTapped = { [weak self] _ in
             self?.dismiss(animated: true)
         }
-    }
-    
-    private func configureNavigationBar() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.view.backgroundColor = .clear
     }
     
     @IBAction private func editButtonPressed(_ sender: CircularButton) {

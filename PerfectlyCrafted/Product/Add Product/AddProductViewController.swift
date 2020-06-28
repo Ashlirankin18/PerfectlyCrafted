@@ -27,9 +27,18 @@ final class AddProductViewController: UIViewController {
         let button = CircularButton(image: .cancel)
         let barbutton = UIBarButtonItem(customView: button)
         
-        button.buttonTapped = { button in
-            self.dismiss(animated: true, completion: nil)
-        }
+//        button.buttonTapped = { [weak self] button in
+//            guard let self = self  else {
+//                return
+//            }
+//            if self.productNameTextField.text?.isEmpty && self.productCategoryTextField.text?.isEmpty) && !self.productExperienceSwitch.isOn && !self.productDescriptionSwitch.isOn {
+//                self.dismiss(animated: true)
+//            } else {
+//                self.presentAlertControllerForDestructiveAction(message: NSLocalizedString("Are you sure you want to discard this product entry", comment: "Inquires to the user if the want to discard their changes"), descructiveTitle: "Discard", nonDestructiveTitle: "Keep") { [weak self] in
+//                    self?.dismiss(animated: true, completion: nil)
+//                }
+//            }
+//        }
         return barbutton
     }()
     
@@ -153,6 +162,10 @@ final class AddProductViewController: UIViewController {
     }
     
     @IBAction private func submitButtonPressed(_ sender: UIButton) {
+        guard !(productNameTextField.text?.isEmpty ?? false) else {
+            presentAlertController(message: NSLocalizedString("Can not create product without a title.", comment: "Indicates to the user that they must enter a title to save a note "), actionTitle: "Ok")
+            return
+        }
         persistenceController.saveContext(context: managedObjectContext)
         dismiss(animated: true)
     }
