@@ -14,7 +14,6 @@ struct DetailedView: View {
     var product: Product
     
     var body: some View {
-        
         NavigationView {
             ScrollView {
                 ZStack {
@@ -22,7 +21,6 @@ struct DetailedView: View {
                         .edgesIgnoringSafeArea(.top)
                     ButtonView()
                 }
-                
                 VStack(alignment: .leading, spacing: 30) {
                     Text(product.name?.capitalized ?? "")
                         .font(.custom("Avenir Next Bold", size: 30.0))
@@ -43,10 +41,17 @@ struct DetailedView: View {
                         .font(.custom("Avenir Next Medium", size: 17.0))
                     Text("ProductCategory")
                         .font(.custom("Avenir Next Bold", size: 17.0))
-                    Text("ProductExperience")
-                        .font(.custom("Avenir Next Bold", size: 17.0))
+                    Text(product.category ?? "")
+                        .font(.custom("Avenir Next Medium", size: 17.0))
                     Text("IsComplete")
                         .font(.custom("Avenir Next Bold", size: 17.0))
+                    if product.isfinished {
+                        Text("Complete")
+                            .font(.custom("Avenir Next Medium", size: 17.0))
+                    } else {
+                        Text("Stille In Use")
+                            .font(.custom("Avenir Next Medium", size: 17.0))
+                    }
                 }
                 .padding(20.0)
             }
@@ -79,7 +84,6 @@ struct ButtonView: View {
         VStack(spacing: 20) {
             HStack {
                 Spacer()
-                
                 VStack(alignment: .trailing, spacing: 25.0) {
                     RoundButton(imageName: "pencil") {
                     }
