@@ -58,25 +58,38 @@ struct DetailedView: View {
 struct ButtonView: View {
     
     var body: some View {
-        HStack {
+        VStack(spacing: 20) {
+            HStack {
+                Spacer()
+                VStack(alignment: .trailing, spacing: 36.0) {
+                    Button(action: {
+                    }, label: {
+                        SwiftUI.Image(systemName: "checkmark")
+                            .imageScale(.large)
+                            .font(.system(size: 20.0))
+                    })
+                    .foregroundColor(.black)
+                    .background(Color.white)
+                    Button(action: {
+                    }, label: {
+                        SwiftUI.Image(systemName: "multiply")
+                            .imageScale(.large)
+                            .font(.system(size: 20.0))
+                    })
+                    .foregroundColor(.black)
+                    .background(Color.white)
+                    Button(action: {
+                    }, label: {
+                        SwiftUI.Image(systemName: "minus")
+                            .imageScale(.large)
+                            .font(.system(size: 20.0))
+                    })
+                    .foregroundColor(.black)
+                    .background(Color.white)
+                }
+            }.padding(20.0)
             Spacer()
-            VStack(alignment: .trailing, spacing: 25.0) {
-                Button(action: {
-                }, label: {
-                    SwiftUI.Image(systemName: "checkmark")
-                })
-                .foregroundColor(.white)
-                Button(action: {
-                }, label: {
-                    SwiftUI.Image(systemName: "multiply")
-                })
-                .foregroundColor(.white)
-                Button(action: {
-                }, label: {
-                    SwiftUI.Image(systemName: "minus")
-                })
-                .foregroundColor(.white)
-            }
-        }.padding(20.0)
+        }
+        .padding(.top, 30.0)
     }
 }
