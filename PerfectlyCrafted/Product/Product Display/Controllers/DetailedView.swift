@@ -23,22 +23,30 @@ struct DetailedView: View {
                     ButtonView()
                 }
                 
-                Text("ProductName")
-                    .font(.custom("Avenir Next Bold", size: 30.0))
                 VStack(alignment: .leading, spacing: 30) {
+                    Text(product.name?.capitalized ?? "")
+                        .font(.custom("Avenir Next Bold", size: 30.0))
+                        .multilineTextAlignment(.center)
                     HStack {
-                        Text("Product Description")
-                            .font(.custom("Avenir Next Medium", size: 19.0))
+                        VStack(alignment: .leading) {
+                            Text("Product Description")
+                                .font(.custom("Avenir Next Bold", size: 19.0))
+                            Spacer(minLength: 20)
+                            Text(product.productDescription ?? "")
+                                .font(.custom("Avenir Next Medium", size: 17.0))
+                        }
                         Spacer()
                     }
                     Text("I thought...")
                         .font(.custom("Avenir Next Bold", size: 17.0))
+                    Text(product.experience ?? "")
+                        .font(.custom("Avenir Next Medium", size: 17.0))
                     Text("ProductCategory")
-                        .font(.custom("Avenir Next DemiBold", size: 16.0))
+                        .font(.custom("Avenir Next Bold", size: 17.0))
                     Text("ProductExperience")
-                        .font(.custom("Avenir Next DemiBold", size: 14.0))
-                    Text("IsConplete")
-                        .font(.custom("Avenir Next DemiBold", size: 12.0))
+                        .font(.custom("Avenir Next Bold", size: 17.0))
+                    Text("IsComplete")
+                        .font(.custom("Avenir Next Bold", size: 17.0))
                 }
                 .padding(20.0)
             }
@@ -46,19 +54,11 @@ struct DetailedView: View {
             .navigationBarHidden(true)
         }
         .navigationBarItems(leading:
-            HStack {
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    SwiftUI.Image(systemName: "chevron.left")
-                        .padding()
-                        .frame(width: 36.0)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .font(.system(size: 20.0, weight: .medium))
-                        .foregroundColor(.black)
-                })
-            })
+                                HStack {
+                                    RoundButton(imageName: "chevron.left") {
+                                        self.presentationMode.wrappedValue.dismiss()
+                                    }
+                                })
         .navigationBarBackButtonHidden(true)
     }
     
@@ -75,46 +75,49 @@ struct DetailedView: View {
 }
 
 struct ButtonView: View {
-    
     var body: some View {
         VStack(spacing: 20) {
             HStack {
                 Spacer()
+                
                 VStack(alignment: .trailing, spacing: 25.0) {
-                    Button(action: {
-                    }, label: {
-                        SwiftUI.Image(systemName: "pencil")
-                            .padding()
-                            .frame(width: 36.0)
-                            .background(Color.white)
-                            .clipShape(Circle())
-                            .font(.system(size: 20.0, weight: .medium))
-                            .foregroundColor(.black)
-                    })
-                    Button(action: {
-                    }, label: {
-                        SwiftUI.Image(systemName: "trash.fill")
-                            .padding()
-                            .frame(width: 36.0)
-                            .background(Color.white)
-                            .clipShape(Circle())
-                            .font(.system(size: 20.0, weight: .medium))
-                            .foregroundColor(.black)
-                    })
-                    Button(action: {
-                    }, label: {
-                        SwiftUI.Image(systemName: "square.and.arrow.up")
-                            .padding()
-                            .frame(width: 36.0)
-                            .background(Color.white)
-                            .clipShape(Circle())
-                            .font(.system(size: 20.0, weight: .medium))
-                            .foregroundColor(.black)
-                    })
+                    RoundButton(imageName: "pencil") {
+                    }
+                    
+                    RoundButton(imageName: "trash.fill") {
+                    }
+                    RoundButton(imageName: "square.and.arrow.up") {
+                    }
                 }
             }.padding(20.0)
             Spacer()
         }
         .padding(.top, 30.0)
+    }
+}
+
+struct RoundButton: View {
+    
+    private let imageName: String
+    
+    var action: () -> Void
+    
+    init(imageName: String, action: @escaping () -> Void) {
+        self.imageName = imageName
+        self.action = action
+    }
+    
+    var body: some View {
+        Button(action: {
+            action()
+        }, label: {
+            SwiftUI.Image(systemName: imageName)
+                .padding()
+                .frame(width: 36.0)
+                .background(Color.white)
+                .clipShape(Circle())
+                .font(.system(size: 20.0, weight: .medium))
+                .foregroundColor(.black)
+        })
     }
 }
