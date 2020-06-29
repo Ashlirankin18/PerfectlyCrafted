@@ -17,10 +17,11 @@ struct DetailedView: View {
         NavigationView {
             ScrollView {
                 ZStack {
-                    Page(image: unwrapImages())
+                    PageView(getPages())
                         .edgesIgnoringSafeArea(.top)
                     ButtonView()
                 }
+                Spacer()
                 VStack(alignment: .leading, spacing: 30) {
                     Text(product.name?.capitalized ?? "")
                         .font(.custom("Avenir Next Bold", size: 30.0))
@@ -61,7 +62,7 @@ struct DetailedView: View {
         .navigationBarItems(leading:
                                 HStack {
                                     RoundButton(imageName: "chevron.left") {
-                                        self.presentationMode.wrappedValue.dismiss()
+                                        presentationMode.wrappedValue.dismiss()
                                     }
                                 })
         .navigationBarBackButtonHidden(true)
@@ -76,6 +77,31 @@ struct DetailedView: View {
             return UIImage(named: "placeholder") ?? UIImage()
         }
         return unwrappedImage
+    }
+    
+    func unwrapImages() -> [UIImage] {
+        guard let images = product.images as? Set<Image>, !images.isEmpty else {
+            return []
+        }
+        let imageDatas = images.map({ $0.imageData })
+        var imageArray: [UIImage] = []
+        
+        for imageData in imageDatas {
+            guard let data = imageData, let image = UIImage(data: data) else {
+                return []
+            }
+            imageArray.append(image)
+        }
+        return imageArray
+    }
+    
+    func getPages() -> [Page] {
+        var pages = [Page]()
+        for image in 0..<unwrapImages().count {
+            let page = Page(image: unwrapImages()[image])
+            pages.append(page)
+        }
+        return pages
     }
 }
 

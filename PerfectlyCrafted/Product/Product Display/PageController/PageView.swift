@@ -27,7 +27,6 @@ struct Page: View {
     
     var body: some View {
         SwiftUI.Image(uiImage: image)
-            .resizable()
             .aspectRatio(contentMode: .fit)
     }
 }
