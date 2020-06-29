@@ -73,6 +73,7 @@
 		2EB9567E24A837F2007D01CD /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9567D24A837F2007D01CD /* PageViewController.swift */; };
 		2EB9568224A83A8C007D01CD /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9568124A83A8C007D01CD /* PageView.swift */; };
 		2EB9568424A844D3007D01CD /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9568324A844D3007D01CD /* DetailedView.swift */; };
+		2EB9568624AA5AFC007D01CD /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9568524AA5AFC007D01CD /* PageControl.swift */; };
 		2ECBA8C72430858D003543CD /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA8C52430858D003543CD /* PostDetailViewController.swift */; };
 		2ECBA8C82430858D003543CD /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECBA8C62430858D003543CD /* PostDetailViewController.xib */; };
 		2ED29AC724451A5000BB34AD /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED29AC524451A5000BB34AD /* EmptyStateViewController.swift */; };
@@ -156,6 +157,7 @@
 		2EB9567D24A837F2007D01CD /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		2EB9568124A83A8C007D01CD /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		2EB9568324A844D3007D01CD /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
+		2EB9568524AA5AFC007D01CD /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		2ECBA8C52430858D003543CD /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		2ECBA8C62430858D003543CD /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		2ED29AC524451A5000BB34AD /* EmptyStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -588,6 +590,7 @@
 			children = (
 				2EB9567D24A837F2007D01CD /* PageViewController.swift */,
 				2EB9568124A83A8C007D01CD /* PageView.swift */,
+				2EB9568524AA5AFC007D01CD /* PageControl.swift */,
 			);
 			path = PageController;
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,
 				2E6C7EFE24241372008B7F69 /* PostShareViewController.swift in Sources */,
 				2E1BB850244BA75500EFB21C /* UIView+InstantiateFromNib.swift in Sources */,
+				2EB9568624AA5AFC007D01CD /* PageControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

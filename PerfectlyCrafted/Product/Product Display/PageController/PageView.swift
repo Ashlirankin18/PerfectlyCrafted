@@ -12,8 +12,16 @@ struct PageView<Page: View>: View {
     
     var viewControllers: [UIHostingController<Page>]
     
+    @State var currentPage = 0
+    
     var body: some View {
-        PageViewController(viewControllers: viewControllers)
+        ZStack {
+            PageViewController(viewControllers: viewControllers, currentPage: $currentPage)
+            VStack {
+                Spacer()
+                PageControl(numberOfPages: viewControllers.count, currentPage: $currentPage)
+            }
+        }
     }
     
     init(_ views: [Page]) {
@@ -27,6 +35,5 @@ struct Page: View {
     
     var body: some View {
         SwiftUI.Image(uiImage: image)
-            .aspectRatio(contentMode: .fit)
     }
 }

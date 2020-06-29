@@ -18,17 +18,20 @@ struct PageViewController: UIViewControllerRepresentable {
     
     var viewControllers: [UIViewController]
     
+    @Binding var currentPage: Int
+    
     func makeUIViewController(context: Context) -> UIPageViewController {
         let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         pageController.dataSource = context.coordinator
+        pageController.delegate = context.coordinator
         return pageController
     }
     
     func updateUIViewController(_ uiViewController: UIPageViewController, context: Context) {
-        uiViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: true)
+        uiViewController.setViewControllers([viewControllers[currentPage]], direction: .forward, animated: true)
     }
     
-    class Coordinator: NSObject, UIPageViewControllerDataSource {
+    class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
         
         var parent: PageViewController
         
@@ -68,6 +71,14 @@ struct PageViewController: UIViewControllerRepresentable {
                 return nil
             }
             return parent.viewControllers[nextIndex]
+        }
+        
+        func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+            if completed,
+                let visibleViewController = pageViewController.viewControllers?.first,
+                let index = parent.viewControllers.firstIndex(of: visibleViewController) {
+                parent.currentPage = index
+            }
         }
     }
 }

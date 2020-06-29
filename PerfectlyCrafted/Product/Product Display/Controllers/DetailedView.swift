@@ -57,7 +57,6 @@ struct DetailedView: View {
                 .padding(20.0)
             }
             .edgesIgnoringSafeArea(.top)
-            .navigationBarHidden(true)
         }
         .navigationBarItems(leading:
                                 HStack {
