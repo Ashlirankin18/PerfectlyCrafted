@@ -10,9 +10,10 @@ import UIKit
 
 extension UIViewController {
     
+    /// Indicates wether it is the first launch of the app.
     var isFirstLaunch: Bool {
         let defaults = UserDefaults.standard
-        if let _ = defaults.string(forKey: "isFirstLaunch") {
+        if defaults.string(forKey: "isFirstLaunch") != nil {
             return false
         } else {
             defaults.set(true, forKey: "isFirstLaunch")

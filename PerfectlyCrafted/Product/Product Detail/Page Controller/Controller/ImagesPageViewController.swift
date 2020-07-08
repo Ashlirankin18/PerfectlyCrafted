@@ -38,7 +38,7 @@ final class ImagesPageViewController: UIPageViewController {
 
 extension ImagesPageViewController: UIPageViewControllerDataSource {
     
-    //MARK: - UIPageViewControllerDelegate
+    // MARK: - UIPageViewControllerDelegate
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {

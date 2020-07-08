@@ -40,6 +40,7 @@
 		2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4170222415AF7F008620C5 /* PersistenceController.swift */; };
 		2E470BCA24B66E8E00368F70 /* RoundButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E470BC924B66E8E00368F70 /* RoundButtonView.swift */; };
 		2E470BCC24B66EDE00368F70 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E470BCB24B66EDE00368F70 /* ButtonView.swift */; };
+		2E470BCE24B66FE700368F70 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E470BCD24B66FE700368F70 /* ProductView.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
@@ -121,6 +122,7 @@
 		2E4170222415AF7F008620C5 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		2E470BC924B66E8E00368F70 /* RoundButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonView.swift; sourceTree = "<group>"; };
 		2E470BCB24B66EDE00368F70 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		2E470BCD24B66FE700368F70 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4A3E992208D2CB00988116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				2E470BCB24B66EDE00368F70 /* ButtonView.swift */,
+				2E470BCD24B66FE700368F70 /* ProductView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -706,7 +709,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Ashli Rankin";
 				TargetAttributes = {
 					2E4A3E8E2208D2C800988116 = {
@@ -859,6 +862,7 @@
 				2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */,
 				2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */,
 				2EB7C1B724A26003001A33DA /* ProductImageViewController.swift in Sources */,
+				2E470BCE24B66FE700368F70 /* ProductView.swift in Sources */,
 				2EB9568224A83A8C007D01CD /* PageView.swift in Sources */,
 				2E01617324196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2EB5346C2453B3C7007F1895 /* ProductDetailViewController.swift in Sources */,
@@ -929,6 +933,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -990,6 +995,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

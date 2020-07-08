@@ -36,7 +36,7 @@ final class AddPostViewController: UIViewController {
     
     private var imagePickerController: UIImagePickerController!
     
-    private lazy var keyboardObserver: KeyboardObserver = KeyboardObserver(raisedViews: [containerView,displayView])
+    private lazy var keyboardObserver: KeyboardObserver = KeyboardObserver(raisedViews: [containerView, displayView])
     
     private var localImageManager = try? LocalImageManager()
     

@@ -36,7 +36,7 @@ final class ProductDetailViewController: UIViewController {
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError()
+        fatalError("Use the custom initializer provided.")
     }
     
     override func viewDidLoad() {

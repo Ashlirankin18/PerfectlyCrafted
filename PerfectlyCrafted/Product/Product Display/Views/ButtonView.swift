@@ -16,7 +16,6 @@ struct ButtonView: View {
                 VStack(alignment: .trailing, spacing: 25.0) {
                     RoundButton(imageName: "pencil") {
                     }
-                    
                     RoundButton(imageName: "trash.fill") {
                     }
                     RoundButton(imageName: "square.and.arrow.up") {
