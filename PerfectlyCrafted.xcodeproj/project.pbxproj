@@ -38,6 +38,8 @@
 		2E3FD071243BCC4800DED9CA /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FD06F243BCC4800DED9CA /* DatePickerViewController.swift */; };
 		2E3FD072243BCC4800DED9CA /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FD070243BCC4800DED9CA /* DatePickerViewController.xib */; };
 		2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4170222415AF7F008620C5 /* PersistenceController.swift */; };
+		2E470BCA24B66E8E00368F70 /* RoundButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E470BC924B66E8E00368F70 /* RoundButtonView.swift */; };
+		2E470BCC24B66EDE00368F70 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E470BCB24B66EDE00368F70 /* ButtonView.swift */; };
 		2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A3E922208D2C800988116 /* AppDelegate.swift */; };
 		2E4A3E9A2208D2CB00988116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E992208D2CB00988116 /* Assets.xcassets */; };
 		2E4A3E9D2208D2CB00988116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A3E9B2208D2CB00988116 /* LaunchScreen.storyboard */; };
@@ -55,7 +57,6 @@
 		2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */; };
 		2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B4220A59B900FFDC5E /* PostViewController.swift */; };
 		2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */; };
-		2EB534622453B119007F1895 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB534602453B119007F1895 /* ProductCollectionViewCell.swift */; };
 		2EB534682453B37B007F1895 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB534672453B37B007F1895 /* ProductDetail.storyboard */; };
 		2EB5346C2453B3C7007F1895 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5346B2453B3C7007F1895 /* ProductDetailViewController.swift */; };
 		2EB534732453BB3B007F1895 /* Pages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB534722453BB3B007F1895 /* Pages.storyboard */; };
@@ -118,6 +119,8 @@
 		2E3FD06F243BCC4800DED9CA /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		2E3FD070243BCC4800DED9CA /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		2E4170222415AF7F008620C5 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		2E470BC924B66E8E00368F70 /* RoundButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonView.swift; sourceTree = "<group>"; };
+		2E470BCB24B66EDE00368F70 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		2E4A3E8F2208D2C800988116 /* PerfectlyCrafted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectlyCrafted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4A3E922208D2C800988116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4A3E992208D2CB00988116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,7 +140,6 @@
 		2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		2EA365B4220A59B900FFDC5E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectible.swift"; sourceTree = "<group>"; };
-		2EB534602453B119007F1895 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		2EB534672453B37B007F1895 /* ProductDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
 		2EB5346B2453B3C7007F1895 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		2EB534722453BB3B007F1895 /* Pages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pages.storyboard; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				2E3FD060243A6A3900DED9CA /* CircularButton.swift */,
+				2E470BC924B66E8E00368F70 /* RoundButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -467,7 +470,7 @@
 		2EB5345F2453B0DA007F1895 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2EB534602453B119007F1895 /* ProductCollectionViewCell.swift */,
+				2E470BCB24B66EDE00368F70 /* ButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -856,11 +859,12 @@
 				2E31881E241537B5003FC8B0 /* ImageManager.swift in Sources */,
 				2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */,
 				2EB7C1B724A26003001A33DA /* ProductImageViewController.swift in Sources */,
-				2EB534622453B119007F1895 /* ProductCollectionViewCell.swift in Sources */,
 				2EB9568224A83A8C007D01CD /* PageView.swift in Sources */,
 				2E01617324196D68006A8723 /* PerfectlyCraftedTabBarViewController.swift in Sources */,
 				2EB5346C2453B3C7007F1895 /* ProductDetailViewController.swift in Sources */,
+				2E470BCA24B66E8E00368F70 /* RoundButtonView.swift in Sources */,
 				2ED29AD024453FF300BB34AD /* UITabbarController+TransparentBar.swift in Sources */,
+				2E470BCC24B66EDE00368F70 /* ButtonView.swift in Sources */,
 				2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */,
 				2E4170232415AF7F008620C5 /* PersistenceController.swift in Sources */,
 				2E3FD061243A6A3900DED9CA /* CircularButton.swift in Sources */,

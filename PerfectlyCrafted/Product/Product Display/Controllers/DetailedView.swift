@@ -78,7 +78,7 @@ struct DetailedView: View {
         return unwrappedImage
     }
     
-    func unwrapImages() -> [UIImage] {
+   private func unwrapImages() -> [UIImage] {
         guard let images = product.images as? Set<Image>, !images.isEmpty else {
             return []
         }
@@ -94,59 +94,12 @@ struct DetailedView: View {
         return imageArray
     }
     
-    func getPages() -> [Page] {
+   private func getPages() -> [Page] {
         var pages = [Page]()
         for image in 0..<unwrapImages().count {
             let page = Page(image: unwrapImages()[image])
             pages.append(page)
         }
         return pages
-    }
-}
-
-struct ButtonView: View {
-    var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Spacer()
-                VStack(alignment: .trailing, spacing: 25.0) {
-                    RoundButton(imageName: "pencil") {
-                    }
-                    
-                    RoundButton(imageName: "trash.fill") {
-                    }
-                    RoundButton(imageName: "square.and.arrow.up") {
-                    }
-                }
-            }.padding(20.0)
-            Spacer()
-        }
-        .padding(.top, 30.0)
-    }
-}
-
-struct RoundButton: View {
-    
-    private let imageName: String
-    
-    var action: () -> Void
-    
-    init(imageName: String, action: @escaping () -> Void) {
-        self.imageName = imageName
-        self.action = action
-    }
-    
-    var body: some View {
-        Button(action: {
-            action()
-        }, label: {
-            SwiftUI.Image(systemName: imageName)
-                .padding()
-                .frame(width: 36.0)
-                .background(Color.white)
-                .clipShape(Circle())
-                .font(.system(size: 20.0, weight: .medium))
-                .foregroundColor(.black)
-        })
     }
 }
