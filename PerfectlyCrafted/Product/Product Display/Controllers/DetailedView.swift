@@ -15,7 +15,7 @@ struct DetailedView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(.vertical) {
                 ZStack {
                     PageView(getPages())
                         .edgesIgnoringSafeArea(.top)
@@ -50,7 +50,7 @@ struct DetailedView: View {
                         Text("Complete")
                             .font(.custom("Avenir Next Medium", size: 17.0))
                     } else {
-                        Text("Stille In Use")
+                        Text("Still In Use")
                             .font(.custom("Avenir Next Medium", size: 17.0))
                     }
                 }

@@ -12,17 +12,15 @@ struct AddProductView: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = UIViewController
     
-    private let persistenceController = PersistenceController(modelName: "PerfectlyCrafted")
-    
-    var product: Product
-    
+    var persistenceController: PersistenceController    
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
     }
     
     func makeUIViewController(context: Context) -> UIViewController {
-        let productsDetailController = UIStoryboard(name: "ProductDetail", bundle: Bundle.main).instantiateViewController(identifier: "ProductDetailViewController", creator: { coder in
-            return ProductDetailViewController(coder: coder, product: product, persistenceController: self.persistenceController)
+        let addProductController = UIStoryboard(name: "AddProduct", bundle: Bundle.main).instantiateViewController(identifier: "AddProductViewController", creator: { coder in
+            return AddProductViewController(coder: coder, persistenceController: persistenceController, productId: UUID())
         })
-        return productsDetailController
+        let addNavigationController = UINavigationController(rootViewController: addProductController)
+        return addNavigationController
     }
 }

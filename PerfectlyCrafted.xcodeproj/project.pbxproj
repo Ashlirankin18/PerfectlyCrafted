@@ -20,7 +20,6 @@
 		2E1BB850244BA75500EFB21C /* UIView+InstantiateFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BB84F244BA75500EFB21C /* UIView+InstantiateFromNib.swift */; };
 		2E1CE6AB2454C0290027A404 /* AddProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1CE6AA2454C0290027A404 /* AddProduct.storyboard */; };
 		2E1CE6AD2454C0410027A404 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1CE6AC2454C0410027A404 /* AddProductViewController.swift */; };
-		2E1CE6AF2454DE5F0027A404 /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1CE6AE2454DE5F0027A404 /* Products.storyboard */; };
 		2E3187F52413DE25003FC8B0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3187F42413DE25003FC8B0 /* CloudKit.framework */; };
 		2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E3187FA2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld */; };
 		2E31880A2413F411003FC8B0 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3188082413F411003FC8B0 /* AddPostViewController.swift */; };
@@ -56,7 +55,6 @@
 		2E81CE3724132A34002F506D /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */; };
 		2EA365B5220A59B900FFDC5E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA365B4220A59B900FFDC5E /* PostViewController.swift */; };
 		2EB00BDE24132F4C00AEF017 /* UIView+IBInspectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */; };
-		2EB5345D2453B0C5007F1895 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5345C2453B0C5007F1895 /* ProductCollectionViewController.swift */; };
 		2EB534622453B119007F1895 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB534602453B119007F1895 /* ProductCollectionViewCell.swift */; };
 		2EB534682453B37B007F1895 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB534672453B37B007F1895 /* ProductDetail.storyboard */; };
 		2EB5346C2453B3C7007F1895 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB5346B2453B3C7007F1895 /* ProductDetailViewController.swift */; };
@@ -101,7 +99,6 @@
 		2E1BB84F244BA75500EFB21C /* UIView+InstantiateFromNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+InstantiateFromNib.swift"; sourceTree = "<group>"; };
 		2E1CE6AA2454C0290027A404 /* AddProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddProduct.storyboard; sourceTree = "<group>"; };
 		2E1CE6AC2454C0410027A404 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
-		2E1CE6AE2454DE5F0027A404 /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
 		2E3187F32413DE22003FC8B0 /* PerfectlyCrafted.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PerfectlyCrafted.entitlements; sourceTree = "<group>"; };
 		2E3187F42413DE25003FC8B0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2E3187FB2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PerfectlyCrafted.xcdatamodel; sourceTree = "<group>"; };
@@ -140,7 +137,6 @@
 		2E81CE3524132A34002F506D /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		2EA365B4220A59B900FFDC5E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		2EB00BDD24132F4C00AEF017 /* UIView+IBInspectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectible.swift"; sourceTree = "<group>"; };
-		2EB5345C2453B0C5007F1895 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
 		2EB534602453B119007F1895 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		2EB534672453B37B007F1895 /* ProductDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
 		2EB5346B2453B3C7007F1895 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
@@ -461,8 +457,6 @@
 		2EB5345E2453B0C8007F1895 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2EB5345C2453B0C5007F1895 /* ProductCollectionViewController.swift */,
-				2E1CE6AE2454DE5F0027A404 /* Products.storyboard */,
 				2E70745724A7D60200BF1912 /* ProductsDisplayView.swift */,
 				2EB9567624A804C3007D01CD /* AddProductView.swift */,
 				2EB9568324A844D3007D01CD /* DetailedView.swift */,
@@ -742,7 +736,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ED29AC824451A5000BB34AD /* EmptyStateViewController.xib in Resources */,
-				2E1CE6AF2454DE5F0027A404 /* Products.storyboard in Resources */,
 				2E6C7EFF24241372008B7F69 /* PostShareViewController.xib in Resources */,
 				2EDA26B724A69EA50012331A /* OnboardingViewController.xib in Resources */,
 				2E6C7F05242415A2008B7F69 /* PostShareView.xib in Resources */,
@@ -885,7 +878,6 @@
 				2E3187FC2413E393003FC8B0 /* PerfectlyCrafted.xcdatamodeld in Sources */,
 				2E01615B24169DE5006A8723 /* PostsCollectionViewDataSource.swift in Sources */,
 				2EB7E83E24A705E400E7B38A /* UIViewController+AlertController.swift in Sources */,
-				2EB5345D2453B0C5007F1895 /* ProductCollectionViewController.swift in Sources */,
 				2E4A3E932208D2C800988116 /* AppDelegate.swift in Sources */,
 				2E6C7EFE24241372008B7F69 /* PostShareViewController.swift in Sources */,
 				2E1BB850244BA75500EFB21C /* UIView+InstantiateFromNib.swift in Sources */,

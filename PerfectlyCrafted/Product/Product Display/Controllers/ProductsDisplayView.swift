@@ -14,6 +14,10 @@ struct ProductsDisplayView: View {
     
     @FetchRequest(entity: Product.entity(), sortDescriptors: [NSSortDescriptor(key: "entryDate", ascending: false)]) var products: FetchedResults<Product>
     
+    var persistenceController: PersistenceController
+    
+    @State private var showingAddController: Bool = false
+    
     var body: some View {
         NavigationView {
             List {
@@ -24,6 +28,12 @@ struct ProductsDisplayView: View {
                 }
             }
             .navigationBarTitle(Text("Products"))
+            .navigationBarItems(trailing: RoundButton(imageName: "plus", action: {
+                showingAddController.toggle()
+            }))
+            .sheet(isPresented: $showingAddController) {
+                AddProductView(persistenceController: persistenceController)
+            }
         }
     }
 }
@@ -57,11 +67,5 @@ struct ProductView: View {
             return UIImage(named: "placeholder") ?? UIImage()
         }
         return unwrappedImage
-    }
-}
-
-struct ProductsDisplayController_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductsDisplayView()
     }
 }

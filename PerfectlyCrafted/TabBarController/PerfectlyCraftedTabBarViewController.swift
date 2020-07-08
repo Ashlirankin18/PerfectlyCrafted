@@ -34,7 +34,7 @@ final class PerfectlyCraftedTabBarViewController: UITabBarController {
         })
         let newsFeedNavigationController = UINavigationController(rootViewController: feedsViewController)
         let context = persistenceController.viewContext
-        let contentView = ProductsDisplayView().environment(\.managedObjectContext, context)
+        let contentView = ProductsDisplayView(persistenceController: persistenceController).environment(\.managedObjectContext, context)
         let productsController = UIHostingController(rootView: contentView)
             
         tabBar.tintColor = .black

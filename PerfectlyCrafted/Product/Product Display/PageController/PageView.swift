@@ -30,10 +30,13 @@ struct PageView<Page: View>: View {
 }
 
 struct Page: View {
-   
+    
     var image: UIImage
     
     var body: some View {
         SwiftUI.Image(uiImage: image)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .edgesIgnoringSafeArea(.top)
     }
 }

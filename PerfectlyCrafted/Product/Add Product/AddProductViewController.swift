@@ -49,7 +49,7 @@ final class AddProductViewController: UIViewController {
     private var products = [Product]()
     private let productId: UUID
     
-    init? (coder: NSCoder, persistenceController: PersistenceController, productId: UUID) {
+    init?(coder: NSCoder, persistenceController: PersistenceController, productId: UUID) {
         self.persistenceController = persistenceController
         self.productId = productId
         self.managedObjectContext = persistenceController.newMainContext
@@ -69,6 +69,7 @@ final class AddProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add Product"
+        createProductIfNeeded()
         configureSwitches()
         setupDelegates()
         navigationController?.transparentNavigationController()
@@ -77,7 +78,6 @@ final class AddProductViewController: UIViewController {
         hideTextViewIfNeeded(textView: productExperienceTextView, isOn: false)
         productDescriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         productExperienceTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
-        createProductIfNeeded()
     }
     
     private func configureSwitches() {
@@ -110,9 +110,7 @@ final class AddProductViewController: UIViewController {
         fetchRequest.entity = Product.entity()
         
         do {
-            if let product = try managedObjectContext.fetch(fetchRequest).first(where: { (product) -> Bool in
-                product.id == productId
-            }) {
+            if let product = try managedObjectContext.fetch(fetchRequest).first {
                 if let name = name {
                     product.name = name
                 }
@@ -135,7 +133,7 @@ final class AddProductViewController: UIViewController {
                 if let isFinished = isFinished {
                     product.isfinished = isFinished
                 }                
-            }
+            } 
         } catch {
             print("Error here \(error)")
         }
