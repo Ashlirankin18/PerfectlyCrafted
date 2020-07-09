@@ -27,6 +27,7 @@ protocol DetailedDescriptionViewControllerDelegate: AnyObject {
     func panGestureDidEnd(_ cardViewController: DetailedDescriptionViewController)
 }
 
+/// `UIViewController` subclass which displays the post description.
 final class DetailedDescriptionViewController: UIViewController {
 
     @IBOutlet private weak var handleAreaView: UIView!
@@ -37,13 +38,16 @@ final class DetailedDescriptionViewController: UIViewController {
     
     /// Notifies subscriber to pan gesture recognizer changes.
     weak var delegate: DetailedDescriptionViewControllerDelegate?
-
+    
+    /// The post description.
     var postDescription: String? {
         didSet {
             postDescriptionTextView.text = postDescription
         }
     }
     
+    /// Creates a new instance of `DetailedDescriptionViewController`.
+    /// - Parameter postDescription: The post description.
     init(postDescription: String?) {
         self.postDescription = postDescription
         super.init(nibName: "DetailedDescriptionViewController", bundle: nil)

@@ -14,6 +14,7 @@ struct ProductsDisplayView: View {
     
     @FetchRequest(entity: Product.entity(), sortDescriptors: [NSSortDescriptor(key: "entryDate", ascending: false)]) var products: FetchedResults<Product>
     
+    /// The persistence controller.
     var persistenceController: PersistenceController
     
     @State private var showingAddController: Bool = false

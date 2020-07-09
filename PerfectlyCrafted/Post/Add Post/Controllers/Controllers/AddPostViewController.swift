@@ -88,16 +88,10 @@ final class AddPostViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.transparentNavigationController()
         configureBarButtonItems()
-        
         descriptionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         createPostIfNeeded()
-           
-        imagePickerController = UIImagePickerController()
         configureImagePickerController()
-        
-        imagePickerController.delegate = self
-        descriptionTextView.delegate = self
-        titleTextField.delegate = self
+        configuringDelegates()
         
         displayView.isHidden = true
     }
@@ -107,12 +101,19 @@ final class AddPostViewController: UIViewController {
         keyboardObserver.registerKeyboardNotifications()
     }
     
+    private func configuringDelegates() {
+        imagePickerController.delegate = self
+        descriptionTextView.delegate = self
+        titleTextField.delegate = self
+    }
+    
     private func configureBarButtonItems() {
         title = contentState == .creating ? "Write" : "Edit Entry"
         navigationItem.leftBarButtonItem = cancelButton
     }
     
     private func configureImagePickerController() {
+        imagePickerController = UIImagePickerController()
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera) ? true : false 
     }
     

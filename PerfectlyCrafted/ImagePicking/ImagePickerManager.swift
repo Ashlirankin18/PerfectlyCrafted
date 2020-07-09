@@ -8,16 +8,25 @@
 
 import YPImagePicker
 
+/// Subscribe to this protocol to receive a notification when the user is finished picking photos
 protocol ImagePickerManagerDelegate: AnyObject {
+    
+    /// Called when the user is finished choosing photos.
+    /// - Parameters:
+    ///   - imagePickerManager: The image picker manager
+    ///   - photos: The user's chosen photos
     func imagePickerDidFinishPicking(imagePickerManager: ImagePickerManager, photos: [UIImage])
 }
 
+/// Contains the logic require for selecting multiple images.
 class ImagePickerManager {
     
     private weak var presentingViewController: UIViewController?
     
     weak var delegate: ImagePickerManagerDelegate?
     
+    /// Creates a new instance of `ImagePickerManager`.
+    /// - Parameter presentingViewController: The controller present the image picker controller.
     init(presentingViewController: UIViewController) {
         self.presentingViewController = presentingViewController
     }
@@ -29,6 +38,7 @@ class ImagePickerManager {
         return picker
     }()
     
+    /// Presents the image picker controller.
     func presentImagePickerController() {
         presentingViewController?.present(imagePicker, animated: true)
         imagePickerDidFinishPicking()

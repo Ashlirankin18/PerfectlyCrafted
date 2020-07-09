@@ -19,6 +19,8 @@ final class PerfectlyCraftedTabBarViewController: UITabBarController {
         transparentTabbarController()
     }
     
+    /// Creates a new instance `PerfectlyCraftedTabBarViewController`.
+    /// - Parameter persistenceController: The persistence controller.
     init(persistenceController: PersistenceController) {
         self.persistenceController = persistenceController
         super.init(nibName: nil, bundle: nil)

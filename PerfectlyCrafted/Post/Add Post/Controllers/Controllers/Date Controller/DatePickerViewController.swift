@@ -29,6 +29,7 @@ final class DatePickerViewController: UIViewController {
         return UIBarButtonItem(customView: button)
     }()
     
+    /// Called when the user selects a date from the picker.
     var didSelectEventDate: ((Date) -> Void)?
     
     override func viewDidLoad() {

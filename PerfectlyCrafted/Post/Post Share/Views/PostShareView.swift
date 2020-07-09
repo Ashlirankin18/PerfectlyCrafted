@@ -8,12 +8,22 @@
 
 import UIKit
 
+/// `UIView` subclass displays the shared post.
 final class PostShareView: UIView {
     
+    ///
     struct ViewModel {
+        
+        /// The post image.
         let image: UIImage
+        
+        /// The post title.
         let postTitle: String
+        
+        /// The post date.
         let date: Date
+        
+        /// The post description.
         let description: String
     }
     
@@ -22,6 +32,7 @@ final class PostShareView: UIView {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var postDescriptionLabel: UILabel!
     
+    /// Contains the information needed to configure the `PostShareView`
     var viewModel: ViewModel? {
         didSet {
             guard let viewModel = viewModel else {

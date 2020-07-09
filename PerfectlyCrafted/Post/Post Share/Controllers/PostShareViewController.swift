@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// `UIViewController` subclass which contains the view to be rendered as an image.
 final class PostShareViewController: UIViewController {
     
     @IBOutlet private weak var postShareView: PostShareView!
@@ -16,6 +17,8 @@ final class PostShareViewController: UIViewController {
     
     private let imageLoader = try? LocalImageManager()
     
+    /// Creates a new instance `PostShareViewController`.
+    /// - Parameter post: The post that will be shared.
     init(post: Post) {
         self.post = post
         super.init(nibName: "PostShareViewController", bundle: nil)

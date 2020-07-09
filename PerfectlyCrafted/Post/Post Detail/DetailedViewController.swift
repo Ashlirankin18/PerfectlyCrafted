@@ -25,11 +25,6 @@ final class DetailedViewController: UIViewController {
         return isCardVisible ? .collapsed : .expanded
     }
     
-    private lazy var detailDescriptionViewController: DetailedDescriptionViewController = {
-        let controller = DetailedDescriptionViewController(postDescription: post.postDescription)
-        return controller
-    }()
-    
     private var runningAnimations = [UIViewPropertyAnimator]()
     
     private let post: Post
@@ -40,12 +35,22 @@ final class DetailedViewController: UIViewController {
     
     private let managedObjectContext: NSManagedObjectContext
     
+    private lazy var detailDescriptionViewController: DetailedDescriptionViewController = {
+        let controller = DetailedDescriptionViewController(postDescription: post.postDescription)
+        return controller
+    }()
+    
     @IBOutlet private weak var entryImageView: UIImageView!
     
     @IBOutlet private weak var dateLabel: UILabel!
     
     @IBOutlet private weak var titleLabel: UILabel!
     
+    /// Creates a new instance of `DetailedViewController`
+    /// - Parameters:
+    ///   - coder: An abstract class that serves as the basis for objects that enable archiving and distribution of other objects.
+    ///   - post: The chosen post.
+    ///   - persistenceController: The persistence controller.
     init?(coder: NSCoder, post: Post, persistenceController: PersistenceController) {
         self.post = post
         self.persistenceController = persistenceController
@@ -66,7 +71,7 @@ final class DetailedViewController: UIViewController {
         configureLabels()
         configureImageView()
         detailDescriptionViewController.delegate = self
-        
+    
         detailDescriptionViewController.view.frame = CGRect(x: 0, y: view.frame.height, width: view.bounds.width, height: cardHeight)
         detailDescriptionViewController.view.clipsToBounds = true
         addChild(detailDescriptionViewController)

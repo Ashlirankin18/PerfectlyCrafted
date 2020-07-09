@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// `UIViewController` subclass which displays the empty state view.
 final class EmptyStateViewController: UIViewController {
 
     @IBOutlet private weak var primaryTextLabel: UILabel!
@@ -17,8 +18,13 @@ final class EmptyStateViewController: UIViewController {
     private let primaryText: String
     private let secondaryText: String
     
+    /// Called when the add entry button is tapped.
     var addEntryButtonTapped: (() -> Void)?
     
+    /// Creates a new instance of `EmptyStateViewController`.
+    /// - Parameters:
+    ///   - primaryText: The primary text.
+    ///   - secondaryText: The secondary text.
     init(primaryText: String, secondaryText: String) {
         self.primaryText = primaryText
         self.secondaryText = secondaryText

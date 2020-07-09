@@ -11,6 +11,7 @@ import SwiftUI
 struct DetailedView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    /// The product that the user chooses.
     var product: Product
     
     var body: some View {

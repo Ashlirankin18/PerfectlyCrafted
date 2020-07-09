@@ -13,10 +13,14 @@ final class ImageUnWrapperHandler {
     
     private let imageDatas: [Data]
     
+    /// Creates a new instance of `ImageUnWrapperHandler`.
+    /// - Parameter imageDatas: The images the users chooses in data form.
     init (imageDatas: [Data]) {
         self.imageDatas = imageDatas
     }
     
+    /// Unwraps image data and presents an array of `UIImages`.
+    /// - Returns: <#description#>
     func unwrapImages() -> [UIImage] {
         var imageArray: [UIImage] = []
         

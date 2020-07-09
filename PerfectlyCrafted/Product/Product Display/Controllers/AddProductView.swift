@@ -12,7 +12,9 @@ struct AddProductView: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = UIViewController
     
-    var persistenceController: PersistenceController    
+    /// The persistence controller.
+    var persistenceController: PersistenceController
+    
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
     }
     
