@@ -199,10 +199,10 @@ final class DetailedViewController: UIViewController {
     
     @IBAction private func deleteButtonTapped(_ sender: CircularButton) {
         presentAlertController { [weak self] in
-            guard let self = self, let id = self.post.id else {
+            guard let self = self else {
                 return
             }
-            self.persistenceController.deleteObject(with: id, on: self.persistenceController.viewContext)
+            self.persistenceController.deleteObject(with: self.post, on: self.persistenceController.viewContext)
             self.dismiss(animated: true, completion: nil)
         }
     }

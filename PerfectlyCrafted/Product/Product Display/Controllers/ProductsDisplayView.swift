@@ -23,7 +23,7 @@ struct ProductsDisplayView: View {
         NavigationView {
             List {
                 ForEach(products, id: \.id) { product in
-                    NavigationLink(destination: DetailedView(product: product)) {
+                    NavigationLink(destination: DetailedView(persistenceController: persistenceController, product: product)) {
                         ProductView(product: product)
                     }
                 }

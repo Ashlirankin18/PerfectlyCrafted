@@ -11,60 +11,30 @@ import SwiftUI
 struct DetailedView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    var persistenceController: PersistenceController
+   
     /// The product that the user chooses.
     var product: Product
-    
+
     var body: some View {
-        NavigationView {
-            ScrollView(.vertical) {
-                ZStack {
-                    PageView(getPages())
-                        .edgesIgnoringSafeArea(.top)
-                    ButtonView()
-                }
-                Spacer()
-                VStack(alignment: .leading, spacing: 30) {
-                    Text(product.name?.capitalized ?? "")
-                        .font(.custom("Avenir Next Bold", size: 30.0))
-                        .multilineTextAlignment(.center)
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Product Description")
-                                .font(.custom("Avenir Next Bold", size: 19.0))
-                            Spacer(minLength: 20)
-                            Text(product.productDescription ?? "")
-                                .font(.custom("Avenir Next Medium", size: 17.0))
-                        }
-                        Spacer()
-                    }
-                    Text("I thought...")
-                        .font(.custom("Avenir Next Bold", size: 17.0))
-                    Text(product.experience ?? "")
-                        .font(.custom("Avenir Next Medium", size: 17.0))
-                    Text("ProductCategory")
-                        .font(.custom("Avenir Next Bold", size: 17.0))
-                    Text(product.category ?? "")
-                        .font(.custom("Avenir Next Medium", size: 17.0))
-                    Text("IsComplete")
-                        .font(.custom("Avenir Next Bold", size: 17.0))
-                    if product.isfinished {
-                        Text("Complete")
-                            .font(.custom("Avenir Next Medium", size: 17.0))
-                    } else {
-                        Text("Still In Use")
-                            .font(.custom("Avenir Next Medium", size: 17.0))
-                    }
-                }
-                .padding(20.0)
+        ScrollView(.vertical) {
+            ZStack {
+                PageView(getPages())
+                    .edgesIgnoringSafeArea(.top)
+                ButtonView(product: product, persistenceController: persistenceController)
             }
             .edgesIgnoringSafeArea(.top)
+            ProductDescriptionView(product: product)
+                .padding(20.0)
         }
+        
         .navigationBarItems(leading:
                                 HStack {
                                     RoundButton(imageName: "chevron.left") {
                                         presentationMode.wrappedValue.dismiss()
                                     }
                                 })
+        .navigationBarTitle(Text(""), displayMode: .inline)
         .navigationBarBackButtonHidden(true)
     }
     
@@ -79,28 +49,68 @@ struct DetailedView: View {
         return unwrappedImage
     }
     
-   private func unwrapImages() -> [UIImage] {
+    private func unwrapImages() -> [UIImage] {
         guard let images = product.images as? Set<Image>, !images.isEmpty else {
-            return []
+            return [UIImage(named: "placeholder") ?? UIImage()]
         }
         let imageDatas = images.map({ $0.imageData })
         var imageArray: [UIImage] = []
         
         for imageData in imageDatas {
             guard let data = imageData, let image = UIImage(data: data) else {
-                return []
+                return [UIImage(named: "placeholder") ?? UIImage()]
             }
             imageArray.append(image)
         }
         return imageArray
     }
     
-   private func getPages() -> [Page] {
+    private func getPages() -> [Page] {
         var pages = [Page]()
         for image in 0..<unwrapImages().count {
             let page = Page(image: unwrapImages()[image])
             pages.append(page)
         }
         return pages
+    }
+}
+
+struct ButtonView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @State var showingAlert: Bool = false
+    
+    var product: Product
+    
+    var persistenceController: PersistenceController
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            Spacer()
+            HStack {
+                Spacer()
+                VStack(alignment: .trailing, spacing: 25.0) {
+                    RoundButton(imageName: "pencil") {
+                        print("here")
+                    }
+                    RoundButton(imageName: "trash.fill") {
+                        showingAlert = true
+                    }
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Delete Product"), message: Text("Are you sure you want to delete this product?"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Delete"), action: {
+                            persistenceController.deleteObject(with: product, on: managedObjectContext)
+                            presentationMode.wrappedValue.dismiss()
+                        }))
+                    }
+                    RoundButton(imageName: "square.and.arrow.up") {
+                    }
+                }
+            }.padding(20.0)
+            Spacer()
+        }
+        .padding(.top, 30.0)
     }
 }

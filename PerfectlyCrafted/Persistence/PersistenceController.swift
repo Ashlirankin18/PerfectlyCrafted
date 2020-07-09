@@ -74,11 +74,8 @@ extension PersistenceController {
         }
    }
     
-    func deleteObject(with identifier: UUID, on context: NSManagedObjectContext) {
-        guard let post = retrieveObject(with: identifier, on: context) else {
-            return
-        }
-        context.delete(post)
+    func deleteObject(with object: NSManagedObject, on context: NSManagedObjectContext) {
+        context.delete(object)
         saveContext(context: context)
     }
 }

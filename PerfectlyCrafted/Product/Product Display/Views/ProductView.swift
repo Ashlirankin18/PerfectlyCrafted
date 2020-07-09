@@ -15,7 +15,7 @@ struct ProductView: View {
     var body: some View {
         HStack {
             SwiftUI.Image(uiImage: unwrapImages())
-                .resizable(capInsets: /*@START_MENU_TOKEN@*/EdgeInsets()/*@END_MENU_TOKEN@*/, resizingMode: .stretch)
+                .resizable(capInsets:/*@START_MENU_TOKEN@*/EdgeInsets()/*@END_MENU_TOKEN@*/, resizingMode: .stretch)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100)
                 .cornerRadius(6)
